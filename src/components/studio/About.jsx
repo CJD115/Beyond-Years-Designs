@@ -5,13 +5,13 @@ const TEAM = [
     name: "Lorem Ipsum",
     role: "Role Placeholder",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
-    image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/b521d9019_generated_a6aaa6f2.jpg",
+    image: "",
   },
   {
     name: "Dolor Sit",
     role: "Role Placeholder",
     bio: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.",
-    image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/e4c2bb033_generated_644fcff5.jpg",
+    image: "",
   },
 ];
 

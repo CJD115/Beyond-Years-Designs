@@ -1,8 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 export default function Hero() {
-  const [vw, setVw] = useState(0);
   const sectionRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -11,13 +10,6 @@ export default function Hero() {
   });
   const mockupY = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const mockupRotate = useTransform(scrollYProgress, [0, 1], [0, -1.5]);
-
-  useEffect(() => {
-    const update = () => setVw(window.innerWidth);
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
 
   return (
     <section ref={sectionRef} id="top" className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden grain">
@@ -35,7 +27,7 @@ export default function Hero() {
       <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16 pb-16 md:pb-24">
         <div>
           <p className="eyebrow mb-10 md:mb-16">
-            Placeholder Heading - Region Label
+            Placeholder Heading - 
           </p>
         </div>
 
