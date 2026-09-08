@@ -39,7 +39,7 @@ export default function About() {
           {TEAM.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1}>
               <div className="group">
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary">
+                <div className="relative aspect-4/5 w-full overflow-hidden bg-secondary">
                   <img
                     src={m.image}
                     alt={m.name}

@@ -65,7 +65,7 @@ function FeaturedProject({ project }) {
               variants={{ hover: { scale: 1.03 } }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Mockup className="aspect-[16/10]">
+              <Mockup className="aspect-16/10">
                 <img
                   src={project.image}
                   alt={project.name}
@@ -100,10 +100,10 @@ function ProjectBlock({ project, layout }) {
   }[layout];
 
   const aspect = {
-    large: "aspect-[16/10]",
-    small: "aspect-[4/3]",
-    "small-right": "aspect-[4/3]",
-    "large-right": "aspect-[16/10]",
+    large: "aspect-16/10",
+    small: "aspect-4/3",
+    "small-right": "aspect-4/3",
+    "large-right": "aspect-16/10",
   }[layout];
 
   return (

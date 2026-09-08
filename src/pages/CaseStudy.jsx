@@ -87,7 +87,7 @@ export default function CaseStudy() {
 
       {/* Large website screenshot */}
       <Reveal className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16 pb-20 md:pb-32">
-        <Mockup className="aspect-[16/10]">
+        <Mockup className="aspect-16/10">
           <Image src={project.image} alt={`${project.name} website`} fittingType="fill" className="h-full w-full" />
         </Mockup>
       </Reveal>
@@ -158,12 +158,12 @@ export default function CaseStudy() {
         <Section label="Responsive">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-8">
-              <Mockup className="aspect-[16/10]">
+              <Mockup className="aspect-16/10">
                 <Image src={project.image} alt={`${project.name} on desktop`} fittingType="fill" className="h-full w-full" />
               </Mockup>
             </div>
             <div className="md:col-span-3 md:col-start-10">
-              <Mockup className="aspect-[9/16] max-w-[240px] mx-auto md:mx-0">
+              <Mockup className="aspect-9/16 max-w-60 mx-auto md:mx-0">
                 <Image src={project.mobileImage} alt={`${project.name} on mobile`} fittingType="fill" className="h-full w-full" />
               </Mockup>
             </div>

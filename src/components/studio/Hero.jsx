@@ -12,7 +12,7 @@ export default function Hero() {
   const mockupRotate = useTransform(scrollYProgress, [0, 1], [0, -1.5]);
 
   return (
-    <section ref={sectionRef} id="top" className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden grain">
+    <section ref={sectionRef} id="top" className="hero-section relative min-h-svh flex flex-col justify-end overflow-hidden grain">
       {/* Asymmetric website mockup — sits in the upper-right, moves slightly on scroll */}
       <motion.div
         style={{ y: mockupY, rotate: mockupRotate }}
