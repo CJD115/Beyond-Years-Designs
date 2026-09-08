@@ -3,23 +3,23 @@ import Reveal from "./Reveal";
 const STEPS = [
   {
     no: "01",
-    title: "Discover",
-    body: "We learn the business, the audience and the goals. Conversations, not questionnaires — we want to understand what you actually need, not what a template assumes.",
+    title: "Lorem",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
   },
   {
     no: "02",
-    title: "Define",
-    body: "We plan the structure, content and creative direction. A clear map of the site before any design begins, so everyone knows where we are heading.",
+    title: "Ipsum",
+    body: "Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna.",
   },
   {
     no: "03",
-    title: "Design & Build",
-    body: "We design and develop the website together, in the open. You see it taking shape and feed in as we go, rather than waiting for a big reveal.",
+    title: "Dolor Sit",
+    body: "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum, sed posuere consectetur est at lobortis.",
   },
   {
     no: "04",
-    title: "Launch & Improve",
-    body: "We test, launch and keep improving. A site is never finished on launch day — we stay on hand to refine, measure and grow it.",
+    title: "Amet",
+    body: "Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue.",
   },
 ];
 
@@ -30,9 +30,9 @@ export default function Process() {
         <Reveal className="mb-16 md:mb-20 border-t border-border pt-10">
           <p className="eyebrow mb-4">Process</p>
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
-            How we
+            Lorem ipsum
             <br />
-            <span className="font-serif-italic text-accent">get there.</span>
+            <span className="font-serif-italic text-accent">dolor sit.</span>
           </h2>
         </Reveal>
 

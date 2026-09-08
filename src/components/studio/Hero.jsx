@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16 pb-16 md:pb-24">
         <div>
           <p className="eyebrow mb-10 md:mb-16">
-            Web Design &amp; Development Studio — United Kingdom
+            Placeholder Heading - Region Label
           </p>
         </div>
 
@@ -47,9 +47,9 @@ export default function Hero() {
         >
           Lorem ipsum
           <br />
-          consectetur sit elit
+          consectetur
           <br />
-          <span className="font-serif-italic text-accent">Fuse constur placrat.</span>
+          <span className="font-serif-italic text-accent">sed eiusmod.</span>
         </motion.h1>
 
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
@@ -63,17 +63,17 @@ export default function Hero() {
           <div className="md:col-span-4 md:col-start-9">
             <div className="flex flex-col gap-4 md:items-end">
               <a href="#work" className="link-underline text-base font-medium">
-                View selected work
+                View Work
               </a>
               <a href="#contact" className="link-underline text-base font-medium">
-                Start a project
+                Get Started
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="pointer-events-none absolute left-6 md:left-10 lg:left-16 bottom-6 hidden md:block">
+       {/* <div className="pointer-events-none absolute left-6 md:left-10 lg:left-16 bottom-6 hidden md:block">
         <div className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
@@ -81,7 +81,7 @@ export default function Hero() {
           </div>
           <div className="mt-1 text-foreground/60">Perf · 100</div>
         </div>
-      </div>
-    </section>
+      </div> */}
+    </section> 
   );
 }

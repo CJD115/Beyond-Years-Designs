@@ -49,7 +49,7 @@ export default function Nav() {
       >
         <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
           <a href="#top" className="font-display text-xl tracking-tight leading-none">
-            Forsythe <span className="font-serif-italic text-accent">&amp;</span> Hale
+            Lorem <span className="font-serif-italic text-accent">&amp;</span> Ipsum
           </a>
           <ul className="hidden items-center gap-10 md:flex">
             {LINKS.map((l) => (
@@ -67,7 +67,7 @@ export default function Nav() {
             href="#contact"
             className="hidden md:inline-block text-sm font-medium link-underline text-foreground"
           >
-            Start a project
+            Contact
           </a>
           <button
             aria-label="Open menu"
@@ -90,7 +90,7 @@ export default function Nav() {
           >
             <div className="flex items-center justify-between px-6 py-5">
               <span className="font-display text-xl">
-                Forsythe <span className="font-serif-italic text-accent">&amp;</span> Hale
+                Lorem <span className="font-serif-italic text-accent">&amp;</span> Ipsum
               </span>
               <button aria-label="Close menu" onClick={() => setOpen(false)}>
                 <X className="h-6 w-6" strokeWidth={1.25} />
@@ -120,7 +120,7 @@ export default function Nav() {
                 onClick={() => setOpen(false)}
                 className="block border-t border-border pt-6 text-sm text-muted-foreground"
               >
-                hello@forsythehale.co.uk
+                hello@example.com
               </a>
             </div>
           </motion.div>

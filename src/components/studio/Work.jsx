@@ -4,53 +4,53 @@ import { ArrowUpRight } from "lucide-react";
 const PROJECTS = [
   {
     slug: "marston-roe",
-    name: "Marston & Roe",
-    industry: "Independent Law Firm",
+    name: "Project Lorem",
+    industry: "Industry Placeholder",
     year: "2024",
-    description: "A measured, authoritative site for a boutique practice with a clear structure, restrained typography and copy that lets its expertise speak plainly.",
-    services: ["Strategy", "Design", "Development"],
-    tech: ["React", "Vite"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis, donec ullamcorper nulla non metus.",
+    services: ["Service One", "Service Two", "Service Three"],
+    tech: ["Tool A", "Tool B"],
     image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80",
     featured: true,
   },
   {
     slug: "foundry-coffee-roasters",
-    name: "Foundry Coffee Roasters",
-    industry: "Specialty Coffee",
+    name: "Project Ipsum",
+    industry: "Category Placeholder",
     year: "2024",
-    description: "A full-bodied e-commerce experience built around the ritual of coffee, considered product pages and a confident editorial voice.",
-    services: ["Web Design", "Development", "E-commerce", "Strategy"],
-    tech: ["Next.js", "Shopify"],
+    description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam pellentesque ornare sem lacinia.",
+    services: ["Service One", "Service Two", "Service Four", "Service Five"],
+    tech: ["Tool C", "Tool D"],
     image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=80",
   },
   {
     slug: "atelier-boyd",
-    name: "Atelier Boyd",
-    industry: "Ceramics Studio",
+    name: "Project Dolor",
+    industry: "Studio Placeholder",
     year: "2023",
-    description: "A quiet gallery-style portfolio for a working ceramicist, where each object has space to breathe.",
-    services: ["Brand Design", "Development"],
-    tech: ["Astro", "Stripe"],
+    description: "Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper.",
+    services: ["Service Alpha", "Service Beta"],
+    tech: ["Tool E", "Tool F"],
     image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=80",
   },
   {
     slug: "northbank-architecture",
-    name: "Northbank Architecture",
-    industry: "Architectural Practice",
+    name: "Project Amet",
+    industry: "Practice Placeholder",
     year: "2024",
-    description: "A project-led site that lets the work take the words, with a flexible editorial system for a growing practice.",
-    services: ["Strategy", "Design", "Development"],
-    tech: ["CMS Integration", "React"],
+    description: "Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor sed posuere consectetur est.",
+    services: ["Service One", "Service Two", "Service Three"],
+    tech: ["Tool G", "Tool H"],
     image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80",
   },
   {
     slug: "linden-co",
-    name: "Linden & Co.",
-    industry: "Independent Bookshop",
+    name: "Project Elit",
+    industry: "Retail Placeholder",
     year: "2023",
-    description: "A literary, warm site for a high-street bookshop, events and recommendations, all written in the shop's own voice.",
-    services: ["Web Design", "Development", "Copywriting", "CMS Integration"],
-    tech: ["Payload", "React"],
+    description: "Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus.",
+    services: ["Service Two", "Service Four", "Service Six", "Service Seven"],
+    tech: ["Tool I", "Tool J"],
     image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1400&q=80",
   },
 ];
@@ -135,7 +135,7 @@ function FeaturedProject({ project }) {
             href={`#${project.slug}`}
             className="group mt-8 inline-flex items-center gap-2 text-base font-medium link-underline"
           >
-            View case study
+            View Work
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={1.5} />
           </a>
         </div>
@@ -201,14 +201,14 @@ export default function Work() {
           <div>
             <p className="eyebrow mb-4">Selected Work</p>
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
-              A handful of sites,
+              Lorem ipsum dolor,
               <br />
-              <span className="font-serif-italic text-accent">made with care.</span>
+              <span className="font-serif-italic text-accent">sit amet elit.</span>
             </h2>
           </div>
           <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
-            Each project below is designed, written and built by the two of us —
-            no outsourcing, no templates, no filler.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id
+            elit non mi porta gravida at eget metus.
           </p>
         </Reveal>
 

@@ -4,23 +4,23 @@ import Reveal from "./Reveal";
 const SERVICES = [
   {
     no: "01",
-    title: "Web Design",
-    body: "Strategy, structure, visual direction and user-focused design — the full picture of how a site should look, read and feel before a line of code is written.",
+    title: "Lorem Service",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis, donec id elit non mi porta gravida.",
   },
   {
     no: "02",
-    title: "Web Development",
-    body: "Responsive, performant websites built with modern web technologies. Clean, accessible front-end work that loads fast and stays fast.",
+    title: "Ipsum Service",
+    body: "Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur, vestibulum id ligula porta felis euismod semper.",
   },
   {
     no: "03",
-    title: "Copy & Messaging",
-    body: "Clear, purposeful website copy that communicates the value of a business — written by the people building the site, so words and design agree.",
+    title: "Dolor Service",
+    body: "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
   },
   {
     no: "04",
-    title: "Ongoing Support",
-    body: "Updates, improvements, maintenance and continued development. A site is a living thing, and we stay close to it after launch.",
+    title: "Amet Service",
+    body: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.",
   },
 ];
 
@@ -31,9 +31,9 @@ export default function Services() {
         <Reveal className="mb-16 md:mb-20 border-t border-border pt-10">
           <p className="eyebrow mb-4">Services</p>
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-3xl">
-            Four things,
+            Lorem ipsum,
             <br />
-            <span className="font-serif-italic text-accent">done properly.</span>
+            <span className="font-serif-italic text-accent">dolor amet.</span>
           </h2>
         </Reveal>
 

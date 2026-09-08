@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 
 export default function FinalCTA() {
-  const [projectType, setProjectType] = useState("new website");
+  const [projectType, setProjectType] = useState("option one");
   const [sent, setSent] = useState(false);
 
   const handleSubmit = (e) => {
@@ -16,36 +16,36 @@ export default function FinalCTA() {
     <section id="contact" className="relative bg-foreground text-background py-24 md:py-36 overflow-hidden">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
         <Reveal className="border-t border-background/20 pt-10">
-          <p className="eyebrow text-background/60 mb-6">Start a project</p>
+          <p className="eyebrow text-background/60 mb-6">Get Started</p>
           <h2 className="font-display text-[14vw] md:text-[9vw] leading-[0.9] tracking-[-0.03em] text-balance">
-            Let's build something
+            Lorem ipsum dolor
             <br />
-            <span className="font-serif-italic text-accent">worth visiting.</span>
+            <span className="font-serif-italic text-accent">sit amet.</span>
           </h2>
         </Reveal>
 
         <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <p className="text-lg text-background/70 leading-relaxed max-w-sm mb-10">
-              Tell us a little about what you have in mind. We reply to every
-              enquiry personally, usually within two working days.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              vitae elit libero, a pharetra augue. Integer posuere erat a ante.
             </p>
             <dl className="flex flex-col gap-6 text-sm">
               <div>
                 <dt className="eyebrow text-background/50 mb-1">Email</dt>
                 <dd>
-                  <a href="mailto:hello@forsythehale.co.uk" className="link-underline link-underline-light">
-                    hello@forsythehale.co.uk
+                  <a href="mailto:hello@example.com" className="link-underline link-underline-light">
+                    hello@example.com
                   </a>
                 </dd>
               </div>
               <div>
                 <dt className="eyebrow text-background/50 mb-1">Studio</dt>
-                <dd className="text-background/80">Bristol, United Kingdom</dd>
+                <dd className="text-background/80">City, Country</dd>
               </div>
               <div>
                 <dt className="eyebrow text-background/50 mb-1">Hours</dt>
-                <dd className="text-background/80">Mon–Thu, 9 to 5</dd>
+                <dd className="text-background/80">Mon-Fri, 9 to 5</dd>
               </div>
             </dl>
           </div>
@@ -53,10 +53,10 @@ export default function FinalCTA() {
           <form onSubmit={handleSubmit} className="md:col-span-6 md:col-start-7 flex flex-col gap-8">
             <div>
               <label className="eyebrow text-background/50 block mb-3">
-                I am looking to build a
+                I am looking for
               </label>
               <div className="flex flex-wrap gap-2">
-                {["new website", "redesign", "online shop", "landing page"].map((t) => (
+                {["option one", "option two", "option three", "option four"].map((t) => (
                   <button
                     type="button"
                     key={t}
@@ -73,12 +73,12 @@ export default function FinalCTA() {
               </div>
             </div>
 
-            <Field label="Your name" name="name" placeholder="Jane Doe" />
-            <Field label="Email" name="email" type="email" placeholder="jane@business.co.uk" />
+            <Field label="Your name" name="name" placeholder="Lorem Ipsum" />
+            <Field label="Email" name="email" type="email" placeholder="hello@example.com" />
             <Field
-              label="A little about the project"
+              label="Project details"
               name="message"
-              placeholder="We're a small bakery in Bristol, looking to…"
+              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
               textarea
             />
 
@@ -86,7 +86,7 @@ export default function FinalCTA() {
               type="submit"
               className="group inline-flex items-center gap-2 self-start border-b border-background pb-1 text-lg font-medium transition-colors hover:border-accent hover:text-accent"
             >
-              Send enquiry
+              Contact
               <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={1.5} />
             </button>
 
@@ -96,7 +96,7 @@ export default function FinalCTA() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-sm text-accent"
               >
-                Thank you — your enquiry is on its way. We'll be in touch shortly.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </motion.p>
             )}
           </form>

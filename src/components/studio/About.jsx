@@ -2,15 +2,15 @@ import Reveal from "./Reveal";
 
 const TEAM = [
   {
-    name: "Tom Forsythe",
-    role: "Design & Development",
-    bio: "Tom leads design and front-end build. Twelve years of making websites for businesses that would rather have something honest than something loud.",
+    name: "Lorem Ipsum",
+    role: "Role Placeholder",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
     image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/b521d9019_generated_a6aaa6f2.jpg",
   },
   {
-    name: "Imogen Hale",
-    role: "Strategy & Copywriting",
-    bio: "Imogen shapes structure and writes the words. She believes a website is mostly an exercise in deciding what to leave out.",
+    name: "Dolor Sit",
+    role: "Role Placeholder",
+    bio: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.",
     image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/e4c2bb033_generated_644fcff5.jpg",
   },
 ];
@@ -21,18 +21,17 @@ export default function About() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
         <Reveal className="mb-16 md:mb-24 border-t border-border pt-10 grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-7">
-            <p className="eyebrow mb-4">About the studio</p>
+            <p className="eyebrow mb-4">About</p>
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
-              Two people,
+              Lorem ipsum,
               <br />
-              <span className="font-serif-italic text-accent">one workshop.</span>
+              <span className="font-serif-italic text-accent">dolor sit amet.</span>
             </h2>
           </div>
           <p className="md:col-span-4 md:col-start-9 self-end text-base text-muted-foreground leading-relaxed max-w-sm">
-            Forsythe &amp; Hale is a web design and development studio working
-            from a small studio space in the UK. We make websites for
-            businesses that care about how they present themselves — and we
-            keep our client list short on purpose.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere
+            consectetur est at lobortis. Maecenas faucibus mollis interdum,
+            nullam id dolor id nibh ultricies vehicula ut id elit.
           </p>
         </Reveal>
 

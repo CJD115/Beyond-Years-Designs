@@ -23,11 +23,11 @@ export default function Footer() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 border-t border-background/20 pt-10">
           <div className="md:col-span-6">
-            <p className="eyebrow text-background/50 mb-4">Forsythe &amp; Hale</p>
+            <p className="eyebrow text-background/50 mb-4">Studio Name</p>
             <p className="font-display text-3xl md:text-5xl leading-tight max-w-lg">
-              A small studio building
+              Lorem ipsum dolor
               <br />
-              <span className="font-serif-italic text-accent">considered websites.</span>
+              <span className="font-serif-italic text-accent">sit amet.</span>
             </p>
           </div>
 
@@ -41,22 +41,22 @@ export default function Footer() {
 
           <div className="md:col-span-3 flex flex-col gap-3 text-sm">
             <span className="eyebrow text-background/50 mb-1">Elsewhere</span>
-            <a href="#" className="link-underline link-underline-light text-background/80">Instagram</a>
-            <a href="#" className="link-underline link-underline-light text-background/80">LinkedIn</a>
-            <a href="#" className="link-underline link-underline-light text-background/80">Dribbble</a>
+            <a href="#" className="link-underline link-underline-light text-background/80">Explore</a>
+            <a href="#" className="link-underline link-underline-light text-background/80">Updates</a>
+            <a href="#" className="link-underline link-underline-light text-background/80">Archive</a>
           </div>
         </div>
 
         <div className="mt-16 md:mt-24 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <p className="font-display text-[12vw] md:text-[8vw] leading-[0.85] tracking-[-0.03em] text-background/90">
-            Bristol, UK
+            Lorem, XX
           </p>
           <div className="flex flex-col md:items-end gap-1 text-sm text-background/50">
             <span className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
               Local time {time}
             </span>
-            <span>© {new Date().getFullYear()} Forsythe &amp; Hale. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} Studio Name. All rights reserved.</span>
           </div>
         </div>
       </div>
