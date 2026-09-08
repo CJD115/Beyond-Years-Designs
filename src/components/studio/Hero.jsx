@@ -32,16 +32,52 @@ export default function Hero() {
         </div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.12,
+                delayChildren: 0.15,
+              },
+            },
+          }}
           className="font-display text-[15vw] leading-[0.92] tracking-[-0.03em] md:text-[12vw] lg:text-[10.5vw] text-balance"
         >
-          Lorem ipsum
-          <br />
-          consectetur
-          <br />
-          <span className="font-serif-italic text-accent">sed eiusmod.</span>
+          <span className="block overflow-hidden">
+            <motion.span
+              variants={{
+                hidden: { y: "100%" },
+                visible: { y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
+              }}
+              className="block"
+            >
+              Lorem ipsum
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span
+              variants={{
+                hidden: { y: "100%" },
+                visible: { y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
+              }}
+              className="block"
+            >
+              consectetur
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span
+              variants={{
+                hidden: { y: "100%" },
+                visible: { y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
+              }}
+              className="font-serif-italic text-accent block"
+            >
+              sed eiusmod.
+            </motion.span>
+          </span>
         </motion.h1>
 
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">

@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import CaseStudy from "./pages/CaseStudy";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from './components/ScrollToTop';
+import Home from '@/pages/Home';
+import CaseStudy from '@/pages/CaseStudy';
+import Cursor from '@/components/studio/Cursor';
 
 function PageNotFound() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <Cursor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<CaseStudy />} />

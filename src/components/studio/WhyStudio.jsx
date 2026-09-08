@@ -9,7 +9,7 @@ const POINTS = [
 
 export default function WhyStudio() {
   return (
-    <section className="relative py-24 md:py-36">
+    <section className="relative pt-12 pb-24 md:pt-20 md:pb-36">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 border-t border-border pt-10">
           <Reveal className="md:col-span-5">

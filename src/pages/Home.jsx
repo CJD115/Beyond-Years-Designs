@@ -1,6 +1,8 @@
 import Nav from "@/components/studio/Nav";
 import Hero from "@/components/studio/Hero";
 import Work from "@/components/studio/Work";
+import WorkIndex from "@/components/studio/WorkIndex";
+import StatementSection from "@/components/studio/StatementSection";
 import Services from "@/components/studio/Services";
 import WhyStudio from "@/components/studio/WhyStudio";
 import Process from "@/components/studio/Process";
@@ -15,6 +17,12 @@ export default function Home() {
       <main>
         <Hero />
         <Work />
+        <section className="relative pt-0 pb-24 md:pt-20 md:pb-36">
+          <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
+            <WorkIndex />
+          </div>
+        </section>
+        <StatementSection />
         <Services />
         <WhyStudio />
         <Process />
