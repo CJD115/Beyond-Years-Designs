@@ -7,16 +7,12 @@ export default function StatementSection() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
           <Reveal className="md:col-span-7">
-            <p className="eyebrow mb-8 text-foreground/60">Lorem Ipsum</p>
+            <p className="eyebrow mb-8 text-foreground/60">Our Vision</p>
             <h2 className="font-display text-[10vw] md:text-[5.4vw] leading-[0.98] tracking-[-0.02em] text-balance">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
-              <span className="font-serif-italic">eiusmod tempor.</span>
+              Building simple websites for small businesses with big dreams. {" "}
+              {/* <span className="font-serif-italic">eiusmod tempor.</span> */}
             </h2>
-            <p className="mt-10 max-w-md text-base md:text-lg leading-relaxed text-foreground/70">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              posuere erat a ante venenatis dapibus posuere velit aliquet.
-              Maecenas faucibus mollis interdum, donec ullamcorper nulla non
-              metus auctor fringilla.
+            <p className="mt-50 max-w-md text-base md:text-lg leading-relaxed text-foreground/70">
             </p>
           </Reveal>
 

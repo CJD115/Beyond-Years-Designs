@@ -3,23 +3,23 @@ import Reveal from "./Reveal";
 const STEPS = [
   {
     no: "01",
-    title: "Lorem",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+    title: "Groundwork",
+    body: "Firstly, we’ll discuss the kind of style and content you might want, and get an understanding of your vision for the site. We’ll arrange any follow-ups and outline theprocess going forward in more detail. ",
   },
   {
     no: "02",
-    title: "Ipsum",
-    body: "Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    title: "Planning",
+    body: "A good website should fit the business, not the other way around. Whether you need one page or something more involved, we showcase the important information in a clear, considered way that’s right for you.",
   },
   {
     no: "03",
-    title: "Dolor Sit",
-    body: "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum, sed posuere consectetur est at lobortis.",
+    title: "Production",
+    body: "Your website should tell the world who you are, what you do, and how to find you. We’ll periodically check in as we develop your site, keeping you up to date on the project’s progress.",
   },
   {
     no: "04",
-    title: "Amet",
-    body: "Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue.",
+    title: "Project complete",
+    body: "Once you’re happy with the site, we can handle the admin afterwards, too. We’ll host your site, set up your domain, and keep it maintained, providing ongoing support and keeping everything updated and under control.",
   },
 ];
 

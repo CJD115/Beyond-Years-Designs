@@ -2,14 +2,14 @@ import Reveal from "./Reveal";
 
 const TEAM = [
   {
-    name: "Lorem Ipsum",
-    role: "Role Placeholder",
+    name: "Connor",
+    role: "Tech Whizz",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
     image: "",
   },
   {
-    name: "Dolor Sit",
-    role: "Role Placeholder",
+    name: "Mike",
+    role: "Copywriter",
     bio: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.",
     image: "",
   },

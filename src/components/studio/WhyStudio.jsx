@@ -13,20 +13,20 @@ export default function WhyStudio() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 border-t border-border pt-10">
           <Reveal className="md:col-span-5">
-            <p className="eyebrow mb-4">Why Studio</p>
+            <p className="eyebrow mb-4">Why Us</p>
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95]">
-              Lorem ipsum
+              What
               <br />
-              <span className="font-serif-italic text-accent">dolor sit.</span>
+              <span className="font-serif-italic text-accent">We do.</span>
             </h2>
           </Reveal>
 
           <div className="md:col-span-6 md:col-start-7 flex flex-col">
             <Reveal delay={0.1}>
               <p className="text-xl md:text-2xl font-display leading-snug text-foreground/90 max-w-xl mb-10">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                posuere erat a ante venenatis dapibus posuere velit aliquet,
-                maecenas faucibus mollis interdum.
+                Beyond Years Designs builds simple websites for small
+                businesses, independent makers and creative teams. And once it’s
+                made, we’ll host it and maintain it, too.
               </p>
             </Reveal>
             <ul className="flex flex-col">
@@ -36,7 +36,9 @@ export default function WhyStudio() {
                     <span className="font-display text-lg text-accent w-8 shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-base text-muted-foreground leading-relaxed">{p}</span>
+                    <span className="text-base text-muted-foreground leading-relaxed">
+                      {p}
+                    </span>
                   </li>
                 </Reveal>
               ))}
