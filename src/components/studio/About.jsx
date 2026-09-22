@@ -4,13 +4,13 @@ const TEAM = [
   {
     name: "Connor",
     role: "Tech Whizz",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+    bio: "Connor is the tech whizz behind BEYOND YEARS DESIGNS. A full-stack developer with several years of experience, he’s built websites and digital applications across industries from local high-street hairdressers to nationally accredited auction houses and high-end property developers. He handles the technical side of every project, from building the site itself to making sure everything works as it should. ",
     image: "",
   },
   {
     name: "Mike",
     role: "Copywriter",
-    bio: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.",
+    bio: "Mike is the resident wordsmith at BEYOND YEARS DESIGNS, bringing four years of professional writing experience to the team. He’s written for businesses across automotive resale, financial advice, and construction, as well as working on creative writing of his own. He takes care of the words: shaping the information, finding the right way to say it, and making sure your website actually sounds like your business.",
     image: "",
   },
 ];

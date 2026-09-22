@@ -49,7 +49,7 @@ export default function Footer() {
 
         <div className="mt-16 md:mt-24 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <p className="font-display text-[12vw] md:text-[8vw] leading-[0.85] tracking-[-0.03em] text-background/90">
-            Lorem, XX
+            Bristol, UK
           </p>
           <div className="flex flex-col md:items-end gap-1 text-sm text-background/50">
             <span className="flex items-center gap-2">

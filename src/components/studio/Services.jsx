@@ -4,22 +4,22 @@ import Reveal from "./Reveal";
 const SERVICES = [
   {
     no: "01",
-    title: "Lorem Service",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis, donec id elit non mi porta gravida.",
+    title: "One-page Website",
+    body: "An elegant, one-page website curates your brand and shows the world who you are, all from one convenient location. No matter how complex your business, we’ll showcase all the important information in a clear, considered way that’s right for you",
   },
   {
     no: "02",
-    title: "Ipsum Service",
-    body: "Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur, vestibulum id ligula porta felis euismod semper.",
+    title: "Bespoke Web Design",
+    body: "All our websites are designed from the ground up by our tech whizz, Connor. That means no templates, stock layouts or pre-existing formulas—you won’t find another one quite like it! Your website is uniquely yours, designed bespoke for you.",
   },
   {
     no: "03",
-    title: "Dolor Service",
-    body: "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
+    title: "Professionally Written",
+    body: "Our resident wordsmith, Mike, has over 6 years of experience working with clients big and small. With a keen eye for technical details and a deep love of the craft, he’ll ensure your brand is ready to find its audience.",
   },
   {
     no: "04",
-    title: "Amet Service",
+    title: "Mobile & Performance Optimisation",
     body: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.",
   },
 ];
@@ -31,9 +31,9 @@ export default function Services() {
         <Reveal className="mb-16 md:mb-20 border-t border-border pt-10">
           <p className="eyebrow mb-4">Services</p>
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-3xl">
-            Lorem ipsum,
+             Everything your business needs,
             <br />
-            <span className="font-serif-italic text-accent">dolor amet.</span>
+            <span className="font-serif-italic text-accent">in one focused website.</span>
           </h2>
         </Reveal>
 

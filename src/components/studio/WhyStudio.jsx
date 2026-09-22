@@ -24,9 +24,8 @@ export default function WhyStudio() {
           <div className="md:col-span-6 md:col-start-7 flex flex-col">
             <Reveal delay={0.1}>
               <p className="text-xl md:text-2xl font-display leading-snug text-foreground/90 max-w-xl mb-10">
-                Beyond Years Designs builds simple websites for small
-                businesses, independent makers and creative teams. And once it’s
-                made, we’ll host it and maintain it, too.
+                We build, host, and maintain websites for small businesses,
+                independent makers and creative teams.
               </p>
             </Reveal>
             <ul className="flex flex-col">
