@@ -12,8 +12,6 @@ export default function StatementSection() {
               Building simple websites for small businesses with big dreams. {" "}
               {/* <span className="font-serif-italic">eiusmod tempor.</span> */}
             </h2>
-            <p className="mt-50 max-w-md text-base md:text-lg leading-relaxed text-foreground/70">
-            </p>
           </Reveal>
 
           <Reveal delay={0.15} className="md:col-span-5">
