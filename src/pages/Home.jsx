@@ -9,8 +9,20 @@ import Process from "@/components/studio/Process";
 import About from "@/components/studio/About";
 import FinalCTA from "@/components/studio/FinalCTA";
 import Footer from "@/components/studio/Footer";
+import { useSeo } from "@/lib/seo";
+import { PROJECTS } from "@/data/projects";
 
 export default function Home() {
+  const featured = PROJECTS.find((p) => p.featured) || PROJECTS[0];
+
+  useSeo({
+    title: "Beyond Years Designs | Web Design and Development Studio",
+    description:
+      "Beyond Years Designs is a Bristol-based two-person web design and development studio. We design, build, and write considered websites for small businesses and creative teams.",
+    type: "website",
+    image: featured?.image,
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Nav />
