@@ -27,7 +27,7 @@ export default function Hero() {
       <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16 pb-16 md:pb-24">
         <div>
           <p className="eyebrow mb-10 md:mb-12 lg:mb-16">
-            Beyond Years Designs
+            Web Design & Development Studio
           </p>
         </div>
 
