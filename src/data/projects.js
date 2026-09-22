@@ -5,17 +5,18 @@
 export const PROJECTS = [
   {
     slug: "marston-roe",
-    name: "Project Lorem",
-    industry: "Industry Placeholder",
+    name: "Churcham Homes",
+    industry: "Luxury Property Developer",
     year: "2025",
-    location: "City, UK",
+    location: "Cheltenham, UK",
     tagline: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
-    services: ["Service One", "Service Two", "Service Three", "Service Four", "Service Five"],
-    tech: ["Tool A", "Tool B", "Tool C"],
-    image: "/website-placeholder-1.webp",
-    mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/e22e97e3a_generated_image.png",
+    services: ["Website Design", "Web Development", "Content & Project Showcase", "Responsive Design"],
+    tech: ["Wordpress", "Elementor", "Javascript"],
+    image: "/Churcham-homes-hero.png",
+    responsiveImage: "/Churcham-homes-location-to-lifestyle.png",
+    mobileImage: "/Churcham-homes-hero-mobile.png",
     liveUrl: "https://example.com/project-lorem",
     featured: true,
     overview:
