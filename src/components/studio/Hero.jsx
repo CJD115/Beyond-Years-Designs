@@ -26,7 +26,7 @@ export default function Hero() {
 
       <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16 pb-16 md:pb-24">
         <div>
-          <p className="eyebrow mb-10 md:mb-16">
+          <p className="eyebrow mb-10 md:mb-12 lg:mb-16">
             Beyond Years Designs
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function Hero() {
               },
             },
           }}
-          className="font-display text-[15vw] leading-[0.98] tracking-[-0.03em] md:text-[12vw] lg:text-[10.5vw] text-balance"
+          className="font-display text-[15vw] leading-[0.98] tracking-[-0.03em] md:text-[11vw] lg:text-[10.5vw] text-balance"
         >
           <span className="block overflow-hidden">
             <motion.span
@@ -71,9 +71,9 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+        <div className="mt-12 md:mt-12 lg:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-5">
-            <p className="text-lg leading-relaxed text-muted-foreground max-w-md">
+            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground max-w-lg">
               You’re a small business. We’re a small business. We get it.
               You’re busy doing what you do best. You’re working hard, your junk folder’s full, and there just
               isn’t the time or budget for a flashy, overdesigned website or app. Sometimes, all you need is
@@ -82,12 +82,12 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="md:col-span-4 md:col-start-9">
+          <div className="md:col-span-4 md:col-start-8">
             <div className="flex flex-col gap-4 md:items-end">
-              <a href="#work" className="link-underline text-base font-medium">
+              <a href="#work" className="link-underline inline-flex min-h-11 items-center py-1 text-base font-medium">
                 View Work
               </a>
-              <a href="#contact" className="link-underline text-base font-medium">
+              <a href="#contact" className="link-underline inline-flex min-h-11 items-center py-1 text-base font-medium">
                 Get Started
               </a>
             </div>
