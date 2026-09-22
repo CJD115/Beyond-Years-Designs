@@ -6,6 +6,7 @@ import Reveal from "@/components/studio/Reveal";
 import Mockup from "@/components/studio/Mockup";
 import { Image } from "@/components/ui/image";
 import { getProject, getNextProject } from "@/data/projects";
+import { useSeo } from "@/lib/seo";
 
 function Section({ label, children, className = "" }) {
   return (
@@ -19,6 +20,20 @@ function Section({ label, children, className = "" }) {
 export default function CaseStudy() {
   const { slug } = useParams();
   const project = getProject(slug);
+
+  const title = project
+    ? `${project.name} Case Study | Beyond Years Designs`
+    : "Case Study Not Found | Beyond Years Designs";
+  const description = project
+    ? `${project.tagline} Case study for ${project.industry} in ${project.location}. Services: ${project.services.slice(0, 3).join(", ")}.`
+    : "The requested case study could not be found.";
+
+  useSeo({
+    title,
+    description,
+    type: project ? "article" : "website",
+    image: project?.image,
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
