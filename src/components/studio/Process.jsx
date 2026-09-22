@@ -4,7 +4,7 @@ const STEPS = [
   {
     no: "01",
     title: "Groundwork",
-    body: "First of, we’ll discuss the kind of style and content you want, and get an understanding of your vision for the site. We’ll arrange any follow-ups and outline the process going forward in more detail.",
+    body: "First off, we’ll discuss the kind of style and content you want, and get an understanding of your vision for the site. We’ll arrange any follow-ups and outline the process going forward in more detail.",
   },
   {
     no: "02",
