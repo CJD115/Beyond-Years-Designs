@@ -33,9 +33,9 @@ export default function Cursor() {
   return (
     <motion.div aria-hidden style={{ x: sx, y: sy }} className="pointer-events-none fixed left-0 top-0 z-100 hidden md:block">
       <motion.div
-        animate={{ scale: hovering ? 2.4 : 1, opacity: hovering ? 0.5 : 0.9 }}
+        animate={{ scale: hovering ? 2 : 0.9, opacity: hovering ? 0.4 : 0.3 }}
         transition={{ type: "spring", stiffness: 200, damping: 18 }}
-        className="-ml-4 -mt-4 h-8 w-8 rounded-full border border-white mix-blend-difference"
+        className="-ml-3 -mt-3 h-6 w-6 rounded-full border border-white/80 mix-blend-difference"
       />
     </motion.div>
   );
