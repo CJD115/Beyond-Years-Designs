@@ -3,14 +3,20 @@ import Reveal from "./Reveal";
 const TEAM = [
   {
     name: "Connor",
-    role: "Tech Whizz",
-    bio: "Connor is the tech whizz behind BEYOND YEARS DESIGNS. A full-stack developer with several years of experience, he’s built websites and digital applications across industries from local high-street hairdressers to nationally accredited auction houses and high-end property developers. He handles the technical side of every project, from building the site itself to making sure everything works as it should. ",
+    role: "Resident Web Developer",
+    bio:
+      "Connor is the tech whizz behind BEYOND YEARS DESIGNS." +
+      " A full-stack developer with several years of experience, he has built websites and digital applications across industries from local high-street hairdressers to nationally accredited auction houses and high-end property developers." +
+      " He handles the technical side of every project, from building the site itself to making sure everything works as it should.",
     image: "",
   },
   {
     name: "Mike",
-    role: "Copywriter",
-    bio: "Mike is the resident wordsmith at BEYOND YEARS DESIGNS, bringing four years of professional writing experience to the team. He’s written for businesses across automotive resale, financial advice, and construction, as well as working on creative writing of his own. He takes care of the words: shaping the information, finding the right way to say it, and making sure your website actually sounds like your business.",
+    role: "Wordsmith",
+    bio:
+      "Mike is the resident wordsmith at Beyond Years Designs, bringing four years of professional writing experience to the team." +
+      " He has written for businesses across automotive resale, financial advice, and construction, as well as working on creative writing of his own." +
+      " He takes care of the words: shaping the information, finding the right way to say it, and making sure your website actually sounds like your business.",
     image: "",
   },
 ];
@@ -23,15 +29,14 @@ export default function About() {
           <div className="md:col-span-7">
             <p className="eyebrow mb-4">About</p>
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
-              Lorem ipsum,
+              Small team,
               <br />
-              <span className="font-serif-italic text-accent">dolor sit amet.</span>
+              <span className="font-serif-italic text-accent">serious standards.</span>
             </h2>
           </div>
           <p className="md:col-span-4 md:col-start-9 self-end text-base text-muted-foreground leading-relaxed max-w-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere
-            consectetur est at lobortis. Maecenas faucibus mollis interdum,
-            nullam id dolor id nibh ultricies vehicula ut id elit.
+            Beyond Years Designs is a small Bristol-based studio founded by Connor and Mike. 
+            Between us, we combine web development and professional writing to build websites that work properly and communicate clearly.
           </p>
         </Reveal>
 
