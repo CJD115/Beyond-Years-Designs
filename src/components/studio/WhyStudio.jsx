@@ -1,10 +1,18 @@
 import Reveal from "./Reveal";
 
 const POINTS = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.",
+  {
+    title: "Small and Agile",
+    body: "Beyond Years Designs is a small business. There is no faceless outreach team, and no corporate red tape. When you get in touch, you reach us directly. When you have an idea, we are there to help make it happen right away.",
+  },
+  {
+    title: "Passionate and Motivated",
+    body: "We love working with small businesses, independent makers, and creative teams. When you work with us, you know you are working with a small team who cares about every detail, and who appreciates the hard work you put into your craft.",
+  },
+  {
+    title: "Very Experienced",
+    body: "Although Beyond Years Designs is new, Connor and Mike have worked together before. In fact, we have been at this for a while. We have worked with clients big and small, including local high-street hairdressers, national automotive resale, and high-end property development.",
+  },
 ];
 
 export default function WhyStudio() {
@@ -29,15 +37,18 @@ export default function WhyStudio() {
               </p>
             </Reveal>
             <ul className="flex flex-col">
-              {POINTS.map((p, i) => (
+              {POINTS.map((point, i) => (
                 <Reveal key={i} delay={0.15 + i * 0.08}>
-                  <li className="flex gap-5 border-t border-border py-5">
-                    <span className="font-display text-lg text-accent w-8 shrink-0">
+                  <li className="border-t border-border py-6 md:py-7">
+                    <span className="block font-display text-lg md:text-lg leading-none text-accent mb-3">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-base text-muted-foreground leading-relaxed">
-                      {p}
-                    </span>
+                    <h3 className="font-display text-2xl md:text-3xl leading-tight text-foreground mb-3">
+                      {point.title}
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed max-w-xlex">
+                      {point.body}
+                    </p>
                   </li>
                 </Reveal>
               ))}
