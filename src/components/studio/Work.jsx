@@ -148,15 +148,15 @@ export default function Work() {
           <div>
             <p className="eyebrow mb-4">Selected Work</p>
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
-              Lorem ipsum dolor,
+              Here's what
               <br />
-              <span className="font-serif-italic text-accent">sit amet elit.</span>
+              <span className="font-serif-italic text-accent">we do.</span>
             </h2>
           </div>
-          <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
+          {/* <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id
             elit non mi porta gravida at eget metus.
-          </p>
+          </p> */}
         </Reveal>
 
         <FeaturedProject project={featured} />

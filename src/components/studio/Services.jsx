@@ -5,7 +5,7 @@ const SERVICES = [
   {
     no: "01",
     title: "One-page Website",
-    body: "An elegant, one-page website curates your brand and shows the world who you are, all from one convenient location. No matter how complex your business, we’ll showcase all the important information in a clear, considered way that’s right for you",
+    body: "An elegant, one-page website curates your brand and shows the world who you are, all from one convenient location. No matter how complex your business, we’ll showcase all the important information in a clear, considered way that’s right for you.",
   },
   {
     no: "02",

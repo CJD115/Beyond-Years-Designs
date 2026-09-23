@@ -30,9 +30,9 @@ export default function Process() {
         <Reveal className="mb-16 md:mb-20 border-t border-border pt-10">
           <p className="eyebrow mb-4">Process</p>
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
-            Lorem ipsum
+            How we build
             <br />
-            <span className="font-serif-italic text-accent">dolor sit.</span>
+            <span className="font-serif-italic text-accent">Your site.</span>
           </h2>
         </Reveal>
 
