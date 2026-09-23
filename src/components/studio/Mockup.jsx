@@ -1,6 +1,3 @@
-// Consistent frame for website mockup imagery — a thin rule and a soft,
-// editorial shadow. The generated mockups carry their own browser chrome,
-// so this just adds definition and depth without doubling up.
 export default function Mockup({ children, className = "" }) {
   return (
     <div
