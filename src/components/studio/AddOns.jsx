@@ -13,7 +13,8 @@ const ADDONS = [
     name: "Domain",
     span: "md:col-span-5",
     edge: "",
-    body: "",
+    body: "Need help securing your domain name? Not a problem! We’ll get you set up with your domain of choice (depending on availability), and manage it all from our end." +
+          "You’ll still have full access, but we’ll handle all the faff.",
   },
   {
     no: "03",
@@ -38,7 +39,7 @@ const ADDONS = [
   },
   {
     no: "06",
-    name: "Performance, Security & Backups",
+    name: "Analytics & Tracking",
     span: "md:col-span-5",
     edge: "",
     body: "",

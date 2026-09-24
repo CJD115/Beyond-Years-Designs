@@ -32,7 +32,7 @@ export default function Process() {
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
             How we build
             <br />
-            <span className="font-serif-italic text-accent">Your site.</span>
+            <span className="font-serif-italic text-accent">your site.</span>
           </h2>
         </Reveal>
 

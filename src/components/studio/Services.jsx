@@ -20,7 +20,7 @@ const SERVICES = [
   {
     no: "04",
     title: "Mobile & Performance Optimisation",
-    body: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.",
+    body: "More than half of all internet browsing these days happens on a mobile. That’s why our sites are mobile-friendly and performance optimised, meaning your site looks and feels as good on a big screen as it does in your hand.",
   },
 ];
 

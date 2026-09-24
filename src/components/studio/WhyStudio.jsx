@@ -25,7 +25,7 @@ export default function WhyStudio() {
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95]">
               Who
               <br />
-              <span className="font-serif-italic text-accent">We are.</span>
+              <span className="font-serif-italic text-accent">we are.</span>
             </h2>
           </Reveal>
 
