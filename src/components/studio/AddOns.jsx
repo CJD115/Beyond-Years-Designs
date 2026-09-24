@@ -6,7 +6,7 @@ const ADDONS = [
     name: "Hosting",
     span: "md:col-span-7",
     edge: "md:border-r",
-    body: "",
+    body: "dont wanna worry about hosting? we can host it for you so keeping everythig online and taken care of",
   },
   {
     no: "02",
@@ -21,28 +21,28 @@ const ADDONS = [
     name: "Maintenance",
     span: "md:col-span-5",
     edge: "md:border-r",
-    body: "",
+    body: "If your site will need regular updates, we’ll keep the door open for you. With up to X updates per TIMEFRAME, you’ll be able to contact us in working hours and get changes pushed through as and when they’re required.",
   },
   {
     no: "04",
     name: "Updates & Content",
     span: "md:col-span-7",
     edge: "",
-    body: "",
+    body: "Do you have a blog, newsletter, or other written content that you’d like support with? We can help! We can provide you with regular, professionally written content, or offer ad-hoc support as and when you need it. Let us know!",
   },
   {
     no: "05",
-    name: "Support",
+    name: "SEO Setup",
     span: "md:col-span-7",
     edge: "md:border-r",
-    body: "",
+    body: "Basic on-page SEO setup: titles, descriptions, indexing, sitemap, Search Console, structured basics, etc.",
   },
   {
     no: "06",
     name: "Analytics & Tracking",
     span: "md:col-span-5",
     edge: "",
-    body: "",
+    body: "Google Analytics, Search Console, conversion tracking, etc.",
   },
 ];
 
