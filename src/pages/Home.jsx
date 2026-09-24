@@ -11,7 +11,7 @@ import FinalCTA from "@/components/studio/FinalCTA";
 import Footer from "@/components/studio/Footer";
 import { useSeo } from "@/lib/seo";
 import { PROJECTS } from "@/data/projects";
-import AddOns from "../components/studio/AddOns";
+import AddOns from "@/components/studio/AddOns";
 
 export default function Home() {
   const featured = PROJECTS.find((p) => p.featured) || PROJECTS[0];
