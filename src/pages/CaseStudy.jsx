@@ -169,6 +169,29 @@ export default function CaseStudy() {
           </ul>
         </Section>
 
+        {project.metrics && (
+          <Section label="Performance">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { key: "performance", label: "Performance" },
+                { key: "accessibility", label: "Accessibility" },
+                { key: "bestPractices", label: "Best Practices" },
+                { key: "seo", label: "SEO" },
+              ].map(({ key, label }) => (
+                <div key={key}>
+                  <span className="font-display text-4xl md:text-5xl text-accent leading-none">
+                    {project.metrics[key]}
+                  </span>
+                  <span className="eyebrow block mt-3">{label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-sm text-muted-foreground max-w-md">
+              Lighthouse scores, audited on the live site at launch.
+            </p>
+          </Section>
+        )}
+
         {/* Responsive screenshots */}
         <Section label="Responsive">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">

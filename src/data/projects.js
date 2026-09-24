@@ -38,9 +38,11 @@ export const PROJECTS = [
       "Responsive layouts across devices",
       "Fast loading visual presentation",
     ],
+    metrics: { performance: 97, accessibility: 100, bestPractices: 100, seo: 96 },
     outcome:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante and the resulting experience supports the intended content.",
   },
+
   {
     slug: "foundry-coffee",
     name: "Project Ipsum",
@@ -52,7 +54,7 @@ export const PROJECTS = [
       "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam pellentesque ornare sem lacinia.",
     services: ["Service One", "Service Two", "Service Four", "Service Five"],
     tech: ["Tool D", "Tool E"],
-    image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/c7bce8d87_generated_image.png",
+    image: "",
     mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/327621928_generated_image.png",
     liveUrl: "https://example.com/project-ipsum",
     overview:
@@ -77,6 +79,7 @@ export const PROJECTS = [
     outcome:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id elit non mi porta gravida at eget metus.",
   },
+  
   {
     slug: "atelier-boyd",
     name: "Project Dolor",
@@ -88,7 +91,7 @@ export const PROJECTS = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Generous whitespace and considered image presentation establish a calm visual rhythm.",
     services: ["Service Alpha", "Service Beta", "Service Gamma"],
     tech: ["Tool F", "Tool G"],
-    image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/f1434b54c_generated_image.png",
+    image: "",
     mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/e22e97e3a_generated_image.png",
     liveUrl: "https://example.com/project-dolor",
     overview:
@@ -113,78 +116,80 @@ export const PROJECTS = [
     outcome:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The resulting page provides a durable home for the project's visual content.",
   },
-  {
-    slug: "northbank-architecture",
-    name: "Project Amet",
-    industry: "Practice Placeholder",
-    year: "2024",
-    location: "County, UK",
-    tagline: "A project-led site that gives the content room to breathe.",
-    description:
-      "A project-led site with structured placeholder content, flexible layouts and a clear editorial rhythm across each page.",
-    services: ["Service One", "Service Two", "Service Three", "Service Four"],
-    tech: ["Tool H", "Tool I"],
-    image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/cb4f409e5_generated_image.png",
-    mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/327621928_generated_image.png",
-    liveUrl: "https://example.com/project-amet",
-    overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The project is organised around a portfolio of structured placeholder entries.",
-    clientBackground:
-      "Donec sed odio dui. A small team and a considered collection of placeholder work provide the project context.",
-    problem:
-      "Nullam id dolor id nibh ultricies vehicula ut id elit. Important project information needed a clearer structure and easier browsing experience.",
-    approach:
-      "Curabitur blandit tempus porttitor. Each project receives a repeatable page structure with imagery, narrative, and supporting metadata.",
-    designProcess:
-      "Aenean lacinia bibendum nulla sed consectetur. Full-width imagery, thin rules, and typographic restraint create a focused reading experience.",
-    developmentProcess:
-      "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Structured fields support consistent project pages across screen sizes.",
-    keyFeatures: [
-      "Structured project pages",
-      "Full-width placeholder imagery",
-      "Reusable content patterns",
-      "Consistent responsive layouts",
-      "Fast visual presentation",
-    ],
-    outcome:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The project provides a consistent portfolio framework for future content.",
-  },
-  {
-    slug: "linden-and-co",
-    name: "Project Elit",
-    industry: "Retail Placeholder",
-    year: "2025",
-    location: "District, UK",
-    tagline: "A warm, editorial site for a placeholder project.",
-    description:
-      "A warm, editorial site for a placeholder project, with structured sections, flexible content and a clear visual hierarchy.",
-    services: ["Service Two", "Service Four", "Service Six", "Service Seven"],
-    tech: ["Tool J", "Tool K"],
-    image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/8596c3ed9_generated_image.png",
-    mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/e22e97e3a_generated_image.png",
-    liveUrl: "https://example.com/project-elit",
-    overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The project balances editorial content with a simple, accessible information structure.",
-    clientBackground:
-      "Vestibulum id ligula porta felis euismod semper. The project uses a concise collection of placeholder content and supporting details.",
-    problem:
-      "Maecenas faucibus mollis interdum. Existing information needed a stronger hierarchy and more visible pathways through the page.",
-    approach:
-      "Donec ullamcorper nulla non metus auctor fringilla. The approach combines modular sections with a consistent editorial presentation.",
-    designProcess:
-      "Cras mattis consectetur purus sit amet fermentum. Paper-toned surfaces, serif headings, and generous spacing support the intended visual tone.",
-    developmentProcess:
-      "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. The page system is designed to accommodate repeatable content and future updates.",
-    keyFeatures: [
-      "Editorial content section",
-      "Structured updates area",
-      "Clear conversion pathway",
-      "Flexible content voice",
-      "Self-managed page sections",
-    ],
-    outcome:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The completed structure provides a flexible home for future project content.",
-  },
+
+  // {
+  //   slug: "northbank-architecture",
+  //   name: "Project Amet",
+  //   industry: "Practice Placeholder",
+  //   year: "2024",
+  //   location: "County, UK",
+  //   tagline: "A project-led site that gives the content room to breathe.",
+  //   description:
+  //     "A project-led site with structured placeholder content, flexible layouts and a clear editorial rhythm across each page.",
+  //   services: ["Service One", "Service Two", "Service Three", "Service Four"],
+  //   tech: ["Tool H", "Tool I"],
+  //   image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/cb4f409e5_generated_image.png",
+  //   mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/327621928_generated_image.png",
+  //   liveUrl: "https://example.com/project-amet",
+  //   overview:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The project is organised around a portfolio of structured placeholder entries.",
+  //   clientBackground:
+  //     "Donec sed odio dui. A small team and a considered collection of placeholder work provide the project context.",
+  //   problem:
+  //     "Nullam id dolor id nibh ultricies vehicula ut id elit. Important project information needed a clearer structure and easier browsing experience.",
+  //   approach:
+  //     "Curabitur blandit tempus porttitor. Each project receives a repeatable page structure with imagery, narrative, and supporting metadata.",
+  //   designProcess:
+  //     "Aenean lacinia bibendum nulla sed consectetur. Full-width imagery, thin rules, and typographic restraint create a focused reading experience.",
+  //   developmentProcess:
+  //     "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Structured fields support consistent project pages across screen sizes.",
+  //   keyFeatures: [
+  //     "Structured project pages",
+  //     "Full-width placeholder imagery",
+  //     "Reusable content patterns",
+  //     "Consistent responsive layouts",
+  //     "Fast visual presentation",
+  //   ],
+  //   outcome:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The project provides a consistent portfolio framework for future content.",
+  // },
+
+  // {
+  //   slug: "linden-and-co",
+  //   name: "Project Elit",
+  //   industry: "Retail Placeholder",
+  //   year: "2025",
+  //   location: "District, UK",
+  //   tagline: "A warm, editorial site for a placeholder project.",
+  //   description:
+  //     "A warm, editorial site for a placeholder project, with structured sections, flexible content and a clear visual hierarchy.",
+  //   services: ["Service Two", "Service Four", "Service Six", "Service Seven"],
+  //   tech: ["Tool J", "Tool K"],
+  //   image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/8596c3ed9_generated_image.png",
+  //   mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/e22e97e3a_generated_image.png",
+  //   liveUrl: "https://example.com/project-elit",
+  //   overview:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The project balances editorial content with a simple, accessible information structure.",
+  //   clientBackground:
+  //     "Vestibulum id ligula porta felis euismod semper. The project uses a concise collection of placeholder content and supporting details.",
+  //   problem:
+  //     "Maecenas faucibus mollis interdum. Existing information needed a stronger hierarchy and more visible pathways through the page.",
+  //   approach:
+  //     "Donec ullamcorper nulla non metus auctor fringilla. The approach combines modular sections with a consistent editorial presentation.",
+  //   designProcess:
+  //     "Cras mattis consectetur purus sit amet fermentum. Paper-toned surfaces, serif headings, and generous spacing support the intended visual tone.",
+  //   developmentProcess:
+  //     "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. The page system is designed to accommodate repeatable content and future updates.",
+  //   keyFeatures: [
+  //     "Editorial content section",
+  //     "Structured updates area",
+  //     "Clear conversion pathway",
+  //     "Flexible content voice",
+  //     "Self-managed page sections",
+  //   ],
+  //   outcome:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The completed structure provides a flexible home for future project content.",
+  // },
 ];
 
 export const getProject = (slug) => PROJECTS.find((p) => p.slug === slug);
