@@ -150,7 +150,7 @@ export default function Nav() {
             href="#contact"
             className="hidden md:inline-block text-sm font-medium link-underline text-foreground"
           >
-            Contact
+            Start a project
           </a>
           <button
             ref={triggerRef}

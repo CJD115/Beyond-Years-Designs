@@ -46,7 +46,7 @@ export const PROJECTS = [
   {
     slug: "foundry-coffee",
     name: "Project Ipsum",
-    industry: "Category Placeholder",
+    industry: "Studio Placeholder",
     year: "2024",
     location: "Town, UK",
     tagline: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
@@ -55,7 +55,7 @@ export const PROJECTS = [
     services: ["Service One", "Service Two", "Service Four", "Service Five"],
     tech: ["Tool D", "Tool E"],
     image: "",
-    mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/327621928_generated_image.png",
+    mobileImage: "",
     liveUrl: "https://example.com/project-ipsum",
     overview:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis and the content is arranged around a clear browsing path.",
@@ -92,7 +92,7 @@ export const PROJECTS = [
     services: ["Service Alpha", "Service Beta", "Service Gamma"],
     tech: ["Tool F", "Tool G"],
     image: "",
-    mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/e22e97e3a_generated_image.png",
+    mobileImage: "",
     liveUrl: "https://example.com/project-dolor",
     overview:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The brief prioritises a clear visual sequence and enough space for each piece of content.",
