@@ -6,22 +6,22 @@ const ADDONS = [
     name: "Hosting",
     span: "md:col-span-7",
     edge: "md:border-r",
-    body: "dont wanna worry about hosting? we can host it for you so keeping everythig online and taken care of",
+    body: "Don't want to worry about hosting? We'll look after it for you. Your site stays online, secure and up to date, and if anything goes wrong, you've got a real person to talk to.",
   },
   {
     no: "02",
     name: "Domain",
     span: "md:col-span-5",
     edge: "",
-    body: "Need help securing your domain name? Not a problem! We’ll get you set up with your domain of choice (depending on availability), and manage it all from our end." +
-          "You’ll still have full access, but we’ll handle all the faff.",
+    body: "Need help securing your domain name? Not a problem! We’ll get you set up with your domain of choice, and manage it all from our end." +
+          " You’ll still have full access, but we’ll handle all the faff.",
   },
   {
     no: "03",
     name: "Maintenance",
     span: "md:col-span-5",
     edge: "md:border-r",
-    body: "If your site will need regular updates, we’ll keep the door open for you. With up to X updates per TIMEFRAME, you’ll be able to contact us in working hours and get changes pushed through as and when they’re required.",
+    body: "If your site will need regular updates, we’ll keep the door open for you. You’ll be able to contact us and get changes pushed through quikcly and without the fuss",
   },
   {
     no: "04",

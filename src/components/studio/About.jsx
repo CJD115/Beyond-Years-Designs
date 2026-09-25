@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import Reveal from "./Reveal";
 
 const TEAM = [
@@ -9,15 +9,16 @@ const TEAM = [
     name: "Connor",
     role: "Resident Web Developer",
     cardBio:
-      "Connor is the tech whizz behind Beyond Years Designs." +
+      "Technical co-founder behind Beyond Years Designs, and the reason every site looks, works and feels the way it does." +
       " A full-stack developer with several years of experience, he has built websites and digital applications across industries from local high-street hairdressers to nationally accredited auction houses and high-end property developers." +
-      " He handles the technical side of every project, from building the site itself to making sure everything works as it should.",
+      " He builds every site from the ground up, treating each one less like a page and more like a place people step into.",
     modalBio:
-      "Hi there! I’m Connor. Working on the technical side of Beyond Years Designs, my job means ensuring our sites and apps look great, function properly, and make our clients’ lives easier." +
-      " I’m a full-stack developer with more than six years of experience with front end and back end systems, and I love seeing projects take shape one line of code at a time." +
-      " Some of my previous clients include local hairdressers, nationally accredited auction houses and high-end property developers." +
-      "Away from work, I’m a regular at the gym. In fact, a few years ago, I won a charity MMA tournament!" +
-      "When I’m not keeping fit, you might just find me playing back through some of my lifelong favourite games, like NieR: Automata, Bloodborne, Outer Wilds, and The Last of Us. ",
+      "The first thing I ever made was a game about a man stuck in a room with his thoughts. It was rough, and I never finished it, but it said something I was feeling at the time. That's still why I make things." +
+      " I'm Connor, the technical half of Beyond Years Designs. I design and build websites, but I don't really think of them as pages. I think of them as places." +
+      " For Groves Hairstyling, I wanted the site to feel like walking into the salon itself: marble, crystal, that quiet sense of being looked after." +
+      " Most websites play it safe. They try to please everyone and end up pleasing no one. I'd rather help a business look exactly like who they are.",
+    teaser:
+      "The first thing I ever made was a game about a man stuck in a room with his thoughts.",
     image: "/connor-about.jpg",
   },
   {
@@ -33,6 +34,7 @@ const TEAM = [
       "My job is all about conveying information in a clear way, and making sure your brand voice comes through wherever it shows up, from the front page of a website to the fine-print of a pamphlet." +
       "Even when I’m not working, I still love words. You’ll often find me researching the etymology for some obscure or archaic word." +
       "Otherwise, I’m probably reading novels, writing stories, or playing The Witcher 3, Baldur’s Gate 3, or Clair Obscur: Expedition 33. (Or Dungeons & Dragons. Love Dungeons & Dragons.)",
+    teaser: "Even when I’m not working, I still love words.",
     image: "/mike-about-picture.jpg",
   },
 ];
@@ -197,6 +199,24 @@ export default function About() {
                   <p className="mt-4 max-w-md text-base text-muted-foreground leading-relaxed">
                     {m.cardBio}
                   </p>
+                  <button
+                    type="button"
+                    aria-label={`Continue reading about ${m.name}`}
+                    onClick={(e) => openProfile(i, e.currentTarget)}
+                    className="mt-8 flex max-w-[30rem] flex-col gap-[18px] border-t border-border pt-6 text-left"
+                  >
+                    <span className="font-serif-italic text-[1.625rem] md:text-[1.75rem] leading-[1.18] tracking-[-0.01em] text-foreground transition-colors duration-500 group-hover:text-[var(--ochre)] group-focus-within:text-[var(--ochre)] motion-reduce:transition-none">
+                      “{m.teaser}”
+                    </span>
+                    <span className="eyebrow inline-flex items-center gap-2.5 text-foreground">
+                      Continue reading
+                      <ArrowRight
+                        aria-hidden="true"
+                        className="h-3.5 w-3.5 transition-transform duration-500 ease-out group-hover:translate-x-1 group-focus-within:translate-x-1 motion-reduce:transition-none"
+                        strokeWidth={1.5}
+                      />
+                    </span>
+                  </button>
                 </div>
               </Reveal>
             ))}

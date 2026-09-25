@@ -10,7 +10,7 @@ const POINTS = [
     body: "We love working with small businesses, independent makers, and creative teams. When you work with us, you know you are working with a small team who cares about every detail, and who appreciates the hard work you put into your craft.",
   },
   {
-    title: "Very Experienced",
+    title: "Tried and Trusted",
     body: "Although Beyond Years Designs is new, Connor and Mike have worked together before. In fact, we have been at this for a while. We have worked with clients big and small, including local high-street hairdressers, national automotive resale, and high-end property development.",
   },
 ];

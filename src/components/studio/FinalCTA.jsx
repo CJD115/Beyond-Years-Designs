@@ -8,7 +8,7 @@ export default function FinalCTA() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const projectTypeOptions = ["Start from scratch", "Refresh my website", "Improve my messaging", "Let's figure it out"];
+  const projectTypeOptions = ["Start from scratch", "Refresh my website", "Improve my messaging", "Not sure yet, let's chat"];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,17 +42,16 @@ export default function FinalCTA() {
         <Reveal className="border-t border-background/20 pt-10">
           <p className="eyebrow text-background/60 mb-6">Get Started</p>
           <h2 className="font-display text-[14vw] md:text-[9vw] leading-[0.9] tracking-[-0.03em] text-balance">
-            Let’s make your website
+            Your business has a story.
             <br />
-            <span className="font-serif-italic text-accent">feel like you.</span>
+            <span className="font-serif-italic text-accent">Let's tell it.</span>
           </h2>
         </Reveal>
 
         <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <p className="text-lg text-background/70 leading-relaxed max-w-sm mb-10">
-              Tell us a little about your business and what you need.
-              We’ll come back to you with a clear, useful next step.
+              Tell us your story. What you do, who it's for, and what you need. We'll take it from there, together.
             </p>
             <dl className="flex flex-col gap-6 text-sm">
               <div>
