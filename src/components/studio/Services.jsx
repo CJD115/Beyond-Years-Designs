@@ -31,7 +31,7 @@ export default function Services() {
         <Reveal className="mb-16 md:mb-20 border-t border-border pt-10">
           <p className="eyebrow mb-4">Services</p>
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-3xl">
-             Everything your business needs,
+             Everything your business needs
             <br />
             <span className="font-serif-italic text-accent">in one focused website.</span>
           </h2>

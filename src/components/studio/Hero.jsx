@@ -66,7 +66,7 @@ export default function Hero() {
               }}
               className="font-serif-italic text-accent block"
             >
-              big ideas.
+              Big ideas.
             </motion.span>
           </span>
         </motion.h1>
@@ -74,7 +74,7 @@ export default function Hero() {
         <div className="mt-12 md:mt-12 lg:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-5">
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground max-w-lg">
-              You’re a small business. We’re a small business. We get it.
+              You’re a small business. We’re a small business—We get it.
               You’re busy doing what you do best. You’re working hard, your junk folder’s full, and there just
               isn’t the time or budget for a flashy, overdesigned website or app. Sometimes, all you need is
               something simple.

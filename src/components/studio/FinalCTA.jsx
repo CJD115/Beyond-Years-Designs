@@ -8,7 +8,7 @@ export default function FinalCTA() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const projectTypeOptions = ["A new website", "A redesign", "Website copy", "Not sure yet"];
+  const projectTypeOptions = ["Start from scratch", "Refresh my website", "Improve my messaging", "Let's figure it out"];
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -4,7 +4,7 @@
 
 export const PROJECTS = [
   {
-    slug: "marston-roe",
+    slug: "churcham-homes",
     name: "Churcham Homes",
     industry: "Luxury Property Developer",
     year: "2025",
@@ -44,17 +44,17 @@ export const PROJECTS = [
   },
 
   {
-    slug: "foundry-coffee",
-    name: "Project Ipsum",
-    industry: "Studio Placeholder",
+    slug: "groves-hairstyling",
+    name: "Groves Hairstyling",
+    industry: "Hair Stylist",
     year: "2024",
-    location: "Town, UK",
+    location: "Cheltenham, UK",
     tagline: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
     description:
       "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam pellentesque ornare sem lacinia.",
     services: ["Service One", "Service Two", "Service Four", "Service Five"],
-    tech: ["Tool D", "Tool E"],
-    image: "",
+    tech: ["Squarespace", "CSS"],
+    image: "/grove-hairstyling-hero.png",
     mobileImage: "",
     liveUrl: "https://example.com/project-ipsum",
     overview:
@@ -81,17 +81,17 @@ export const PROJECTS = [
   },
   
   {
-    slug: "atelier-boyd",
-    name: "Project Dolor",
-    industry: "Studio Placeholder",
-    year: "2025",
-    location: "Region, UK",
-    tagline: "A quiet, gallery-led presentation for a placeholder project.",
+    slug: "hidden-gem",
+    name: "Hidden Gem",
+    industry: "Removals & Clearances",
+    year: "2024",
+    location: "Birmingham, UK",
+    tagline: "A passionate, growing company for removals.",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Generous whitespace and considered image presentation establish a calm visual rhythm.",
     services: ["Service Alpha", "Service Beta", "Service Gamma"],
-    tech: ["Tool F", "Tool G"],
-    image: "",
+    tech: ["Wordpress", "Elementor"],
+    image: "/hidden-gem-hero.png",
     mobileImage: "",
     liveUrl: "https://example.com/project-dolor",
     overview:
@@ -128,8 +128,8 @@ export const PROJECTS = [
   //     "A project-led site with structured placeholder content, flexible layouts and a clear editorial rhythm across each page.",
   //   services: ["Service One", "Service Two", "Service Three", "Service Four"],
   //   tech: ["Tool H", "Tool I"],
-  //   image: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/cb4f409e5_generated_image.png",
-  //   mobileImage: "https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/327621928_generated_image.png",
+  //   image: "/finance-manager-main.png",
+  //   mobileImage: "",
   //   liveUrl: "https://example.com/project-amet",
   //   overview:
   //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The project is organised around a portfolio of structured placeholder entries.",

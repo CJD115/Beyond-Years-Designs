@@ -18,7 +18,7 @@ const TEAM = [
       " Some of my previous clients include local hairdressers, nationally accredited auction houses and high-end property developers." +
       "Away from work, I’m a regular at the gym. In fact, a few years ago, I won a charity MMA tournament!" +
       "When I’m not keeping fit, you might just find me playing back through some of my lifelong favourite games, like NieR: Automata, Bloodborne, Outer Wilds, and The Last of Us. ",
-      image: "/connor-about.jpg",
+    image: "/connor-about.jpg",
   },
   {
     name: "Mike",
@@ -33,7 +33,7 @@ const TEAM = [
       "My job is all about conveying information in a clear way, and making sure your brand voice comes through wherever it shows up, from the front page of a website to the fine-print of a pamphlet." +
       "Even when I’m not working, I still love words. You’ll often find me researching the etymology for some obscure or archaic word." +
       "Otherwise, I’m probably reading novels, writing stories, or playing The Witcher 3, Baldur’s Gate 3, or Clair Obscur: Expedition 33. (Or Dungeons & Dragons. Love Dungeons & Dragons.)",
-      image: "/mike-about-picture.jpg",
+    image: "/mike-about-picture.jpg",
   },
 ];
 
@@ -43,7 +43,8 @@ export default function About() {
   const dialogRef = useRef(null);
   const lastTriggerRef = useRef(null);
   const shouldReduceMotion = useReducedMotion();
-  const activeMember = activeMemberIndex !== null ? TEAM[activeMemberIndex] : null;
+  const activeMember =
+    activeMemberIndex !== null ? TEAM[activeMemberIndex] : null;
 
   useEffect(() => {
     if (!activeMember) return;
@@ -87,7 +88,7 @@ export default function About() {
       if (!container) return;
 
       const focusable = container.querySelectorAll(
-        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
 
       if (focusable.length === 0) {
@@ -128,50 +129,78 @@ export default function About() {
     <>
       <section id="about" className="relative py-24 md:py-36">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
-        <Reveal className="mb-16 md:mb-24 border-t border-border pt-10 grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-7">
-            <p className="eyebrow mb-4">About</p>
-            <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
-              Small team,
-              <br />
-              <span className="font-serif-italic text-accent">serious standards.</span>
-            </h2>
-          </div>
-          <p className="md:col-span-4 md:col-start-9 self-end text-base text-muted-foreground leading-relaxed max-w-sm">
-            Beyond Years Designs is a small Bristol-based studio founded by Connor and Mike. 
-            Between us, we combine web development and professional writing to build websites that work properly and communicate clearly.
-          </p>
-        </Reveal>
+          <Reveal className="mb-16 md:mb-24 border-t border-border pt-10 grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="md:col-span-7">
+              <p className="eyebrow mb-4">About</p>
+              <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
+                Small team,
+                <br />
+                <span className="font-serif-italic text-accent">
+                  serious standards.
+                </span>
+              </h2>
+            </div>
+            <p className="md:col-span-4 md:col-start-9 self-end text-base text-muted-foreground leading-relaxed max-w-lg">
+              Beyond Years Designs is a small, Bristol-based team founded by Connor and Mike. 
+              After a decade of friendship, we finally decided it was time to put our heads together and do what we do best. 
+              <br></br>
+              <br></br>
+              Combining web development and professional writing, all of our projects are designed to function flawlessly and communicate effectively. 
+              We work closely with clients from the first conversation to the finished product to ensure we give you what your business actually needs. 
+              <br></br>
+              <br></br>
+              If you’re making something worth putting in front of the world, we want to help put it there. 
+              {/* <br></br>
+              <br></br>
+              Combining web development and professional writing, we’re offering
+              websites and applications that work properly and communicate
+              clearly, without any of the faff.
+              <br></br>
+              <br></br>
+              We work closely with our clients from the first conversation to
+              the finished product, keeping things clear and collaborative the
+              entire time. That means a more personal process, less uncertainty,
+              and an end product built around what your business actually needs.
+              <br></br>
+              <br></br>
+              For us, we’re proud to call Bristol our home. However, we work
+              with small businesses, independent makers and creative teams,
+              wherever you might be! So, if you’re making something worth
+              putting in front of the world, we want to help you put it there. */}
+            </p>
+          </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          {TEAM.map((m, i) => (
-            <Reveal key={m.name} delay={i * 0.1}>
-              <div className="group">
-                <div className="relative aspect-4/5 w-full overflow-hidden bg-secondary">
-                  <button
-                    type="button"
-                    aria-label={`Read more about ${m.name}`}
-                    onClick={(e) => openProfile(i, e.currentTarget)}
-                    className="block h-full w-full text-left"
-                  >
-                    <img
-                      src={m.image}
-                      alt={m.name}
-                      className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-                    />
-                  </button>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            {TEAM.map((m, i) => (
+              <Reveal key={m.name} delay={i * 0.1}>
+                <div className="group">
+                  <div className="relative aspect-4/5 w-full overflow-hidden bg-secondary">
+                    <button
+                      type="button"
+                      aria-label={`Read more about ${m.name}`}
+                      onClick={(e) => openProfile(i, e.currentTarget)}
+                      className="block h-full w-full text-left"
+                    >
+                      <img
+                        src={m.image}
+                        alt={m.name}
+                        className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                      />
+                    </button>
+                  </div>
+                  <div className="mt-6 flex items-baseline justify-between border-t border-border pt-5">
+                    <h3 className="font-display text-3xl md:text-4xl leading-none">
+                      {m.name}
+                    </h3>
+                    <span className="eyebrow">{m.role}</span>
+                  </div>
+                  <p className="mt-4 max-w-md text-base text-muted-foreground leading-relaxed">
+                    {m.cardBio}
+                  </p>
                 </div>
-                <div className="mt-6 flex items-baseline justify-between border-t border-border pt-5">
-                  <h3 className="font-display text-3xl md:text-4xl leading-none">{m.name}</h3>
-                  <span className="eyebrow">{m.role}</span>
-                </div>
-                <p className="mt-4 max-w-md text-base text-muted-foreground leading-relaxed">
-                  {m.cardBio}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -195,10 +224,21 @@ export default function About() {
                   aria-modal="true"
                   aria-labelledby="about-profile-title"
                   aria-describedby="about-profile-bio"
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20, scale: shouldReduceMotion ? 1 : 0.98 }}
+                  initial={{
+                    opacity: 0,
+                    y: shouldReduceMotion ? 0 : 20,
+                    scale: shouldReduceMotion ? 1 : 0.98,
+                  }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: shouldReduceMotion ? 0 : 12, scale: shouldReduceMotion ? 1 : 0.985 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.34, ease: [0.22, 1, 0.36, 1] }}
+                  exit={{
+                    opacity: 0,
+                    y: shouldReduceMotion ? 0 : 12,
+                    scale: shouldReduceMotion ? 1 : 0.985,
+                  }}
+                  transition={{
+                    duration: shouldReduceMotion ? 0 : 0.34,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="w-full max-h-full overflow-auto border border-border bg-background"
                   onMouseDown={(e) => e.stopPropagation()}
                 >
@@ -214,10 +254,15 @@ export default function About() {
                       <div className="flex items-start justify-between gap-4 border-b border-border pb-5 md:pb-6">
                         <div>
                           <p className="eyebrow mb-3">Team Profile</p>
-                          <h3 id="about-profile-title" className="font-display text-5xl md:text-6xl leading-[0.95]">
+                          <h3
+                            id="about-profile-title"
+                            className="font-display text-5xl md:text-6xl leading-[0.95]"
+                          >
                             {activeMember.name}
                           </h3>
-                          <p className="mt-3 text-sm md:text-base text-muted-foreground">{activeMember.role}</p>
+                          <p className="mt-3 text-sm md:text-base text-muted-foreground">
+                            {activeMember.role}
+                          </p>
                         </div>
                         <button
                           ref={closeButtonRef}
@@ -243,7 +288,7 @@ export default function About() {
             </motion.div>
           )}
         </AnimatePresence>,
-        document.body
+        document.body,
       )}
     </>
   );
