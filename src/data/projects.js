@@ -9,36 +9,36 @@ export const PROJECTS = [
     industry: "Luxury Property Developer",
     year: "2025",
     location: "Cheltenham, UK",
-    tagline: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    tagline: "A calm, image-led home for bespoke luxury developments across Gloucestershire.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "A website for a family-run luxury developer, giving each new development a clear home with galleries, floor plans, pricing and a direct route to enquire.",
     services: ["Website Design", "Web Development", "Content & Project Showcase", "Responsive Design"],
     tech: ["Wordpress", "Elementor", "Javascript"],
     image: "/Churcham-homes-hero.png",
+    thumb: "/hero-trail/churcham-homes.webp",
     responsiveImage: "/Churcham-homes-location-to-lifestyle.png",
     mobileImage: "/Churcham-homes-hero-mobile.png",
-    liveUrl: "https://example.com/project-lorem",
+    liveUrl: "https://example.com/churcham-homes",
     featured: true,
     overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor, integer posuere erat a ante.",
+      "Overiew of the project, why and what it does etc",
     clientBackground:
-      "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla.",
+      "Who is churcham",
     problem:
-      "Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur, with content arranged across a clearer structure.",
+      "what we were improving fixing",
     approach:
-      "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Vestibulum id ligula porta felis euismod semper.",
+      "Our mindset and how we came into the project",
     designProcess:
-      "Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui, with flexible layouts and a considered visual system.",
+      "what was coming up with the idea steps etc",
     developmentProcess:
-      "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+      "How did development look",
     keyFeatures: [
-      "Placeholder feature with a clear structure",
-      "Lorem ipsum content arranged for scanning",
-      "Flexible editable content areas",
-      "Responsive layouts across devices",
-      "Fast loading visual presentation",
+      "Development listings with live status and guide pricing",
+      "Image-led galleries, floor plans and digital brochures",
+      "Previous developments archive showcasing the track record",
+      "Dedicated land acquisition enquiry route",
     ],
-    metrics: { performance: 97, accessibility: 100, bestPractices: 100, seo: 96 },
+    metrics: { performance: 99, accessibility: 96, bestPractices: 96, seo: 100 },
     outcome:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante and the resulting experience supports the intended content.",
   },
@@ -55,6 +55,7 @@ export const PROJECTS = [
     services: ["Service One", "Service Two", "Service Four", "Service Five"],
     tech: ["Squarespace", "CSS"],
     image: "/grove-hairstyling-hero.png",
+    thumb: "/hero-trail/groves-hairstyling.webp",
     mobileImage: "",
     liveUrl: "https://example.com/project-ipsum",
     overview:
@@ -92,6 +93,7 @@ export const PROJECTS = [
     services: ["Service Alpha", "Service Beta", "Service Gamma"],
     tech: ["Wordpress", "Elementor"],
     image: "/hidden-gem-hero.png",
+    thumb: "/hero-trail/hidden-gem.webp",
     mobileImage: "",
     liveUrl: "https://example.com/project-dolor",
     overview:

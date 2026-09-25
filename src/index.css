@@ -170,6 +170,21 @@
     opacity: 0.04;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+  /* Hero paper (Hero 3.10) — warm paper tone with a fibrous texture.
+     Only the last 80px soften, so the hero meets the next section cleanly. */
+  .hero-paper {
+    background-color: #F4EEE6;
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 80px), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 80px), transparent);
+  }
+  .hero-paper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/textures/paper.webp");
+    background-size: 512px 512px;
+    opacity: 0.7;
+  }
 }
 
 @media (min-height: 760px) and (max-width: 767px) {
@@ -182,5 +197,96 @@
   .hero-section {
     justify-content: flex-start;
     padding-top: 5.25rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Hero 3.10 poster scaling (desktop, 1024px and up)
+
+   The hero was composed on a 1440 × 900 frame. --poster-u is one
+   "poster pixel": the whole frame (headline, prints, line, margins
+   and gaps) scales as a single unit to fit the viewport, between
+   0.7× and 1.6×. Height is measured against 840 rather than 900 so
+   the breathing room under the nav can compress a little before the
+   poster has to shrink.
+
+   Readable UI (eyebrow, paragraph, buttons, nav) is clamped so it
+   stays a comfortable reading size at every scale.
+------------------------------------------------------------------- */
+:root {
+  --poster-u: clamp(0.7px, min(100vw / 1440, 100svh / 840), 1.6px);
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .hero-poster {
+    width: calc(var(--poster-u) * 1440);
+    max-width: none;
+    min-height: min(
+      calc(var(--poster-u) * 900),
+      max(calc(var(--poster-u) * 840), 100svh)
+    );
+    margin-inline: auto;
+    /* top padding only guarantees clearance under the fixed nav; at normal
+       proportions the bottom-anchored copy sits well below it anyway */
+    padding: max(80px, calc(var(--poster-u) * 80)) calc(var(--poster-u) * 64)
+      calc(var(--poster-u) * 96);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .hero-poster .hero-eyebrow {
+    font-size: clamp(11px, calc(var(--poster-u) * 11.2), 13px);
+    margin-bottom: calc(var(--poster-u) * 64);
+  }
+
+  .hero-poster .hero-title {
+    font-size: calc(var(--poster-u) * 151);
+  }
+
+  .hero-poster .hero-lower {
+    margin-top: calc(var(--poster-u) * 64);
+    column-gap: calc(var(--poster-u) * 32);
+  }
+
+  /* the paragraph's own max-width sets its measure, not the grid column */
+  .hero-poster .hero-body-col {
+    grid-column: span 6 / span 6;
+  }
+
+  .hero-poster .hero-body {
+    font-size: clamp(16px, calc(var(--poster-u) * 20), 23px);
+    /* 512px at the 20px design size: keeps the same line length in characters,
+       but never wider than its 512-poster-pixel slot, so it can't reach the prints */
+    max-width: min(25.6em, calc(var(--poster-u) * 512));
+  }
+
+  .hero-poster .hero-ctas {
+    row-gap: calc(var(--poster-u) * 16);
+  }
+
+  .hero-poster .hero-cta {
+    font-size: clamp(16px, calc(var(--poster-u) * 16), 18px);
+  }
+
+  /* The nav sits on the same frame as the hero so their edges line up */
+  .nav-poster {
+    max-width: calc(var(--poster-u) * 1440);
+    padding-inline: calc(var(--poster-u) * 64);
+    padding-block: clamp(20px, calc(var(--poster-u) * 20), 26px);
+  }
+
+  .nav-poster .nav-logo {
+    font-size: clamp(20px, calc(var(--poster-u) * 20), 26px);
+  }
+
+  .nav-poster .nav-link {
+    font-size: clamp(14px, calc(var(--poster-u) * 14), 16px);
   }
 }

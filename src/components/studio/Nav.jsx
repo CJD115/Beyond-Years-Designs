@@ -130,16 +130,16 @@ export default function Nav() {
           scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent border-b border-transparent"
         }`}
       >
-        <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
-          <a href="#top" className="font-display text-xl tracking-tight leading-none">
-            Beyond <span className="font-serif-italic text-accent">&amp;</span> Designs
+        <nav className="nav-poster mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
+          <a href="#top" className="nav-logo font-display text-xl tracking-tight leading-none">
+            Beyond Years Designs
           </a>
           <ul className="hidden items-center gap-10 md:flex">
             {LINKS.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="link-underline text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                  className="nav-link link-underline text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                 >
                   {l.label}
                 </a>
@@ -148,7 +148,7 @@ export default function Nav() {
           </ul>
           <a
             href="#contact"
-            className="hidden md:inline-block text-sm font-medium link-underline text-foreground"
+            className="nav-link hidden md:inline-block text-sm font-medium link-underline text-foreground"
           >
             Start a project
           </a>
