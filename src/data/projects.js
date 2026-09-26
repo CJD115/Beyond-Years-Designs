@@ -12,7 +12,7 @@ export const PROJECTS = [
     tagline: "A calm, image-led home for bespoke luxury developments across Gloucestershire.",
     description:
       "A website for a family-run luxury developer, giving each new development a clear home with galleries, floor plans, pricing and a direct route to enquire.",
-    services: ["Website Design", "Web Development", "Content & Project Showcase", "Responsive Design"],
+    services: ["Website Design", "Web Development", "Copywriting", "Content Writing", "Content & Project Showcase", "Responsive Design"],
     tech: ["Wordpress", "Elementor", "Javascript"],
     image: "/Churcham-homes-hero.png",
     thumb: "/hero-trail/churcham-homes.webp",

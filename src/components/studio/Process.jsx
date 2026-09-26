@@ -9,17 +9,17 @@ const STEPS = [
   {
     no: "02",
     title: "Planning",
-    body: "A good website should fit the business, not the other way around. Whether you need one page or something more involved, we showcase the important information in a clear, considered way that’s right for you.",
+    body: "Once we know what you want, we’ll work out a development roadmap. With the milestones and deadlines agreed, we’ll send the plan over to make sure you’re happy with it, and then get to work!",
   },
   {
     no: "03",
     title: "Production",
-    body: "Your website should tell the world who you are, what you do, and how to find you. We’ll periodically check in as we develop your site, keeping you up to date on the project’s progress.",
+    body: "Once we get started, Connor will build your website from the ground up, one line of code at a time. Meanwhile, Mike will craft your brand copy so it’s ready to greet the online world.",
   },
   {
     no: "04",
     title: "Project complete",
-    body: "Once you’re happy with the site, we can handle the admin afterwards, too. We’ll host your site, set up your domain, and keep it maintained, providing ongoing support and keeping everything updated and under control.",
+    body: "Happy with the final product? It’s all yours after we receive the final payment! You’ll have the opportunity once again to choose any ongoing support you might want, like web hosting, maintenance, or domain setup.",
   },
 ];
 

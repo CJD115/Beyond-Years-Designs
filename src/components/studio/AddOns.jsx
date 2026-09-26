@@ -6,7 +6,7 @@ const ADDONS = [
     name: "Hosting",
     span: "md:col-span-7",
     edge: "md:border-r",
-    body: "Don't want to worry about hosting? We'll look after it for you. Your site stays online, secure and up to date, and if anything goes wrong, you've got a real person to talk to.",
+    body: "If you don’t already have a hosting solution in mind, don’t worry! We’re happy to host your site for you, making sure everything’s kept online and taken care of, hassle-free. If you’re interested, you can explore our hosting options here.",
   },
   {
     no: "02",
@@ -21,7 +21,7 @@ const ADDONS = [
     name: "Maintenance",
     span: "md:col-span-5",
     edge: "md:border-r",
-    body: "If your site will need regular updates, we’ll keep the door open for you. You’ll be able to contact us and get changes pushed through quikcly and without the fuss",
+    body: "If your site will need regular updates, we can keep the door open for you. Once we’ve agreed the scope and frequency, you’ll be able to contact us to make any changes to your website, as and when you need. ",
   },
   {
     no: "04",

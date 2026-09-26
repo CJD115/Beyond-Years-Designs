@@ -32,7 +32,7 @@ const TEAM = [
       "Hi there! I’m Mike. I am the words expert behind Beyond Years Designs. " +
       "I’ve been writing professionally for six years now, and I’ve had the opportunity work with some incredible clients across various sectors, including national automotive resale, financial advice and high-end property construction. " +
       "My job is all about conveying information in a clear way, and making sure your brand voice comes through wherever it shows up, from the front page of a website to the fine-print of a pamphlet." +
-      "Even when I’m not working, I still love words. You’ll often find me researching the etymology for some obscure or archaic word." +
+      " Even when I’m not working, I still love words. You’ll often find me researching the etymology for some obscure or archaic word." +
       "Otherwise, I’m probably reading novels, writing stories, or playing The Witcher 3, Baldur’s Gate 3, or Clair Obscur: Expedition 33. (Or Dungeons & Dragons. Love Dungeons & Dragons.)",
     teaser: "Even when I’m not working, I still love words.",
     image: "/mike-about-picture.jpg",
