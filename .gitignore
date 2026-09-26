@@ -29,3 +29,6 @@ dist-ssr
 *.sw?
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+
+# Raw portfolio screenshots (review, then copy chosen ones into public/work/)
+captures/
