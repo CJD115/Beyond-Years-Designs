@@ -192,6 +192,12 @@
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 96px, #000 calc(100% - 96px), transparent);
     mask-image: linear-gradient(to bottom, transparent, #000 96px, #000 calc(100% - 96px), transparent);
   }
+  /* Sits under the paper's bottom fade and eases into Services' tint, so the
+     paper dissolves into the next section's colour rather than into the page
+     background and then a hard edge */
+  .vision-fade-out {
+    background: linear-gradient(to bottom, transparent, hsl(var(--secondary) / 0.4));
+  }
   .vision-paper::after {
     content: "";
     position: absolute;

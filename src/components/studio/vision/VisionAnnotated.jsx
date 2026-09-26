@@ -96,6 +96,7 @@ export default function VisionAnnotated() {
   return (
     <section id="vision" className="relative py-28 md:py-40">
       {/* the hero's paper returns, fading in and out at the edges */}
+      <div aria-hidden="true" className="vision-fade-out pointer-events-none absolute inset-x-0 bottom-0 h-24" />
       <div aria-hidden="true" className="vision-paper pointer-events-none absolute inset-0" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16">
