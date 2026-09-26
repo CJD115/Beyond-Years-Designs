@@ -9,9 +9,9 @@ export const PROJECTS = [
     industry: "Luxury Property Developer",
     year: "2025",
     location: "Cheltenham, UK",
-    tagline: "A calm, image-led home for bespoke luxury developments across Gloucestershire.",
+    tagline: "A family-run luxury property developer. This website concept spotlights each new development with galleries, floor plans, pricing, and a direct route to enquire. ",
     description:
-      "A website for a family-run luxury developer, giving each new development a clear home with galleries, floor plans, pricing and a direct route to enquire.",
+      "A modern, visual-first website for high-end property developments across Gloucestershire. ",
     services: ["Website Design", "Web Development", "Copywriting", "Content Writing", "Content & Project Showcase", "Responsive Design"],
     tech: ["Wordpress", "Elementor", "Javascript"],
     image: "/Churcham-homes-hero.png",
@@ -29,11 +29,12 @@ export const PROJECTS = [
     liveUrl: "https://example.com/churcham-homes",
     featured: true,
     overview:
-      "Overiew of the project, why and what it does etc",
+      "This polished, image-led website concept is designed to showcase what the brand does, and convert interest into enquiries." + 
+      "It uses responsive design and premium photography to convey the luxurious brand feel, and spotlights each development with galleries, floor plans, and relevant contact details.",
     clientBackground:
-      "Who is churcham",
+      "Churcham Homes is a family-run premium property developer in Gloucestershire. Their developments focus on high-end finishes, modern layouts, and a premium customer experience.",
     problem:
-      "what we were improving fixing",
+      "The client’s business had grown significantly since their original website was put together. It was time to try something a little more sophisticated that better reflected where the brand was today.",
     approach:
       "Our mindset and how we came into the project",
     designProcess:
@@ -57,9 +58,9 @@ export const PROJECTS = [
     industry: "Hair Stylist",
     year: "2024",
     location: "Cheltenham, UK",
-    tagline: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
+    tagline: "A long-standing local hair salon with a loyal client base. This website highlights their services, pricing, and product options, with a clean modern look that reflects the brand’s friendly, professional feel.",
     description:
-      "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam pellentesque ornare sem lacinia.",
+      "An elegant, welcoming website for a trusted hairstyling brand in Gloucestershire.",
     services: ["Service One", "Service Two", "Service Four", "Service Five"],
     tech: ["Squarespace", "CSS"],
     image: "/work/groves-hairstyling-desktop.webp",
@@ -79,11 +80,11 @@ export const PROJECTS = [
     mobileImage: "/work/groves-hairstyling-mobile.webp",
     liveUrl: "https://www.groveshairstyling.com/",
     overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis and the content is arranged around a clear browsing path.",
+      "This elegant, approachable website is designed to show customers exactly what the company offers, and make it easy for them to book.",
     clientBackground:
-      "Vestibulum id ligula porta felis euismod semper. Donec sed odio dui, with a concise collection of placeholder content.",
+      "Groves Hairstyling is a family-run hair salon with decades of experience and a strong reputation in the local area.",
     problem:
-      "Nullam id dolor id nibh ultricies vehicula ut id elit. The original structure left important content hidden and required a more flexible presentation.",
+      "Until working with the client, they had been relying solely on social media to serve as their online presence, and to engage with their customers. ",
     approach:
       "Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor, with a clear set of screens and repeatable content patterns.",
     designProcess:
@@ -97,8 +98,9 @@ export const PROJECTS = [
       "Responsive image presentation",
       "Clear interaction patterns",
     ],
+    metrics: { performance: 99, accessibility: 96, bestPractices: 96, seo: 92 },
     outcome:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id elit non mi porta gravida at eget metus.",
+      "The new website gives Groves Hairstyling a modern, reliable online presence that feels true to the brand. Customers can find services, check prices, and get in touch easily. ",
   },
   
   {
@@ -107,9 +109,9 @@ export const PROJECTS = [
     industry: "Removals & Clearances",
     year: "2024",
     location: "Birmingham, UK",
-    tagline: "A passionate, growing company for removals.",
+    tagline: "A nationally accredited auction house, local antiques shop, and removals business. This website reflects the professional, friendly brand image with clean layouts, and finds customers with full SEO.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Generous whitespace and considered image presentation establish a calm visual rhythm.",
+      "A friendly, informative website that showcases the brand feel while generating online leads.",
     services: ["Service Alpha", "Service Beta", "Service Gamma"],
     tech: ["Wordpress", "Elementor"],
     image: "/work/hidden-gem-desktop.webp",
@@ -126,11 +128,11 @@ export const PROJECTS = [
     mobileImage: "/work/hidden-gem-mobile.webp",
     liveUrl: "https://hiddengemremovals.co.uk/",
     overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The brief prioritises a clear visual sequence and enough space for each piece of content.",
+      "With clear information and friendly copy, this website reflects the brand’s professional personality. Everything is laid out simply and clearly, so visitors can find what they need without digging. SEO works in the background to make the site easy to discover.",
     clientBackground:
-      "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. A small collection of placeholder material forms the project context.",
+      "Hidden Gem comprises a nationally accredited auction house and a local antiques business with a strong reputation. Alongside their auction work and highstreet shop, they also offer a clearances and removals service, giving customers a reliable, friendly experience across all three arms of the business.",
     problem:
-      "Maecenas faucibus mollis interdum. Existing content needed a more durable structure with clear pathways through the project.",
+      "As the client was scaling up, they needed a website that reflected the new arm of their business. Word of mouth was no longer a viable source of exposure, so it needed to be easily found online, and reliably convert site visitors into customers.",
     approach:
       "Vestibulum id ligula porta felis euismod semper. The layout gives visual content priority while keeping supporting information easy to find.",
     designProcess:
