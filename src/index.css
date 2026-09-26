@@ -202,6 +202,14 @@
   }
 }
 
+/* Phones: keep the fixed nav's height clear, so a hero that fills the
+   screen can't slide the eyebrow up underneath it */
+@media (max-width: 767px) {
+  .hero-section {
+    padding-top: 5.25rem;
+  }
+}
+
 @media (min-height: 760px) and (max-width: 767px) {
   .hero-section {
     justify-content: center;
@@ -261,8 +269,10 @@
     margin-bottom: calc(var(--poster-u) * 64);
   }
 
+  /* sized so "worth" and the tail of "remembering." stay clear of the
+     print trail's line */
   .hero-poster .hero-title {
-    font-size: calc(var(--poster-u) * 151);
+    font-size: calc(var(--poster-u) * 132);
   }
 
   .hero-poster .hero-lower {

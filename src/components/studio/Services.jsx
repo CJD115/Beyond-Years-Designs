@@ -4,13 +4,13 @@ import Reveal from "./Reveal";
 const SERVICES = [
   {
     no: "01",
-    title: "One-page Website",
-    body: "An elegant, one-page website curates your brand and shows the world who you are, all from one convenient location. No matter how complex your business, we’ll showcase all the important information in a clear, considered way that’s right for you.",
+    title: "Bespoke Websites",
+    body: "An elegant, one-page or multi-page website curates your brand and shows the world who you are, all from one convenient location. No matter how complex your business, we’ll showcase all the important information in a clear, considered way that’s right for you.",
   },
   {
     no: "02",
-    title: "Bespoke Web Design",
-    body: "All our websites are designed from the ground up by our tech whizz, Connor. That means no templates, stock layouts or pre-existing formulas—you won’t find another one quite like it! Your website is uniquely yours, designed bespoke for you.",
+    title: "Ground up Web Design",
+    body: "All our websites are designed from the ground up by our lead developer, Connor. That means no templates, stock layouts or pre-existing formulas—you won’t find another one quite like it! Your website is uniquely yours, designed bespoke for you.",
   },
   {
     no: "03",

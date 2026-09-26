@@ -44,10 +44,8 @@ export default function Hero() {
                 }}
                 className="block"
               >
-                Small websites
+                Websites worth
               </motion.span>
-            </span>
-            <span className="block overflow-hidden">
             </span>
             <span className="block overflow-visible">
               <motion.span
@@ -57,7 +55,7 @@ export default function Hero() {
                 }}
                 className="font-serif-italic text-accent block"
               >
-                Big ideas.
+                remembering.
               </motion.span>
             </span>
           </motion.h1>
