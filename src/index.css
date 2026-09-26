@@ -57,28 +57,6 @@
     --slate: #4A4A4A;
     --ochre: #A67C52;
   }
-
-  .dark {
-    --background: 0 0% 7%;
-    --foreground: 30 38% 95%;
-    --card: 0 0% 9%;
-    --card-foreground: 30 38% 95%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 30 38% 95%;
-    --primary: 30 38% 95%;
-    --primary-foreground: 0 0% 7%;
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 30 38% 95%;
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 30 43% 60%;
-    --accent-foreground: 0 0% 7%;
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 30 38% 95%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 30 43% 60%;
-  }
 }
 
 @layer base {
@@ -87,9 +65,27 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Reduced motion: CSS transitions and keyframe animations (hover moves,
+     underline draws, the footer's pulse) finish immediately. Motion's own
+     animations are handled by <MotionConfig reducedMotion="user"> in App. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   body {

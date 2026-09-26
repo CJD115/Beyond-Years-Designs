@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
 const SERVICES = [
@@ -9,7 +9,7 @@ const SERVICES = [
   },
   {
     no: "02",
-    title: "Ground up Web Design",
+    title: "Ground-up Web Design",
     body: "All our websites are designed from the ground up by our lead developer, Connor. That means no templates, stock layouts or pre-existing formulas—you won’t find another one quite like it! Your website is uniquely yours, designed bespoke for you.",
   },
   {
@@ -33,7 +33,7 @@ export default function Services() {
           <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-3xl">
              Everything your business needs
             <br />
-            <span className="font-serif-italic text-accent">in one focused website.</span>
+            <span className="font-serif-italic text-accent">in one focussed website.</span>
           </h2>
         </Reveal>
 

@@ -1,12 +1,17 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import Reveal from "@/components/studio/Reveal";
 import Mockup from "@/components/studio/Mockup";
-import { Image } from "@/components/ui/image";
 import { getProject, getNextProject } from "@/data/projects";
+import { caseStudyMeta, caseStudyPath } from "@/data/site";
 import { useSeo } from "@/lib/seo";
+
+// Rendered widths of the two desktop screenshots, for srcset selection
+const HERO_SIZES =
+  "(min-width: 1600px) 1472px, (min-width: 1024px) calc(100vw - 128px), (min-width: 768px) calc(100vw - 80px), calc(100vw - 48px)";
+const RESPONSIVE_SIZES = "(min-width: 1600px) 970px, (min-width: 768px) 60vw, calc(100vw - 48px)";
 
 function Section({ label, children, className = "" }) {
   return (
@@ -21,19 +26,15 @@ export default function CaseStudy() {
   const { slug } = useParams();
   const project = getProject(slug);
 
-  const title = project
-    ? `${project.name} Case Study | Beyond Years Designs`
-    : "Case Study Not Found | Beyond Years Designs";
-  const description = project
-    ? `${project.tagline} Case study for ${project.industry} in ${project.location}. Services: ${project.services.slice(0, 3).join(", ")}.`
-    : "The requested case study could not be found.";
-
-  useSeo({
-    title,
-    description,
-    type: project ? "article" : "website",
-    image: project?.image,
-  });
+  useSeo(
+    project
+      ? caseStudyMeta(project)
+      : {
+          title: "Case Study Not Found | Beyond Years Designs",
+          description: "The requested case study could not be found.",
+          noindex: true,
+        },
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -41,17 +42,20 @@ export default function CaseStudy() {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-6 px-6">
+      <main id="content" className="min-h-screen flex flex-col items-center justify-center gap-6 px-6">
         <p className="font-display text-4xl">Project not found.</p>
         <Link to="/" className="link-underline">Return home</Link>
-      </div>
+      </main>
     );
   }
 
   const next = getNextProject(slug);
+  const desktopShot = project.responsiveImage
+    ? { src: project.responsiveImage, srcSet: project.responsiveImageSrcSet }
+    : { src: project.image, srcSet: project.imageSrcSet };
 
   return (
-    <article className="min-h-screen bg-background text-foreground">
+    <main id="content" className="min-h-screen bg-background text-foreground">
       {/* Project hero */}
       <header className="relative pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
@@ -103,7 +107,15 @@ export default function CaseStudy() {
       {/* Large website screenshot */}
       <Reveal className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16 pb-20 md:pb-32">
         <Mockup className="aspect-16/10">
-          <Image src={project.image} alt={`${project.name} website`} fittingType="fill" className="h-full w-full" />
+          <img
+            src={project.image}
+            srcSet={project.imageSrcSet}
+            sizes={project.imageSrcSet ? HERO_SIZES : undefined}
+            alt={`${project.name} website`}
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full"
+          />
         </Mockup>
       </Reveal>
 
@@ -197,12 +209,26 @@ export default function CaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-8">
               <Mockup className="aspect-16/10">
-                <Image src={project.responsiveImage || project.image} alt={`${project.name} on desktop`} fittingType="fill" className="h-full w-full" />
+                <img
+                  src={desktopShot.src}
+                  srcSet={desktopShot.srcSet}
+                  sizes={desktopShot.srcSet ? RESPONSIVE_SIZES : undefined}
+                  alt={`${project.name} on desktop`}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full"
+                />
               </Mockup>
             </div>
             <div className="md:col-span-3 md:col-start-10">
               <Mockup className="aspect-9/16 max-w-60 mx-auto md:mx-0">
-                <Image src={project.mobileImage} alt={`${project.name} on mobile`} fittingType="fill" className="h-full w-full" />
+                <img
+                  src={project.mobileImage}
+                  alt={`${project.name} on mobile`}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full"
+                />
               </Mockup>
             </div>
           </div>
@@ -213,21 +239,23 @@ export default function CaseStudy() {
           <p className="text-lg md:text-xl text-foreground/85 leading-relaxed max-w-2xl">
             {project.outcome}
           </p>
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-8 inline-flex items-center gap-2 text-base font-medium link-underline"
-          >
-            Visit the live website
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={1.5} />
-          </a>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex items-center gap-2 text-base font-medium link-underline"
+            >
+              Visit the live website
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={1.5} />
+            </a>
+          )}
         </Section>
       </div>
 
       {/* Next project */}
       <nav className="border-t border-border">
-        <Link to={`/work/${next.slug}`} className="group block">
+        <Link to={caseStudyPath(next.slug)} className="group block">
           <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16 py-16 md:py-24 flex flex-col md:flex-row md:items-end md:justify-between gap-6 transition-colors duration-500 group-hover:bg-secondary/40">
             <div>
               <p className="eyebrow mb-4">Next Project</p>
@@ -250,6 +278,6 @@ export default function CaseStudy() {
           <Link to="/#contact" className="link-underline">Start a project</Link>
         </div>
       </div>
-    </article>
+    </main>
   );
 }

@@ -1,8 +1,11 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
-export default function Reveal({ children, delay = 0, y = 24, once = true, className = "" }) {
+// `as` renders a different element (e.g. "li" inside a list) with the same reveal
+export default function Reveal({ as = "div", children, delay = 0, y = 24, once = true, className = "" }) {
+  const Tag = motion[as];
+
   return (
-    <motion.div
+    <Tag
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -10,6 +13,6 @@ export default function Reveal({ children, delay = 0, y = 24, once = true, class
       transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }

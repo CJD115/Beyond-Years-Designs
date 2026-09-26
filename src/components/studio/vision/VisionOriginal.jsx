@@ -12,7 +12,7 @@ export default function VisionOriginal() {
           <Reveal className="md:col-span-7">
             <p className="eyebrow mb-8 text-foreground/60">Our Vision</p>
             <h2 className="font-display text-[10vw] md:text-[5.4vw] leading-[0.98] tracking-[-0.02em] text-balance">
-              Building thoughtful websites for small businesses with big ambitions.
+              Building thoughtful websites for businesses with big ambitions.
               {/* <span className="font-serif-italic">eiusmod tempor.</span> */}
             </h2>
           </Reveal>

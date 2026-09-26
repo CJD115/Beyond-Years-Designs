@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { SITE } from "@/data/site";
 
 const LINKS = [
   { label: "Work", href: "#work" },
@@ -13,6 +14,7 @@ export default function Nav() {
   const [visible, setVisible] = useState(true);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef(null);
   const triggerRef = useRef(null);
   const closeButtonRef = useRef(null);
   const dialogRef = useRef(null);
@@ -23,7 +25,8 @@ export default function Nav() {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 40);
-      if (y < 40) {
+      // never slide away while a link inside it has keyboard focus
+      if (y < 40 || headerRef.current?.contains(document.activeElement)) {
         setVisible(true);
       } else {
         setVisible(y < last);
@@ -42,14 +45,19 @@ export default function Nav() {
   }, [open]);
 
   useEffect(() => {
-    const main = document.querySelector("main");
-    const footer = document.querySelector("footer");
+    // Everything behind the menu, including the header it opened from
+    const behind = [document.querySelector("main"), document.querySelector("footer"), headerRef.current];
+    const release = () =>
+      behind.forEach((el) => {
+        el?.removeAttribute("inert");
+        el?.removeAttribute("aria-hidden");
+      });
 
     if (open) {
-      main?.setAttribute("inert", "");
-      footer?.setAttribute("inert", "");
-      main?.setAttribute("aria-hidden", "true");
-      footer?.setAttribute("aria-hidden", "true");
+      behind.forEach((el) => {
+        el?.setAttribute("inert", "");
+        el?.setAttribute("aria-hidden", "true");
+      });
 
       const rafId = window.requestAnimationFrame(() => {
         closeButtonRef.current?.focus();
@@ -57,17 +65,11 @@ export default function Nav() {
 
       return () => {
         window.cancelAnimationFrame(rafId);
-        main?.removeAttribute("inert");
-        footer?.removeAttribute("inert");
-        main?.removeAttribute("aria-hidden");
-        footer?.removeAttribute("aria-hidden");
+        release();
       };
     }
 
-    main?.removeAttribute("inert");
-    footer?.removeAttribute("inert");
-    main?.removeAttribute("aria-hidden");
-    footer?.removeAttribute("aria-hidden");
+    release();
 
     return undefined;
   }, [open]);
@@ -123,13 +125,23 @@ export default function Nav() {
   return (
     <>
       <motion.header
+        ref={headerRef}
         initial={{ y: -80 }}
         animate={{ y: visible ? 0 : -80 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        // tabbing into the header brings it back if it has slid away
+        onFocus={() => setVisible(true)}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
           scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent border-b border-transparent"
         }`}
       >
+        {/* First stop for keyboard users; off-screen until focused */}
+        <a
+          href="#content"
+          className="absolute left-4 top-3 z-10 -translate-y-[200%] bg-background px-4 py-2.5 text-sm font-medium text-foreground opacity-0 focus:translate-y-0 focus:opacity-100"
+        >
+          Skip to content
+        </a>
         <nav className="nav-poster mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
           <a href="#top" className="nav-logo font-display text-xl tracking-tight leading-none">
             Beyond Years Designs
@@ -180,8 +192,8 @@ export default function Nav() {
             className="fixed inset-0 z-60 bg-background md:hidden flex flex-col"
           >
             <div className="flex items-center justify-between px-6 py-5">
-              <span id="mobile-menu-title" className="font-display text-xl">
-                Lorem <span className="font-serif-italic text-accent">&amp;</span> Ipsum
+              <span id="mobile-menu-title" className="font-display text-xl tracking-tight leading-none">
+                Beyond Years Designs
               </span>
               <button
                 ref={closeButtonRef}
@@ -210,15 +222,16 @@ export default function Nav() {
                 </motion.li>
               ))}
             </ul>
-            <div className="px-6 pb-10">
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="block border-t border-border pt-6 text-sm text-muted-foreground"
-              >
-                hello@example.com
-              </a>
-            </div>
+            {SITE.email && (
+              <div className="px-6 pb-10">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="block border-t border-border pt-6 text-sm text-muted-foreground"
+                >
+                  {SITE.email}
+                </a>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

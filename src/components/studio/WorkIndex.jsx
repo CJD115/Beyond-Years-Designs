@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { PROJECTS } from "@/data/projects";

@@ -1,0 +1,4 @@
+# Hostinger (Apache/LiteSpeed). Case-study URLs are real folders in dist/
+# (work/<slug>/index.html), so deep links work without any rewrites. This
+# only sends unknown URLs to the app's own not-found page, with a 404 status.
+ErrorDocument 404 /404.html

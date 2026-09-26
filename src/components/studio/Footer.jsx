@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import { SITE } from "@/data/site";
+
+const elsewhere = [
+  ...SITE.socials.filter((s) => s.href),
+  ...(SITE.email ? [{ label: "Email", href: `mailto:${SITE.email}` }] : []),
+];
 
 export default function Footer() {
   const [time, setTime] = useState("");
@@ -39,12 +45,22 @@ export default function Footer() {
             <a href="#contact" className="link-underline link-underline-light inline-flex min-h-11 items-center py-1 text-background/80">Contact</a>
           </div>
 
-          <div className="md:col-span-3 flex flex-col gap-3 text-sm">
-            <span className="eyebrow text-background/50 mb-1">Elsewhere</span>
-            <a href="#" className="link-underline link-underline-light inline-flex min-h-11 items-center py-1 text-background/80">Instagram</a>
-            <a href="#" className="link-underline link-underline-light inline-flex min-h-11 items-center py-1 text-background/80">LinkendIn</a>
-            <a href="#" className="link-underline link-underline-light inline-flex min-h-11 items-center py-1 text-background/80">Email</a>
-          </div>
+          {/* Only links that exist; the column disappears while there are none.
+              Spans 11–12 so the three columns fit the 12-column grid. */}
+          {elsewhere.length > 0 && (
+            <div className="md:col-span-2 flex flex-col gap-3 text-sm">
+              <span className="eyebrow text-background/50 mb-1">Elsewhere</span>
+              {elsewhere.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="link-underline link-underline-light inline-flex min-h-11 items-center py-1 text-background/80"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="mt-16 md:mt-24 flex flex-col md:flex-row md:items-end md:justify-between gap-6">

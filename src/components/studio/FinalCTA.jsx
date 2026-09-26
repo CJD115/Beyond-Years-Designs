@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
+import { SITE } from "@/data/site";
 
 export default function FinalCTA() {
   const [projectType, setProjectType] = useState("");
@@ -54,14 +55,16 @@ export default function FinalCTA() {
               Tell us your story. What you do, who it's for, and what you need. We'll take it from there, together.
             </p>
             <dl className="flex flex-col gap-6 text-sm">
-              <div>
-                <dt className="eyebrow text-background/50 mb-1">Email</dt>
-                <dd>
-                  <a href="mailto:hello@example.com" className="link-underline link-underline-light inline-flex min-h-11 items-center py-1">
-                    hello@example.com
-                  </a>
-                </dd>
-              </div>
+              {SITE.email && (
+                <div>
+                  <dt className="eyebrow text-background/50 mb-1">Email</dt>
+                  <dd>
+                    <a href={`mailto:${SITE.email}`} className="link-underline link-underline-light inline-flex min-h-11 items-center py-1">
+                      {SITE.email}
+                    </a>
+                  </dd>
+                </div>
+              )}
               <div>
                 <dt className="eyebrow text-background/50 mb-1">Studio</dt>
                 <dd className="text-background/80">Bristol, England</dd>

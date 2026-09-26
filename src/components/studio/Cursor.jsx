@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
 
 export default function Cursor() {
   const enabled = window.matchMedia("(pointer: fine)").matches;
+  // With reduced motion the ring tracks the pointer directly instead of
+  // trailing behind it on a spring
+  const reduceMotion = useReducedMotion();
   const [hovering, setHovering] = useState(false);
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
@@ -31,7 +34,7 @@ export default function Cursor() {
   if (!enabled) return null;
 
   return (
-    <motion.div aria-hidden style={{ x: sx, y: sy }} className="pointer-events-none fixed left-0 top-0 z-100 hidden md:block">
+    <motion.div aria-hidden style={reduceMotion ? { x, y } : { x: sx, y: sy }} className="pointer-events-none fixed left-0 top-0 z-100 hidden md:block">
       <motion.div
         animate={{ scale: hovering ? 2 : 0.9, opacity: hovering ? 0.4 : 0.3 }}
         transition={{ type: "spring", stiffness: 200, damping: 18 }}

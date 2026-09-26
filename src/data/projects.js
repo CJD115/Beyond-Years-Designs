@@ -2,6 +2,14 @@
 // section and its individual case-study page at /work/:slug.
 // Add real projects here — the case-study page renders whatever fields exist.
 
+// Case-study screenshots are exported at 800, 1600 and 2400px wide
+// (name-800.webp, name-1600.webp, name.webp) so phones download the small one.
+const srcSetFor = (src) =>
+  [800, 1600]
+    .map((w) => `${src.replace(/\.webp$/, `-${w}.webp`)} ${w}w`)
+    .concat(`${src} 2400w`)
+    .join(", ");
+
 export const PROJECTS = [
   {
     slug: "churcham-homes",
@@ -14,7 +22,8 @@ export const PROJECTS = [
       "A modern, visual-first website for high-end property developments across Gloucestershire. ",
     services: ["Website Design", "Web Development", "Copywriting", "Content Writing", "Content & Project Showcase", "Responsive Design"],
     tech: ["Wordpress", "Elementor", "Javascript"],
-    image: "/Churcham-homes-hero.png",
+    image: "/work/churcham-homes-desktop.webp",
+    imageSrcSet: srcSetFor("/work/churcham-homes-desktop.webp"),
     thumb: "/hero-trail/churcham-homes.webp",
     // Selected Work ("Rooms") — the pinned prints
     print: "/work/churcham-homes.webp",
@@ -24,13 +33,13 @@ export const PROJECTS = [
       alt: "The Churcham Homes website on a phone",
       portrait: true,
     },
-    responsiveImage: "/Churcham-homes-location-to-lifestyle.png",
-    mobileImage: "/Churcham-homes-hero-mobile.png",
-    liveUrl: "https://example.com/churcham-homes",
+    responsiveImage: "/work/churcham-homes-lifestyle.webp",
+    responsiveImageSrcSet: srcSetFor("/work/churcham-homes-lifestyle.webp"),
+    mobileImage: "/work/churcham-homes-mobile.webp",
     featured: true,
     overview:
-      "This polished, image-led website concept is designed to showcase what the brand does, and convert interest into enquiries." + 
-      "It uses responsive design and premium photography to convey the luxurious brand feel, and spotlights each development with galleries, floor plans, and relevant contact details.",
+      "This polished, image-led website concept is designed to showcase what the brand does, and convert interest into enquiries." +
+      " It uses responsive design and premium photography to convey the luxurious brand feel, and spotlights each development with galleries, floor plans, and relevant contact details.",
     clientBackground:
       "Churcham Homes is a family-run premium property developer in Gloucestershire. Their developments focus on high-end finishes, modern layouts, and a premium customer experience.",
     problem:
@@ -64,6 +73,7 @@ export const PROJECTS = [
     services: ["Service One", "Service Two", "Service Four", "Service Five"],
     tech: ["Squarespace", "CSS"],
     image: "/work/groves-hairstyling-desktop.webp",
+    imageSrcSet: srcSetFor("/work/groves-hairstyling-desktop.webp"),
     thumb: "/hero-trail/groves-hairstyling.webp",
     // Selected Work ("Rooms") — the pinned prints, and a quote shown in place of the tagline
     print: "/work/groves-hairstyling.webp",
@@ -77,6 +87,7 @@ export const PROJECTS = [
       by: "Connor",
     },
     responsiveImage: "/work/groves-hairstyling-services.webp",
+    responsiveImageSrcSet: srcSetFor("/work/groves-hairstyling-services.webp"),
     mobileImage: "/work/groves-hairstyling-mobile.webp",
     liveUrl: "https://www.groveshairstyling.com/",
     overview:
@@ -115,6 +126,7 @@ export const PROJECTS = [
     services: ["Service Alpha", "Service Beta", "Service Gamma"],
     tech: ["Wordpress", "Elementor"],
     image: "/work/hidden-gem-desktop.webp",
+    imageSrcSet: srcSetFor("/work/hidden-gem-desktop.webp"),
     thumb: "/hero-trail/hidden-gem.webp",
     // Selected Work ("Rooms")
     print: "/work/hidden-gem.webp",
@@ -125,6 +137,7 @@ export const PROJECTS = [
       portrait: true,
     },
     responsiveImage: "/work/hidden-gem-intro.webp",
+    responsiveImageSrcSet: srcSetFor("/work/hidden-gem-intro.webp"),
     mobileImage: "/work/hidden-gem-mobile.webp",
     liveUrl: "https://hiddengemremovals.co.uk/",
     overview:

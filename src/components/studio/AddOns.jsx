@@ -55,24 +55,13 @@ export default function AddOns() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
             <h2 className="md:col-span-7 font-display text-5xl md:text-7xl leading-[0.95] max-w-3xl">
               Beyond launch
-              <br />
-              <span className="font-serif-italic text-accent"></span>
             </h2>
-            <div className="md:col-span-5 flex flex-col justify-end">
-              <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-md">
-                
-              </p>
-            </div>
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-10 md:mt-12">
-          <p className="text-sm text-muted-foreground/80">
-            <span className="text-foreground"></span>
-          </p>
-        </Reveal>
-
-        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-12 border-t border-border">
+        {/* mt-20 on phones keeps the spacing the removed (empty) intro column
+            used to add there; md and up are unchanged */}
+        <div className="mt-20 md:mt-12 grid grid-cols-1 md:grid-cols-12 border-t border-border">
           {ADDONS.map((item, i) => (
             <Reveal
               key={item.no}

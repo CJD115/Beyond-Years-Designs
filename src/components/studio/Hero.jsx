@@ -34,7 +34,9 @@ export default function Hero() {
                 },
               },
             }}
-            className="hero-title font-display text-[15vw] leading-[0.98] tracking-[-0.03em] md:text-[11vw] lg:text-[10.5vw] text-balance"
+            // flow-root keeps line 2's negative margin inside the heading, so the
+            // gap to the paragraph below is unchanged
+            className="hero-title flow-root font-display text-[15vw] leading-[0.98] tracking-[-0.03em] md:text-[11vw] lg:text-[10.5vw] text-balance"
           >
             <span className="block overflow-hidden">
               <motion.span
@@ -46,14 +48,17 @@ export default function Hero() {
               >
                 Websites worth
               </motion.span>
-            </span>
-            <span className="block overflow-visible">
+            </span>{" "}
+            {/* Masked like line 1. The italic g hangs ~0.11em below the line box,
+                so the mask is 0.15em deeper (padding) and the extra depth is
+                taken back with a negative margin. */}
+            <span className="block overflow-hidden -mb-[0.15em]">
               <motion.span
                 variants={{
                   hidden: { y: "100%" },
                   visible: { y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
                 }}
-                className="font-serif-italic text-accent block"
+                className="font-serif-italic text-accent block pb-[0.15em]"
               >
                 remembering.
               </motion.span>

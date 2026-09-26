@@ -118,7 +118,7 @@ export default function VisionAnnotated() {
                   transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
                 >
                   beautiful
-                </motion.span>
+                </motion.span>{" "}
                 {/* the strike: an ochre rule drawn through the old word */}
                 <motion.span
                   aria-hidden="true"
@@ -138,13 +138,13 @@ export default function VisionAnnotated() {
                   thoughtful
                 </motion.ins>
               </span>
-            </span>
+            </span>{" "}
             <span className="block">
               <span ref={websitesRef}>websites</span>
-            </span>
+            </span>{" "}
             <span className="block">
-              for small <span ref={businessesRef}>businesses</span>
-            </span>
+              for <span ref={businessesRef}>businesses</span>
+            </span>{" "}
             <span className="block">
               with big <span className="font-serif-italic">ambitions.</span>
             </span>

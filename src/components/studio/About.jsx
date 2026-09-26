@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
 import Reveal from "./Reveal";
+
+// Portraits are exported at 640 and 1280px wide (name-640.webp, name.webp)
+const CARD_SIZES = "(min-width: 1600px) 704px, (min-width: 768px) 45vw, 100vw";
+const MODAL_SIZES = "(min-width: 768px) 512px, 100vw";
 
 const TEAM = [
   {
@@ -19,7 +23,9 @@ const TEAM = [
       " Most websites play it safe. They try to please everyone and end up pleasing no one. I'd rather help a business look exactly like who they are.",
     teaser:
       "The first thing I ever made was a game about a man stuck in a room with his thoughts.",
-    image: "/connor-about.jpg",
+    image: "/team/connor.webp",
+    imageSrcSet: "/team/connor-640.webp 640w, /team/connor.webp 1280w",
+    imageSize: [1280, 1920],
   },
   {
     name: "Mike",
@@ -33,9 +39,11 @@ const TEAM = [
       "I’ve been writing professionally for six years now, and I’ve had the opportunity work with some incredible clients across various sectors, including national automotive resale, financial advice and high-end property construction. " +
       "My job is all about conveying information in a clear way, and making sure your brand voice comes through wherever it shows up, from the front page of a website to the fine-print of a pamphlet." +
       " Even when I’m not working, I still love words. You’ll often find me researching the etymology for some obscure or archaic word." +
-      "Otherwise, I’m probably reading novels, writing stories, or playing The Witcher 3, Baldur’s Gate 3, or Clair Obscur: Expedition 33. (Or Dungeons & Dragons. Love Dungeons & Dragons.)",
+      " Otherwise, I’m probably reading novels, writing stories, or playing The Witcher 3, Baldur’s Gate 3, or Clair Obscur: Expedition 33. (Or Dungeons & Dragons. Love Dungeons & Dragons.)",
     teaser: "Even when I’m not working, I still love words.",
-    image: "/mike-about-picture.jpg",
+    image: "/team/mike.webp",
+    imageSrcSet: "/team/mike-640.webp 640w, /team/mike.webp 1280w",
+    imageSize: [1280, 1792],
   },
 ];
 
@@ -44,6 +52,7 @@ export default function About() {
   const closeButtonRef = useRef(null);
   const dialogRef = useRef(null);
   const lastTriggerRef = useRef(null);
+  const continueRefs = useRef([]);
   const shouldReduceMotion = useReducedMotion();
   const activeMember =
     activeMemberIndex !== null ? TEAM[activeMemberIndex] : null;
@@ -53,12 +62,11 @@ export default function About() {
 
     document.body.style.overflow = "hidden";
 
-    const main = document.querySelector("main");
-    const footer = document.querySelector("footer");
-    main?.setAttribute("inert", "");
-    footer?.setAttribute("inert", "");
-    main?.setAttribute("aria-hidden", "true");
-    footer?.setAttribute("aria-hidden", "true");
+    // The dialog is portalled to <body>, so the whole app — header included —
+    // can be made inert behind it
+    const app = document.getElementById("root");
+    app?.setAttribute("inert", "");
+    app?.setAttribute("aria-hidden", "true");
 
     const rafId = window.requestAnimationFrame(() => {
       closeButtonRef.current?.focus();
@@ -67,10 +75,8 @@ export default function About() {
     return () => {
       window.cancelAnimationFrame(rafId);
       document.body.style.overflow = "";
-      main?.removeAttribute("inert");
-      footer?.removeAttribute("inert");
-      main?.removeAttribute("aria-hidden");
-      footer?.removeAttribute("aria-hidden");
+      app?.removeAttribute("inert");
+      app?.removeAttribute("aria-hidden");
     };
   }, [activeMember]);
 
@@ -177,15 +183,25 @@ export default function About() {
               <Reveal key={m.name} delay={i * 0.1}>
                 <div className="group">
                   <div className="relative aspect-4/5 w-full overflow-hidden bg-secondary">
+                    {/* Mouse shortcut to the same profile as "Continue reading"
+                        below, so it's kept out of the tab order and hidden from
+                        screen readers; focus returns to that button on close */}
                     <button
                       type="button"
-                      aria-label={`Read more about ${m.name}`}
-                      onClick={(e) => openProfile(i, e.currentTarget)}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      onClick={() => openProfile(i, continueRefs.current[i])}
                       className="block h-full w-full text-left"
                     >
                       <img
                         src={m.image}
+                        srcSet={m.imageSrcSet}
+                        sizes={CARD_SIZES}
+                        width={m.imageSize[0]}
+                        height={m.imageSize[1]}
                         alt={m.name}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                       />
                     </button>
@@ -200,6 +216,9 @@ export default function About() {
                     {m.cardBio}
                   </p>
                   <button
+                    ref={(el) => {
+                      continueRefs.current[i] = el;
+                    }}
                     type="button"
                     aria-label={`Continue reading about ${m.name}`}
                     onClick={(e) => openProfile(i, e.currentTarget)}
@@ -266,7 +285,12 @@ export default function About() {
                     <div className="md:col-span-6 bg-secondary">
                       <img
                         src={activeMember.image}
+                        srcSet={activeMember.imageSrcSet}
+                        sizes={MODAL_SIZES}
+                        width={activeMember.imageSize[0]}
+                        height={activeMember.imageSize[1]}
                         alt={activeMember.name}
+                        decoding="async"
                         className="h-full w-full object-cover min-h-[280px] md:min-h-[560px]"
                       />
                     </div>
@@ -274,12 +298,12 @@ export default function About() {
                       <div className="flex items-start justify-between gap-4 border-b border-border pb-5 md:pb-6">
                         <div>
                           <p className="eyebrow mb-3">Team Profile</p>
-                          <h3
+                          <h2
                             id="about-profile-title"
                             className="font-display text-5xl md:text-6xl leading-[0.95]"
                           >
                             {activeMember.name}
-                          </h3>
+                          </h2>
                           <p className="mt-3 text-sm md:text-base text-muted-foreground">
                             {activeMember.role}
                           </p>

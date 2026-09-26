@@ -21,7 +21,8 @@ export default function ScrollToTop() {
     if (hash) {
       const id = getHashId(hash);
       const timer = window.setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
       }, 50);
       return () => window.clearTimeout(timer);
     }

@@ -10,24 +10,22 @@ import About from "@/components/studio/About";
 import FinalCTA from "@/components/studio/FinalCTA";
 import Footer from "@/components/studio/Footer";
 import { useSeo } from "@/lib/seo";
-import { PROJECTS } from "@/data/projects";
+import { SITE } from "@/data/site";
 import AddOns from "@/components/studio/AddOns";
 
 export default function Home() {
-  const featured = PROJECTS.find((p) => p.featured) || PROJECTS[0];
-
   useSeo({
-    title: "Beyond Years Designs | Web Design and Development Studio",
-    description:
-      "Beyond Years Designs is a Bristol-based two-person web design and development studio. We design, build, and write considered websites for small businesses and creative teams.",
+    title: SITE.title,
+    description: SITE.description,
     type: "website",
-    image: featured?.image,
+    path: "/",
   });
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Nav />
-      <main>
+      {/* tabIndex -1: the skip link can move focus here */}
+      <main id="content" tabIndex={-1} className="focus:outline-none">
         <Hero />
         <Work />
         {/* <section className="relative pt-0 pb-24 md:pt-20 md:pb-36">

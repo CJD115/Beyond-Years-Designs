@@ -1,4 +1,5 @@
 import { PROJECTS } from "@/data/projects";
+import { caseStudyPath } from "@/data/site";
 import Reveal from "../Reveal";
 
 // Selected Work — "Rooms".
@@ -58,7 +59,7 @@ function DetailPrint({ detail, side }) {
 function Room({ project, index }) {
   const number = String(index + 1).padStart(2, "0");
   const printsFirst = index % 2 === 1; // chapters alternate sides on desktop
-  const href = `/work/${project.slug}`;
+  const href = caseStudyPath(project.slug);
 
   return (
     <article className="relative">
