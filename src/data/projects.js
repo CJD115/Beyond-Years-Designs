@@ -16,6 +16,14 @@ export const PROJECTS = [
     tech: ["Wordpress", "Elementor", "Javascript"],
     image: "/Churcham-homes-hero.png",
     thumb: "/hero-trail/churcham-homes.webp",
+    // Selected Work ("Rooms") — the pinned prints
+    print: "/work/churcham-homes.webp",
+    detail: {
+      image: "/work/churcham-homes-mobile.webp",
+      caption: "On the phone",
+      alt: "The Churcham Homes website on a phone",
+      portrait: true,
+    },
     responsiveImage: "/Churcham-homes-location-to-lifestyle.png",
     mobileImage: "/Churcham-homes-hero-mobile.png",
     liveUrl: "https://example.com/churcham-homes",
@@ -56,6 +64,17 @@ export const PROJECTS = [
     tech: ["Squarespace", "CSS"],
     image: "/grove-hairstyling-hero.png",
     thumb: "/hero-trail/groves-hairstyling.webp",
+    // Selected Work ("Rooms") — the pinned prints, and a quote shown in place of the tagline
+    print: "/work/groves-hairstyling.webp",
+    detail: {
+      image: "/work/groves-salon.webp",
+      caption: "The salon itself",
+      alt: "Inside the Groves Hairstyling salon",
+    },
+    quote: {
+      text: "I wanted the site to feel like walking into the salon itself: marble, crystal, that quiet sense of being looked after.",
+      by: "Connor",
+    },
     mobileImage: "",
     liveUrl: "https://example.com/project-ipsum",
     overview:
@@ -94,6 +113,8 @@ export const PROJECTS = [
     tech: ["Wordpress", "Elementor"],
     image: "/hidden-gem-hero.png",
     thumb: "/hero-trail/hidden-gem.webp",
+    // Selected Work ("Rooms")
+    print: "/work/hidden-gem.webp",
     mobileImage: "",
     liveUrl: "https://example.com/project-dolor",
     overview:
