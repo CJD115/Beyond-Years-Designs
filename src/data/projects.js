@@ -62,7 +62,7 @@ export const PROJECTS = [
       "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam pellentesque ornare sem lacinia.",
     services: ["Service One", "Service Two", "Service Four", "Service Five"],
     tech: ["Squarespace", "CSS"],
-    image: "/grove-hairstyling-hero.png",
+    image: "/work/groves-hairstyling-desktop.webp",
     thumb: "/hero-trail/groves-hairstyling.webp",
     // Selected Work ("Rooms") — the pinned prints, and a quote shown in place of the tagline
     print: "/work/groves-hairstyling.webp",
@@ -75,8 +75,9 @@ export const PROJECTS = [
       text: "I wanted the site to feel like walking into the salon itself: marble, crystal, that quiet sense of being looked after.",
       by: "Connor",
     },
-    mobileImage: "",
-    liveUrl: "https://example.com/project-ipsum",
+    responsiveImage: "/work/groves-hairstyling-services.webp",
+    mobileImage: "/work/groves-hairstyling-mobile.webp",
+    liveUrl: "https://www.groveshairstyling.com/",
     overview:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis and the content is arranged around a clear browsing path.",
     clientBackground:
@@ -111,12 +112,19 @@ export const PROJECTS = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Generous whitespace and considered image presentation establish a calm visual rhythm.",
     services: ["Service Alpha", "Service Beta", "Service Gamma"],
     tech: ["Wordpress", "Elementor"],
-    image: "/hidden-gem-hero.png",
+    image: "/work/hidden-gem-desktop.webp",
     thumb: "/hero-trail/hidden-gem.webp",
     // Selected Work ("Rooms")
     print: "/work/hidden-gem.webp",
-    mobileImage: "",
-    liveUrl: "https://example.com/project-dolor",
+    detail: {
+      image: "/work/hidden-gem-phone.webp",
+      caption: "On the phone",
+      alt: "The Hidden Gem website on a phone",
+      portrait: true,
+    },
+    responsiveImage: "/work/hidden-gem-intro.webp",
+    mobileImage: "/work/hidden-gem-mobile.webp",
+    liveUrl: "https://hiddengemremovals.co.uk/",
     overview:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The brief prioritises a clear visual sequence and enough space for each piece of content.",
     clientBackground:
