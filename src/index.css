@@ -185,6 +185,21 @@
     background-size: 512px 512px;
     opacity: 0.7;
   }
+  /* Our Vision (direction B) — the hero's paper returns, softening in at the
+     top and out at the bottom so it blends with the sections either side */
+  .vision-paper {
+    background-color: #F4EEE6;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 96px, #000 calc(100% - 96px), transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 96px, #000 calc(100% - 96px), transparent);
+  }
+  .vision-paper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/textures/paper.webp");
+    background-size: 512px 512px;
+    opacity: 0.7;
+  }
 }
 
 @media (min-height: 760px) and (max-width: 767px) {
