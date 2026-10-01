@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { Image } from "@/components/ui/image";
 import { PROJECTS } from "@/data/projects";
 
 export default function WorkIndex() {
@@ -64,11 +63,10 @@ export default function WorkIndex() {
             className="pointer-events-none fixed left-0 top-0 z-40 hidden md:block -ml-37.5 -mt-25"
           >
             <div className="h-50 w-75 overflow-hidden border border-border shadow-2xl shadow-black/20">
-              <Image
+              <img
                 src={activeProject.image}
                 alt={activeProject.name}
-                fittingType="fill"
-                className="h-full w-full"
+                className="h-full w-full object-cover"
               />
             </div>
           </motion.div>

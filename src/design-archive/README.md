@@ -70,6 +70,3 @@ handover note), via `Aftercare.jsx`.
   Selected Work "Feature + archive", Our Vision "Small / Big" and "Doorway",
   the hero concepts and the About card ideas) are on the design canvas, not
   in code.
-- `src/components/ui/image.jsx` (and `hooks/use-size.jsx`, `lib/utils.js`) is
-  now only used by `vision/VisionOriginal.jsx` and `work/WorkIndex.jsx`. It's
-  left in place as a shared utility, not a design.

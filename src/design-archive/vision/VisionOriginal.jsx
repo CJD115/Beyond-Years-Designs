@@ -1,5 +1,4 @@
 import Reveal from "@/components/studio/Reveal";
-import { Image } from "@/components/ui/image";
 
 // "Our Vision" — the original section (ochre field + studio image).
 // Kept as a reusable component; the site currently uses VisionAnnotated.
@@ -19,11 +18,10 @@ export default function VisionOriginal() {
 
           <Reveal delay={0.15} className="md:col-span-5">
             <div className="relative aspect-4/5 w-full overflow-hidden border border-foreground/15 shadow-2xl shadow-black/20">
-              <Image
+              <img
                 src="https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/72708a541_generated_image.png"
                 alt="Lorem ipsum placeholder studio image"
-                fittingType="fill"
-                className="h-full w-full"
+                className="h-full w-full object-cover"
               />
             </div>
           </Reveal>
