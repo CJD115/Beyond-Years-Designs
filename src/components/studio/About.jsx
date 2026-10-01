@@ -178,23 +178,7 @@ export default function About() {
               <br></br>
               <br></br>
               If you’re making something worth putting in front of the world, we want to help put it there. 
-              {/* <br></br>
-              <br></br>
-              Combining web development and professional writing, we’re offering
-              websites and applications that work properly and communicate
-              clearly, without any of the faff.
-              <br></br>
-              <br></br>
-              We work closely with our clients from the first conversation to
-              the finished product, keeping things clear and collaborative the
-              entire time. That means a more personal process, less uncertainty,
-              and an end product built around what your business actually needs.
-              <br></br>
-              <br></br>
-              For us, we’re proud to call Bristol our home. However, we work
-              with small businesses, independent makers and creative teams,
-              wherever you might be! So, if you’re making something worth
-              putting in front of the world, we want to help you put it there. */}
+
             </p>
           </Reveal>
 

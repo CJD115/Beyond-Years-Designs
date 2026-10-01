@@ -52,7 +52,7 @@ export default function Hero() {
             {/* Masked like line 1. The italic g hangs ~0.11em below the line box,
                 so the mask is 0.15em deeper (padding) and the extra depth is
                 taken back with a negative margin. */}
-            <span className="block overflow-hidden -mb-[0.15em]">
+            <span className="block overflow-hidden mb-[-0.15em]">
               <motion.span
                 variants={{
                   hidden: { y: "100%" },

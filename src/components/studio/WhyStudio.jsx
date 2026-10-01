@@ -45,7 +45,7 @@ export default function WhyStudio() {
                   <h3 className="font-display text-2xl md:text-3xl leading-tight text-foreground mb-3">
                     {point.title}
                   </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed max-w-xlex">
+                  <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
                     {point.body}
                   </p>
                 </Reveal>

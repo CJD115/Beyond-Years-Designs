@@ -150,22 +150,28 @@ export default function CaseStudy() {
           </p>
         </Section>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-          <div className="md:col-span-6">
-            <Section label="Design Process">
-              <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
-                {project.designProcess}
-              </p>
-            </Section>
+        {(project.designProcess || project.developmentProcess) && (
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            {project.designProcess && (
+              <div className="md:col-span-6">
+                <Section label="Design Process">
+                  <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+                    {project.designProcess}
+                  </p>
+                </Section>
+              </div>
+            )}
+            {project.developmentProcess && (
+              <div className="md:col-span-6">
+                <Section label="Development Process">
+                  <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+                    {project.developmentProcess}
+                  </p>
+                </Section>
+              </div>
+            )}
           </div>
-          <div className="md:col-span-6">
-            <Section label="Development Process">
-              <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
-                {project.developmentProcess}
-              </p>
-            </Section>
-          </div>
-        </div>
+        )}
 
         {/* Key features */}
         <Section label="Key Features">

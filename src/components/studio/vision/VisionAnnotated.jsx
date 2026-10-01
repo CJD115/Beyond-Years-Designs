@@ -7,11 +7,10 @@ import { motion, useInView, useReducedMotion } from "motion/react";
 // ochre line and pins as the hero. On desktop the connectors are measured from
 // the real word positions, so they stay attached at any size.
 
-// Draft copy — written from the Services and About text; edit freely.
 const NOTES = [
   {
     anchor: "thoughtful",
-    text: "Something from Mike. Let him cook.",
+    text: "Beautiful was the easy word. Thoughtful is the honest one.",
     by: "Mike — Resident Wordsmith",
   },
   {
@@ -21,7 +20,8 @@ const NOTES = [
   },
   {
     anchor: "businesses",
-    text: "Like us. we are also one",
+    text: "We’re a small business too, so we know how much a good website matters.",
+    by: "Connor & Mike",
   },
 ];
 
