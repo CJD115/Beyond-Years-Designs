@@ -44,7 +44,7 @@ export default function Process() {
               className="border-t border-border py-10 md:py-12"
             >
               <div className="flex items-baseline gap-6">
-                <span className="font-display text-5xl md:text-6xl text-accent/80 leading-none">
+                <span className="font-display text-5xl md:text-6xl text-accent leading-none">
                   {s.no}
                 </span>
                 <h3 className="font-display text-3xl md:text-4xl leading-none">

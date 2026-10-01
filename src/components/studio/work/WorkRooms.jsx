@@ -59,6 +59,9 @@ function DetailPrint({ detail, side }) {
 function Room({ project, index }) {
   const number = String(index + 1).padStart(2, "0");
   const printsFirst = index % 2 === 1; // chapters alternate sides on desktop
+  // Plain <a> links (not React Router's <Link>) on purpose: a full page load
+  // lets the browser return visitors to the same spot in Selected Work when
+  // they press Back.
   const href = caseStudyPath(project.slug);
 
   return (
@@ -66,7 +69,7 @@ function Room({ project, index }) {
       {/* pin + number on the path (desktop) */}
       <div aria-hidden="true" className="absolute -left-16 top-1.5 hidden items-center gap-4 lg:flex">
         <span className="h-2 w-2 -translate-x-1/2 rounded-full bg-accent" />
-        <span className="-ml-3 font-display text-lg leading-none text-accent">{number}</span>
+        <span className="-ml-3 font-display text-lg leading-none text-accent-strong">{number}</span>
       </div>
 
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-12 lg:gap-x-8">
@@ -92,7 +95,7 @@ function Room({ project, index }) {
           }`}
         >
           <p className="eyebrow">
-            <span className="text-accent lg:hidden">{number} · </span>
+            <span className="text-accent-strong lg:hidden">{number} · </span>
             {project.industry}
             {project.location && ` · ${cityOf(project.location)}`}
           </p>

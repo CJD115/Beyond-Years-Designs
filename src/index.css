@@ -11,6 +11,7 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-strong: hsl(var(--accent-strong));
   --color-border: hsl(var(--border));
   --color-ring: hsl(var(--ring));
   --font-body: var(--font-body);
@@ -25,16 +26,24 @@
     --secondary-foreground: 0 0% 7%;
     --muted: 30 20% 90%;
     --muted-foreground: 0 0% 29%;
-    --accent: 30 43% 52%;
+    /* Ochre, #A67C52: large text (24px+), pins and lines (3.4:1 on the page) */
+    --accent: 30 33.9% 48.6%;
     --accent-foreground: 30 38% 95%;
+    /* Deeper ochre, #8C6239: ochre text under 24px (4.8:1 on the page) */
+    --accent-strong: 29.6 42.1% 38.6%;
     --border: 30 14% 80%;
-    --ring: 30 43% 52%;
+    --ring: 30 33.9% 48.6%;
     --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
     --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
     --linen: #F4F1EE;
     --ink: #121212;
     --slate: #4A4A4A;
-    --ochre: #A67C52;
+  }
+
+  /* The dark sections keep the lighter ochre, #B98550 (5.8:1 on near-black) */
+  footer,
+  #contact {
+    --accent: 30 43% 52%;
   }
 }
 
@@ -74,7 +83,7 @@
   }
 
   ::selection {
-    background-color: var(--ochre);
+    background-color: hsl(var(--accent));
     color: var(--linen);
   }
 

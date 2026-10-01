@@ -228,7 +228,7 @@ export default function About() {
                     onClick={(e) => openProfile(i, e.currentTarget)}
                     className="mt-8 flex max-w-[30rem] flex-col gap-[18px] border-t border-border pt-6 text-left"
                   >
-                    <span className="font-serif-italic text-[1.625rem] md:text-[1.75rem] leading-[1.18] tracking-[-0.01em] text-foreground transition-colors duration-500 group-hover:text-[var(--ochre)] group-focus-within:text-[var(--ochre)] motion-reduce:transition-none">
+                    <span className="font-serif-italic text-[1.625rem] md:text-[1.75rem] leading-[1.18] tracking-[-0.01em] text-foreground transition-colors duration-500 group-hover:text-accent group-focus-within:text-accent motion-reduce:transition-none">
                       “{m.teaser}”
                     </span>
                     <span className="eyebrow inline-flex items-center gap-2.5 text-foreground">

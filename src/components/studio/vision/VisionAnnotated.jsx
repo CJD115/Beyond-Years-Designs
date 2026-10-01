@@ -209,7 +209,7 @@ export default function VisionAnnotated() {
                 <span aria-hidden="true" className="mt-[0.55em] h-2 w-2 shrink-0 rounded-full bg-accent" />
                 <div>
                   <p className="font-serif-italic text-xl leading-snug">
-                    <span className="text-accent">{note.anchor} — </span>
+                    <span className="text-accent-strong">{note.anchor} — </span>
                     {note.text}
                   </p>
                   {note.by && <p className="eyebrow mt-2.5">{note.by}</p>}

@@ -101,7 +101,7 @@ function Print({ print }) {
         >
           <span className="flex items-baseline" style={{ gap: u(12) }}>
             <span
-              className="tracking-[0.22em] text-[#B98550]"
+              className="tracking-[0.22em] text-accent"
               style={{ fontSize: u(10.4) }}
             >
               {print.label}
@@ -130,7 +130,7 @@ function Print({ print }) {
             color: print.captionColor,
           }}
         >
-          <span className="text-[#B98550]">{print.label}</span>
+          <span className="text-accent">{print.label}</span>
           <span>{project.name}</span>
         </div>
       )}
@@ -153,10 +153,10 @@ export default function PrintTrail() {
         className="absolute inset-0 h-full w-full overflow-visible"
         viewBox="0 0 1440 900"
       >
-        <path d={LINE_PATH} fill="none" stroke="#B98550" strokeWidth="1" />
-        <circle cx={LINE_START.x} cy={LINE_START.y} r="3" fill="#B98550" />
+        <path d={LINE_PATH} fill="none" strokeWidth="1" className="stroke-accent" />
+        <circle cx={LINE_START.x} cy={LINE_START.y} r="3" className="fill-accent" />
         {PRINTS.map((print) => (
-          <circle key={print.slug} cx={print.x} cy={print.y} r="4" fill="#B98550" />
+          <circle key={print.slug} cx={print.x} cy={print.y} r="4" className="fill-accent" />
         ))}
       </svg>
     </div>

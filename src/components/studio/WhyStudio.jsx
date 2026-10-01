@@ -39,7 +39,7 @@ export default function WhyStudio() {
             <ul className="flex flex-col">
               {POINTS.map((point, i) => (
                 <Reveal as="li" key={i} delay={0.15 + i * 0.08} className="border-t border-border py-6 md:py-7">
-                  <span className="block font-display text-lg md:text-lg leading-none text-accent mb-3">
+                  <span className="block font-display text-lg md:text-lg leading-none text-accent-strong mb-3">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-display text-2xl md:text-3xl leading-tight text-foreground mb-3">
