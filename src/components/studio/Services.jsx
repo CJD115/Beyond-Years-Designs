@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
 const SERVICES = [
@@ -50,7 +49,7 @@ export default function Services() {
 function ServiceRow({ service }) {
   return (
     <Reveal>
-      <motion.a
+      <a
         href="#contact"
         className="group grid grid-cols-12 items-center gap-4 border-b border-border py-8 md:py-10 transition-colors duration-500 hover:bg-background/60"
       >
@@ -63,7 +62,7 @@ function ServiceRow({ service }) {
         <p className="col-span-12 md:col-span-6 md:col-start-7 text-base text-muted-foreground leading-relaxed max-w-xl">
           {service.body}
         </p>
-      </motion.a>
+      </a>
     </Reveal>
   );
 }

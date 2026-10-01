@@ -89,16 +89,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-       {/* <div className="pointer-events-none absolute left-6 md:left-10 lg:left-16 bottom-6 hidden md:block">
-        <div className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            <span>Live · {vw}px</span>
-          </div>
-          <div className="mt-1 text-foreground/60">Perf · 100</div>
-        </div>
-      </div> */}
     </section>
   );
 }

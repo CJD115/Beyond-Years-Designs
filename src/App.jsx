@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MotionConfig } from "motion/react";
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from '@/components/ScrollToTop';
 import Home from '@/pages/Home';
 import CaseStudy from '@/pages/CaseStudy';
 import Cursor from '@/components/studio/Cursor';
