@@ -1,6 +1,7 @@
 import Reveal from "@/components/studio/Reveal";
 
-// "Our Vision" — the original section (ochre field + studio image).
+// "Our Vision" — the original section (ochre field). Its placeholder studio
+// image has been removed.
 // Kept as a reusable component; the site currently uses VisionAnnotated.
 
 export default function VisionOriginal() {
@@ -14,16 +15,6 @@ export default function VisionOriginal() {
               Building thoughtful websites for businesses with big ambitions.
               {/* <span className="font-serif-italic">eiusmod tempor.</span> */}
             </h2>
-          </Reveal>
-
-          <Reveal delay={0.15} className="md:col-span-5">
-            <div className="relative aspect-4/5 w-full overflow-hidden border border-foreground/15 shadow-2xl shadow-black/20">
-              <img
-                src="https://media.base44.com/images/public/6a9f0520fb3bd22955315e44/72708a541_generated_image.png"
-                alt="Lorem ipsum placeholder studio image"
-                className="h-full w-full object-cover"
-              />
-            </div>
           </Reveal>
         </div>
       </div>
