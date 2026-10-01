@@ -18,3 +18,4 @@ Read `CLAUDE.md` for the design direction and development principles, and `READM
 
 - Run `npm run lint` and `npm run build` before finishing code changes.
 - Don't add dependencies for things the existing setup already handles.
+- Code style: double quotes, semicolons, 2-space indentation.

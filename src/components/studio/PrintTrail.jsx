@@ -24,7 +24,7 @@ const PRINTS = [
     imageHeight: 96,
     captionHeight: 30,
     imageOpacity: 0.55,
-    captionColor: "rgba(74, 74, 74, 0.7)",
+    captionColor: "hsl(var(--muted-foreground) / 0.7)",
     shadow: [16, 28, -18, 0.4],
   },
   {
@@ -38,7 +38,7 @@ const PRINTS = [
     imageHeight: 112,
     captionHeight: 32,
     imageOpacity: 0.8,
-    captionColor: "#4A4A4A",
+    captionColor: "hsl(var(--muted-foreground))",
     shadow: [18, 30, -18, 0.42],
   },
   {
@@ -67,7 +67,7 @@ function Print({ print }) {
 
   return (
     <div
-      className="absolute bg-[#FBF9F5]"
+      className="absolute bg-print"
       style={{
         left: u(print.x),
         top: u(print.y),
@@ -82,7 +82,7 @@ function Print({ print }) {
         style={{
           width: u(print.imageWidth),
           height: u(print.imageHeight),
-          background: print.featured ? "#2B2A28" : "#FBF9F5",
+          background: print.featured ? "var(--print-shade)" : "var(--print)",
         }}
       >
         <img
@@ -107,14 +107,14 @@ function Print({ print }) {
               {print.label}
             </span>
             <span
-              className="font-serif-italic tracking-[-0.01em] text-[#121212]"
+              className="font-serif-italic tracking-[-0.01em] text-foreground"
               style={{ fontSize: u(19) }}
             >
               {project.name}
             </span>
           </span>
           <span
-            className="uppercase tracking-[0.22em] text-[#4A4A4A]"
+            className="uppercase tracking-[0.22em] text-muted-foreground"
             style={{ fontSize: u(10.4) }}
           >
             {project.year}

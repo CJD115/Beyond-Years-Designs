@@ -2,6 +2,35 @@
    agent skills elsewhere in the repo don't end up in the stylesheet */
 @import "tailwindcss" source(".");
 
+/* Self-hosted fonts (public/fonts/, Latin subset, SIL Open Font License).
+   Preloaded in index.html. The two upright files are variable fonts. */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -12,6 +41,8 @@
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-accent-strong: hsl(var(--accent-strong));
+  --color-print: var(--print);
+  --color-print-shade: var(--print-shade);
   --color-border: hsl(var(--border));
   --color-ring: hsl(var(--ring));
   --font-body: var(--font-body);
@@ -36,8 +67,11 @@
     --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
     --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
     --linen: #F4F1EE;
-    --ink: #121212;
-    --slate: #4A4A4A;
+    /* Paper and prints: the warm paper behind the hero and Vision, the white
+       border of the photo prints, and the dark behind a print's photo */
+    --paper: #F4EEE6;
+    --print: #FBF9F5;
+    --print-shade: #2B2A28;
   }
 
   /* The dark sections keep the lighter ochre, #B98550 (5.8:1 on near-black) */
@@ -151,7 +185,7 @@
   /* Hero paper (Hero 3.10) — warm paper tone with a fibrous texture.
      Only the last 80px soften, so the hero meets the next section cleanly. */
   .hero-paper {
-    background-color: #F4EEE6;
+    background-color: var(--paper);
     -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 80px), transparent);
     mask-image: linear-gradient(to bottom, #000 calc(100% - 80px), transparent);
   }
@@ -166,7 +200,7 @@
   /* Our Vision (direction B) — the hero's paper returns, softening in at the
      top and out at the bottom so it blends with the sections either side */
   .vision-paper {
-    background-color: #F4EEE6;
+    background-color: var(--paper);
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 96px, #000 calc(100% - 96px), transparent);
     mask-image: linear-gradient(to bottom, transparent, #000 96px, #000 calc(100% - 96px), transparent);
   }

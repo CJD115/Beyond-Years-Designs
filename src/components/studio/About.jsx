@@ -169,16 +169,15 @@ export default function About() {
               </h2>
             </div>
             <p className="md:col-span-4 md:col-start-9 self-end text-base text-muted-foreground leading-relaxed max-w-lg">
-              Beyond Years Designs is a small, Bristol-based team founded by Connor and Mike. 
-              After a decade of friendship, we finally decided it was time to put our heads together and do what we do best. 
-              <br></br>
-              <br></br>
-              Combining web development and professional writing, all of our projects are designed to function flawlessly and communicate effectively. 
-              We work closely with clients from the first conversation to the finished product to ensure we give you what your business actually needs. 
-              <br></br>
-              <br></br>
-              If you’re making something worth putting in front of the world, we want to help put it there. 
-
+              Beyond Years Designs is a small, Bristol-based team founded by Connor and Mike.
+              After a decade of friendship, we finally decided it was time to put our heads together and do what we do best.
+              <br />
+              <br />
+              Combining web development and professional writing, all of our projects are designed to function flawlessly and communicate effectively.
+              We work closely with clients from the first conversation to the finished product to ensure we give you what your business actually needs.
+              <br />
+              <br />
+              If you’re making something worth putting in front of the world, we want to help put it there.
             </p>
           </Reveal>
 
@@ -251,7 +250,7 @@ export default function About() {
         <AnimatePresence>
           {activeMember && (
             <motion.div
-              className="fixed inset-0 z-[70] bg-foreground/55 backdrop-blur-sm px-4 py-6 md:px-8 md:py-10"
+              className="fixed inset-0 z-70 bg-foreground/55 backdrop-blur-sm px-4 py-6 md:px-8 md:py-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

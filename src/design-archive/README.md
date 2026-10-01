@@ -47,7 +47,7 @@ Live version: `components/studio/work/WorkRooms.jsx` ("Rooms"), via `Work.jsx`.
 ### `vision/`
 
 Live version: `components/studio/vision/VisionAnnotated.jsx` ("Annotated"), via
-`StatementSection.jsx`.
+`Vision.jsx`.
 
 - **VisionOriginal.jsx**: the original ochre statement section.
 - **VisionReadSlowly.jsx**: direction D, "Read slowly": the statement brightens

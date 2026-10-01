@@ -16,8 +16,8 @@ const cityOf = (location = "") => location.split(",")[0].trim();
 
 function Print({ project }) {
   return (
-    <div className="bg-[#FBF9F5] p-2.5 shadow-[0_1px_1px_rgba(18,18,18,0.06),0_30px_50px_-28px_rgba(40,28,16,0.45)] transition-[transform,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:shadow-[0_1px_1px_rgba(18,18,18,0.06),0_40px_60px_-30px_rgba(40,28,16,0.5)] md:p-3.5 motion-reduce:transition-none">
-      <div className="aspect-[1.8] overflow-hidden bg-[#2B2A28]">
+    <div className="bg-print p-2.5 shadow-[0_1px_1px_rgba(18,18,18,0.06),0_30px_50px_-28px_rgba(40,28,16,0.45)] transition-[transform,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:shadow-[0_1px_1px_rgba(18,18,18,0.06),0_40px_60px_-30px_rgba(40,28,16,0.5)] md:p-3.5 motion-reduce:transition-none">
+      <div className="aspect-[1.8] overflow-hidden bg-print-shade">
         <img
           src={project.print ?? project.image}
           alt={`The ${project.name} website`}
@@ -43,8 +43,8 @@ function DetailPrint({ detail, side }) {
       } origin-top-left`}
     >
       <span aria-hidden="true" className="absolute -left-1 -top-1 z-10 h-2 w-2 rounded-full bg-accent" />
-      <figure className="bg-[#FBF9F5] p-1.5 shadow-[0_1px_1px_rgba(18,18,18,0.06),0_24px_40px_-20px_rgba(40,28,16,0.45)] md:p-2.5 xl:pb-0">
-        <div className={`${detail.portrait ? "aspect-[0.49]" : "aspect-[0.8]"} overflow-hidden bg-[#2B2A28]`}>
+      <figure className="bg-print p-1.5 shadow-[0_1px_1px_rgba(18,18,18,0.06),0_24px_40px_-20px_rgba(40,28,16,0.45)] md:p-2.5 xl:pb-0">
+        <div className={`${detail.portrait ? "aspect-[0.49]" : "aspect-[0.8]"} overflow-hidden bg-print-shade`}>
           <img src={detail.image} alt={detail.alt} loading="lazy" className="h-full w-full object-cover" />
         </div>
         {/* captions only where the print is large enough to carry them */}

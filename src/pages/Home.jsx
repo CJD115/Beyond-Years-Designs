@@ -1,7 +1,7 @@
 import Nav from "@/components/studio/Nav";
 import Hero from "@/components/studio/Hero";
 import Work from "@/components/studio/Work";
-import StatementSection from "@/components/studio/StatementSection";
+import Vision from "@/components/studio/Vision";
 import Services from "@/components/studio/Services";
 import WhyStudio from "@/components/studio/WhyStudio";
 import Process from "@/components/studio/Process";
@@ -27,7 +27,7 @@ export default function Home() {
       <main id="content" tabIndex={-1} className="focus:outline-none">
         <Hero />
         <Work />
-        <StatementSection />
+        <Vision />
         <Services />
         <WhyStudio />
         <Process />

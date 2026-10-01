@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MotionConfig } from "motion/react";
-import ScrollToTop from '@/components/ScrollToTop';
-import Home from '@/pages/Home';
-import CaseStudy from '@/pages/CaseStudy';
-import Cursor from '@/components/studio/Cursor';
-import { useSeo } from '@/lib/seo';
+import ScrollToTop from "@/components/ScrollToTop";
+import Home from "@/pages/Home";
+import CaseStudy from "@/pages/CaseStudy";
+import Cursor from "@/components/studio/Cursor";
+import { useSeo } from "@/lib/seo";
 
 function PageNotFound() {
   useSeo({

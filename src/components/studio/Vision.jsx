@@ -10,7 +10,7 @@ import VisionAnnotated from "./vision/VisionAnnotated";
 const VisionOriginal = import.meta.env.DEV ? lazy(() => import("@/design-archive/vision/VisionOriginal")) : null;
 const VisionReadSlowly = import.meta.env.DEV ? lazy(() => import("@/design-archive/vision/VisionReadSlowly")) : null;
 
-export default function StatementSection() {
+export default function Vision() {
   const key = import.meta.env.DEV
     ? new URLSearchParams(window.location.search).get("vision")?.toLowerCase()
     : null;
