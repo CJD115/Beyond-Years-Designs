@@ -32,3 +32,6 @@ dist-ssr
 
 # Raw portfolio screenshots (review, then copy chosen ones into public/work/)
 captures/
+
+# Design exports and concept screenshots (kept locally, not in the repo)
+Claude outputs/
