@@ -1,4 +1,4 @@
-import Reveal from "../Reveal";
+import Reveal from "@/components/studio/Reveal";
 import { Image } from "@/components/ui/image";
 
 // "Our Vision" — the original section (ochre field + studio image).

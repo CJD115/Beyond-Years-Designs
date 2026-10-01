@@ -22,6 +22,8 @@ The live site is the contents of `dist/` uploaded to Hostinger. Include the dotf
 
 The site's domain, contact email and social links live in `src/data/site.js`. When the permanent domain is live, change `SITE.url` there and rebuild; canonical URLs, share images and the sitemap all follow it. The email and social links stay hidden until they're filled in.
 
+Search indexing follows the domain automatically (`SITE.indexing: "auto"`). While `SITE.url` is a temporary Hostinger domain (`*.hostingersite.com`), the build writes a `robots.txt` that disallows all crawlers, marks every page `noindex` and leaves out canonical links. Once `SITE.url` is the real domain, the next build allows indexing, adds canonical links and points `robots.txt` at the sitemap. The build log states which mode it used. Set `indexing` to `true` or `false` to override.
+
 ## Content
 
 - Projects and case studies: `src/data/projects.js`

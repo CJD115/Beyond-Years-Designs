@@ -11,11 +11,17 @@
 //   robots.txt, sitemap.xml
 //
 // Every page still boots the same React app; only the <head> differs.
+//
+// While SITE.url is a temporary domain (see allowIndexing in src/data/site.js)
+// robots.txt disallows all crawlers and every page is marked noindex.
+//
+// The seo markers are kept in the output, so the script can be re-run on its
+// own (`node scripts/prerender-meta.mjs`) after changing src/data/site.js.
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { SITE, absoluteUrl, caseStudyMeta } from "../src/data/site.js";
+import { SITE, absoluteUrl, allowIndexing, caseStudyMeta } from "../src/data/site.js";
 import { PROJECTS } from "../src/data/projects.js";
 
 const DIST = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "dist");
@@ -24,13 +30,16 @@ const START = /<!-- seo:start[^>]*-->[\s\S]*?<!-- seo:end -->/;
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+// `noindex` marks a page that is never indexed (the 404); allowIndexing is the
+// site-wide switch. og:url stays on real pages either way — link previews use it.
 function head({ title, description, path: pagePath, image = SITE.ogImage, type = "website", noindex = false }) {
+  const indexable = allowIndexing && !noindex;
   const url = pagePath && absoluteUrl(pagePath);
   const img = absoluteUrl(image);
   return [
     `<title>${esc(title)}</title>`,
     `<meta name="description" content="${esc(description)}" />`,
-    noindex ? `<meta name="robots" content="noindex" />` : `<link rel="canonical" href="${esc(url)}" />`,
+    indexable ? `<link rel="canonical" href="${esc(url)}" />` : `<meta name="robots" content="noindex" />`,
     `<meta property="og:type" content="${type}" />`,
     `<meta property="og:site_name" content="${esc(SITE.name)}" />`,
     `<meta property="og:locale" content="${SITE.locale}" />`,
@@ -60,9 +69,13 @@ const template = await readFile(path.join(DIST, "index.html"), "utf8");
 if (!START.test(template)) {
   throw new Error("prerender-meta: <!-- seo:start --> … <!-- seo:end --> block not found in dist/index.html");
 }
-const page = (meta) => template.replace(START, head(meta));
+const page = (meta) =>
+  template.replace(START, `<!-- seo:start -->\n    ${head(meta)}\n    <!-- seo:end -->`);
 
-console.log("prerender-meta:");
+console.log(
+  `prerender-meta: ${SITE.url} — search indexing ${allowIndexing ? "ALLOWED" : "BLOCKED"}` +
+    (SITE.indexing === "auto" ? " (auto)" : ` (forced by SITE.indexing = ${SITE.indexing})`),
+);
 
 const home = { title: SITE.title, description: SITE.description, path: "/" };
 await write("index.html", page(home));
@@ -77,7 +90,12 @@ await write(
   page({ title: `Page not found | ${SITE.name}`, description: "The page you were looking for could not be found.", noindex: true }),
 );
 
-await write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl("/sitemap.xml")}\n`);
+await write(
+  "robots.txt",
+  allowIndexing
+    ? `User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl("/sitemap.xml")}\n`
+    : `# Search indexing is off (${SITE.indexing === "auto" ? "temporary domain" : "SITE.indexing = false"}; see src/data/site.js)\nUser-agent: *\nDisallow: /\n`,
+);
 
 const urls = [home, ...caseStudies].map((m) => `  <url><loc>${esc(absoluteUrl(m.path))}</loc></url>`);
 await write(

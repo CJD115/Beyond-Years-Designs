@@ -16,11 +16,12 @@ const TEAM = [
       "Technical co-founder behind Beyond Years Designs, and the reason every site looks, works and feels the way it does." +
       " A full-stack developer with several years of experience, he has built websites and digital applications across industries from local high-street hairdressers to nationally accredited auction houses and high-end property developers." +
       " He builds every site from the ground up, treating each one less like a page and more like a place people step into.",
-    modalBio:
-      "The first thing I ever made was a game about a man stuck in a room with his thoughts. It was rough, and I never finished it, but it said something I was feeling at the time. That's still why I make things." +
-      " I'm Connor, the technical half of Beyond Years Designs. I design and build websites, but I don't really think of them as pages. I think of them as places." +
-      " For Groves Hairstyling, I wanted the site to feel like walking into the salon itself: marble, crystal, that quiet sense of being looked after." +
-      " Most websites play it safe. They try to please everyone and end up pleasing no one. I'd rather help a business look exactly like who they are.",
+    // One string per paragraph
+    modalBio: [
+      "The first thing I ever made was a game about a man stuck in a room with his thoughts. It was rough, and I never finished it, but it said something I was feeling at the time. That’s still why I make things.",
+      "I’m Connor, the technical half of Beyond Years Designs. I design and build websites, but I don’t really think of them as pages. I think of them as places. For Groves Hairstyling, I wanted the site to feel like walking into the salon itself: marble, crystal, that quiet sense of being looked after.",
+      "Most websites play it safe. They try to please everyone and end up pleasing no one. I’d rather help a business look exactly like who they are.",
+    ],
     teaser:
       "The first thing I ever made was a game about a man stuck in a room with his thoughts.",
     image: "/team/connor.webp",
@@ -31,15 +32,14 @@ const TEAM = [
     name: "Mike",
     role: "Resident Wordsmith",
     cardBio:
-      "Mike is the resident wordsmith at Beyond Years Designs, bringing four years of professional writing experience to the team." +
+      "Mike is the resident wordsmith at Beyond Years Designs, bringing six years of professional writing experience to the team." +
       " He has written for businesses across automotive resale, financial advice, and construction, as well as working on creative writing of his own." +
       " He takes care of the words: shaping the information, finding the right way to say it, and making sure your website actually sounds like your business.",
-    modalBio:
-      "Hi there! I’m Mike. I am the words expert behind Beyond Years Designs. " +
-      "I’ve been writing professionally for six years now, and I’ve had the opportunity work with some incredible clients across various sectors, including national automotive resale, financial advice and high-end property construction. " +
-      "My job is all about conveying information in a clear way, and making sure your brand voice comes through wherever it shows up, from the front page of a website to the fine-print of a pamphlet." +
-      " Even when I’m not working, I still love words. You’ll often find me researching the etymology for some obscure or archaic word." +
-      " Otherwise, I’m probably reading novels, writing stories, or playing The Witcher 3, Baldur’s Gate 3, or Clair Obscur: Expedition 33. (Or Dungeons & Dragons. Love Dungeons & Dragons.)",
+    modalBio: [
+      "Hi there! I’m Mike. I am the words expert behind Beyond Years Designs. I’ve been writing professionally for six years now, and I’ve had the opportunity to work with some incredible clients across various sectors, including national automotive resale, financial advice and high-end property construction.",
+      "My job is all about conveying information in a clear way, and making sure your brand voice comes through wherever it shows up, from the front page of a website to the fine-print of a pamphlet.",
+      "Even when I’m not working, I still love words. You’ll often find me researching the etymology for some obscure or archaic word. Otherwise, I’m probably reading novels, writing stories, or playing The Witcher 3, Baldur’s Gate 3, or Clair Obscur: Expedition 33. (Or Dungeons & Dragons. Love Dungeons & Dragons.)",
+    ],
     teaser: "Even when I’m not working, I still love words.",
     image: "/team/mike.webp",
     imageSrcSet: "/team/mike-640.webp 640w, /team/mike.webp 1280w",
@@ -53,6 +53,7 @@ export default function About() {
   const dialogRef = useRef(null);
   const lastTriggerRef = useRef(null);
   const continueRefs = useRef([]);
+  const goToContactRef = useRef(false);
   const shouldReduceMotion = useReducedMotion();
   const activeMember =
     activeMemberIndex !== null ? TEAM[activeMemberIndex] : null;
@@ -123,6 +124,19 @@ export default function About() {
 
   useEffect(() => {
     if (activeMember) return;
+
+    // Leaving via "Start a project": the page is scrollable and no longer
+    // inert by now, so move to the contact section instead of back to the card
+    if (goToContactRef.current) {
+      goToContactRef.current = false;
+      const contact = document.getElementById("contact");
+      if (!contact) return;
+      contact.setAttribute("tabindex", "-1");
+      contact.focus({ preventScroll: true });
+      contact.scrollIntoView();
+      return;
+    }
+
     lastTriggerRef.current?.focus();
   }, [activeMember]);
 
@@ -133,6 +147,12 @@ export default function About() {
 
   const closeProfile = () => setActiveMemberIndex(null);
 
+  const startProject = (e) => {
+    e.preventDefault();
+    goToContactRef.current = true;
+    closeProfile();
+  };
+
   return (
     <>
       <section id="about" className="relative py-24 md:py-36">
@@ -140,7 +160,7 @@ export default function About() {
           <Reveal className="mb-16 md:mb-24 border-t border-border pt-10 grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-7">
               <p className="eyebrow mb-4">About</p>
-              <h2 className="font-display text-5xl md:text-7xl leading-[0.95] max-w-2xl">
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] max-w-2xl">
                 Small team,
                 <br />
                 <span className="font-serif-italic text-accent">
@@ -291,7 +311,7 @@ export default function About() {
                         height={activeMember.imageSize[1]}
                         alt={activeMember.name}
                         decoding="async"
-                        className="h-full w-full object-cover min-h-[280px] md:min-h-[560px]"
+                        className="h-full w-full object-cover object-[center_25%] min-h-[280px] max-h-[50svh] md:object-center md:min-h-[560px] md:max-h-none"
                       />
                     </div>
                     <div className="md:col-span-6 p-6 md:p-10 lg:p-12 flex flex-col">
@@ -319,12 +339,29 @@ export default function About() {
                         </button>
                       </div>
 
-                      <p
+                      <div
                         id="about-profile-bio"
-                        className="mt-6 text-base md:text-lg leading-relaxed text-foreground/85 max-w-prose"
+                        className="mt-6 space-y-5 text-base md:text-lg leading-relaxed text-foreground/85 max-w-prose"
                       >
-                        {activeMember.modalBio}
-                      </p>
+                        {activeMember.modalBio.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                      </div>
+
+                      <div className="mt-10 border-t border-border pt-6 md:mt-auto">
+                        <a
+                          href="#contact"
+                          onClick={startProject}
+                          className="group/cta eyebrow inline-flex items-center gap-2.5 text-foreground"
+                        >
+                          Start a project
+                          <ArrowRight
+                            aria-hidden="true"
+                            className="h-3.5 w-3.5 transition-transform duration-500 ease-out group-hover/cta:translate-x-1 group-focus-visible/cta:translate-x-1 motion-reduce:transition-none"
+                            strokeWidth={1.5}
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

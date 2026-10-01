@@ -9,6 +9,10 @@ export const SITE = {
   // Temporary Hostinger domain. Change this one line when the real domain is
   // live; canonical URLs, og:url, og:image and sitemap.xml all follow it.
   url: "https://ivory-wasp-465710.hostingersite.com",
+  // Search indexing. "auto" keeps search engines out while `url` is a
+  // temporary hosting domain (see TEMPORARY_DOMAINS) and lets them in as soon
+  // as `url` is the real domain. true / false force it either way.
+  indexing: "auto",
   locale: "en_GB",
   title: "Beyond Years Designs | Web Design and Development Studio",
   description:
@@ -27,6 +31,18 @@ export const SITE = {
 export const caseStudyPath = (slug) => `/work/${slug}/`;
 
 export const absoluteUrl = (path) => new URL(path, SITE.url).toString();
+
+// Hosts' temporary preview domains, which should never end up in search results
+const TEMPORARY_DOMAINS = ["hostingersite.com"];
+
+export function isTemporaryDomain(url) {
+  const host = new URL(url).hostname;
+  return TEMPORARY_DOMAINS.some((domain) => host === domain || host.endsWith(`.${domain}`));
+}
+
+// When false: robots.txt disallows all crawlers, every page carries
+// <meta name="robots" content="noindex">, and no canonical link is written.
+export const allowIndexing = SITE.indexing === "auto" ? !isTemporaryDomain(SITE.url) : SITE.indexing === true;
 
 export function caseStudyMeta(project) {
   return {

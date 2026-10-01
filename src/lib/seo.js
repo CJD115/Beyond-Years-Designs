@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { SITE, absoluteUrl } from "@/data/site";
+import { SITE, absoluteUrl, allowIndexing } from "@/data/site";
 
 function upsertMeta(attr, key, content) {
   const selector = `meta[${attr}="${key}"]`;
@@ -38,16 +38,26 @@ export function useSeo({ title, description, type = "website", image = SITE.ogIm
 
     upsertMeta("name", "description", description);
 
-    if (noindex) {
-      upsertMeta("name", "robots", "noindex");
-      document.head.querySelector('link[rel="canonical"]')?.remove();
-      removeMeta("property", "og:url");
-    } else {
+    // `noindex` is this page (e.g. not found); allowIndexing is site-wide
+    // (off while the site is on a temporary domain — see src/data/site.js)
+    const indexable = allowIndexing && !noindex;
+    if (indexable) {
       removeMeta("name", "robots");
-      if (path) {
-        upsertCanonical(absoluteUrl(path));
-        upsertMeta("property", "og:url", absoluteUrl(path));
-      }
+    } else {
+      upsertMeta("name", "robots", "noindex");
+    }
+
+    if (indexable && path) {
+      upsertCanonical(absoluteUrl(path));
+    } else {
+      document.head.querySelector('link[rel="canonical"]')?.remove();
+    }
+
+    // og:url stays on real pages either way; link previews use it
+    if (!noindex && path) {
+      upsertMeta("property", "og:url", absoluteUrl(path));
+    } else {
+      removeMeta("property", "og:url");
     }
 
     upsertMeta("property", "og:type", type);
