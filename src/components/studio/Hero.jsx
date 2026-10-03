@@ -43,8 +43,8 @@ export default function Hero() {
             <div className="hero-body-col md:col-span-5">
               <p className="hero-body text-lg md:text-xl leading-relaxed text-muted-foreground max-w-lg">
                 Building a website shouldn’t get in the way of your business.
-We get it—you’re working hard, your junk folder’s full, and the list of things to do keeps getting longer. Sometimes, all you need is something simple.
-That’s where we come in.
+                We get it—you’re working hard, your junk folder’s full, and the list of things to do keeps getting longer. Sometimes, all you need is something simple.
+                That’s where we come in.  
               </p>
             </div>
 

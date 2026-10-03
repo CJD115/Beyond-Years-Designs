@@ -10,7 +10,7 @@ import { motion, useInView, useReducedMotion } from "motion/react";
 const NOTES = [
   {
     anchor: "thoughtful",
-    text: "Beautiful was the easy word. Thoughtful is the honest one.",
+    text: "Beautiful is easy. Thoughtful means everything works precisely as it needs to.",
     by: "Mike — Resident Wordsmith",
   },
   {

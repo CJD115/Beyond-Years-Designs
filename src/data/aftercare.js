@@ -11,8 +11,8 @@ export const AFTERCARE_GROUPS = [
     title: "Keeping it running",
     items: [
       {
-        name: "Hosting",
-        body: "If you don’t already have a hosting solution in mind, don’t worry! We’re happy to host your site for you, making sure everything’s kept online and taken care of, hassle-free.",
+        name: "Hosting & Maintenance",
+        body: "If you don’t already have a hosting solution in mind, don’t worry! We’ll host your site and keep everything maintained, hassle-free. Contact us with any changes you’d like made, as and when you need, and let us handle the rest.",
         terms: "Ongoing",
       },
       {
@@ -56,16 +56,12 @@ export const AFTERCARE_ASIDE =
 // The handover note. Plain strings are set as normal text; { em } parts are
 // picked out in ochre italic.
 export const AFTERCARE_NOTE = [
-  "Once your site is live... ",
+  "Once your site’s live, we can keep it running with ",
   { em: "hosting" },
   " and ",
-  { em: "your domain" },
-  ", keep everything ",
-  { em: "maintained" },
+  { em: "maintenance" },
   ", and help it grow with ",
   { em: "blogs and newsletters" },
-  ", ",
-  { em: "SEO" },
   " and ",
   { em: "analytics" },
   ".",

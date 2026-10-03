@@ -23,9 +23,9 @@ export default function WhyStudio() {
           <Reveal className="md:col-span-5">
             <p className="eyebrow mb-4">Why Us</p>
             <h2 className="font-display text-5xl md:text-7xl leading-[0.95]">
-              Who
+              Why
               <br />
-              <span className="font-serif-italic text-accent">we are.</span>
+              <span className="font-serif-italic text-accent">choose us?</span>
             </h2>
           </Reveal>
 
