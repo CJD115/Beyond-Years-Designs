@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SITE } from "@/data/site";
+import { useIsClient } from "@/lib/useIsClient";
 
 const elsewhere = [
   ...SITE.socials.filter((s) => s.href),
@@ -8,6 +9,7 @@ const elsewhere = [
 
 export default function Footer() {
   const [time, setTime] = useState("");
+  const isClient = useIsClient();
 
   useEffect(() => {
     const update = () => {
@@ -72,7 +74,8 @@ export default function Footer() {
               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
               Local time {time}
             </span>
-            <span>© {new Date().getFullYear()} Beyond Years Designs. All rights reserved.</span>
+            {/* the year comes from the visitor's clock, not the build's */}
+            <span>© {isClient && `${new Date().getFullYear()} `}Beyond Years Designs. All rights reserved.</span>
           </div>
         </div>
       </div>

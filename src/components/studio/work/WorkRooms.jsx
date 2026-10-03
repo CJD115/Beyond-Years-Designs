@@ -8,18 +8,33 @@ import Reveal from "../Reveal";
 // so you walk from one project to the next. Chapters alternate sides.
 //
 // Content comes from src/data/projects.js. Optional fields used here:
-//   print   — lightweight image for the main print (falls back to `image`)
-//   detail  — { image, caption, alt, portrait } a second, smaller pinned print
+//   print   — lightweight image for the main print (falls back to `image`),
+//             with printSrcSet
+//   detail  — { image, srcSet, caption, alt, portrait } a second, smaller pinned print
 //   quote   — { text, by } shown instead of the tagline
+
+// Rendered width of the photo inside the main print (the 8-column side of the
+// grid on desktop, less the print's border), for srcset selection. The detail
+// print is roughly a fifth of that.
+const PRINT_SIZES =
+  "(min-width: 1600px) 900px, (min-width: 1024px) calc(66.67vw - 167px), (min-width: 768px) calc(100vw - 108px), calc(100vw - 68px)";
+const DETAIL_SIZES = {
+  portrait: "(min-width: 1024px) 160px, 15vw",
+  landscape: "(min-width: 1024px) 210px, 20vw",
+};
 
 const cityOf = (location = "") => location.split(",")[0].trim();
 
 function Print({ project }) {
+  const srcSet = project.print ? project.printSrcSet : project.imageSrcSet;
+
   return (
     <div className="bg-print p-2.5 shadow-[0_1px_1px_rgba(18,18,18,0.06),0_30px_50px_-28px_rgba(40,28,16,0.45)] transition-[transform,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:shadow-[0_1px_1px_rgba(18,18,18,0.06),0_40px_60px_-30px_rgba(40,28,16,0.5)] md:p-3.5 motion-reduce:transition-none">
       <div className="aspect-[1.8] overflow-hidden bg-print-shade">
         <img
           src={project.print ?? project.image}
+          srcSet={srcSet}
+          sizes={srcSet ? PRINT_SIZES : undefined}
           alt={`The ${project.name} website`}
           loading="lazy"
           className="h-full w-full object-cover"
@@ -45,7 +60,14 @@ function DetailPrint({ detail, side }) {
       <span aria-hidden="true" className="absolute -left-1 -top-1 z-10 h-2 w-2 rounded-full bg-accent" />
       <figure className="bg-print p-1.5 shadow-[0_1px_1px_rgba(18,18,18,0.06),0_24px_40px_-20px_rgba(40,28,16,0.45)] md:p-2.5 xl:pb-0">
         <div className={`${detail.portrait ? "aspect-[0.49]" : "aspect-[0.8]"} overflow-hidden bg-print-shade`}>
-          <img src={detail.image} alt={detail.alt} loading="lazy" className="h-full w-full object-cover" />
+          <img
+            src={detail.image}
+            srcSet={detail.srcSet}
+            sizes={detail.srcSet ? DETAIL_SIZES[detail.portrait ? "portrait" : "landscape"] : undefined}
+            alt={detail.alt}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
         </div>
         {/* captions only where the print is large enough to carry them */}
         <figcaption className="hidden h-8 items-center whitespace-nowrap text-[0.6rem] uppercase tracking-[0.22em] text-muted-foreground xl:flex">

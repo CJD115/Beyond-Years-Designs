@@ -12,7 +12,8 @@ Read `CLAUDE.md` for the design direction and development principles, and `READM
 - `src/components/studio/`: the site's sections.
 - `src/data/projects.js`: project and case-study content.
 - `src/data/site.js`: domain, contact details and social links (shared with the build script).
-- `scripts/prerender-meta.mjs`: runs after `vite build`; writes per-route `<head>` metadata, `404.html`, `robots.txt` and `sitemap.xml`.
+- `src/entry-server.jsx` + `scripts/prerender.mjs`: run after `vite build`; render the home and case-study pages to HTML (which `src/main.jsx` hydrates) with per-route `<head>` metadata, and write `404.html`, `robots.txt` and `sitemap.xml`. Anything browser-only must stay out of the first render (use effects, or `useIsClient` from `src/lib/useIsClient.js`).
+- `scripts/make-image-sizes.mjs` (`npm run images`): makes the smaller image copies that srcsets in `src/data/projects.js` point to.
 
 ## Working Notes
 

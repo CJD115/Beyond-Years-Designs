@@ -1,8 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
 
+const FINE_POINTER = "(pointer: fine)";
+
+const subscribe = (onChange) => {
+  const query = window.matchMedia(FINE_POINTER);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+};
+
 export default function Cursor() {
-  const enabled = window.matchMedia("(pointer: fine)").matches;
+  // Off in the prerendered HTML (there's no pointer at build time); on once
+  // the page is running with a mouse or trackpad
+  const enabled = useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(FINE_POINTER).matches,
+    () => false,
+  );
   // With reduced motion the ring tracks the pointer directly instead of
   // trailing behind it on a spring
   const reduceMotion = useReducedMotion();

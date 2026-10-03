@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import PrintTrail from "./PrintTrail";
 
 export default function Hero() {
@@ -16,63 +15,36 @@ export default function Hero() {
         </div>
 
         <div className="relative z-10">
-          <div>
-            <p className="eyebrow hero-eyebrow mb-10 md:mb-12 lg:mb-16">
-              Web Design & Development Studio
-            </p>
-          </div>
-
-          <motion.h1
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.12,
-                  delayChildren: 0.15,
-                },
-              },
-            }}
+          {/* Each line slides up out of a mask (.hero-line in index.css). It's
+              a CSS animation so it plays as soon as the prerendered page
+              appears, without waiting for JavaScript. */}
+          <h1
             // flow-root keeps line 2's negative margin inside the heading, so the
             // gap to the paragraph below is unchanged
             className="hero-title flow-root font-display text-[15vw] leading-[0.98] tracking-[-0.03em] md:text-[11vw] lg:text-[10.5vw] text-balance"
           >
+            <span className="eyebrow hero-eyebrow block leading-normal text-wrap mb-10 md:mb-12 lg:mb-16">
+              Bristol Web Design & Development Studio
+            </span>{" "}
             <span className="block overflow-hidden">
-              <motion.span
-                variants={{
-                  hidden: { y: "100%" },
-                  visible: { y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
-                }}
-                className="block"
-              >
-                Websites worth
-              </motion.span>
+              <span className="hero-line block">Websites worth</span>
             </span>{" "}
             {/* Masked like line 1. The italic g hangs ~0.11em below the line box,
                 so the mask is 0.15em deeper (padding) and the extra depth is
                 taken back with a negative margin. */}
             <span className="block overflow-hidden mb-[-0.15em]">
-              <motion.span
-                variants={{
-                  hidden: { y: "100%" },
-                  visible: { y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
-                }}
-                className="font-serif-italic text-accent block pb-[0.15em]"
-              >
+              <span className="hero-line hero-line-2 font-serif-italic text-accent block pb-[0.15em]">
                 remembering.
-              </motion.span>
+              </span>
             </span>
-          </motion.h1>
+          </h1>
 
           <div className="hero-lower mt-12 md:mt-12 lg:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="hero-body-col md:col-span-5">
               <p className="hero-body text-lg md:text-xl leading-relaxed text-muted-foreground max-w-lg">
-                You’re a small business. We’re a small business—We get it.
-                You’re busy doing what you do best. You’re working hard, your junk folder’s full, and there just
-                isn’t the time or budget for a flashy, overdesigned website or app. Sometimes, all you need is
-                something simple.
-                That’s where we come in.
+                Building a website shouldn’t get in the way of your business.
+We get it—you’re working hard, your junk folder’s full, and the list of things to do keeps getting longer. Sometimes, all you need is something simple.
+That’s where we come in.
               </p>
             </div>
 

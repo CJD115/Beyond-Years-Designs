@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
+import { useIsClient } from "@/lib/useIsClient";
 import Reveal from "./Reveal";
 
 // Portraits are exported at 640 and 1280px wide (name-640.webp, name.webp)
@@ -55,6 +56,7 @@ export default function About() {
   const continueRefs = useRef([]);
   const goToContactRef = useRef(false);
   const shouldReduceMotion = useReducedMotion();
+  const isClient = useIsClient(); // the profile portal needs document.body
   const activeMember =
     activeMemberIndex !== null ? TEAM[activeMemberIndex] : null;
 
@@ -246,7 +248,7 @@ export default function About() {
         </div>
       </section>
 
-      {createPortal(
+      {isClient && createPortal(
         <AnimatePresence>
           {activeMember && (
             <motion.div

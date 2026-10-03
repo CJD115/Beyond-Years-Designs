@@ -14,7 +14,7 @@ npm run build      # production build into dist/
 npm run preview    # serve dist/ locally
 ```
 
-`npm run build` runs `vite build` and then `scripts/prerender-meta.mjs`, which writes a copy of the page for each case study (`dist/work/<slug>/index.html`) with its own title, description, canonical URL and share image, plus `404.html`, `robots.txt` and `sitemap.xml`.
+`npm run build` runs `vite build`, builds `src/entry-server.jsx` into `dist-ssr/`, and then runs `scripts/prerender.mjs`. That renders the home page and each case study (`dist/work/<slug>/index.html`) to HTML, so the first screen shows before any JavaScript runs, with each page's own title, description, canonical URL and share image. It also writes `404.html`, `robots.txt` and `sitemap.xml`. `dist-ssr/` is only used during the build; don't upload it.
 
 ## Deploying
 
@@ -28,4 +28,5 @@ Search indexing follows the domain automatically (`SITE.indexing: "auto"`). Whil
 
 - Projects and case studies: `src/data/projects.js`
 - Share images (1200 × 630): `public/og/`
+- Portfolio images are served at several widths. After adding an image with a srcset in `src/data/projects.js`, run `npm run images` to make its smaller copies.
 - `npm run capture:work` takes fresh screenshots of the client sites listed in `scripts/work-sites.json` (see the notes at the top of `scripts/capture-work.mjs`).

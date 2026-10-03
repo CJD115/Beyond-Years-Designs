@@ -56,7 +56,7 @@ export const AFTERCARE_ASIDE =
 // The handover note. Plain strings are set as normal text; { em } parts are
 // picked out in ochre italic.
 export const AFTERCARE_NOTE = [
-  "Once your site is live, we don’t have to say goodbye. If you’d like us to stay on, we can look after the ",
+  "Once your site is live... ",
   { em: "hosting" },
   " and ",
   { em: "your domain" },

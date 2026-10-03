@@ -29,7 +29,7 @@ function upsertCanonical(href) {
 
 // Keeps the head in step with the route after client-side navigation. The
 // same tags are written into each prerendered page at build time
-// (scripts/prerender-meta.mjs), which is what crawlers and link previews read.
+// (scripts/prerender.mjs), which is what crawlers and link previews read.
 export function useSeo({ title, description, type = "website", image = SITE.ogImage, path, noindex = false }) {
   useEffect(() => {
     if (!title || !description) return;

@@ -2,13 +2,18 @@
 // section and its individual case-study page at /work/:slug.
 // Add real projects here — the case-study page renders whatever fields exist.
 
-// Case-study screenshots are exported at 800, 1600 and 2400px wide
-// (name-800.webp, name-1600.webp, name.webp) so phones download the small one.
-const srcSetFor = (src) =>
-  [800, 1600]
+// Images are served at several widths (name-800.webp, name-1600.webp, and the
+// original name.webp at `fullWidth`) so phones download a small one. Smaller
+// widths than the original are made by `npm run images`.
+const srcSetFor = (src, fullWidth = 2400, widths = [800, 1600]) =>
+  widths
+    .filter((w) => w < fullWidth)
     .map((w) => `${src.replace(/\.webp$/, `-${w}.webp`)} ${w}w`)
-    .concat(`${src} 2400w`)
+    .concat(`${src} ${fullWidth}w`)
     .join(", ");
+
+// The small pinned prints in Selected Work
+const detailSrcSetFor = (src, fullWidth) => srcSetFor(src, fullWidth, [200, 400]);
 
 export const PROJECTS = [
   {
@@ -27,8 +32,10 @@ export const PROJECTS = [
     thumb: "/hero-trail/churcham-homes.webp",
     // Selected Work ("Rooms") — the pinned prints
     print: "/work/churcham-homes.webp",
+    printSrcSet: srcSetFor("/work/churcham-homes.webp", 1440),
     detail: {
       image: "/work/churcham-homes-mobile.webp",
+      srcSet: detailSrcSetFor("/work/churcham-homes-mobile.webp", 391),
       caption: "On the phone",
       alt: "The Churcham Homes website on a phone",
       portrait: true,
@@ -75,8 +82,10 @@ export const PROJECTS = [
     thumb: "/hero-trail/groves-hairstyling.webp",
     // Selected Work ("Rooms") — the pinned prints, and a quote shown in place of the tagline
     print: "/work/groves-hairstyling.webp",
+    printSrcSet: srcSetFor("/work/groves-hairstyling.webp"),
     detail: {
       image: "/work/groves-salon.webp",
+      srcSet: detailSrcSetFor("/work/groves-salon.webp", 480),
       caption: "The salon itself",
       alt: "Inside the Groves Hairstyling salon",
     },
@@ -124,8 +133,10 @@ export const PROJECTS = [
     thumb: "/hero-trail/hidden-gem.webp",
     // Selected Work ("Rooms")
     print: "/work/hidden-gem.webp",
+    printSrcSet: srcSetFor("/work/hidden-gem.webp"),
     detail: {
       image: "/work/hidden-gem-phone.webp",
+      srcSet: detailSrcSetFor("/work/hidden-gem-phone.webp", 900),
       caption: "On the phone",
       alt: "The Hidden Gem website on a phone",
       portrait: true,

@@ -6,7 +6,7 @@ import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
   // .claude holds third-party agent skills (with their own scripts), not site code
-  globalIgnores(["dist", ".claude"]),
+  globalIgnores(["dist", "dist-ssr", ".claude"]),
   {
     files: ["**/*.{js,jsx}"],
     extends: [

@@ -16,7 +16,7 @@ const RESPONSIVE_SIZES = "(min-width: 1600px) 970px, (min-width: 768px) 60vw, ca
 function Section({ label, children, className = "" }) {
   return (
     <Reveal className={`border-t border-border py-10 md:py-14 ${className}`}>
-      {label && <p className="eyebrow mb-6">{label}</p>}
+      {label && <h2 className="eyebrow mb-6">{label}</h2>}
       {children}
     </Reveal>
   );
@@ -43,7 +43,7 @@ export default function CaseStudy() {
   if (!project) {
     return (
       <main id="content" className="min-h-screen flex flex-col items-center justify-center gap-6 px-6">
-        <p className="font-display text-4xl">Project not found.</p>
+        <h1 className="font-display text-4xl">Project not found.</h1>
         <Link to="/" className="link-underline">Return home</Link>
       </main>
     );
@@ -270,14 +270,14 @@ export default function CaseStudy() {
         </div>
 
         {/* Next project */}
-        <nav className="border-t border-border">
+        <nav aria-labelledby="next-project-label" className="border-t border-border">
           <Link to={caseStudyPath(next.slug)} className="group block">
             <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16 py-16 md:py-24 flex flex-col md:flex-row md:items-end md:justify-between gap-6 transition-colors duration-500 group-hover:bg-secondary/40">
               <div>
-                <p className="eyebrow mb-4">Next Project</p>
-                <h2 className="font-display text-5xl md:text-7xl leading-[0.95]">
+                <h2 id="next-project-label" className="eyebrow mb-4">Next Project</h2>
+                <p className="font-display text-5xl md:text-7xl leading-[0.95]">
                   {next.name}
-                </h2>
+                </p>
                 <p className="mt-3 text-sm text-muted-foreground">{next.industry}</p>
               </div>
               <span className="inline-flex items-center gap-2 text-base font-medium link-underline">

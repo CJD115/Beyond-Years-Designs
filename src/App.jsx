@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { MotionConfig } from "motion/react";
 import ScrollToTop from "@/components/ScrollToTop";
 import Home from "@/pages/Home";
@@ -22,20 +22,20 @@ function PageNotFound() {
   );
 }
 
+// The router comes from outside: BrowserRouter in the browser (main.jsx),
+// StaticRouter when pages are prerendered at build time (entry-server.jsx).
 export default function App() {
   return (
     // "user": when the visitor asks the OS for reduced motion, Motion skips
     // movement (slides, reveals) and keeps only fades.
     <MotionConfig reducedMotion="user">
-      <BrowserRouter>
-        <ScrollToTop />
-        <Cursor />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/work/:slug" element={<CaseStudy />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <ScrollToTop />
+      <Cursor />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/work/:slug" element={<CaseStudy />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </MotionConfig>
   );
 }

@@ -1,4 +1,4 @@
-// Site-wide details, shared by the app and by scripts/prerender-meta.mjs
+// Site-wide details, shared by the app and by scripts/prerender.mjs
 // (which writes each route's <head> at build time), so the two never drift.
 //
 // Contact details and social links stay null until they exist: anything null
@@ -6,9 +6,10 @@
 
 export const SITE = {
   name: "Beyond Years Designs",
-  // Temporary Hostinger domain. Change this one line when the real domain is
-  // live; canonical URLs, og:url, og:image and sitemap.xml all follow it.
-  url: "https://ivory-wasp-465710.hostingersite.com",
+  // The live domain. Canonical URLs, og:url, og:image and sitemap.xml all
+  // follow this one line. (Previously the temporary Hostinger domain
+  // https://ivory-wasp-465710.hostingersite.com.)
+  url: "https://beyondyears.co.uk",
   // Search indexing. "auto" keeps search engines out while `url` is a
   // temporary hosting domain (see TEMPORARY_DOMAINS) and lets them in as soon
   // as `url` is the real domain. true / false force it either way.
@@ -19,6 +20,14 @@ export const SITE = {
     "Beyond Years Designs is a Bristol-based two-person web design and development studio. We design, build, and write considered websites for small businesses and creative teams.",
   // 1200 × 630 share image
   ogImage: "/og/home.jpg",
+  // Structured data (JSON-LD, written into each page by scripts/prerender.mjs).
+  // Only what the site itself states: where the studio is based (town and
+  // country, no street address on purpose) and its two founders.
+  address: { locality: "Bristol", country: "GB" },
+  founders: [
+    { name: "Connor", jobTitle: "Resident Web Developer" },
+    { name: "Mike", jobTitle: "Resident Wordsmith" },
+  ],
   email: null,
   socials: [
     { label: "Instagram", href: null },

@@ -85,8 +85,11 @@ function Print({ print }) {
           background: print.featured ? "var(--print-shade)" : "var(--print)",
         }}
       >
+        {/* lazy: the trail is hidden on phones and tablets, and browsers skip
+            lazy images that aren't displayed, so only desktops download these */}
         <img
           src={project.thumb ?? project.image}
+          loading="lazy"
           alt=""
           draggable="false"
           className="block h-full w-full object-cover"

@@ -3,12 +3,15 @@
 @import "tailwindcss" source(".");
 
 /* Self-hosted fonts (public/fonts/, Latin subset, SIL Open Font License).
-   Preloaded in index.html. The two upright files are variable fonts. */
+   Preloaded in index.html. The two upright files are variable fonts.
+   font-display: block, because pages are prerendered: text can paint before
+   the fonts arrive, and swap would flash a fallback face (and shift the
+   hero) first. Blocking waits for the real face, for up to 3s. */
 @font-face {
   font-family: "Cormorant Garamond";
   font-style: normal;
   font-weight: 300 600;
-  font-display: swap;
+  font-display: block;
   src: url("/fonts/cormorant-garamond-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -17,7 +20,7 @@
   font-family: "Cormorant Garamond";
   font-style: italic;
   font-weight: 400;
-  font-display: swap;
+  font-display: block;
   src: url("/fonts/cormorant-garamond-italic-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -26,7 +29,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 300 600;
-  font-display: swap;
+  font-display: block;
   src: url("/fonts/inter-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -98,7 +101,8 @@
   }
 
   /* Reduced motion: CSS transitions and keyframe animations (hover moves,
-     underline draws, the footer's pulse) finish immediately. Motion's own
+     underline draws, the footer's pulse) finish immediately; the hero
+     headline turns its animation off (see .hero-line). Motion's own
      animations are handled by <MotionConfig reducedMotion="user"> in App. */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -238,6 +242,28 @@
   .hero-section {
     justify-content: flex-start;
     padding-top: 5.25rem;
+  }
+}
+
+/* Hero headline: each line slides up out of its mask as the page appears,
+   the second 0.12s after the first. With reduced motion it's simply there. */
+@keyframes hero-line-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+.hero-line {
+  animation: hero-line-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.hero-line-2 {
+  animation-delay: 0.27s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line {
+    animation: none;
   }
 }
 
