@@ -4,16 +4,26 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { SITE } from "@/data/site";
 
+// Enquiries go through Web3Forms, which emails them to the inbox the access key
+// was created with (change it in their dashboard, not here). The key is public
+// by design, but it lives in .env.local rather than the repo; see .env.example.
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
 export default function FinalCTA() {
   const [projectType, setProjectType] = useState("");
-  const [sent, setSent] = useState(false);
+  // idle | sending | sent | failed
+  const [status, setStatus] = useState("idle");
+  const [sentTo, setSentTo] = useState("");
   const [errors, setErrors] = useState({});
 
   const projectTypeOptions = ["Start from scratch", "Refresh my website", "Improve my messaging", "Not sure yet, let's chat"];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    if (status === "sending") return;
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
@@ -30,12 +40,54 @@ export default function FinalCTA() {
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
-      setSent(false);
+      setStatus("idle");
       return;
     }
 
-    setSent(true);
+    const firstName = name.split(/\s+/)[0];
+    const done = () => {
+      form.reset();
+      setProjectType("");
+      setSentTo(firstName);
+      setStatus("sent");
+    };
+
+    // Honeypot: people never see this field, so anything in it is a bot.
+    // Look sent, but don't pass it on.
+    if (formData.get("botcheck")) {
+      done();
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      if (!WEB3FORMS_KEY) throw new Error("VITE_WEB3FORMS_ACCESS_KEY is not set");
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          // connor@'s Webmail filter copies subjects containing "New enquiry from"
+          // to mike@, so update that filter if this wording changes
+          subject: `New enquiry from ${name}: ${projectType}`,
+          from_name: `${SITE.name} website`,
+          name,
+          email,
+          looking_for: projectType,
+          message,
+        }),
+        signal: AbortSignal.timeout(15000),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || !result.success) throw new Error(result.message || `Web3Forms responded ${res.status}`);
+      done();
+    } catch (err) {
+      console.error("Contact form failed to send:", err);
+      setStatus("failed");
+    }
   };
+
+  const sending = status === "sending";
 
   return (
     <section id="contact" className="relative bg-foreground text-background py-24 md:py-36 overflow-hidden">
@@ -69,10 +121,10 @@ export default function FinalCTA() {
                 <dt className="eyebrow text-background/50 mb-1">Studio</dt>
                 <dd className="text-background/80">Bristol, England</dd>
               </div>
-              <div>
+              {/* <div>
                 <dt className="eyebrow text-background/50 mb-1">Hours</dt>
                 <dd className="text-background/80">Mon-Fri, 9 to 5</dd>
-              </div>
+              </div> */}
             </dl>
           </div>
 
@@ -128,6 +180,7 @@ export default function FinalCTA() {
               label="Your name"
               name="name"
               placeholder="What should we call you?"
+              autoComplete="name"
               required
               error={errors.name}
             />
@@ -137,6 +190,7 @@ export default function FinalCTA() {
               name="email"
               type="email"
               placeholder="hello@example.com"
+              autoComplete="email"
               required
               error={errors.email}
             />
@@ -150,24 +204,41 @@ export default function FinalCTA() {
               error={errors.message}
             />
 
+            {/* Honeypot (Web3Forms' botcheck): display:none, so it's out of reach of people and screen readers */}
+            <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
             <button
               type="submit"
-              className="group inline-flex min-h-11 items-center gap-2 self-start border-b border-background py-1 text-lg font-medium transition-colors hover:border-accent hover:text-accent"
+              disabled={sending}
+              className="group inline-flex min-h-11 items-center gap-2 self-start border-b border-background py-1 text-lg font-medium transition-colors hover:border-accent hover:text-accent disabled:cursor-wait disabled:opacity-60 disabled:hover:border-background disabled:hover:text-background"
             >
-              Start the conversation
-              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={1.5} />
+              {sending ? "Sending…" : "Start the conversation"}
+              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-disabled:translate-x-0 group-disabled:translate-y-0" strokeWidth={1.5} />
             </button>
 
-            {sent && (
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-sm text-accent"
-                role="status"
-                aria-live="polite"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </motion.p>
+            {/* Kept mounted so screen readers announce the message when it changes */}
+            <div role="status" aria-live="polite">
+              {status === "sent" && (
+                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-accent">
+                  Thanks, {sentTo}. We've got your message and will be in touch soon.
+                </motion.p>
+              )}
+            </div>
+            {status === "failed" && (
+              <p className="text-sm text-accent" role="alert">
+                Sorry, your message didn't send. Please try again in a moment
+                {SITE.email ? (
+                  <>
+                    , or email us at{" "}
+                    <a href={`mailto:${SITE.email}`} className="link-underline link-underline-light">
+                      {SITE.email}
+                    </a>
+                    .
+                  </>
+                ) : (
+                  "."
+                )}
+              </p>
             )}
           </form>
         </div>
@@ -176,7 +247,7 @@ export default function FinalCTA() {
   );
 }
 
-function Field({ id, label, name, placeholder, type = "text", textarea = false, required = false, error }) {
+function Field({ id, label, name, placeholder, type = "text", autoComplete, textarea = false, required = false, error }) {
   const describedBy = error ? `${id}-error` : undefined;
   const cls =
     "w-full bg-transparent border-0 border-b border-background/20 px-0 py-3 text-background placeholder:text-background/30 focus-visible:border-accent transition-colors duration-300";
@@ -203,6 +274,7 @@ function Field({ id, label, name, placeholder, type = "text", textarea = false, 
           type={type}
           name={name}
           placeholder={placeholder}
+          autoComplete={autoComplete}
           className={cls}
           required={required}
           aria-invalid={Boolean(error)}
