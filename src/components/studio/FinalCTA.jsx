@@ -207,14 +207,20 @@ export default function FinalCTA() {
             {/* Honeypot (Web3Forms' botcheck): display:none, so it's out of reach of people and screen readers */}
             <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
-            <button
-              type="submit"
-              disabled={sending}
-              className="group inline-flex min-h-11 items-center gap-2 self-start border-b border-background py-1 text-lg font-medium transition-colors hover:border-accent hover:text-accent disabled:cursor-wait disabled:opacity-60 disabled:hover:border-background disabled:hover:text-background"
-            >
-              {sending ? "Sending…" : "Start the conversation"}
-              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-disabled:translate-x-0 group-disabled:translate-y-0" strokeWidth={1.5} />
-            </button>
+            <div className="flex flex-col items-start gap-4">
+              <p id="contact-privacy" className="text-sm text-background/60">
+                We'll only use your details to reply to your enquiry.
+              </p>
+              <button
+                type="submit"
+                disabled={sending}
+                aria-describedby="contact-privacy"
+                className="group inline-flex min-h-11 items-center gap-2 border-b border-background py-1 text-lg font-medium transition-colors hover:border-accent hover:text-accent disabled:cursor-wait disabled:opacity-60 disabled:hover:border-background disabled:hover:text-background"
+              >
+                {sending ? "Sending…" : "Start the conversation"}
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-disabled:translate-x-0 group-disabled:translate-y-0" strokeWidth={1.5} />
+              </button>
+            </div>
 
             {/* Kept mounted so screen readers announce the message when it changes */}
             <div role="status" aria-live="polite">
