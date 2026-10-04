@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
@@ -36,9 +35,8 @@ export default function CaseStudy() {
         },
   );
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
+  // No scroll-to-top here: ScrollToTop handles it for new navigations and
+  // leaves Back/Forward to the browser, which puts visitors back where they were.
 
   if (!project) {
     return (
