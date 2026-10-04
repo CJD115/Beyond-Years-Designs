@@ -31,12 +31,15 @@ function Print({ project }) {
   return (
     <div className="bg-print p-2.5 shadow-[0_1px_1px_rgba(18,18,18,0.06),0_30px_50px_-28px_rgba(40,28,16,0.45)] transition-[transform,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:shadow-[0_1px_1px_rgba(18,18,18,0.06),0_40px_60px_-30px_rgba(40,28,16,0.5)] md:p-3.5 motion-reduce:transition-none">
       <div className="aspect-[1.8] overflow-hidden bg-print-shade">
+        {/* not lazy: Selected Work sits right under the hero, so these download
+            in the background (at low priority) and are ready before you scroll
+            to them, rather than starting only as each print comes into view */}
         <img
           src={project.print ?? project.image}
           srcSet={srcSet}
           sizes={srcSet ? PRINT_SIZES : undefined}
           alt={`The ${project.name} website`}
-          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover"
         />
       </div>
@@ -65,7 +68,7 @@ function DetailPrint({ detail, side }) {
             srcSet={detail.srcSet}
             sizes={detail.srcSet ? DETAIL_SIZES[detail.portrait ? "portrait" : "landscape"] : undefined}
             alt={detail.alt}
-            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover"
           />
         </div>
