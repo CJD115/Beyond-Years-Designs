@@ -15,7 +15,7 @@ export const SITE = {
   // as `url` is the real domain. true / false force it either way.
   indexing: "auto",
   locale: "en_GB",
-  title: "Beyond Years Designs | Web Design and Development Studio",
+  title: "Web Design in Bristol | Beyond Years Designs",
   description:
     "Beyond Years Designs is a Bristol-based two-person web design and development studio. We design, build, and write considered websites for small businesses and creative teams.",
   // 1200 × 630 share image
