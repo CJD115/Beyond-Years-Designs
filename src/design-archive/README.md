@@ -30,8 +30,40 @@ Only what the site actually renders lives there.
 | Our Vision | `/?vision=read` | `vision/VisionReadSlowly.jsx` |
 | Aftercare | `/?aftercare=c` | `aftercare/AftercareCard.jsx` |
 | Aftercare | `/?aftercare=original` | `aftercare/AddOns.jsx` |
+| About | `/?about=profiles` | `components/studio/about/AboutProfiles.jsx` |
+| About | `/?about=lights` | `components/studio/about/AboutLightsOn.jsx` |
 
 The query string does nothing on the live site.
+
+| Contact + footer | `/?contact=original` | `components/studio/contact/ContactOriginal.jsx` + `FooterOriginal.jsx` |
+| Contact + footer | `/?contact=door` | `components/studio/contact/ContactDoor.jsx` + `FooterDoor.jsx` |
+
+| Process | `/?process=original` | `components/studio/process/ProcessOriginal.jsx` |
+| Process | `/?process=corridor` | `components/studio/process/ProcessCorridor.jsx` |
+| Services | `/?services=original` | `components/studio/services/ServicesOriginal.jsx` |
+| Services | `/?services=exploded` | `components/studio/services/ServicesExploded.jsx` |
+
+| Selected Work | `/?work=rooms` | `components/studio/work/WorkRooms.jsx` |
+| Selected Work | `/?work=three` | `components/studio/work/WorkThreeRooms.jsx` |
+
+**Selected Work, Services, Process, About and Contact are the exceptions to the rules
+below:** two finished designs of each are kept in production, and one word
+picks the one the site shows, so swapping is a one-word change:
+
+- Selected Work: `LIVE` in `components/studio/Work.jsx` ("three" for Three
+  Rooms, "rooms" for Rooms). Three Rooms reads each project's `room` entry in
+  `src/data/projects.js` (background photo, framed screenshot, one line).
+
+- Process: `LIVE` in `components/studio/Process.jsx` (designs in
+  `components/studio/process/`; the corridor drawing is `Corridor.jsx`).
+- Services: `LIVE` in `components/studio/Services.jsx` (designs in
+  `components/studio/services/`; the Exploded View copy is in
+  `src/data/services.js`).
+- About: `LIVE` in `components/studio/About.jsx` (designs in
+  `components/studio/about/`, both reading `src/data/team.js`).
+- Contact + footer, swapped as a pair: `LIVE` in
+  `components/studio/contact/design.js`. Both contact designs send enquiries
+  through the same `contact/useEnquiryForm.js`.
 
 ## Contents
 

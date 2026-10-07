@@ -22,7 +22,7 @@ export const PROJECTS = [
     industry: "Luxury Property Developer",
     year: "2025",
     location: "Cheltenham, UK",
-    tagline: "A family-run luxury property developer. This website concept spotlights each new development with galleries, floor plans, pricing, and a direct route to enquire. ",
+    tagline: "A family-run luxury property developer. This website spotlights each new development with galleries, floor plans, pricing, and a direct route to enquire. ",
     description:
       "A modern, visual-first website for high-end property developments across Gloucestershire. ",
     services: ["Website Design", "Web Development", "Copywriting", "Content Writing", "Content & Project Showcase", "Responsive Design"],
@@ -43,9 +43,17 @@ export const PROJECTS = [
     responsiveImage: "/work/churcham-homes-lifestyle.webp",
     responsiveImageSrcSet: srcSetFor("/work/churcham-homes-lifestyle.webp"),
     mobileImage: "/work/churcham-homes-mobile.webp",
+    // Selected Work ("Three Rooms"): the real place blurred behind, the
+    // website in its frame, and one line about it
+    room: {
+      line: "A family-run luxury developer. Each new development gets its own galleries, floor plans, pricing and a direct route to enquire.",
+      place: "/work/churcham-homes-lifestyle-800.webp",
+      screen: "/work/churcham-homes-desktop.webp",
+      screenSrcSet: srcSetFor("/work/churcham-homes-desktop.webp"),
+    },
     featured: true,
     overview:
-      "This polished, image-led website concept is designed to showcase what the brand does, and convert interest into enquiries." +
+      "This polished, image-led website is designed to showcase what the brand does, and convert interest into enquiries." +
       " It uses responsive design and premium photography to convey the luxurious brand feel, and spotlights each development with galleries, floor plans, and relevant contact details.",
     clientBackground:
       "Churcham Homes is a family-run premium property developer in Gloucestershire. Their developments focus on high-end finishes, modern layouts, and a premium customer experience.",
@@ -96,6 +104,12 @@ export const PROJECTS = [
     responsiveImage: "/work/groves-hairstyling-services.webp",
     responsiveImageSrcSet: srcSetFor("/work/groves-hairstyling-services.webp"),
     mobileImage: "/work/groves-hairstyling-mobile.webp",
+    room: {
+      line: "“I wanted the site to feel like walking into the salon itself: marble, crystal, that quiet sense of being looked after.” — Connor",
+      place: "/work/groves-salon-400.webp",
+      screen: "/work/groves-hairstyling-services.webp",
+      screenSrcSet: srcSetFor("/work/groves-hairstyling-services.webp"),
+    },
     liveUrl: "https://www.groveshairstyling.com/",
     overview:
       "This elegant, approachable website is designed to show customers exactly what the company offers, and make it easy for them to book.",
@@ -144,6 +158,12 @@ export const PROJECTS = [
     responsiveImage: "/work/hidden-gem-intro.webp",
     responsiveImageSrcSet: srcSetFor("/work/hidden-gem-intro.webp"),
     mobileImage: "/work/hidden-gem-mobile.webp",
+    room: {
+      line: "An auction house, an antiques shop and a removals business, in one friendly website that’s easy to find and easy to understand.",
+      place: "/work/hidden-gem-800.webp",
+      screen: "/work/hidden-gem-intro.webp",
+      screenSrcSet: srcSetFor("/work/hidden-gem-intro.webp"),
+    },
     liveUrl: "https://hiddengemremovals.co.uk/",
     overview:
       "With clear information and friendly copy, this website reflects the brand’s professional personality. Everything is laid out simply and clearly, so visitors can find what they need without digging. SEO works in the background to make the site easy to discover.",

@@ -34,6 +34,17 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* JetBrains Mono, for the technical labels in Services ("Exploded View").
+   Not preloaded: it's only used further down the page. */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -50,6 +61,7 @@
   --color-ring: hsl(var(--ring));
   --font-body: var(--font-body);
   --font-display: var(--font-display);
+  --font-mono: var(--font-code);
 }
 
 @layer base {
@@ -69,6 +81,7 @@
     --ring: 30 33.9% 48.6%;
     --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
     --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+    --font-code: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     --linen: #F4F1EE;
     /* Paper and prints: the warm paper behind the hero and Vision, the white
        border of the photo prints, and the dark behind a print's photo */
@@ -263,6 +276,30 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-line {
+    animation: none;
+  }
+}
+
+/* The Door Left Open (contact/DoorLight.jsx): the light in the gap, its glow
+   and the beams on the floor flicker gently, like a lamp in the next room.
+   With reduced motion the light is simply steady. */
+@keyframes door-flicker {
+  0%, 100% { opacity: 1; }
+  7% { opacity: 0.86; }
+  9% { opacity: 1; }
+  46% { opacity: 0.94; }
+  49% { opacity: 0.8; }
+  52% { opacity: 1; }
+  78% { opacity: 0.92; }
+  81% { opacity: 1; }
+}
+
+.door-flicker {
+  animation: door-flicker 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .door-flicker {
     animation: none;
   }
 }
