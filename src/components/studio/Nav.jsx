@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { SITE } from "@/data/site";
+import { heroDesign } from "./hero/design";
 
 const LINKS = [
   { label: "Work", href: "#work" },
@@ -14,6 +15,8 @@ export default function Nav() {
   const [visible, setVisible] = useState(true);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // The X-ray hero restyles the nav above it (see .nav-xray in index.css)
+  const xray = heroDesign() === "xray";
   const headerRef = useRef(null);
   const triggerRef = useRef(null);
   const closeButtonRef = useRef(null);
@@ -131,7 +134,7 @@ export default function Nav() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         // tabbing into the header brings it back if it has slid away
         onFocus={() => setVisible(true)}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${xray ? "nav-xray" : ""} ${
           scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent border-b border-transparent"
         }`}
       >
@@ -142,39 +145,7 @@ export default function Nav() {
         >
           Skip to content
         </a>
-        <nav className="nav-poster mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
-          <a href="#top" className="nav-logo font-display text-xl tracking-tight leading-none">
-            Beyond Years Designs
-          </a>
-          <ul className="hidden items-center gap-10 md:flex">
-            {LINKS.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="nav-link link-underline text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#contact"
-            className="nav-link hidden md:inline-block text-sm font-medium link-underline text-foreground"
-          >
-            Start a project
-          </a>
-          <button
-            ref={triggerRef}
-            aria-label="Open menu"
-            aria-expanded={open}
-            aria-controls="mobile-menu-dialog"
-            onClick={() => setOpen(true)}
-            className="md:hidden text-foreground inline-flex h-11 w-11 items-center justify-center -mr-2"
-          >
-            <Menu className="h-6 w-6" strokeWidth={1.25} />
-          </button>
-        </nav>
+        <NavBar xray={xray} open={open} triggerRef={triggerRef} onOpen={() => setOpen(true)} />
       </motion.header>
 
       <AnimatePresence>
@@ -236,5 +207,70 @@ export default function Nav() {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+// The bar itself. The X-ray hero also draws it, with `blueprint`, as the copy
+// of the nav seen through its lens: the same layout, but inert (spans rather
+// than links), with data-spec labels filled in from its own computed styles.
+export function NavBar({ xray, open = false, triggerRef, onOpen, blueprint = false, specs }) {
+  const Link = blueprint ? "span" : "a";
+  const Bar = blueprint ? "div" : "nav";
+
+  return (
+    <Bar className="nav-poster mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
+      <Link
+        href={blueprint ? undefined : "#top"}
+        data-spec={specs?.logo}
+        className="nav-logo font-display text-xl tracking-tight leading-none"
+      >
+        Beyond Years Designs
+      </Link>
+      <ul className="hidden items-center gap-10 md:flex">
+        {LINKS.map((l, i) => (
+          <li key={l.href}>
+            <Link
+              href={blueprint ? undefined : l.href}
+              data-spec={i === 0 ? specs?.link : undefined}
+              className="nav-link link-underline text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+            >
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <Link
+        href={blueprint ? undefined : "#contact"}
+        className="nav-link hidden md:inline-block text-sm font-medium link-underline text-foreground"
+      >
+        Start a project
+      </Link>
+      {blueprint ? (
+        <span className="nav-menu md:hidden inline-flex h-11 w-11 items-center justify-center -mr-2">
+          <span className="flex w-[18px] flex-col gap-1.5">
+            <span className="h-0.5 bg-current" />
+            <span className="h-0.5 bg-current" />
+          </span>
+        </span>
+      ) : (
+        <button
+          ref={triggerRef}
+          aria-label="Open menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu-dialog"
+          onClick={onOpen}
+          className="nav-menu md:hidden text-foreground inline-flex h-11 w-11 items-center justify-center -mr-2"
+        >
+          {xray ? (
+            <span aria-hidden="true" className="flex w-[18px] flex-col gap-1.5">
+              <span className="h-0.5 bg-current" />
+              <span className="h-0.5 bg-current" />
+            </span>
+          ) : (
+            <Menu className="h-6 w-6" strokeWidth={1.25} />
+          )}
+        </button>
+      )}
+    </Bar>
   );
 }

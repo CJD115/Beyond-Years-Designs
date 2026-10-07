@@ -1,0 +1,418 @@
+/* Process, "Thresholds" (components/studio/process/ProcessThresholds.jsx). Colours, sizes and positions are the
+   mock-up's (design-reference/04-thresholds/06-process/desktop.dc.html).
+   Desktop draws the 1440 × 1000 stage in --u units; phones draw a 342 × 400
+   frame in --pu units. */
+
+.rp-process {
+  --rp-bg: #14110e;
+  --rp-linen: #f2ebe3;
+  --rp-ochre: #b98550;
+  position: relative;
+  background: var(--rp-bg);
+  color: var(--rp-linen);
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+.rp-ochre {
+  color: var(--rp-ochre);
+}
+
+/* ---------------------------------------------------------------- desktop */
+
+.rp-desk {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .rp-phone {
+    display: none;
+  }
+
+  /* Four screens tall; the corridor stays pinned while you scroll through */
+  .rp-desk {
+    display: block;
+    height: 400svh;
+  }
+  .rp-pin {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    container-type: size;
+  }
+
+  /* The stage: the mock-up's 1440 × 1000 composition, scaled as one unit to
+     fit the screen (--u is one mock-up pixel) and centred. Wider screens get
+     the room on either side, with the corridor's lines running on into it. */
+  .rp-canvas {
+    --u: min(calc(100cqw / 1440), calc(100cqh / 1000));
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(var(--u) * 1440);
+    height: calc(var(--u) * 1000);
+    transform: translate(-50%, -50%);
+  }
+
+  .rp-cam {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(var(--u) * 1440);
+    height: calc(var(--u) * 1000);
+    transform-origin: calc(var(--u) * 720) calc(var(--u) * 410);
+  }
+
+  .rp-walk {
+    all: unset;
+    position: absolute;
+    left: calc(var(--u) * 230);
+    top: calc(var(--u) * 120);
+    width: calc(var(--u) * 980);
+    height: calc(var(--u) * 700);
+    cursor: pointer;
+  }
+  .rp-walk:focus-visible {
+    outline: 2px solid var(--rp-ochre);
+    outline-offset: 6px;
+  }
+
+  .rp-head {
+    position: absolute;
+    left: calc(var(--u) * 64);
+    top: calc(var(--u) * 46);
+  }
+  .rp-head .rp-title {
+    margin-top: calc(var(--u) * 6);
+    font-size: max(24px, calc(var(--u) * 34));
+  }
+  .rp-desk .rp-eyebrow {
+    font-size: max(11px, calc(var(--u) * 12));
+    line-height: calc(var(--u) * 14);
+  }
+
+  /* The current stage, bottom left */
+  .rp-stage {
+    position: absolute;
+    left: calc(var(--u) * 64);
+    top: calc(var(--u) * 846);
+    width: calc(var(--u) * 640);
+  }
+  .rp-stage-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: max(28px, calc(var(--u) * 44));
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+  .rp-stage-body {
+    margin: calc(var(--u) * 12) 0 0;
+    font-size: max(14px, calc(var(--u) * 15));
+    line-height: 1.65;
+    color: rgb(242 235 227 / 0.78);
+  }
+
+  .rp-tabs {
+    position: absolute;
+    right: calc(var(--u) * 64);
+    top: calc(var(--u) * 848);
+    display: flex;
+    gap: calc(var(--u) * 22);
+  }
+  .rp-tab {
+    all: unset;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    min-height: max(44px, calc(var(--u) * 44));
+    border-bottom: 1px solid transparent;
+    font-size: max(11px, calc(var(--u) * 12));
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(242 235 227 / 0.6);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .rp-tab:hover {
+    color: var(--rp-linen);
+  }
+  .rp-tab[aria-pressed="true"] {
+    color: var(--rp-ochre);
+    border-bottom-color: var(--rp-ochre);
+  }
+  .rp-tab:focus-visible {
+    outline: 2px solid var(--rp-ochre);
+    outline-offset: 4px;
+  }
+
+  .rp-hint {
+    position: absolute;
+    right: calc(var(--u) * 64);
+    top: calc(var(--u) * 912);
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: max(16px, calc(var(--u) * 20));
+    color: rgb(242 235 227 / 0.6);
+  }
+
+  /* Short screens (under 800 tall), where the text's readable minimum sizes
+     would outgrow the composition: the stage takes the full width so the
+     text and buttons have room either side of the corridor, and 150px is
+     held back for the stage text, shrinking only the drawing */
+  @container (max-height: 799px) {
+    .rp-canvas {
+      --u: min(calc(100cqw / 1440), calc((100cqh - 150px) / 850));
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+    }
+    .rp-cam {
+      left: calc(50% - var(--u) * 720);
+    }
+    .rp-walk {
+      left: calc(50% - var(--u) * 490);
+    }
+    .rp-stage {
+      width: calc(50% - var(--u) * 80);
+    }
+  }
+}
+
+/* With reduced motion the corridor isn't pinned: one screen, and the
+   buttons switch stages instantly */
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .rp-desk {
+    height: auto;
+  }
+  .rp-pin {
+    position: relative;
+  }
+}
+
+/* ---------------------------------------------------------------- drawing */
+
+.rp-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.rp-face,
+.rp-edge {
+  position: absolute;
+  box-sizing: border-box;
+}
+.rp-edge {
+  border: 1px solid rgb(242 235 227 / 0.26);
+  box-shadow: inset 0 calc(var(--u, var(--pu)) * 14) calc(var(--u, var(--pu)) * 22) calc(var(--u, var(--pu)) * -14) rgb(0 0 0 / 0.85);
+}
+.rp-edge-outer {
+  border-color: rgb(242 235 227 / 0.36);
+  box-shadow: none;
+}
+
+/* The finished site at the end of the corridor, breathing */
+.rp-end {
+  --g: var(--u, var(--pu));
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--rp-ochre);
+  background: #2b2a28;
+  animation: rp-breathe 4s ease-in-out infinite;
+}
+.rp-end img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes rp-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 calc(var(--g) * 70) calc(var(--g) * 10) rgb(185 133 80 / 0.26);
+  }
+  50% {
+    box-shadow: 0 0 calc(var(--g) * 90) calc(var(--g) * 16) rgb(185 133 80 / 0.36);
+  }
+}
+
+/* Lintel labels and sill lines */
+.rp-lab,
+.rp-phr {
+  position: absolute;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+  color: var(--rp-linen);
+}
+.rp-lab {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.rp-lab i {
+  font-style: normal;
+  color: var(--rp-ochre);
+}
+.rp-lab-end {
+  color: var(--rp-ochre);
+}
+.rp-phr {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* Shared type */
+.rp-eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgb(242 235 227 / 0.75);
+}
+.rp-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+/* The stage text rises in as it changes */
+.rp-rise {
+  animation: rp-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes rp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* ---------------------------------------------------------------- phone */
+
+.rp-phone {
+  padding: 40px 24px 56px;
+}
+@media (min-width: 768px) {
+  .rp-phone {
+    padding: 72px 40px 88px;
+  }
+}
+.rp-phone .rp-eyebrow {
+  letter-spacing: 0.22em;
+}
+.rp-phone .rp-title {
+  margin-top: 6px;
+  font-size: 28px;
+}
+
+/* The portrait frame: 342 × 400, scaled to the width it's given */
+.rp-pframe {
+  all: unset;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 342 / 400;
+  margin-top: 22px;
+  overflow: hidden;
+  container-type: inline-size;
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.rp-pframe:focus-visible {
+  outline: 2px solid var(--rp-ochre);
+  outline-offset: 4px;
+}
+.rp-pworld {
+  --pu: calc(100cqw / 342);
+  position: absolute;
+  inset: 0;
+  transform-origin: calc(var(--pu) * 171) calc(var(--pu) * 178);
+}
+
+.rp-pstage {
+  max-width: 560px;
+  margin-top: 24px;
+}
+.rp-pstage-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.rp-pstage-body {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgb(242 235 227 / 0.8);
+}
+
+.rp-pnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 440px;
+  margin-top: 32px;
+}
+.rp-nums {
+  display: flex;
+  gap: 2px;
+}
+.rp-arrow,
+.rp-num {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.rp-arrow {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(242 235 227 / 0.35);
+  color: var(--rp-linen);
+}
+.rp-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.rp-num {
+  min-width: 48px;
+  height: 48px;
+  padding: 0 4px;
+  border-bottom: 1px solid transparent;
+  font-family: var(--font-display);
+  font-size: 21px;
+  color: rgb(242 235 227 / 0.65);
+}
+.rp-num[aria-pressed="true"] {
+  color: var(--rp-linen);
+  border-bottom-color: var(--rp-ochre);
+}
+.rp-arrow:not(:disabled):hover,
+.rp-num:hover {
+  color: var(--rp-ochre);
+}
+.rp-arrow:focus-visible,
+.rp-num:focus-visible {
+  outline: 2px solid var(--rp-ochre);
+  outline-offset: 3px;
+}

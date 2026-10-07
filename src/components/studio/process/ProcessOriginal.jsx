@@ -1,29 +1,7 @@
 import Reveal from "../Reveal";
+import { STEPS } from "@/data/process";
 
 // Process, the original design: four numbered steps in a two-column grid.
-
-const STEPS = [
-  {
-    no: "01",
-    title: "Groundwork",
-    body: "First off, we’ll discuss the kind of style and content you want, and get an understanding of your vision for the site. We’ll arrange any follow-ups and outline the process going forward in more detail.",
-  },
-  {
-    no: "02",
-    title: "Planning",
-    body: "Once we know what you want, we’ll work out a development roadmap. With the milestones and deadlines agreed, we’ll send the plan over to make sure you’re happy with it, and then get to work!",
-  },
-  {
-    no: "03",
-    title: "Production",
-    body: "Once we get started, Connor will build your website from the ground up, one line of code at a time. Meanwhile, Mike will craft your brand copy so it’s ready to greet the online world.",
-  },
-  {
-    no: "04",
-    title: "Project complete",
-    body: "Happy with the final product? It’s all yours after we receive the final payment! You’ll have the opportunity once again to choose any ongoing support you might want, like web hosting, maintenance, or domain setup.",
-  },
-];
 
 export default function ProcessOriginal() {
   return (

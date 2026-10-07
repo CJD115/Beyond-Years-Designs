@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { MotionConfig } from "motion/react";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -5,6 +6,10 @@ import Home from "@/pages/Home";
 import CaseStudy from "@/pages/CaseStudy";
 import Cursor from "@/components/studio/Cursor";
 import { useSeo } from "@/lib/seo";
+
+// The redesign preview (/preview), on the dev server only. In a production
+// build import.meta.env.DEV is false, so the route and src/redesign are left out.
+const RedesignHome = import.meta.env.DEV ? lazy(() => import("@/redesign/RedesignHome")) : null;
 
 function PageNotFound() {
   useSeo({
@@ -34,6 +39,16 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<CaseStudy />} />
+        {RedesignHome && (
+          <Route
+            path="/preview"
+            element={
+              <Suspense fallback={null}>
+                <RedesignHome />
+              </Suspense>
+            }
+          />
+        )}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </MotionConfig>

@@ -40,13 +40,18 @@ The query string does nothing on the live site.
 
 | Process | `/?process=original` | `components/studio/process/ProcessOriginal.jsx` |
 | Process | `/?process=corridor` | `components/studio/process/ProcessCorridor.jsx` |
+| Process | `/?process=thresholds` | `components/studio/process/ProcessThresholds.jsx` |
 | Services | `/?services=original` | `components/studio/services/ServicesOriginal.jsx` |
 | Services | `/?services=exploded` | `components/studio/services/ServicesExploded.jsx` |
+| Hero + nav | `/?hero=original` | `components/studio/hero/HeroOriginal.jsx` |
+| Hero + nav | `/?hero=xray` | `components/studio/hero/HeroXray.jsx` |
+| Why Us | `/?why=original` | `components/studio/why/WhyOriginal.jsx` |
+| Why Us | `/?why=perks` | `components/studio/why/WhyPartyPerks.jsx` |
 
 | Selected Work | `/?work=rooms` | `components/studio/work/WorkRooms.jsx` |
 | Selected Work | `/?work=three` | `components/studio/work/WorkThreeRooms.jsx` |
 
-**Selected Work, Services, Process, About and Contact are the exceptions to the rules
+**The hero, Selected Work, Services, Why Us, Process, About and Contact are the exceptions to the rules
 below:** two finished designs of each are kept in production, and one word
 picks the one the site shows, so swapping is a one-word change:
 
@@ -55,10 +60,19 @@ picks the one the site shows, so swapping is a one-word change:
   `src/data/projects.js` (background photo, framed screenshot, one line).
 
 - Process: `LIVE` in `components/studio/Process.jsx` (designs in
-  `components/studio/process/`; the corridor drawing is `Corridor.jsx`).
+  `components/studio/process/`). Live: Thresholds (`ProcessThresholds.jsx`
+  with `thresholds.css`; copy from `src/data/process.js`). The first corridor
+  is `ProcessCorridor.jsx`, its drawing `Corridor.jsx`.
 - Services: `LIVE` in `components/studio/Services.jsx` (designs in
   `components/studio/services/`; the Exploded View copy is in
   `src/data/services.js`).
+- Hero + nav, swapped as a pair: `LIVE` in `components/studio/hero/design.js`
+  (designs in `components/studio/hero/`). X-ray restyles the nav (`.nav-xray`
+  in `index.css`) and draws a second copy of itself as the blueprint under its
+  lens (`Blueprint.jsx`, measured by `measure.js`). `HeroOriginal.jsx` is
+  Hero 3.10 unchanged.
+- Why Us: `LIVE` in `components/studio/WhyStudio.jsx` (designs in
+  `components/studio/why/`; Party Perks uses Cormorant SC from `public/fonts/`).
 - About: `LIVE` in `components/studio/About.jsx` (designs in
   `components/studio/about/`, both reading `src/data/team.js`).
 - Contact + footer, swapped as a pair: `LIVE` in
