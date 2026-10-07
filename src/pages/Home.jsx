@@ -28,11 +28,11 @@ export default function Home() {
         <Hero />
         <Work />
         <Vision />
+        <About />
         <Services />
         <WhyStudio />
         <Process />
         <Aftercare />
-        <About />
         <FinalCTA />
       </main>
       <Footer />

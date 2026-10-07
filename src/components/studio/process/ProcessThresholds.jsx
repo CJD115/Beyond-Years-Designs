@@ -19,7 +19,7 @@ import "./thresholds.css";
 // scales the view about the lit door, the threshold you pass falls away, the
 // current stage reads at full strength and the ones ahead wait at half.
 //
-// Desktop (1024px and up): the section is four screens tall and the corridor
+// Desktop (1024px and up): the section is two and a half screens tall and the corridor
 // is pinned; scrolling walks you through it. The stage buttons and the doorway
 // scroll to a stage. With reduced motion it isn't pinned, and the buttons and
 // doorway switch stages instantly.

@@ -1,0 +1,65 @@
+/* The Thresholds homepage preview (/thresholds): the few CSS-only motions.
+   With reduced motion everything here holds still. */
+
+/* Hero: the room drifts slowly inside the door */
+@keyframes th-drift {
+  from {
+    transform: scale(1.14) translate(-3%, -1%);
+  }
+  to {
+    transform: scale(1.14) translate(3%, 1%);
+  }
+}
+.th-drift {
+  animation: th-drift 18s ease-in-out infinite alternate;
+}
+
+/* Hero: the "Step inside" line pulses downwards */
+@keyframes th-pulse {
+  0% {
+    transform: translateY(-100%);
+  }
+  70%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+.th-pulse {
+  animation: th-pulse 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* Aftercare: the hosting line flows forward, towards you */
+@keyframes th-flow {
+  to {
+    stroke-dashoffset: -52;
+  }
+}
+.th-flow {
+  animation: th-flow 1.6s linear infinite;
+}
+
+/* Aftercare: lamps and renewals glow gently */
+@keyframes th-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.th-breathe {
+  animation: th-breathe 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .th-drift,
+  .th-pulse,
+  .th-flow,
+  .th-breathe {
+    animation: none;
+  }
+  .th-drift {
+    transform: scale(1.14);
+  }
+}

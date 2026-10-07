@@ -7,9 +7,10 @@ import CaseStudy from "@/pages/CaseStudy";
 import Cursor from "@/components/studio/Cursor";
 import { useSeo } from "@/lib/seo";
 
-// The redesign preview (/preview), on the dev server only. In a production
-// build import.meta.env.DEV is false, so the route and src/redesign are left out.
-const RedesignHome = import.meta.env.DEV ? lazy(() => import("@/redesign/RedesignHome")) : null;
+// The whole homepage in the Thresholds direction (/thresholds), on the dev
+// server only. In a production build import.meta.env.DEV is false, so the
+// route and src/redesign are left out.
+const ThresholdsHome = import.meta.env.DEV ? lazy(() => import("@/redesign/thresholds/ThresholdsHome")) : null;
 
 function PageNotFound() {
   useSeo({
@@ -39,12 +40,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<CaseStudy />} />
-        {RedesignHome && (
+        {ThresholdsHome && (
           <Route
-            path="/preview"
+            path="/thresholds"
             element={
               <Suspense fallback={null}>
-                <RedesignHome />
+                <ThresholdsHome />
               </Suspense>
             }
           />

@@ -9,8 +9,8 @@ import { FloorLight, Warmth } from "./DoorLight";
 
 const LINKS = [
   { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
 ];
 
 const LINK =
