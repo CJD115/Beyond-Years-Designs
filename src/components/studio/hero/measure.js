@@ -116,7 +116,9 @@ export function measureBlueprint(root) {
 
   const contentLeft = titleBox.left;
   const contentRight = lg ? origin.x + 1376 * unit : box.width - contentLeft;
-  const lensRadius = lg ? DESKTOP.radius * unit : Math.min(PHONE.radius * (box.width / 390), 150);
+  // Phones and tablets: the phone frame's lens, growing with the width up to
+  // 150, but never more than ~56% of the screen's height across (landscape)
+  const lensRadius = lg ? DESKTOP.radius * unit : Math.min(PHONE.radius * (box.width / 390), 150, window.innerHeight * 0.28);
 
   return {
     width: box.width,

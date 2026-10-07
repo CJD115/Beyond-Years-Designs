@@ -24,8 +24,10 @@ import { BLUEPRINT_CODE, measureBlueprint } from "./measure";
 // screens follow its 390px phone frame.
 //
 // - Mouse: the lens follows the cursor anywhere in the hero.
-// - Touch: drag the lens with your thumb (a tap inside it still follows a
-//   link underneath).
+// - Touch: drag the lens with your thumb, or tap anywhere in the hero to move
+//   it there. A swipe that starts upwards or downwards on the lens scrolls
+//   the page as usual; a drag that starts sideways picks the lens up, and
+//   then it moves freely. A tap inside it still follows a link underneath.
 // - Keyboard, touch and everyone else: "Look underneath" swaps in the whole
 //   layer (on desktop the button shows when it's focused).
 // - Reduced motion: the lens stays still where it is (it can still be dragged).
@@ -194,9 +196,22 @@ export default function HeroXray() {
     return () => window.removeEventListener("pointermove", onMove);
   }, [follows, x, y]);
 
-  // Touch (and reduced motion): drag the lens itself
+  // Glide the lens to a point in the hero (touch and reduced motion)
+  const moveLensTo = (px, py) => {
+    moved.current = true;
+    const to = { duration: reduceMotion ? 0 : 0.6, ease: EASE };
+    animate(x, px, to);
+    animate(y, py, to);
+  };
+
+  // Touch (and reduced motion): drag the lens itself. The lens allows
+  // vertical panning (touch-pan-y), so a swipe that starts up or down is the
+  // browser's and scrolls the page (it cancels this pointer); one that starts
+  // sideways stays here, and the lens follows it in any direction.
   const onLensDown = (e) => {
     const { px, py } = toLocal(e);
+    x.stop();
+    y.stop();
     drag.current = { dx: px - x.get(), dy: py - y.get(), startX: e.clientX, startY: e.clientY, travelled: 0 };
     e.currentTarget.setPointerCapture(e.pointerId);
   };
@@ -205,6 +220,14 @@ export default function HeroXray() {
     const { px, py } = toLocal(e);
     const d = drag.current;
     d.travelled = Math.max(d.travelled, Math.hypot(e.clientX - d.startX, e.clientY - d.startY));
+    // Hold still until it's clearly a drag, so taps don't nudge the lens. On
+    // touch, a gesture that sets off up or down is a scroll (the browser is
+    // about to take it), so the lens stays where it is for the rest of it.
+    if (d.travelled < 6) return;
+    if (d.scroll === undefined) {
+      d.scroll = e.pointerType !== "mouse" && Math.abs(e.clientY - d.startY) > Math.abs(e.clientX - d.startX);
+    }
+    if (d.scroll) return;
     moved.current = true;
     x.set(Math.min(Math.max(px - d.dx, 0), measures.width));
     y.set(Math.min(Math.max(py - d.dy, 0), measures.height));
@@ -212,17 +235,30 @@ export default function HeroXray() {
   const onLensUp = (e) => {
     const d = drag.current;
     drag.current = null;
-    // A tap rather than a drag: pass it on to a link under the lens
-    if (d && d.travelled < 6) {
-      const target = document
-        .elementsFromPoint(e.clientX, e.clientY)
-        .find((el) => !e.currentTarget.contains(el) && el.closest("a[href], button"));
-      target?.closest("a[href], button")?.click();
+    if (!d || d.travelled >= 6) return;
+    // A tap rather than a drag: follow a link under the lens, or else move the
+    // lens to where it was tapped
+    const target = document
+      .elementsFromPoint(e.clientX, e.clientY)
+      .find((el) => !e.currentTarget.contains(el) && el.closest("a[href], button"));
+    const link = target?.closest("a[href], button");
+    if (link) link.click();
+    else {
+      const { px, py } = toLocal(e);
+      moveLensTo(px, py);
     }
   };
 
+  // Touch (and reduced motion): tap anywhere else in the hero to move the lens
+  const onHeroClick = (e) => {
+    if (follows || underneath || !measures) return;
+    if (e.target.closest("a[href], button, .xr-lens")) return;
+    const { px, py } = toLocal(e);
+    moveLensTo(px, py);
+  };
+
   return (
-    <section ref={sectionRef} id="top" className="hero xr-hero">
+    <section ref={sectionRef} id="top" onClick={onHeroClick} className="hero xr-hero">
       {/* Paper texture — fades out towards the next section */}
       <div aria-hidden="true" className="hero-paper pointer-events-none absolute inset-0" />
 
@@ -395,7 +431,7 @@ function Lens({ x, y, radius, measures, hidden, draggable, ...handlers }) {
         transition={{ duration: 0.4 }}
         style={{ x: left, y: top, width: size, height: size }}
         className={`xr-lens absolute top-0 left-0 z-30 rounded-full ${
-          draggable && !hidden ? "pointer-events-auto cursor-grab touch-none active:cursor-grabbing" : "pointer-events-none"
+          draggable && !hidden ? "pointer-events-auto cursor-grab touch-pan-y active:cursor-grabbing" : "pointer-events-none"
         }`}
       />
       <motion.div
