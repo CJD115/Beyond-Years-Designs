@@ -117,7 +117,7 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
       {/* Plain <a> links (not React Router's <Link>) on purpose: a full page
           load lets the browser return visitors to this spot when they press
           Back, as the previous design did */}
-      <div className="relative mx-auto flex min-h-svh w-full flex-col px-6 pt-[40px] pb-[24.6px] md:px-10 lg:block lg:h-[calc(var(--lu)*1000)] lg:min-h-0 lg:max-w-[calc(var(--lu)*1440)] lg:p-0">
+      <div className="relative mx-auto flex min-h-svh w-full flex-col px-6 pt-[40px] pb-[24.6px] md:min-h-0 md:px-10 md:pt-16 md:pb-14 lg:block lg:h-[calc(var(--lu)*1000)] lg:min-h-0 lg:max-w-[calc(var(--lu)*1440)] lg:p-0">
         <p className="text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-[#f1ebe3]/75 lg:absolute lg:left-[calc(var(--lu)*64)] lg:top-[calc(var(--lu)*52.4)] lg:text-[max(10.5px,calc(var(--lu)*11))] lg:font-normal">
           Selected work
         </p>
