@@ -35,3 +35,10 @@ captures/
 
 # Design exports and concept screenshots (kept locally, not in the repo)
 Claude outputs/
+
+# Local AI/agent workspace and lock metadata
+.claude/
+skills-lock.json
+
+# Local design exploration references
+design-reference/
