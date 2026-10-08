@@ -28,6 +28,12 @@ const portrait = (src, srcSet) => ({ src, srcSet, portrait: true });
 // Churcham's captures of the live site (captures/churcham-homes), in
 // public/work/churcham with -800 and -1600 copies
 const churcham = (name, position) => landscape(`/work/churcham/${name}.webp`, position);
+// Groves', likewise (captures/groves-hairstyling, in public/work/groves)
+const groves = (name, position) => landscape(`/work/groves/${name}.webp`, position);
+const grovesPhone = (name) => ({
+  src: `/work/groves/${name}.webp`,
+  srcSet: `/work/groves/${name}-400.webp 400w, /work/groves/${name}.webp 780w`,
+});
 
 export const CASE_STUDIES = {
   "churcham-homes": {
@@ -75,13 +81,24 @@ export const CASE_STUDIES = {
     approach: ["We wanted to bring the in-person feel of the salon into the ", { em: "digital space." }],
     result: "The new website gives Groves Hairstyling a modern, reliable online presence",
     resultMore: "that feels true to the brand. Customers can find services, check prices, and get in touch easily.",
+    hero: groves("home-hero"),
+    place: "/work/groves/our-story-800.webp",
     shots: [
-      landscape("/work/groves-hairstyling-services.webp"),
-      landscape("/work/groves-hairstyling.webp", "50% 40%"),
-      portrait("/work/groves-hairstyling-mobile.webp"),
-      landscape("/work/groves-hairstyling-desktop.webp", "50% 100%"),
-      landscape("/work/groves-hairstyling.webp"),
+      // the service menu and its prices
+      groves("services-menu"),
+      // the team, at the top of Our Story: wider than the screen, so whole
+      { ...groves("our-story", "50% 50%"), whole: true },
+      // the shop: the basket, top right on the phone (no capture of the
+      // shop itself yet)
+      { ...grovesPhone("mobile-home-hero"), portrait: true },
+      // 'Book today', under the home page's welcome
+      groves("home-hero"),
+      // the salon's marble and crystal
+      groves("cutting-styling"),
     ],
+    // Colour's words on the left, clear of the phone in front
+    resultDesktop: groves("colour"),
+    resultPhone: grovesPhone("mobile-cutting-styling"),
   },
 
   "hidden-gem": {
