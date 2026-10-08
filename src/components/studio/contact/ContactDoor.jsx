@@ -169,18 +169,17 @@ export default function ContactDoor() {
             </div>
             {status === "failed" && (
               <p className="mt-6 text-[14px] text-accent" role="alert">
-                Sorry, your message didn’t send. Please try again in a moment
-                {SITE.email ? (
-                  <>
-                    , or email us at{" "}
-                    <a href={`mailto:${SITE.email}`} className="link-underline link-underline-light">
-                      {SITE.email}
+                Sorry, your message didn’t send. Please try again in a moment, or email{" "}
+                {SITE.founders.map(({ name, email }, i) => (
+                  <span key={email}>
+                    {i > 0 && " or "}
+                    {name} at{" "}
+                    <a href={`mailto:${email}`} className="link-underline link-underline-light">
+                      {email}
                     </a>
-                    .
-                  </>
-                ) : (
-                  "."
-                )}
+                  </span>
+                ))}
+                .
               </p>
             )}
           </form>

@@ -128,8 +128,19 @@ export default function ThresholdsNav({ home }) {
             </li>
           ))}
         </ul>
-        <p className="px-6 pb-10 text-[13px] tracking-normal text-[#f1ebe3]/60 md:px-10 lg:px-16">
-          Bristol, England{SITE.email ? ` · ${SITE.email}` : ""}
+        {/* One line from 640px up, dot-separated; stacked on phones */}
+        <p className="flex flex-col gap-1 px-6 pb-10 text-[13px] tracking-normal text-[#f1ebe3]/60 sm:flex-row sm:gap-0 md:px-10 lg:px-16">
+          <span>Bristol, England</span>
+          {SITE.founders.map(({ email }) => (
+            <span key={email}>
+              <span aria-hidden="true" className="hidden sm:inline">
+                {"\u00a0·\u00a0"}
+              </span>
+              <a href={`mailto:${email}`} className="transition-colors duration-300 hover:text-accent">
+                {email}
+              </a>
+            </span>
+          ))}
         </p>
       </dialog>
     </>

@@ -63,7 +63,7 @@ const homeSchema = () => ({
         addressLocality: SITE.address.locality,
         addressCountry: SITE.address.country,
       },
-      founder: SITE.founders.map(({ name, jobTitle }) => ({ "@type": "Person", name, jobTitle })),
+      founder: SITE.founders.map(({ name, jobTitle, email }) => ({ "@type": "Person", name, jobTitle, email })),
     },
     {
       "@type": "WebSite",

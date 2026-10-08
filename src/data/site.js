@@ -22,13 +22,13 @@ export const SITE = {
   ogImage: "/og/home.jpg",
   // Structured data (JSON-LD, written into each page by scripts/prerender.mjs).
   // Only what the site itself states: where the studio is based (town and
-  // country, no street address on purpose) and its two founders.
+  // country, no street address on purpose) and its two founders. Their
+  // emails are also the studio's contact addresses on the site.
   address: { locality: "Bristol", country: "GB" },
   founders: [
-    { name: "Connor", jobTitle: "Resident Web Developer" },
-    { name: "Mike", jobTitle: "Resident Wordsmith" },
+    { name: "Connor", jobTitle: "Resident Web Developer", email: "connor@beyondyears.co.uk" },
+    { name: "Mike", jobTitle: "Resident Wordsmith", email: "mike@beyondyears.co.uk" },
   ],
-  email: null,
   socials: [
     { label: "Instagram", href: null },
     { label: "LinkedIn", href: null },
