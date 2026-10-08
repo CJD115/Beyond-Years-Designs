@@ -6,12 +6,13 @@ const LINEN = "#f1ebe3";
 
 // A door in its frame, ajar on the right. The light sits behind the door
 // leaf, so the gap is simply the part the leaf doesn't cover; when `open`,
-// the leaf swings back on its left hinge and more light shows.
+// the leaf swings back on its left hinge and more light shows. Pointing at
+// the door eases it a little wider, as if someone's about to come through.
 export function Door({ open, className = "" }) {
   return (
     <div
       aria-hidden="true"
-      className={`relative h-[240px] w-[158px] [--gap:14px] [--inset:10px] [--leaf:126px] [--slit:8px] lg:h-[calc(var(--lu)*594)] lg:w-[calc(var(--lu)*300)] lg:[--gap:calc(var(--lu)*12)] lg:[--inset:calc(var(--lu)*14)] lg:[--leaf:calc(var(--lu)*260)] lg:[--slit:calc(var(--lu)*14)] ${className}`}
+      className={`group relative h-[240px] w-[158px] [--gap:14px] [--inset:10px] [--leaf:126px] [--slit:8px] lg:h-[calc(var(--lu)*594)] lg:w-[calc(var(--lu)*300)] lg:[--gap:calc(var(--lu)*12)] lg:[--inset:calc(var(--lu)*14)] lg:[--leaf:calc(var(--lu)*260)] lg:[--slit:calc(var(--lu)*14)] ${className}`}
     >
       {/* Frame: left, top and right edges */}
       <div className="absolute inset-0 border border-b-0 border-accent/55" />
@@ -20,7 +21,7 @@ export function Door({ open, className = "" }) {
       <div className="absolute top-(--inset) bottom-0 left-(--inset) right-(--gap) [perspective:1400px]">
         <div className="door-flicker absolute inset-0 bg-[#f1ebe3]" />
         <div
-          className={`absolute inset-y-0 left-0 w-(--leaf) origin-left bg-[#1d1a16] transition-transform duration-[1800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${open ? "[transform:rotateY(40deg)]" : ""}`}
+          className={`absolute inset-y-0 left-0 w-(--leaf) origin-left bg-[#1d1a16] transition-transform duration-[1800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${open ? "[transform:rotateY(40deg)]" : "motion-safe:group-hover:[transform:rotateY(9deg)]"}`}
         >
           {/* Handle */}
           <div className="absolute left-[112px] top-[110px] h-[16px] w-[5px] bg-[#2b2520] lg:left-[calc(var(--lu)*232)] lg:top-[calc(var(--lu)*290)] lg:h-[calc(var(--lu)*22)] lg:w-[calc(var(--lu)*8)]" />
@@ -29,7 +30,7 @@ export function Door({ open, className = "" }) {
 
       {/* Glow around the gap, spilling over the leaf */}
       <div
-        className={`door-flicker absolute bottom-0 top-(--inset) left-[calc(var(--inset)+var(--leaf))] w-(--slit) bg-[#f1ebe3]/42 blur-[18px] lg:blur-[calc(var(--lu)*22)]`}
+        className="door-flicker absolute bottom-0 top-(--inset) left-[calc(var(--inset)+var(--leaf))] w-(--slit) bg-[#f1ebe3]/42 blur-[18px] transition-[background-color] duration-[1800ms] group-hover:bg-[#f1ebe3]/60 lg:blur-[calc(var(--lu)*22)]"
       />
     </div>
   );
