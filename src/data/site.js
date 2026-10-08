@@ -19,7 +19,9 @@ export const SITE = {
   description:
     "Beyond Years Designs is a Bristol-based two-person web design and development studio. We design, build, and write considered websites for small businesses and creative teams.",
   // 1200 × 630 share image
-  ogImage: "/og/home.jpg",
+  // (a new file name, not a replaced file, so apps that cached the old
+  // preview fetch this one)
+  ogImage: "/og/home-doorway.jpg",
   // Structured data (JSON-LD, written into each page by scripts/prerender.mjs).
   // Only what the site itself states: where the studio is based (town and
   // country, no street address on purpose) and its two founders. Their
