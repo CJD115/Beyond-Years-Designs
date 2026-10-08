@@ -58,6 +58,22 @@ export default function ContactDoor() {
           <p className="font-serif-italic mt-[14px] text-[21px] leading-[1.21] tracking-normal text-[#f1ebe3]/60 lg:mt-[calc(var(--lu)*18)] lg:text-[calc(var(--lu)*26)]">
             The door’s open. Come in.
           </p>
+          <p className="mt-[14px] text-[14px] leading-[1.6] text-[#f1ebe3]/60 lg:mt-[calc(var(--lu)*14)] lg:text-[max(13px,calc(var(--lu)*14))]">
+            Or email us directly:{" "}
+            {SITE.founders.map(({ email }, i) => (
+              // each on its own line on phones, one line from 640px up
+              <span key={email} className="block sm:inline">
+                {i > 0 && (
+                  <span aria-hidden="true" className="hidden sm:inline">
+                    {" · "}
+                  </span>
+                )}
+                <a href={`mailto:${email}`} className="link-underline link-underline-light text-[#f1ebe3]/85 hover:text-accent">
+                  {email}
+                </a>
+              </span>
+            ))}
+          </p>
 
           <form onSubmit={handleSubmit} noValidate>
             <fieldset

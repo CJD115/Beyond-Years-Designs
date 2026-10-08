@@ -1,3 +1,4 @@
+import { SITE } from "@/data/site";
 import { useIsClient } from "@/lib/useIsClient";
 import { useLondonTime } from "./useLondonTime";
 import { useDoorOpen } from "./doorState";
@@ -41,6 +42,15 @@ export default function FooterDoor() {
             <p className="font-display text-[38px] font-light leading-[1.21] tracking-normal lg:text-[calc(var(--lu)*44)]">
               Bristol, England
             </p>
+            <ul className="mt-1 flex flex-col lg:mt-[calc(var(--lu)*4)] lg:flex-row lg:gap-x-[calc(var(--lu)*20)]">
+              {SITE.founders.map(({ email }) => (
+                <li key={email}>
+                  <a href={`mailto:${email}`} className={LINK}>
+                    {email}
+                  </a>
+                </li>
+              ))}
+            </ul>
             <p className="mt-2 flex items-center gap-2 text-[13px] leading-[1.21] text-[#f1ebe3]/60 lg:mt-[calc(var(--lu)*6)] lg:text-[max(11.5px,calc(var(--lu)*12))]">
               <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
               <span>
