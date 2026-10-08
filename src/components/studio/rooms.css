@@ -1,4 +1,4 @@
-/* "Rooms" preview: the page's colour tokens, flipped for a dark room.
+/* The homepage's dark rooms: the page's colour tokens, flipped for a dark room.
    Any section built on the tokens (bg-background, text-muted-foreground,
    border-border, text-accent…) turns dark inside .room-dark without its
    own code changing. Same near-black and cream as the live dark sections

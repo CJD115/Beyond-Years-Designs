@@ -16,7 +16,7 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-// On another page, `home` is the page the links lead back to (e.g. "/rooms"
+// On another page, `home` is the page the links lead back to (e.g. "/"
 // from a case study); on the homepage itself they stay on the page.
 export default function ThresholdsNav({ home }) {
   const [visible, setVisible] = useState(true);

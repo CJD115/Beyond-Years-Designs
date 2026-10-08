@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import "./doorway.css";
 
 // Hero, "The Doorway" (Thresholds, p.2). Dark, cinematic and quiet: the
 // headline on the left, and on the right a single lit doorway showing a real

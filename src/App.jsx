@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { MotionConfig } from "motion/react";
 import ScrollToTop from "@/components/ScrollToTop";
 import Home from "@/pages/Home";
@@ -11,10 +11,24 @@ import { useSeo } from "@/lib/seo";
 // server only. In a production build import.meta.env.DEV is false, so the
 // route and src/redesign are left out.
 const ThresholdsHome = import.meta.env.DEV ? lazy(() => import("@/redesign/thresholds/ThresholdsHome")) : null;
-// The live homepage with light and dark grouped into rooms (/rooms), dev only.
-const RoomsHome = import.meta.env.DEV ? lazy(() => import("@/redesign/rooms/RoomsHome")) : null;
-// Its case studies (/rooms/work/:slug), dev only.
-const RoomsCaseStudy = import.meta.env.DEV ? lazy(() => import("@/redesign/rooms/RoomsCaseStudy")) : null;
+// The homepage and case study before the Rooms redesign (/original and
+// /original/work/:slug), dev only, from src/design-archive.
+const HomeOriginal = import.meta.env.DEV ? lazy(() => import("@/design-archive/home/HomeOriginal")) : null;
+const CaseStudyOriginal = import.meta.env.DEV
+  ? lazy(() => import("@/design-archive/case-study/CaseStudyOriginal"))
+  : null;
+
+// The Rooms design was previewed at /rooms and /rooms/work/:slug before it
+// became the homepage; old links to it land on the live pages.
+function RoomsRedirect() {
+  const { hash } = useLocation();
+  return <Navigate to={`/${hash}`} replace />;
+}
+
+function RoomsCaseStudyRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/work/${slug}/`} replace />;
+}
 
 function PageNotFound() {
   useSeo({
@@ -54,26 +68,28 @@ export default function App() {
             }
           />
         )}
-        {RoomsHome && (
+        {HomeOriginal && (
           <Route
-            path="/rooms"
+            path="/original"
             element={
               <Suspense fallback={null}>
-                <RoomsHome />
+                <HomeOriginal />
               </Suspense>
             }
           />
         )}
-        {RoomsCaseStudy && (
+        {CaseStudyOriginal && (
           <Route
-            path="/rooms/work/:slug"
+            path="/original/work/:slug"
             element={
               <Suspense fallback={null}>
-                <RoomsCaseStudy />
+                <CaseStudyOriginal />
               </Suspense>
             }
           />
         )}
+        <Route path="/rooms" element={<RoomsRedirect />} />
+        <Route path="/rooms/work/:slug" element={<RoomsCaseStudyRedirect />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </MotionConfig>

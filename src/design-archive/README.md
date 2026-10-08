@@ -22,6 +22,11 @@ Only what the site actually renders lives there.
 
 ## Previewing (dev server only: `npm run dev`)
 
+| Page | URL | Shows |
+| --- | --- | --- |
+| Homepage | `/original` | `home/HomeOriginal.jsx` |
+| Case study | `/original/work/<slug>` | `case-study/CaseStudyOriginal.jsx` |
+
 | Section | URL | Shows |
 | --- | --- | --- |
 | Selected Work | `/?work=classic` | `work/WorkClassic.jsx` |
@@ -81,6 +86,23 @@ picks the one the site shows, so swapping is a one-word change:
   through the same `contact/useEnquiryForm.js`.
 
 ## Contents
+
+### `home/` and `case-study/`
+
+Live versions: `src/pages/Home.jsx` and `src/pages/CaseStudy.jsx`, the Rooms
+design (October 2026). The homepage there is dark and paper "rooms": the
+Thresholds nav and doorway hero (`components/studio/ThresholdsNav.jsx`,
+`components/studio/hero/HeroDoorway.jsx`) over the dark tokens in
+`components/studio/rooms.css`, with `components/studio/SectionJoin.jsx`
+threading each change of colour. The case-study copy is in
+`src/data/caseStudies.js`.
+
+- **HomeOriginal.jsx**: the homepage before it, with the light nav and the
+  hero picked in `components/studio/hero/design.js`. `Nav.jsx`, `Hero.jsx` and
+  `hero/` stay in `components/studio/` because this still renders them, and
+  the `?hero=` previews now apply here (`/original?hero=original`).
+- **CaseStudyOriginal.jsx**: the case study before it, reading
+  `src/data/projects.js` only.
 
 ### `work/`
 

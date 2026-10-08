@@ -1,8 +1,7 @@
 import { srcSetFor } from "@/data/projects";
 
-// Case-study copy and screens for the Rooms preview (/rooms/work/:slug), on
-// top of each project's entry in src/data/projects.js. Kept here, not in
-// projects.js, so the live case studies don't change until this design does.
+// Case-study copy and screens for the case-study pages (/work/:slug), on top
+// of each project's entry in src/data/projects.js.
 //
 // Lines given as arrays mix plain text with { em } parts, which are set in
 // ochre italic.
@@ -19,8 +18,6 @@ import { srcSetFor } from "@/data/projects";
 // A study can also bring its own `hero` (the site in the doorway), `place`
 // (blurred behind the hero), `resultDesktop` and `resultPhone`; without
 // them the page uses the project's images from projects.js.
-
-export const roomsCaseStudyPath = (slug) => `/rooms/work/${slug}/`;
 
 const landscape = (src, position = "50% 0%") => ({ src, srcSet: srcSetFor(src), position });
 const portrait = (src, srcSet) => ({ src, srcSet, portrait: true });
