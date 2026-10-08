@@ -5,8 +5,8 @@ import { line, loop } from "@/lib/contours";
 // Why Us, "Party Perks" (05 Level Up, p.6 of
 // Beyond-Years-Redesign-05-Level-Up-v2.pdf). The three reasons to choose us
 // become perks you unlock as you climb a staircase that steps up from left to
-// right: Small and Agile (Lv 1), Passionate and Motivated (Lv 2), Tried and
-// Trusted (Lv 3). Each step and perk rises into place as you scroll, and the
+// right: Small and Agile (01), Passionate and Motivated (02), Tried and
+// Trusted (03). Each step and perk rises into place as you scroll, and the
 // emblem turns slightly on hover.
 //
 // Desktop (1280px and up) is the 1440 × 1000 mock-up scaled to the window:
@@ -21,7 +21,7 @@ const PERKS = [
   {
     level: 1,
     title: "Small and Agile",
-    type: "Passive — No red tape",
+    type: "No red tape",
     body: "No faceless outreach team. When you get in touch, you reach us directly, and when you have an idea, we’re there right away.",
     Emblem: ChevronsEmblem,
     x: 60.5,
@@ -32,7 +32,7 @@ const PERKS = [
   {
     level: 2,
     title: "Passionate and Motivated",
-    type: "Passive — Care for every detail",
+    type: "Care in every detail",
     body: "We love working with small businesses, independent makers and creative teams, and we appreciate the hard work you put into your craft.",
     Emblem: FlameEmblem,
     x: 520.5,
@@ -43,7 +43,7 @@ const PERKS = [
   {
     level: 3,
     title: "Tried and Trusted",
-    type: "Experience — Worked together before",
+    type: "Worked together for years",
     body: "The studio is new; the partnership isn’t. Clients big and small, from high-street hairdressers to national automotive resale and high-end property development.",
     Emblem: ShieldEmblem,
     x: 950.5,
@@ -68,18 +68,7 @@ export default function WhyPartyPerks() {
 
       <div className="relative mx-auto w-full px-6 pt-16 md:px-10 md:pt-24 xl:h-[calc(var(--lu)*1000)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0">
         <Reveal className="max-w-[560px] xl:max-w-none xl:w-[calc(var(--lu)*460)] xl:ml-[calc(var(--lu)*64)] xl:pt-[calc(var(--lu)*50)]">
-          <div className="flex items-center justify-between gap-6">
-            <p className="text-balance text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">
-              Chapter Five · Party perks
-            </p>
-            {/* Phones: this chapter's level, as on the map */}
-            <span aria-hidden="true" className="flex shrink-0 items-center gap-[10px] xl:hidden">
-              <span className="font-sc text-[16px] font-medium leading-none tracking-normal text-accent-strong">Lv 5</span>
-              <span className="flex h-[3px] w-[44px] bg-accent/25">
-                <span className="w-[56%] bg-accent" />
-              </span>
-            </span>
-          </div>
+          <p className="text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">Why us</p>
           <h2
             id="why-us-title"
             className="font-display mt-[14px] text-[min(56px,14.5vw)] leading-[1.1] xl:mt-[calc(var(--lu)*7.5)] xl:whitespace-nowrap xl:text-[calc(var(--lu)*84)]"
@@ -87,8 +76,8 @@ export default function WhyPartyPerks() {
             Why <span className="font-serif-italic text-accent">choose us?</span>
           </h2>
           <p className="font-display mt-[16px] text-[21px] leading-[1.3] tracking-normal text-foreground/90 xl:mt-[calc(var(--lu)*26)] xl:text-[max(19px,calc(var(--lu)*26))] xl:leading-[1.28]">
-            We build, host, and maintain websites for small businesses, independent makers and creative teams. Three perks
-            come with the party.
+            We build, host, and maintain websites for small businesses, independent makers and creative teams. Three things
+            come as standard.
           </p>
         </Reveal>
 
@@ -122,7 +111,7 @@ function Perk({ perk, index, last }) {
         aria-hidden="true"
         className="font-sc mb-[8px] text-[16px] font-medium leading-[1.25] tracking-normal text-accent-strong xl:absolute xl:left-[calc(var(--lu)*4)] xl:top-[calc(var(--lu)*245)] xl:mb-0 xl:-translate-y-1/2 xl:whitespace-nowrap xl:text-[max(13px,calc(var(--lu)*16))]"
       >
-        Lv {perk.level}
+        {String(perk.level).padStart(2, "0")}
       </p>
 
       <div className="grid grid-cols-[64px_minmax(0,1fr)] gap-x-[14px] xl:grid-cols-[calc(var(--lu)*103)_calc(var(--lu)*var(--w))] xl:gap-x-[calc(var(--lu)*18.5)]">
