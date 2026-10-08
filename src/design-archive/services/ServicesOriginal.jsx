@@ -1,4 +1,4 @@
-import Reveal from "../Reveal";
+import Reveal from "@/components/studio/Reveal";
 
 // Services, the original design: four rows, each with its number, title and
 // a paragraph.

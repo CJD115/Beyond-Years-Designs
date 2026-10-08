@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { EASE } from "./shared";
+import { EASE } from "@/design-archive/thresholds/shared";
 
 // Services, "The Collection" (Thresholds, p.5). The four services shown like
 // a small gallery: one exhibit at a time under a single spotlight, with a

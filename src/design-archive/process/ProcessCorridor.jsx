@@ -9,7 +9,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import Corridor from "./Corridor";
+import Corridor from "@/design-archive/process/Corridor";
 
 // Process, "The Corridor" (Thresholds direction, p.7 of
 // Beyond-Years-Redesign-04-Thresholds-v2.pdf). Four nested door frames, one

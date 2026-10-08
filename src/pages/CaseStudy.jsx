@@ -10,9 +10,7 @@ import { useSeo } from "@/lib/seo";
 
 // A case study (/work/:slug), reached from Selected Work. Each project is a
 // room: its website stands in a doorway at the top, light falls through onto
-// the floor, and the next room waits at the bottom. The previous case-study
-// design is kept in src/design-archive/case-study (dev server:
-// /original/work/:slug).
+// the floor, and the next room waits at the bottom.
 //
 //   hero      the place blurred behind, name, services, the site in a doorway
 //   01        the brief: the problem in one line, the client and problem

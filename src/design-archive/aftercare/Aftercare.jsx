@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import AftercareNewGame from "./aftercare/AftercareNewGame";
+import AftercareNewGame from "@/components/studio/aftercare/AftercareNewGame";
 
 // Aftercare ("Beyond launch"), shown straight after Process.
 // The site uses "New Game+", the equipment screen. Earlier versions live in

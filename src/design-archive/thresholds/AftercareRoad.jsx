@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { AFTERCARE_LINK } from "@/data/aftercare";
-import { EASE } from "./shared";
+import { EASE } from "@/design-archive/thresholds/shared";
 
 // Aftercare, "Beyond Years" (Thresholds, p.8): the studio's name, finally
 // explained. A road runs into the distance (Launch, Month 1, Year 1, Year 2,

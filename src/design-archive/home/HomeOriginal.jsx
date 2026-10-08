@@ -1,14 +1,14 @@
-import Nav from "@/components/studio/Nav";
-import Hero from "@/components/studio/Hero";
-import Work from "@/components/studio/Work";
-import Vision from "@/components/studio/Vision";
-import Services from "@/components/studio/Services";
-import WhyStudio from "@/components/studio/WhyStudio";
-import Process from "@/components/studio/Process";
-import Aftercare from "@/components/studio/Aftercare";
-import About from "@/components/studio/About";
-import FinalCTA from "@/components/studio/FinalCTA";
-import Footer from "@/components/studio/Footer";
+import Nav from "@/design-archive/hero/Nav";
+import Hero from "@/design-archive/hero/Hero";
+import Work from "@/design-archive/work/Work";
+import Vision from "@/design-archive/vision/Vision";
+import Services from "@/design-archive/services/Services";
+import WhyStudio from "@/design-archive/why/WhyStudio";
+import Process from "@/design-archive/process/Process";
+import Aftercare from "@/design-archive/aftercare/Aftercare";
+import About from "@/design-archive/about/About";
+import FinalCTA from "@/design-archive/contact/FinalCTA";
+import Footer from "@/design-archive/contact/Footer";
 import { useSeo } from "@/lib/seo";
 
 // The homepage before the Rooms redesign (October 2026): the X-ray hero and

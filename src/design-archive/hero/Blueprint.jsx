@@ -4,7 +4,7 @@
 // paragraph boxes and their type specs, the headline's cap height, x-height
 // and baselines, the gap to the paragraph, and the links' 44px hit areas.
 
-import { WEIGHTS, num } from "./measure";
+import { WEIGHTS, num } from "@/design-archive/hero/measure";
 
 export default function Blueprint({ measures: m }) {
   if (!m) return null;

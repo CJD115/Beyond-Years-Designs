@@ -1,5 +1,5 @@
-import ServicesExploded from "./services/ServicesExploded";
-import ServicesOriginal from "./services/ServicesOriginal";
+import ServicesExploded from "@/components/studio/services/ServicesExploded";
+import ServicesOriginal from "@/design-archive/services/ServicesOriginal";
 
 // Services ("Everything your business needs in one focussed website").
 // Two finished designs live in ./services, and this word picks the one the

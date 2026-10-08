@@ -1,5 +1,5 @@
-import AboutLightsOn from "./about/AboutLightsOn";
-import AboutProfiles from "./about/AboutProfiles";
+import AboutLightsOn from "@/components/studio/about/AboutLightsOn";
+import AboutProfiles from "@/design-archive/about/AboutProfiles";
 
 // About ("Small team, serious standards").
 // Two finished designs live in ./about, and this word picks the one the site

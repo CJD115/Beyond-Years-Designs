@@ -1,4 +1,4 @@
-import Reveal from "../Reveal";
+import Reveal from "@/components/studio/Reveal";
 import { STEPS } from "@/data/process";
 
 // Process, the original design: four numbered steps in a two-column grid.

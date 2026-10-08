@@ -6,11 +6,11 @@ import ContactDoor from "@/components/studio/contact/ContactDoor";
 import FooterDoor from "@/components/studio/contact/FooterDoor";
 import ThresholdsNav from "@/components/studio/ThresholdsNav";
 import HeroDoorway from "@/components/studio/hero/HeroDoorway";
-import VisionWordByWord from "./VisionWordByWord";
-import ServicesCollection from "./ServicesCollection";
-import WhyLongPan from "./WhyLongPan";
-import AftercareRoad from "./AftercareRoad";
-import "./thresholds-page.css";
+import VisionWordByWord from "@/design-archive/thresholds/VisionWordByWord";
+import ServicesCollection from "@/design-archive/thresholds/ServicesCollection";
+import WhyLongPan from "@/design-archive/thresholds/WhyLongPan";
+import AftercareRoad from "@/design-archive/thresholds/AftercareRoad";
+import "@/design-archive/thresholds/thresholds-page.css";
 
 // The whole homepage in the Thresholds direction
 // (Beyond-Years-Redesign-04-Thresholds-v2.pdf), at /thresholds on the dev

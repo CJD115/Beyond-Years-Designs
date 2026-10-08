@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import Reveal from "@/components/studio/Reveal";
-import Mockup from "@/components/studio/Mockup";
+import Mockup from "@/design-archive/shared/Mockup";
 import { getProject, getNextProject } from "@/data/projects";
 import { caseStudyMeta, caseStudyPath } from "@/data/site";
 import { useSeo } from "@/lib/seo";

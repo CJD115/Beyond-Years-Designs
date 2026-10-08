@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import Reveal from "../Reveal";
+import Reveal from "@/components/studio/Reveal";
 import { SITE } from "@/data/site";
-import { PROJECT_TYPES, useEnquiryForm } from "./useEnquiryForm";
+import { PROJECT_TYPES, useEnquiryForm } from "@/components/studio/contact/useEnquiryForm";
 
 // Contact, the original design: the big "Your business has a story" heading,
 // a short intro on the left and the form on the right. The form's sending

@@ -1,138 +1,48 @@
 # Design archive
 
-Previous versions, experiments and alternative concepts we've deliberately kept
-for later. Nothing in here is on the live site.
+Previous versions, experiments and alternative concepts, kept for reference.
+**Nothing in here is on the site, and nothing in here can be reached from it:**
+no route, query string or switch loads any of it, it isn't bundled, and
+Tailwind doesn't scan it (`@source not` in `src/index.css`).
 
-**Production** is `src/components/studio/` (plus `src/pages/`, `src/data/`).
-Only what the site actually renders lives there.
+The site is the Rooms design (October 2026), and only that:
 
-**Archive** is this folder, grouped by the section each design belongs to.
+- `/`: `src/pages/Home.jsx`
+- `/work/:slug`: `src/pages/CaseStudy.jsx`, with its copy in `src/data/caseStudies.js`
+
+Everything those pages render lives in `src/components/studio/`.
 
 ## Rules
 
-- Production code never imports from here directly. The only link is a
-  dev-only preview in each section's wrapper, e.g.
-  `import.meta.env.DEV ? lazy(() => import("@/design-archive/..."))`.
-  In a production build `import.meta.env.DEV` is `false`, so the import is
-  removed and nothing in this folder is bundled.
-- Archived files import shared pieces with the `@/` alias
-  (`@/components/studio/Reveal`, `@/data/...`), so they keep working from here.
-- To bring a design back: move it into `src/components/studio/<section>/`,
-  render it from the section wrapper, and move the old live version in here.
-
-## Previewing (dev server only: `npm run dev`)
-
-| Page | URL | Shows |
-| --- | --- | --- |
-| Homepage | `/original` | `home/HomeOriginal.jsx` |
-| Case study | `/original/work/<slug>` | `case-study/CaseStudyOriginal.jsx` |
-
-| Section | URL | Shows |
-| --- | --- | --- |
-| Selected Work | `/?work=classic` | `work/WorkClassic.jsx` |
-| Selected Work | `/?work=index` | `work/WorkIndex.jsx` |
-| Our Vision | `/?vision=original` | `vision/VisionOriginal.jsx` |
-| Our Vision | `/?vision=read` | `vision/VisionReadSlowly.jsx` |
-| Aftercare | `/?aftercare=note` | `aftercare/AftercareNote.jsx` |
-| Aftercare | `/?aftercare=c` | `aftercare/AftercareCard.jsx` |
-| Aftercare | `/?aftercare=original` | `aftercare/AddOns.jsx` |
-| About | `/?about=profiles` | `components/studio/about/AboutProfiles.jsx` |
-| About | `/?about=lights` | `components/studio/about/AboutLightsOn.jsx` |
-
-The query string does nothing on the live site.
-
-| Contact + footer | `/?contact=original` | `components/studio/contact/ContactOriginal.jsx` + `FooterOriginal.jsx` |
-| Contact + footer | `/?contact=door` | `components/studio/contact/ContactDoor.jsx` + `FooterDoor.jsx` |
-
-| Process | `/?process=original` | `components/studio/process/ProcessOriginal.jsx` |
-| Process | `/?process=corridor` | `components/studio/process/ProcessCorridor.jsx` |
-| Process | `/?process=thresholds` | `components/studio/process/ProcessThresholds.jsx` |
-| Services | `/?services=original` | `components/studio/services/ServicesOriginal.jsx` |
-| Services | `/?services=exploded` | `components/studio/services/ServicesExploded.jsx` |
-| Hero + nav | `/?hero=original` | `components/studio/hero/HeroOriginal.jsx` |
-| Hero + nav | `/?hero=xray` | `components/studio/hero/HeroXray.jsx` |
-| Why Us | `/?why=original` | `components/studio/why/WhyOriginal.jsx` |
-| Why Us | `/?why=perks` | `components/studio/why/WhyPartyPerks.jsx` |
-
-| Selected Work | `/?work=rooms` | `components/studio/work/WorkRooms.jsx` |
-| Selected Work | `/?work=three` | `components/studio/work/WorkThreeRooms.jsx` |
-
-**The hero, Selected Work, Services, Why Us, Process, About and Contact are the exceptions to the rules
-below:** two finished designs of each are kept in production, and one word
-picks the one the site shows, so swapping is a one-word change:
-
-- Selected Work: `LIVE` in `components/studio/Work.jsx` ("three" for Three
-  Rooms, "rooms" for Rooms). Three Rooms reads each project's `room` entry in
-  `src/data/projects.js` (background photo, framed screenshot, one line).
-
-- Process: `LIVE` in `components/studio/Process.jsx` (designs in
-  `components/studio/process/`). Live: Thresholds (`ProcessThresholds.jsx`
-  with `thresholds.css`; copy from `src/data/process.js`). The first corridor
-  is `ProcessCorridor.jsx`, its drawing `Corridor.jsx`.
-- Services: `LIVE` in `components/studio/Services.jsx` (designs in
-  `components/studio/services/`; the Exploded View copy is in
-  `src/data/services.js`).
-- Hero + nav, swapped as a pair: `LIVE` in `components/studio/hero/design.js`
-  (designs in `components/studio/hero/`). X-ray restyles the nav (`.nav-xray`
-  in `index.css`) and draws a second copy of itself as the blueprint under its
-  lens (`Blueprint.jsx`, measured by `measure.js`). `HeroOriginal.jsx` is
-  Hero 3.10 unchanged.
-- Why Us: `LIVE` in `components/studio/WhyStudio.jsx` (designs in
-  `components/studio/why/`; Party Perks uses Cormorant SC from `public/fonts/`).
-- About: `LIVE` in `components/studio/About.jsx` (designs in
-  `components/studio/about/`, both reading `src/data/team.js`).
-- Contact + footer, swapped as a pair: `LIVE` in
-  `components/studio/contact/design.js`. Both contact designs send enquiries
-  through the same `contact/useEnquiryForm.js`.
+- Production code never imports from here.
+- Archived files import with the `@/` alias, so their imports still point at
+  real files (some at live components, some at each other). They aren't
+  routed anywhere, so they don't run; to look at one, temporarily render it
+  from a page on the dev server.
+- To bring a design back: move it into `src/components/studio/`, render it
+  from the page, and move the version it replaces in here.
 
 ## Contents
 
-### `home/` and `case-study/`
+| Folder | What's in it |
+| --- | --- |
+| `home/` | `HomeOriginal.jsx`, the homepage before Rooms: light nav, every section on paper |
+| `case-study/` | `CaseStudyOriginal.jsx`, the case study before Rooms (reads `src/data/projects.js` only) |
+| `hero/` | `Nav.jsx` (the light nav), `Hero.jsx` (its switch), `HeroXray.jsx` with `Blueprint.jsx` and `measure.js` (Under the Surface), `HeroOriginal.jsx` (Hero 3.10), `design.js`, and their styles in `hero.css` |
+| `work/` | `Work.jsx` (switch), `WorkRooms.jsx` (pinned prints), `WorkClassic.jsx`, `WorkIndex.jsx` |
+| `vision/` | `Vision.jsx` (switch), `VisionOriginal.jsx`, `VisionReadSlowly.jsx` |
+| `services/` | `Services.jsx` (switch), `ServicesOriginal.jsx` |
+| `why/` | `WhyStudio.jsx` (switch), `WhyOriginal.jsx` |
+| `process/` | `Process.jsx` (switch), `ProcessOriginal.jsx`, `ProcessCorridor.jsx` with its drawing `Corridor.jsx` |
+| `about/` | `About.jsx` (switch), `AboutProfiles.jsx` |
+| `aftercare/` | `Aftercare.jsx` (switch), `AftercareNote.jsx`, `AftercareCard.jsx`, `AddOns.jsx` |
+| `contact/` | `FinalCTA.jsx` + `Footer.jsx` (switches), `ContactOriginal.jsx` + `FooterOriginal.jsx`, `design.js` |
+| `shared/` | `Mockup.jsx` and `PrintTrail.jsx`, used only by archived designs |
+| `thresholds/` | The all-dark Thresholds homepage (`ThresholdsHome.jsx`) and the sections built only for it |
 
-Live versions: `src/pages/Home.jsx` and `src/pages/CaseStudy.jsx`, the Rooms
-design (October 2026). The homepage there is dark and paper "rooms": the
-Thresholds nav and doorway hero (`components/studio/ThresholdsNav.jsx`,
-`components/studio/hero/HeroDoorway.jsx`) over the dark tokens in
-`components/studio/rooms.css`, with `components/studio/SectionJoin.jsx`
-threading each change of colour. The case-study copy is in
-`src/data/caseStudies.js`.
-
-- **HomeOriginal.jsx**: the homepage before it, with the light nav and the
-  hero picked in `components/studio/hero/design.js`. `Nav.jsx`, `Hero.jsx` and
-  `hero/` stay in `components/studio/` because this still renders them, and
-  the `?hero=` previews now apply here (`/original?hero=original`).
-- **CaseStudyOriginal.jsx**: the case study before it, reading
-  `src/data/projects.js` only.
-
-### `work/`
-
-Live version: `components/studio/work/WorkRooms.jsx` ("Rooms"), via `Work.jsx`.
-
-- **WorkClassic.jsx**: the original Selected Work layout (large image cards).
-- **WorkIndex.jsx**: a typographic project index with a hover preview that
-  follows the cursor. It used to sit, commented out, under Selected Work in
-  `Home.jsx`. `WorkIndexSection` (added when archived) is that wrapper.
-
-### `vision/`
-
-Live version: `components/studio/vision/VisionAnnotated.jsx` ("Annotated"), via
-`Vision.jsx`.
-
-- **VisionOriginal.jsx**: the original ochre statement section.
-- **VisionReadSlowly.jsx**: direction D, "Read slowly": the statement brightens
-  word by word as you scroll.
-
-### `aftercare/`
-
-Live version: `components/studio/aftercare/AftercareNewGame.jsx` ("New Game+",
-05 Level Up p.8), via `Aftercare.jsx`.
-
-- **AftercareNote.jsx**: option B, the handover note: a short note from Connor
-  and Mike, then a two-column key with each item's longer `body`.
-- **AftercareCard.jsx**: option C, the aftercare card: one pinned print set like
-  a price list. Reads the same items from `src/data/aftercare.js`.
-- **AddOns.jsx**: the first "Optional add-ons / Beyond launch" section (the
-  six-cell grid), kept as it was, including its own copy.
+The switch files are the old one-word section pickers (`LIVE = "..."` with
+`?section=` previews on the dev server). They're kept as they were and do
+nothing now.
 
 ## Kept elsewhere
 

@@ -1,6 +1,7 @@
-import HeroOriginal from "./hero/HeroOriginal";
-import HeroXray from "./hero/HeroXray";
-import { heroDesign } from "./hero/design";
+import "./hero.css";
+import HeroOriginal from "@/design-archive/hero/HeroOriginal";
+import HeroXray from "@/design-archive/hero/HeroXray";
+import { heroDesign } from "@/design-archive/hero/design";
 
 // Hero. Two finished designs live in ./hero; ./hero/design.js picks the one
 // the site shows (and the nav changes with it).

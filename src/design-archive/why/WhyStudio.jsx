@@ -1,5 +1,5 @@
-import WhyOriginal from "./why/WhyOriginal";
-import WhyPartyPerks from "./why/WhyPartyPerks";
+import WhyOriginal from "@/design-archive/why/WhyOriginal";
+import WhyPartyPerks from "@/components/studio/why/WhyPartyPerks";
 
 // Why Us ("Why choose us?").
 // Two finished designs live in ./why, and this word picks the one the site

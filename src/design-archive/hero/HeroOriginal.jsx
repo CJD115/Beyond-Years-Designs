@@ -1,4 +1,4 @@
-import PrintTrail from "../PrintTrail";
+import PrintTrail from "@/design-archive/shared/PrintTrail";
 
 export default function HeroOriginal() {
   return (

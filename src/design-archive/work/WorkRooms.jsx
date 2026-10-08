@@ -1,6 +1,6 @@
 import { PROJECTS } from "@/data/projects";
 import { caseStudyPath } from "@/data/site";
-import Reveal from "../Reveal";
+import Reveal from "@/components/studio/Reveal";
 
 // Selected Work — "Rooms".
 // Each project is its own chapter, presented as photo prints on paper (the

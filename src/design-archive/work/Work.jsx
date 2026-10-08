@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
-import WorkRooms from "./work/WorkRooms";
-import WorkThreeRooms from "./work/WorkThreeRooms";
+import WorkRooms from "@/design-archive/work/WorkRooms";
+import WorkThreeRooms from "@/components/studio/work/WorkThreeRooms";
 
 // Selected Work.
 // Two finished designs live in ./work, and this word picks the one the site

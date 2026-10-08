@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { DESKTOP, stepPosition, useMedia } from "./shared";
+import { DESKTOP, stepPosition, useMedia } from "@/design-archive/thresholds/shared";
 
 // Why us, "The Long Pan" (Thresholds, p.6). Three reasons, and the one
 // sideways move in an otherwise vertical journey: on desktop, scrolling down

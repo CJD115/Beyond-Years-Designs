@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { DESKTOP, EASE, LINEN_RGB, OCHRE_RGB, mix, rgba, scrollToStep, stepPosition, useMedia } from "./shared";
+import { DESKTOP, EASE, LINEN_RGB, OCHRE_RGB, mix, rgba, scrollToStep, stepPosition, useMedia } from "@/design-archive/thresholds/shared";
 
 // Our Vision, "Word by Word" (Thresholds, p.4). You travel through the
 // sentence: nested door frames recede to a vanishing point, the words wait

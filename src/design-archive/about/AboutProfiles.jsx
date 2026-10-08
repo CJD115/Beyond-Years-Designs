@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
 import { useIsClient } from "@/lib/useIsClient";
 import { TEAM } from "@/data/team";
-import Reveal from "../Reveal";
+import Reveal from "@/components/studio/Reveal";
 
 // About, the original design: two portrait cards, each with a "Continue
 // reading" button that opens the long bio in a dialog.

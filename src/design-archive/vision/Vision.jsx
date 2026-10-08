@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import VisionAnnotated from "./vision/VisionAnnotated";
+import VisionAnnotated from "@/components/studio/vision/VisionAnnotated";
 
 // Our Vision.
 // The site uses "Annotated" (the marked-up proof with margin notes). Earlier versions

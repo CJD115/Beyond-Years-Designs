@@ -9,9 +9,9 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import { NavBar } from "../Nav";
-import Blueprint from "./Blueprint";
-import { BLUEPRINT_CODE, measureBlueprint } from "./measure";
+import { NavBar } from "@/design-archive/hero/Nav";
+import Blueprint from "@/design-archive/hero/Blueprint";
+import { BLUEPRINT_CODE, measureBlueprint } from "@/design-archive/hero/measure";
 
 // Hero, "X-ray" (02 Under the Surface, p.2 of
 // Beyond-Years-Redesign-02-Under-the-Surface-v2.pdf). A calm, finished hero;

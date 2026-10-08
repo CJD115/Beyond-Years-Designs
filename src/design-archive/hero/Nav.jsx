@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { SITE } from "@/data/site";
-import { heroDesign } from "./hero/design";
+import { heroDesign } from "@/design-archive/hero/design";
 
 const LINKS = [
   { label: "Work", href: "#work" },

@@ -1,6 +1,6 @@
-import ProcessCorridor from "./process/ProcessCorridor";
-import ProcessOriginal from "./process/ProcessOriginal";
-import ProcessThresholds from "./process/ProcessThresholds";
+import ProcessCorridor from "@/design-archive/process/ProcessCorridor";
+import ProcessOriginal from "@/design-archive/process/ProcessOriginal";
+import ProcessThresholds from "@/components/studio/process/ProcessThresholds";
 
 // Process ("How we build your site").
 // Three finished designs live in ./process, and this word picks the one the
