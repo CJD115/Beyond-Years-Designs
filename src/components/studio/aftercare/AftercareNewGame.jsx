@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Feather, Globe, Search, Wrench } from "lucide-react";
+import { Feather, Globe } from "lucide-react";
 import Reveal from "@/components/studio/Reveal";
 import { line, loop } from "@/lib/contours";
 import { AFTERCARE_EQUIP, AFTERCARE_GROUPS, AFTERCARE_INTRO, AFTERCARE_LINK } from "@/data/aftercare";
@@ -8,28 +8,28 @@ import { AFTERCARE_EQUIP, AFTERCARE_GROUPS, AFTERCARE_INTRO, AFTERCARE_LINK } fr
 // Aftercare, "New Game+" (05 Level Up, p.8 of
 // Beyond-Years-Redesign-05-Level-Up-v2.pdf). The credits roll, but the game
 // carries on: your live website sits at the centre of an equipment screen
-// with six slots, three for keeping it running and three for helping it grow,
+// with four slots, two for keeping it running and two for helping it grow,
 // each joined to it by a dotted route. Slots rise into place as you scroll,
 // and pointing at one lights up its route.
 //
-// Desktop (1280px and up) is the 1440 × 1050 mock-up scaled to the window:
+// Desktop (1280px and up) is the 1440 × 1050 mock-up, cut to 920 tall for
+// four slots, scaled to the window:
 // --lu is one mock-up pixel. Smaller screens follow the 390px phone mock-up:
-// the emblem on top, the six slots in two columns underneath.
+// the emblem on top, the four slots in two columns underneath.
 
 const TITLE_ID = "aftercare-title";
 
 // Where each slot's frame sits on the mock-up (top-left corner), by item name.
-// The two groups mirror each other around the emblem.
+// The two groups mirror each other around the emblem, a pair either side of
+// its centre.
 const SLOTS = {
-  "Hosting & Maintenance": { x: 406, y: 446, Icon: ServerIcon },
-  Domain: { x: 366, y: 596, Icon: GlobeIcon },
-  Maintenance: { x: 406, y: 746, Icon: WrenchIcon },
-  Content: { x: 926, y: 446, Icon: FeatherIcon },
-  "SEO setup": { x: 966, y: 596, Icon: SearchIcon },
-  Analytics: { x: 926, y: 746, Icon: ChartIcon },
+  "Hosting & Maintenance": { x: 396, y: 446, Icon: ServerIcon },
+  Domain: { x: 396, y: 616, Icon: GlobeIcon },
+  Content: { x: 936, y: 446, Icon: FeatherIcon },
+  Analytics: { x: 936, y: 616, Icon: ChartIcon },
 };
 const FRAME = 108;
-const CENTRE = { x: 720, y: 640 };
+const CENTRE = { x: 720, y: 585 };
 
 export default function AftercareNewGame() {
   // The slot being pointed at, so its route can light up
@@ -46,7 +46,7 @@ export default function AftercareNewGame() {
         <Contours />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[640px] px-6 pt-16 pb-20 md:pt-24 md:pb-28 xl:h-[calc(var(--lu)*1050)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0 xl:pb-0">
+      <div className="relative mx-auto w-full max-w-[640px] px-6 pt-16 pb-20 md:pt-24 md:pb-28 xl:h-[calc(var(--lu)*920)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0 xl:pb-0">
         <Reveal className="xl:pt-[calc(var(--lu)*50)] xl:text-center">
           <p className="text-center text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">Aftercare</p>
           <h2
@@ -70,7 +70,7 @@ export default function AftercareNewGame() {
           <path d="M72 0 22 44M128 0l50 44" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeDasharray="0.1 5" opacity="0.7" />
         </svg>
 
-        {/* The six slots. Phones: two columns between two rules. Desktop:
+        {/* The four slots. Phones: two columns between two rules. Desktop:
             each slot sits on its own spot around the emblem. */}
         <div className="grid grid-cols-2 gap-x-4 border-t border-foreground/15 pt-6 sm:gap-x-8 xl:block xl:border-0 xl:pt-0">
           {AFTERCARE_GROUPS.map((group, gi) => (
@@ -78,7 +78,7 @@ export default function AftercareNewGame() {
           ))}
         </div>
 
-        <Reveal className="mt-8 flex flex-col items-center gap-x-[29px] gap-y-3 border-t border-foreground/15 pt-8 text-center xl:absolute xl:inset-x-0 xl:top-[calc(var(--lu)*940)] xl:mt-0 xl:flex-row xl:justify-center xl:border-0 xl:pt-0">
+        <Reveal className="mt-8 flex flex-col items-center gap-x-[29px] gap-y-3 border-t border-foreground/15 pt-8 text-center xl:absolute xl:inset-x-0 xl:top-[calc(var(--lu)*810)] xl:mt-0 xl:flex-row xl:justify-center xl:border-0 xl:pt-0">
           <p className="font-serif-italic text-[20px] leading-[1.2] text-foreground/70 xl:text-[max(18px,calc(var(--lu)*21))]">
             {AFTERCARE_EQUIP}
           </p>
@@ -109,7 +109,7 @@ function Group({ group, side, onActive }) {
       </h3>
       <ul className="flex flex-col gap-5 md:gap-7">
         {group.items.map((item, i) => (
-          <Slot key={item.name} item={item} left={left} index={i + (left ? 0 : 3)} onActive={onActive} />
+          <Slot key={item.name} item={item} left={left} index={i + (left ? 0 : group.items.length)} onActive={onActive} />
         ))}
       </ul>
     </div>
@@ -124,7 +124,7 @@ function Slot({ item, left, index, onActive }) {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 0.9, delay: 0.15 + (index % 3) * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.9, delay: 0.15 + (index % 2) * 0.12, ease: [0.22, 1, 0.36, 1] }}
       onPointerEnter={() => onActive(item.name)}
       onPointerLeave={() => onActive(null)}
       style={{ "--x": x, "--y": y }}
@@ -170,7 +170,7 @@ function Emblem() {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mx-auto mt-10 size-[var(--d)] [--d:164px] md:mt-14 xl:absolute xl:left-[calc(var(--lu)*592)] xl:top-[calc(var(--lu)*512)] xl:mt-0 xl:[--d:calc(var(--lu)*256)]"
+      className="relative mx-auto mt-10 size-[var(--d)] [--d:164px] md:mt-14 xl:absolute xl:left-[calc(var(--lu)*592)] xl:top-[calc(var(--lu)*457)] xl:mt-0 xl:[--d:calc(var(--lu)*256)]"
     >
       <span className="absolute inset-0 rounded-full border border-accent/35" />
       <span className="absolute inset-[3.9%] rounded-full border-[1.25px] border-accent bg-[var(--paper)]" />
@@ -193,7 +193,7 @@ function Routes({ active }) {
   return (
     <motion.svg
       aria-hidden="true"
-      viewBox="0 0 1440 1050"
+      viewBox="0 0 1440 920"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "0px 0px -20% 0px" }}
@@ -246,16 +246,8 @@ function GlobeIcon({ className }) {
   return <Globe {...LUCIDE} className={className} />;
 }
 
-function WrenchIcon({ className }) {
-  return <Wrench {...LUCIDE} className={className} />;
-}
-
 function FeatherIcon({ className }) {
   return <Feather {...LUCIDE} className={className} />;
-}
-
-function SearchIcon({ className }) {
-  return <Search {...LUCIDE} className={className} />;
 }
 
 function ChartIcon({ className }) {

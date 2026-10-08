@@ -24,12 +24,6 @@ export const AFTERCARE_GROUPS = [
         body: "Need help securing your domain name? Not a problem! We’ll get you set up with your domain of choice (depending on availability), and manage it all from our end. You’ll still have full access, but we’ll handle all the faff. ",
         terms: "Renewed yearly",
       },
-      {
-        name: "Maintenance",
-        summary: "Changes as and when you need them.",
-        body: "If your site will need regular updates, we can keep the door open for you. Once we’ve agreed the scope and frequency, you’ll be able to contact us to make any changes to your website, as and when you need.",
-        terms: "On an agreed plan",
-      },
     ],
   },
   {
@@ -40,12 +34,6 @@ export const AFTERCARE_GROUPS = [
         summary: "Blogs, newsletters and more, professionally written.",
         body: "Do you have a blog, newsletter, or other written content that you’d like support with? We can help! We can provide you with regular, professionally written content, or offer ad-hoc support as and when you need it. Let us know!",
         terms: "Regular or ad hoc",
-      },
-      {
-        name: "SEO setup",
-        summary: "Keywords, titles and meta, so customers find you.",
-        body: "To increase your site’s visibility, we’ll set up a strong foundation of SEO. Properly configured keywords, titles, meta descriptions and alt text make it easier for search engines to read your site properly, meaning your business is easier to find.",
-        terms: "One-off",
       },
       {
         name: "Analytics",
