@@ -68,11 +68,11 @@ export default function WhyPartyPerks() {
       <div className="relative mx-auto w-full px-6 pt-16 md:px-10 md:pt-24 xl:h-[calc(var(--lu)*1000)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0">
         <Reveal className="max-w-[560px] xl:max-w-none xl:w-[calc(var(--lu)*460)] xl:ml-[calc(var(--lu)*64)] xl:pt-[calc(var(--lu)*50)]">
           <div className="flex items-center justify-between gap-6">
-            <p className="font-sc text-[17px] font-medium leading-[1.25] tracking-normal text-accent-strong xl:text-[max(15px,calc(var(--lu)*18))]">
+            <p className="text-balance text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">
               Chapter Five · Party perks
             </p>
             {/* Phones: this chapter's level, as on the map */}
-            <span aria-hidden="true" className="flex items-center gap-[10px] xl:hidden">
+            <span aria-hidden="true" className="flex shrink-0 items-center gap-[10px] xl:hidden">
               <span className="font-sc text-[16px] font-medium leading-none tracking-normal text-accent-strong">Lv 5</span>
               <span className="flex h-[3px] w-[44px] bg-accent/25">
                 <span className="w-[56%] bg-accent" />
