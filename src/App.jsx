@@ -11,6 +11,8 @@ import { useSeo } from "@/lib/seo";
 // server only. In a production build import.meta.env.DEV is false, so the
 // route and src/redesign are left out.
 const ThresholdsHome = import.meta.env.DEV ? lazy(() => import("@/redesign/thresholds/ThresholdsHome")) : null;
+// The live homepage with light and dark grouped into rooms (/rooms), dev only.
+const RoomsHome = import.meta.env.DEV ? lazy(() => import("@/redesign/rooms/RoomsHome")) : null;
 
 function PageNotFound() {
   useSeo({
@@ -46,6 +48,16 @@ export default function App() {
             element={
               <Suspense fallback={null}>
                 <ThresholdsHome />
+              </Suspense>
+            }
+          />
+        )}
+        {RoomsHome && (
+          <Route
+            path="/rooms"
+            element={
+              <Suspense fallback={null}>
+                <RoomsHome />
               </Suspense>
             }
           />
