@@ -82,12 +82,14 @@ export const CASE_STUDIES = {
     result: "The new website gives Groves Hairstyling a modern, reliable online presence",
     resultMore: "that feels true to the brand. Customers can find services, check prices, and get in touch easily.",
     hero: groves("home-hero"),
-    place: "/work/groves/our-story-800.webp",
+    place: "/work/groves/home-hero-800.webp",
     shots: [
       // the service menu and its prices
       groves("services-menu"),
-      // the team, at the top of Our Story: wider than the screen, so whole
-      { ...groves("our-story", "50% 50%"), whole: true },
+      // the stylists: Colour on the phone, "specialist stylists dedicated
+      // to delivering excellence" (no photos of the team: we don't have
+      // their consent to show them)
+      { ...grovesPhone("mobile-colour"), portrait: true },
       // the shop: the basket, top right on the phone (no capture of the
       // shop itself yet)
       { ...grovesPhone("mobile-home-hero"), portrait: true },
