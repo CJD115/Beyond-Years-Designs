@@ -5,7 +5,7 @@
 // Images are served at several widths (name-800.webp, name-1600.webp, and the
 // original name.webp at `fullWidth`) so phones download a small one. Smaller
 // widths than the original are made by `npm run images`.
-const srcSetFor = (src, fullWidth = 2400, widths = [800, 1600]) =>
+export const srcSetFor = (src, fullWidth = 2400, widths = [800, 1600]) =>
   widths
     .filter((w) => w < fullWidth)
     .map((w) => `${src.replace(/\.webp$/, `-${w}.webp`)} ${w}w`)

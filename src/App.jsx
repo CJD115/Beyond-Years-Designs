@@ -13,6 +13,8 @@ import { useSeo } from "@/lib/seo";
 const ThresholdsHome = import.meta.env.DEV ? lazy(() => import("@/redesign/thresholds/ThresholdsHome")) : null;
 // The live homepage with light and dark grouped into rooms (/rooms), dev only.
 const RoomsHome = import.meta.env.DEV ? lazy(() => import("@/redesign/rooms/RoomsHome")) : null;
+// Its case studies (/rooms/work/:slug), dev only.
+const RoomsCaseStudy = import.meta.env.DEV ? lazy(() => import("@/redesign/rooms/RoomsCaseStudy")) : null;
 
 function PageNotFound() {
   useSeo({
@@ -58,6 +60,16 @@ export default function App() {
             element={
               <Suspense fallback={null}>
                 <RoomsHome />
+              </Suspense>
+            }
+          />
+        )}
+        {RoomsCaseStudy && (
+          <Route
+            path="/rooms/work/:slug"
+            element={
+              <Suspense fallback={null}>
+                <RoomsCaseStudy />
               </Suspense>
             }
           />

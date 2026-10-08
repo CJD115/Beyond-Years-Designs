@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { SITE } from "@/data/site";
 
@@ -15,7 +16,9 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function ThresholdsNav() {
+// On another page, `home` is the page the links lead back to (e.g. "/rooms"
+// from a case study); on the homepage itself they stay on the page.
+export default function ThresholdsNav({ home }) {
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -64,16 +67,17 @@ export default function ThresholdsNav() {
           Skip to content
         </a>
         <nav className="mx-auto flex items-center justify-between px-6 py-3 md:px-10 lg:max-w-[calc(var(--lu)*1440)] lg:px-[calc(var(--lu)*64)] lg:py-[max(12px,calc(var(--lu)*22))]">
-          <a href="#top" className="font-display text-[21px] font-light tracking-normal lg:text-[max(19px,calc(var(--lu)*22))]">
+          <Go home={home} to="#top" className="font-display text-[21px] font-light tracking-normal lg:text-[max(19px,calc(var(--lu)*22))]">
             Beyond Years Designs
-          </a>
+          </Go>
           <div className="flex items-center gap-[calc(var(--lu)*40)]">
-            <a
-              href="#contact"
+            <Go
+              home={home}
+              to="#contact"
               className="hidden min-h-11 items-center text-[max(14px,calc(var(--lu)*15))] font-medium transition-colors duration-300 hover:text-accent lg:inline-flex"
             >
               Start a project
-            </a>
+            </Go>
             <button
               type="button"
               aria-haspopup="dialog"
@@ -110,8 +114,9 @@ export default function ThresholdsNav() {
         <ul className="flex flex-1 flex-col justify-center gap-1 px-6 md:px-10 lg:px-16">
           {LINKS.map((link, i) => (
             <li key={link.href}>
-              <a
-                href={link.href}
+              <Go
+                home={home}
+                to={link.href}
                 onClick={() => setOpen(false)}
                 className="group inline-flex items-baseline gap-5 py-1 font-display text-[clamp(48px,8vw,96px)] font-light leading-[1.05] tracking-normal transition-colors duration-300 hover:text-accent"
               >
@@ -119,7 +124,7 @@ export default function ThresholdsNav() {
                   {["I", "II", "III", "IV"][i]}
                 </span>
                 {link.label}
-              </a>
+              </Go>
             </li>
           ))}
         </ul>
@@ -129,6 +134,13 @@ export default function ThresholdsNav() {
       </dialog>
     </>
   );
+}
+
+// A link to a section: a plain in-page link on the homepage, or a route back
+// to `home` from another page. "#top" leads to the top of `home`.
+function Go({ home, to, ...props }) {
+  if (!home) return <a href={to} {...props} />;
+  return <Link to={to === "#top" ? home : `${home}${to}`} {...props} />;
 }
 
 // Two lines, the lower one shorter
