@@ -226,15 +226,15 @@ function DesktopCorridor({ trackRef, stage, position, onGo }) {
             <svg className="rp-svg" viewBox="0 0 1440 1000" fill="none" stroke="rgba(242,235,227,0.08)">
               <motion.path style={{ opacity: frame[0] }} d="M230 120 L400 210 M1210 120 L1040 210 M230 820 L400 670 M1210 820 L1040 670" />
               <motion.path style={{ opacity: frame[1] }} d="M400 210 L520 275 M1040 210 L920 275 M400 670 L520 565 M1040 670 L920 565" />
-              <motion.path style={{ opacity: frame[2] }} d="M520 275 L605 325 M920 275 L835 325 M520 565 L605 495 M920 565 L835 495" />
+              <motion.path style={{ opacity: frame[2] }} d="M520 275 L566.5 325 M920 275 L873.5 325 M520 565 L566.5 495 M920 565 L873.5 495" />
             </svg>
 
             <motion.div className="rp-edge rp-edge-outer" style={{ opacity: frame[0], left: u(230), top: u(120), width: u(980), height: u(700) }} />
             <motion.div className="rp-edge" style={{ opacity: frame[1], left: u(400), top: u(210), width: u(640), height: u(460) }} />
             <motion.div className="rp-edge" style={{ opacity: frame[2], left: u(520), top: u(275), width: u(400), height: u(290) }} />
 
-            {/* The finished site, lit at the far end */}
-            <div className="rp-end" style={{ left: u(605), top: u(325), width: u(230), height: u(170) }}>
+            {/* The finished site, lit at the far end, shaped to its screenshot */}
+            <div className="rp-end" style={{ left: u(566.5), top: u(325), width: u(307), height: u(170) }}>
               <img
                 src={SITE_IMAGE.image}
                 srcSet={SITE_IMAGE.imageSrcSet}
@@ -390,13 +390,13 @@ function PhoneCorridor({ stage, position, onGo }) {
           <svg className="rp-svg" viewBox="0 0 342 400" fill="none" stroke="rgba(242,235,227,0.08)">
             <motion.path style={{ opacity: frame[0] }} d="M0 0 L58 58 M342 0 L284 58 M0 400 L58 322 M342 400 L284 322" />
             <motion.path style={{ opacity: frame[1] }} d="M58 58 L97 97 M284 58 L244 97 M58 322 L97 269 M284 322 L244 269" />
-            <motion.path style={{ opacity: frame[2] }} d="M97 97 L125 124 M244 97 L217 124 M97 269 L125 232 M244 269 L217 232" />
+            <motion.path style={{ opacity: frame[2] }} d="M97 97 L123 151.5 M244 97 L219 151.5 M97 269 L123 204.5 M244 269 L219 204.5" />
           </svg>
           <motion.div className="rp-edge rp-edge-outer" style={{ opacity: frame[0], inset: 0 }} />
           <motion.div className="rp-edge" style={{ opacity: frame[1], left: p(58), top: p(58), width: p(226), height: p(264) }} />
           <motion.div className="rp-edge" style={{ opacity: frame[2], left: p(97), top: p(97), width: p(147), height: p(172) }} />
 
-          <div className="rp-end" style={{ left: p(125), top: p(124), width: p(92), height: p(108) }}>
+          <div className="rp-end" style={{ left: p(123), top: p(151.5), width: p(96), height: p(53) }}>
             <img
               src={SITE_IMAGE.image}
               srcSet={SITE_IMAGE.imageSrcSet}
@@ -404,7 +404,6 @@ function PhoneCorridor({ stage, position, onGo }) {
               alt=""
               loading="lazy"
               decoding="async"
-              style={{ objectPosition: "40% 50%" }}
             />
           </div>
 
@@ -414,7 +413,7 @@ function PhoneCorridor({ stage, position, onGo }) {
           <PhonePhrase opacity={text[1]} left={58} width={226} top={288} size={12.5}>{SILLS[1]}</PhonePhrase>
           <PhoneLintel opacity={text[2]} no="03" title="Production" left={97} width={147} top={108} size={5.2} />
           <PhonePhrase opacity={text[2]} left={97} width={147} top={247} size={8}>{SILLS[2]}</PhonePhrase>
-          <p className="rp-lab rp-lab-end" style={{ left: p(97), width: p(147), top: p(236), fontSize: p(4.6), letterSpacing: "0.3em" }}>
+          <p className="rp-lab rp-lab-end" style={{ left: p(97), width: p(147), top: p(210), fontSize: p(4.6), letterSpacing: "0.3em" }}>
             04 — Project complete
           </p>
         </motion.div>
