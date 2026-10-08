@@ -11,12 +11,12 @@ import ExplodedStack from "./ExplodedStack";
 // and explains it. On scroll the stack comes apart, then settles back into a
 // single site as you leave the section.
 //
-// Desktop (1024px and up) is the 1440px mock-up scaled to the window: --lu is
+// Desktop (900px and up) is the 1440px mock-up scaled to the window: --lu is
 // one mock-up pixel. Smaller screens follow the 390px phone mock-up, where the
 // layer labels are the controls and the explanation is one sentence.
 
-// True at the desktop layout (1024px and up); false while prerendering
-const DESKTOP = "(min-width: 1024px)";
+// True at the desktop layout (900px and up); false while prerendering
+const DESKTOP = "(min-width: 900px)";
 const subscribeDesktop = (onChange) => {
   const query = window.matchMedia(DESKTOP);
   query.addEventListener("change", onChange);

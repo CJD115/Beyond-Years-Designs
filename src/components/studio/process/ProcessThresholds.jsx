@@ -19,7 +19,7 @@ import "./thresholds.css";
 // scales the view about the lit door, the threshold you pass falls away, the
 // current stage reads at full strength and the ones ahead wait at half.
 //
-// Desktop (1024px and up): the section is two and a half screens tall and the corridor
+// Desktop (900px and up): the section is two and a half screens tall and the corridor
 // is pinned; scrolling walks you through it. The stage buttons and the doorway
 // scroll to a stage. With reduced motion it isn't pinned, and the buttons and
 // doorway switch stages instantly.
@@ -55,7 +55,7 @@ const PHONE_CAMS = [1, 1.513, 2.327, 3.3];
 const EASE = [0.65, 0, 0.35, 1];
 const SITE_IMAGE = getProject("churcham-homes");
 
-const DESKTOP = "(min-width: 1024px)";
+const DESKTOP = "(min-width: 900px)";
 const subscribeDesktop = (onChange) => {
   const query = window.matchMedia(DESKTOP);
   query.addEventListener("change", onChange);

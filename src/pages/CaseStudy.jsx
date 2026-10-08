@@ -19,7 +19,7 @@ import { useSeo } from "@/lib/seo";
 //   03        the result: Lighthouse scores, the site on desktop and phone
 //   next      the next room, in its own doorway
 //
-// Desktop (1024px and up) follows the 1440px mock-up, scaled to the window:
+// Desktop (900px and up) follows the 1440px mock-up, scaled to the window:
 // --lu is one mock-up pixel. Phones stack everything in one column.
 
 const NUMERALS = ["I", "II", "III", "IV", "V", "VI"];
@@ -191,7 +191,7 @@ function Hero({ project, study, room }) {
           <img
             src={study.hero?.src ?? project.image}
             srcSet={study.hero?.srcSet ?? project.imageSrcSet}
-            sizes="(min-width: 1024px) min(70vw, 1260px), 90vw"
+            sizes="(min-width: 900px) min(70vw, 1260px), 90vw"
             alt={`The ${project.name} website`}
             fetchPriority="high"
             decoding="async"
@@ -392,7 +392,7 @@ function Features({ project, shots }) {
               key={`${active}-${shot.src}`}
               src={shot.src}
               srcSet={shot.srcSet}
-              sizes="(min-width: 1024px) min(50vw, 902px), 90vw"
+              sizes="(min-width: 900px) min(50vw, 902px), 90vw"
               alt={`${project.name}: ${features[active]}`}
               decoding="async"
               initial={{ opacity: 0, scale: 1.02 }}
@@ -479,7 +479,7 @@ function Result({ project, study }) {
             <img
               src={desktop.src}
               srcSet={desktop.srcSet}
-              sizes="(min-width: 1024px) min(40vw, 704px), 75vw"
+              sizes="(min-width: 900px) min(40vw, 704px), 75vw"
               alt={`${project.name} on desktop`}
               loading="lazy"
               decoding="async"
@@ -489,7 +489,7 @@ function Result({ project, study }) {
               <img
                 src={phone.src}
                 srcSet={phone.srcSet}
-                sizes="(min-width: 1024px) 200px, 27vw"
+                sizes="(min-width: 900px) 200px, 27vw"
                 alt={`${project.name} on a phone`}
                 loading="lazy"
                 decoding="async"
@@ -546,7 +546,7 @@ function NextRoom({ next, numeral }) {
               <img
                 src={next.image}
                 srcSet={next.imageSrcSet}
-                sizes="(min-width: 1024px) 33vw, 90vw"
+                sizes="(min-width: 900px) 33vw, 90vw"
                 alt=""
                 loading="lazy"
                 decoding="async"

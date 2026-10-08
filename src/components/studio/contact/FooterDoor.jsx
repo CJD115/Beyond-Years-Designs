@@ -37,7 +37,7 @@ export default function FooterDoor() {
           className="left-[calc(var(--lu)*420)] top-0 hidden h-full w-[calc(var(--lu)*1188)] lg:block"
         />
 
-        <div className="relative border-t border-[#f1ebe3]/12 pt-[25px] pb-[26px] lg:ml-[calc(var(--lu)*556)] lg:flex lg:items-end lg:justify-between lg:border-t-0 lg:pt-[calc(var(--lu)*235.4)] lg:pb-[calc(var(--lu)*111)] lg:pl-[calc(var(--lu)*20)]">
+        <div className="relative border-t border-[#f1ebe3]/12 pt-[25px] pb-[26px] lg:ml-[calc(var(--lu)*556)] min-[1360px]:flex min-[1360px]:items-end min-[1360px]:justify-between lg:border-t-0 lg:pt-[calc(var(--lu)*235.4)] lg:pb-[calc(var(--lu)*111)] lg:pl-[calc(var(--lu)*20)]">
           <div>
             <p className="font-display text-[38px] font-light leading-[1.21] tracking-normal lg:text-[calc(var(--lu)*44)]">
               Bristol, England
@@ -60,7 +60,9 @@ export default function FooterDoor() {
             </p>
           </div>
 
-          <nav aria-label="Footer" className="mt-[13px] lg:mt-0">
+          {/* beside the address from 1360px; below it on narrower windows,
+              where the column the door leaves is too narrow for both */}
+          <nav aria-label="Footer" className="mt-[13px] min-[1360px]:mt-0">
             <ul className="flex flex-wrap gap-x-[26px] lg:gap-x-[calc(var(--lu)*26)]">
               {LINKS.map((link) => (
                 <li key={link.href}>

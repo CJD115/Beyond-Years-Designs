@@ -12,14 +12,14 @@ import { caseStudyPath } from "@/data/site";
 // The list, the arrows, the arrow keys and (on phones) a swipe all move
 // between rooms.
 //
-// The section always fills the screen. Desktop (1024px and up) is the
+// The section always fills the screen. Desktop (900px and up) is the
 // 1440 x 1000 mock-up scaled to fit the window, by width or height, whichever
 // is tighter: --lu is one mock-up pixel. The room sits centred, and the
 // blurred place behind fills the rest. Smaller screens follow the 390px
 // phone mock-up.
 
 const NUMERALS = ["I", "II", "III", "IV", "V", "VI"];
-const SCREEN_SIZES = "(min-width: 1024px) min(47vw, 850px), 85vw";
+const SCREEN_SIZES = "(min-width: 900px) min(47vw, 850px), 85vw";
 const EASE = [0.22, 1, 0.36, 1];
 
 // How far (as a share of the layer's own width) and how slowly each layer

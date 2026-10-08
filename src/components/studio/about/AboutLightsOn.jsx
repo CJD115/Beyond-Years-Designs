@@ -8,7 +8,7 @@ import { TEAM } from "@/data/team";
 // portraits: choosing one turns a light on over them, brings their portrait
 // up to full colour and shows their story on the right (below, on phones).
 //
-// Desktop (1024px and up) is the 1440px mock-up scaled to the window: --lu is
+// Desktop (900px and up) is the 1440px mock-up scaled to the window: --lu is
 // one mock-up pixel, so calc(var(--lu)*52) is "52px at 1440 wide". Smaller
 // screens use the 390px phone mock-up as drawn.
 //
@@ -17,7 +17,7 @@ import { TEAM } from "@/data/team";
 //   phone:   heading / portraits / rule / names / prompt / story
 //   desktop: heading / portraits + story / names / rule / prompt
 
-const PORTRAIT_SIZES = "(min-width: 1024px) min(24vw, 425px), 45vw";
+const PORTRAIT_SIZES = "(min-width: 900px) min(24vw, 425px), 45vw";
 
 // Light-on and light-off looks for the pieces that change
 const LIT = {

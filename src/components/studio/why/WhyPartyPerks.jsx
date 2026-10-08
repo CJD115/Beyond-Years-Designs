@@ -9,14 +9,17 @@ import { line, loop } from "@/lib/contours";
 // Trusted (03). Each step and perk rises into place as you scroll, and the
 // emblem turns slightly on hover.
 //
-// Desktop (1280px and up) is the 1440 × 1000 mock-up scaled to the window:
+// Desktop (900px and up) is the 1440 × 1000 mock-up scaled to the window:
 // --lu is one mock-up pixel. Smaller screens follow the 390px phone mock-up,
 // where the staircase turns vertical and each perk edges right.
 
 // x/y place each perk's emblem in mock-up pixels; w is its text column and
 // tread the width of the step it stands on (the last step runs off the page).
 // Every step has the same shape relative to its perk, so the staircase is
-// drawn by the perks themselves.
+// drawn by the perks themselves. On desktop each perk stands on its tread
+// (positioned by its foot, at least as tall as the mock-up's 273.5): where
+// the text's minimum sizes make it taller than the mock-up, on a narrow
+// window, it grows upwards instead of running across the step.
 const PERKS = [
   {
     level: 1,
@@ -58,7 +61,7 @@ export default function WhyPartyPerks() {
     <section
       id="why-us"
       aria-labelledby="why-us-title"
-      className="relative overflow-hidden xl:[--lu:min(calc(100vw/1440),1.25px)]"
+      className="relative overflow-hidden lg:[--lu:min(calc(100vw/1440),1.25px)]"
     >
       {/* The paper and its faint contour lines, softening in at the top so
           the section meets Services above */}
@@ -66,16 +69,16 @@ export default function WhyPartyPerks() {
         <Contours />
       </div>
 
-      <div className="relative mx-auto w-full px-6 pt-16 md:px-10 md:pt-24 xl:h-[calc(var(--lu)*1000)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0">
-        <Reveal className="max-w-[560px] xl:max-w-none xl:w-[calc(var(--lu)*460)] xl:ml-[calc(var(--lu)*64)] xl:pt-[calc(var(--lu)*50)]">
-          <p data-join className="text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">Why us</p>
+      <div className="relative mx-auto w-full px-6 pt-16 md:px-10 md:pt-24 lg:h-[calc(var(--lu)*1000)] lg:max-w-[calc(var(--lu)*1440)] lg:px-0 lg:pt-0">
+        <Reveal className="max-w-[560px] lg:max-w-none lg:w-[calc(var(--lu)*460)] lg:ml-[calc(var(--lu)*64)] lg:pt-[calc(var(--lu)*50)]">
+          <p data-join className="text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 lg:text-[max(10.5px,calc(var(--lu)*11))] lg:font-normal">Why us</p>
           <h2
             id="why-us-title"
-            className="font-display mt-[14px] text-[min(56px,14.5vw)] leading-[1.1] xl:mt-[calc(var(--lu)*7.5)] xl:whitespace-nowrap xl:text-[calc(var(--lu)*84)]"
+            className="font-display mt-[14px] text-[min(56px,14.5vw)] leading-[1.1] lg:mt-[calc(var(--lu)*7.5)] lg:whitespace-nowrap lg:text-[calc(var(--lu)*84)]"
           >
             Why <span className="font-serif-italic text-accent">choose us?</span>
           </h2>
-          <p className="font-display mt-[16px] text-[21px] leading-[1.3] tracking-normal text-foreground/90 xl:mt-[calc(var(--lu)*26)] xl:text-[max(19px,calc(var(--lu)*26))] xl:leading-[1.28]">
+          <p className="font-display mt-[16px] text-[21px] leading-[1.3] tracking-normal text-foreground/90 lg:mt-[calc(var(--lu)*26)] lg:text-[max(19px,calc(var(--lu)*26))] lg:leading-[1.28]">
             We build, host, and maintain websites for small businesses, independent makers and creative teams. Three things
             come as standard.
           </p>
@@ -83,7 +86,7 @@ export default function WhyPartyPerks() {
 
         {/* The staircase. Phones: a vertical stair down the left, each perk a
             step further right. Desktop: each perk stands on its own step. */}
-        <ul className="mt-12 max-w-[560px] md:mt-16 xl:mt-0 xl:max-w-none">
+        <ul className="mt-12 max-w-[560px] md:mt-16 lg:mt-0 lg:max-w-none">
           {PERKS.map((perk, i) => (
             <Perk key={perk.level} perk={perk} index={i} last={i === PERKS.length - 1} />
           ))}
@@ -103,35 +106,35 @@ function Perk({ perk, index, last }) {
       viewport={{ once: true, margin: "0px 0px -12% 0px" }}
       transition={{ duration: 1, delay: 0.1 + index * 0.18, ease: [0.22, 1, 0.36, 1] }}
       style={{ "--i": index, "--x": perk.x, "--y": perk.y, "--w": perk.w, "--tread": perk.tread ?? 0 }}
-      className={`group relative max-xl:ml-[calc(var(--i)*22px)] max-xl:border-l-2 max-xl:border-accent max-xl:pt-[12px] max-xl:pl-[20px] ${last ? "max-xl:pb-20 max-md:pb-16" : "max-xl:pb-[38px]"} xl:absolute xl:left-[calc(var(--lu)*var(--x))] xl:top-[calc(var(--lu)*var(--y))]`}
+      className={`group relative max-lg:ml-[calc(var(--i)*22px)] max-lg:border-l-2 max-lg:border-accent max-lg:pt-[12px] max-lg:pl-[20px] ${last ? "max-lg:pb-20 max-md:pb-16" : "max-lg:pb-[38px]"} lg:absolute lg:left-[calc(var(--lu)*var(--x))] lg:bottom-[calc(var(--lu)*(1000-var(--y)-273.5))] lg:min-h-[calc(var(--lu)*273.5)] lg:pb-[14px]`}
     >
       <Step index={index} last={last} />
 
       <p
         aria-hidden="true"
-        className="font-sc mb-[8px] text-[16px] font-medium leading-[1.25] tracking-normal text-accent-strong xl:absolute xl:left-[calc(var(--lu)*4)] xl:top-[calc(var(--lu)*245)] xl:mb-0 xl:-translate-y-1/2 xl:whitespace-nowrap xl:text-[max(13px,calc(var(--lu)*16))]"
+        className="font-sc mb-[8px] text-[16px] font-medium leading-[1.25] tracking-normal text-accent-strong lg:absolute lg:left-[calc(var(--lu)*4)] lg:top-[calc(100%-var(--lu)*28.5)] lg:mb-0 lg:-translate-y-1/2 lg:whitespace-nowrap lg:text-[max(13px,calc(var(--lu)*16))]"
       >
         {String(perk.level).padStart(2, "0")}
       </p>
 
-      <div className="grid grid-cols-[64px_minmax(0,1fr)] gap-x-[14px] xl:grid-cols-[calc(var(--lu)*103)_calc(var(--lu)*var(--w))] xl:gap-x-[calc(var(--lu)*18.5)]">
+      <div className="grid grid-cols-[64px_minmax(0,1fr)] gap-x-[14px] lg:grid-cols-[calc(var(--lu)*103)_calc(var(--lu)*var(--w))] lg:gap-x-[calc(var(--lu)*18.5)]">
         <div
           aria-hidden="true"
-          className="relative col-start-1 row-start-1 aspect-square w-[64px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-[8deg] xl:row-span-3 xl:w-[calc(var(--lu)*103)] xl:self-start"
+          className="relative col-start-1 row-start-1 aspect-square w-[64px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-[8deg] lg:row-span-3 lg:w-[calc(var(--lu)*103)] lg:self-start"
         >
           <span className="absolute inset-[14.645%] rotate-45 border border-foreground bg-[var(--linen)]" />
           <Emblem className="absolute left-1/2 top-1/2 size-[36.9%] -translate-x-1/2 -translate-y-1/2 text-accent" />
         </div>
 
         <h3
-          className="font-sc col-start-2 row-start-1 self-center text-[27px] font-semibold leading-none tracking-normal text-foreground xl:self-start xl:pt-[calc(var(--lu)*4)] xl:text-[calc(var(--lu)*30)]"
+          className="font-sc col-start-2 row-start-1 self-center text-[27px] font-semibold leading-none tracking-normal text-foreground lg:self-start lg:pt-[calc(var(--lu)*4)] lg:text-[calc(var(--lu)*30)]"
         >
           {perk.title}
         </h3>
-        <p className="font-serif-italic col-span-2 row-start-2 mt-[14px] text-[19.5px] leading-[1.2] text-accent-strong xl:col-span-1 xl:col-start-2 xl:mt-[calc(var(--lu)*7)] xl:text-[max(17px,calc(var(--lu)*19.5))]">
+        <p className="font-serif-italic col-span-2 row-start-2 mt-[14px] text-[19.5px] leading-[1.2] text-accent-strong lg:col-span-1 lg:col-start-2 lg:mt-[calc(var(--lu)*7)] lg:text-[max(17px,calc(var(--lu)*19.5))]">
           {perk.type}
         </p>
-        <p className="col-span-2 row-start-3 mt-[8px] text-[15px] leading-[24px] tracking-normal text-foreground/80 xl:col-span-1 xl:col-start-2 xl:mt-[calc(var(--lu)*8)] xl:text-[max(14px,calc(var(--lu)*15))] xl:leading-[1.667]">
+        <p className="col-span-2 row-start-3 mt-[8px] text-[15px] leading-[24px] tracking-normal text-foreground/80 lg:col-span-1 lg:col-start-2 lg:mt-[calc(var(--lu)*8)] lg:text-[max(14px,calc(var(--lu)*15))] lg:leading-[1.667]">
           {perk.body}
         </p>
       </div>
@@ -147,24 +150,24 @@ function Step({ index, last }) {
   return (
     <span aria-hidden="true" className="pointer-events-none">
       {/* Phones */}
-      <span className="absolute top-0 bottom-0 left-[-16px] w-[14px] bg-foreground/[0.07] xl:hidden" />
-      {index > 0 && <span className="absolute top-0 left-[-24px] h-[2px] w-[24px] bg-accent xl:hidden" />}
+      <span className="absolute top-0 bottom-0 left-[-16px] w-[14px] bg-foreground/[0.07] lg:hidden" />
+      {index > 0 && <span className="absolute top-0 left-[-24px] h-[2px] w-[24px] bg-accent lg:hidden" />}
 
       {/* Desktop */}
-      <span className="hidden xl:block">
+      <span className="hidden lg:block">
         {index > 0 && (
           <>
-            <span className="absolute top-[calc(var(--lu)*273.5)] left-[calc(var(--lu)*-20.5+2px)] h-[calc(var(--lu)*240)] w-[calc(var(--lu)*7)] bg-foreground/[0.07]" />
-            <span className="absolute top-[calc(var(--lu)*273.5)] left-[calc(var(--lu)*-20.5)] h-[calc(var(--lu)*240)] w-[2px] bg-accent" />
+            <span className="absolute top-full left-[calc(var(--lu)*-20.5+2px)] h-[calc(var(--lu)*240)] w-[calc(var(--lu)*7)] bg-foreground/[0.07]" />
+            <span className="absolute top-full left-[calc(var(--lu)*-20.5)] h-[calc(var(--lu)*240)] w-[2px] bg-accent" />
           </>
         )}
         <span
-          className={`absolute top-[calc(var(--lu)*273.5+2px)] h-[calc(var(--lu)*14)] bg-foreground/[0.07] ${
+          className={`absolute top-[calc(100%+2px)] h-[calc(var(--lu)*14)] bg-foreground/[0.07] ${
             index > 0 ? "left-[calc(var(--lu)*-20.5+2px+var(--lu)*7)]" : "left-[calc(var(--lu)*-20.5)]"
           } ${last ? "w-[100vw]" : index > 0 ? "w-[calc(var(--lu)*var(--tread))]" : "w-[calc(var(--lu)*(var(--tread)+7)+2px)]"}`}
         />
         <span
-          className={`absolute top-[calc(var(--lu)*273.5)] left-[calc(var(--lu)*-20.5)] h-[2px] bg-accent ${
+          className={`absolute top-full left-[calc(var(--lu)*-20.5)] h-[2px] bg-accent ${
             last ? "w-[100vw]" : "w-[calc(var(--lu)*var(--tread)+2px)]"
           }`}
         />

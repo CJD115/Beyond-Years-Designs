@@ -11,7 +11,7 @@ import { Door, FloorLight, Warmth } from "./DoorLight";
 // the gap flickers gently; sending an enquiry swings the door wider and warms
 // the room. Pairs with FooterDoor, where the light crosses the floor.
 //
-// Desktop (1024px and up) is the 1440px mock-up scaled to the window: --lu is
+// Desktop (900px and up) is the 1440px mock-up scaled to the window: --lu is
 // one mock-up pixel. Smaller screens follow the 390px phone mock-up, with the
 // door above the heading.
 

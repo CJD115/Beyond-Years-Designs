@@ -10,7 +10,7 @@ import "./doorway.css";
 // words fade, the start of stepping through it (not pinned: the page scrolls
 // as normal).
 //
-// Desktop (1024px and up) is the 1440 × 900 mock-up scaled to fit the window
+// Desktop (900px and up) is the 1440 × 900 mock-up scaled to fit the window
 // (--lu is one mock-up pixel), anchored to the foot of the screen so the light
 // always reaches the bottom. Smaller screens follow the 390px phone mock-up,
 // with the door above the headline.
@@ -93,7 +93,7 @@ function Door({ className = "", style }) {
         <img
           src={SALON}
           srcSet={SALON_SRCSET}
-          sizes="(min-width: 1024px) 360px, 235px"
+          sizes="(min-width: 900px) 360px, 235px"
           alt=""
           decoding="async"
           className="th-drift h-full w-full object-cover"
@@ -142,11 +142,13 @@ function Desktop({ doorScale, copyOpacity }) {
           className="absolute"
           style={{ left: u(64), top: u(226) }}
         />
-        {/* (the mock-up runs this paragraph across the floor line; it sits
-            above it here) */}
+        {/* Anchored by its foot, just above the floor: where the window is
+            small enough for the text's minimum size to wrap it onto more
+            lines, it grows up into the space under the headline instead of
+            down across the floor and into the links */}
         <p
           className="absolute text-[max(15px,calc(var(--lu)*17.5))] leading-[1.6] text-[#f1ebe3]/80"
-          style={{ left: u(64), top: u(660), width: u(470) }}
+          style={{ left: u(64), bottom: `calc(var(--lu) * 139 + max(12px, var(--lu) * 17))`, width: `max(320px, ${u(470)})` }}
         >
           Building a website shouldn’t get in the way of your business. We make places people step into, not pages they
           scroll past.

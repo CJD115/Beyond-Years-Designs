@@ -79,6 +79,15 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Where the desktop layouts start. They're drawn on a 1440px canvas and
+   scaled to the window (--lu), so they hold down to 900px: laptops with
+   display scaling at 125-150% (a 1366px screen at 150% is 911px wide) get
+   them, not the phone layouts. Keep DESKTOP in the section components and
+   the media queries in process/thresholds.css in step with this. */
+@theme {
+  --breakpoint-lg: 56.25rem;
+}
+
 @theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));

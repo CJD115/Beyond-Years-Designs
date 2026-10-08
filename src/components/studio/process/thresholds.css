@@ -23,7 +23,7 @@
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 900px) {
   .rp-phone {
     display: none;
   }
@@ -196,7 +196,7 @@
 
 /* With reduced motion the corridor isn't pinned: one screen, and the
    buttons switch stages instantly */
-@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+@media (min-width: 900px) and (prefers-reduced-motion: reduce) {
   .rp-desk {
     height: auto;
   }
