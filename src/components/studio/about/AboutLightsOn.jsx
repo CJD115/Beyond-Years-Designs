@@ -33,6 +33,12 @@ const UNLIT = {
   cone: "opacity-0",
 };
 
+// The beam: a warm linen, brightest down the centre and softening towards the
+// floor; and the pool it leaves on the rule
+const BEAM =
+  "radial-gradient(ellipse 30% 100% at 50% 0, rgb(250 238 222 / 0.07), transparent 100%), linear-gradient(to bottom, rgb(246 236 222 / 0.13), rgb(246 236 222 / 0.08))";
+const POOL = "radial-gradient(ellipse 50% 50% at 50% 50%, rgb(250 238 222 / 0.16), transparent 100%)";
+
 export default function AboutLightsOn() {
   const [activeIndex, setActiveIndex] = useState(0);
   const person = TEAM[activeIndex];
@@ -44,15 +50,17 @@ export default function AboutLightsOn() {
     >
       <div className="isolate mx-auto grid w-full grid-cols-2 gap-x-4 px-6 md:px-10 lg:max-w-[calc(var(--lu)*1440)] lg:grid-cols-[calc(var(--lu)*340)_calc(var(--lu)*340)_minmax(0,1fr)] lg:gap-x-[calc(var(--lu)*36)] lg:px-[calc(var(--lu)*64)]">
         {/* The light: one cone per person, from the top of the section down
-            to the rule. Only the chosen person's is on. It fades in from
-            the top so it doesn't start at a hard line under Process. */}
+            to the rule, with a pool where it lands. Only the chosen person's
+            is on. It fades in from the top so it doesn't start at a hard line
+            under Process, and is brightest down its centre, like a beam. */}
         {TEAM.map((m, i) => {
           const look = i === activeIndex ? LIT : UNLIT;
           return (
             <div
               key={`light-${m.name}`}
               aria-hidden="true"
-              className={`pointer-events-none -z-10 row-start-1 row-end-3 mx-[-10.5px] bg-[#f1ebe3]/7 transition-opacity duration-900 ease-out [clip-path:polygon(44.5%_0,55.5%_0,100%_100%,0_100%)] [mask-image:linear-gradient(to_bottom,transparent,#000_120px)] lg:row-end-4 lg:[mask-image:linear-gradient(to_bottom,transparent,#000_calc(var(--lu)*160))] lg:mx-[calc(-46*var(--lu))] lg:bg-[#f1ebe3]/6 ${i === 0 ? "col-start-1" : "col-start-2"} ${look.cone}`}
+              style={{ background: BEAM }}
+              className={`pointer-events-none -z-10 row-start-1 row-end-3 mx-[-10.5px] transition-opacity duration-900 ease-out [clip-path:polygon(44.5%_0,55.5%_0,100%_100%,0_100%)] [mask-image:linear-gradient(to_bottom,transparent,#000_120px)] lg:row-end-4 lg:[mask-image:linear-gradient(to_bottom,transparent,#000_calc(var(--lu)*160))] lg:mx-[calc(-46*var(--lu))] ${i === 0 ? "col-start-1" : "col-start-2"} ${look.cone}`}
             />
           );
         })}
@@ -100,6 +108,20 @@ export default function AboutLightsOn() {
         <div aria-hidden="true" className="relative col-span-full row-start-3 h-px lg:row-start-4">
           <div className="absolute left-1/2 top-0 h-px w-screen -translate-x-1/2 bg-[#f1ebe3]/10" />
         </div>
+
+        {/* The pool of light on the floor under the chosen person */}
+        {TEAM.map((m, i) => (
+          <div
+            key={`pool-${m.name}`}
+            aria-hidden="true"
+            className={`pointer-events-none relative -z-10 row-start-3 h-px lg:row-start-4 ${i === 0 ? "col-start-1" : "col-start-2"} ${i === activeIndex ? LIT.cone : UNLIT.cone} transition-opacity duration-900 ease-out`}
+          >
+            <div
+              style={{ background: POOL }}
+              className="absolute left-1/2 top-0 h-[44px] w-[150%] -translate-x-1/2 -translate-y-1/2 lg:h-[calc(var(--lu)*80)]"
+            />
+          </div>
+        ))}
 
         {/* Names: the real controls */}
         {TEAM.map((m, i) => {
