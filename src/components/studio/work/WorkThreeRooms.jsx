@@ -163,8 +163,10 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
             {label}: {project.name}
           </p>
 
-          {/* The website, floating in its frame */}
-          <div className="relative order-none mt-[58px] ml-[16px] aspect-[326/232] lg:absolute lg:left-[calc(var(--lu)*640)] lg:top-[calc(var(--lu)*120)] lg:m-0 lg:aspect-auto lg:h-[calc(var(--lu)*434)] lg:w-[calc(var(--lu)*680)]">
+          {/* The website, floating in its frame. The frame is shaped to the
+              screenshots (2400 × 1328), so Churcham shows whole and the taller
+              ones lose only a thin strip top and bottom. */}
+          <div className="relative order-none mt-[58px] ml-[16px] aspect-[2400/1328] lg:absolute lg:left-[calc(var(--lu)*640)] lg:top-[calc(var(--lu)*120)] lg:m-0 lg:aspect-auto lg:h-[calc(var(--lu)*382)] lg:w-[calc(var(--lu)*680)]">
             <AnimatePresence initial={false} custom={dir} mode="popLayout">
               <motion.a
                 key={project.slug}
@@ -176,7 +178,6 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
                 initial="enter"
                 animate="centre"
                 exit="exit"
-                style={project.room.screenAspect ? { bottom: "auto", aspectRatio: project.room.screenAspect } : undefined}
                 className="absolute inset-0 block bg-[#faf9f5] p-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.3),0_24px_40px_rgba(0,0,0,0.55)] lg:p-[calc(var(--lu)*6)] lg:shadow-[0_calc(var(--lu)*2)_calc(var(--lu)*4)_rgba(0,0,0,0.3),0_calc(var(--lu)*50)_calc(var(--lu)*80)_rgba(0,0,0,0.6)]"
               >
                 <img

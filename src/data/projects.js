@@ -50,9 +50,6 @@ export const PROJECTS = [
       place: "/work/churcham-homes-lifestyle-800.webp",
       screen: "/work/churcham-homes-desktop.webp",
       screenSrcSet: srcSetFor("/work/churcham-homes-desktop.webp"),
-      // Wider than the standard frame, so its frame takes the screenshot's
-      // own shape and nothing is cropped.
-      screenAspect: 2400 / 1328,
     },
     featured: true,
     overview:
