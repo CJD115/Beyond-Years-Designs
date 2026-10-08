@@ -15,7 +15,8 @@ import { AFTERCARE_EQUIP, AFTERCARE_GROUPS, AFTERCARE_INTRO, AFTERCARE_LINK } fr
 // Desktop (1280px and up) is the 1440 × 1050 mock-up, cut to 920 tall for
 // four slots, scaled to the window:
 // --lu is one mock-up pixel. Smaller screens follow the 390px phone mock-up:
-// the emblem on top, the four slots in two columns underneath.
+// the emblem on top, the four slots in two columns underneath, scaled up
+// from tablet width so it fills a tablet screen.
 
 const TITLE_ID = "aftercare-title";
 
@@ -46,16 +47,16 @@ export default function AftercareNewGame() {
         <Contours />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[640px] px-6 pt-16 pb-20 md:pt-24 md:pb-28 xl:h-[calc(var(--lu)*920)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0 xl:pb-0">
+      <div className="relative mx-auto w-full max-w-[640px] px-6 pt-16 pb-20 md:max-w-[880px] md:px-10 md:pt-24 md:pb-28 xl:h-[calc(var(--lu)*920)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0 xl:pb-0">
         <Reveal className="xl:pt-[calc(var(--lu)*50)] xl:text-center">
           <p className="text-center text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">Aftercare</p>
           <h2
             id={TITLE_ID}
-            className="font-display mt-[18px] text-center text-[min(60px,15.5vw)] leading-none xl:mt-[calc(var(--lu)*5)] xl:text-[calc(var(--lu)*96)]"
+            className="font-display mt-[18px] text-center text-[min(60px,15.5vw)] leading-none md:text-[80px] xl:mt-[calc(var(--lu)*5)] xl:text-[calc(var(--lu)*96)]"
           >
             Beyond <span className="font-serif-italic text-accent">launch.</span>
           </h2>
-          <p className="font-serif-italic mx-auto mt-[16px] max-w-[22em] text-center text-[20px] leading-[1.3] text-foreground/90 xl:mt-[calc(var(--lu)*18.5)] xl:max-w-[calc(var(--lu)*690)] xl:text-[max(19px,calc(var(--lu)*27))] xl:leading-[1.26]">
+          <p className="font-serif-italic mx-auto mt-[16px] max-w-[22em] text-center text-[20px] leading-[1.3] md:mt-[22px] md:text-[25px] text-foreground/90 xl:mt-[calc(var(--lu)*18.5)] xl:max-w-[calc(var(--lu)*690)] xl:text-[max(19px,calc(var(--lu)*27))] xl:leading-[1.26]">
             {AFTERCARE_INTRO}
           </p>
         </Reveal>
@@ -66,20 +67,20 @@ export default function AftercareNewGame() {
         <Emblem />
 
         {/* Phones: the routes running down from the emblem to the slots */}
-        <svg aria-hidden="true" viewBox="0 0 200 44" className="mx-auto -mt-[14px] block w-[200px] text-accent xl:hidden">
+        <svg aria-hidden="true" viewBox="0 0 200 44" className="mx-auto -mt-[14px] block w-[200px] text-accent md:w-[300px] xl:hidden">
           <path d="M72 0 22 44M128 0l50 44" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeDasharray="0.1 5" opacity="0.7" />
         </svg>
 
         {/* The four slots. Phones: two columns between two rules. Desktop:
             each slot sits on its own spot around the emblem. */}
-        <div className="grid grid-cols-2 gap-x-4 border-t border-foreground/15 pt-6 sm:gap-x-8 xl:block xl:border-0 xl:pt-0">
+        <div className="grid grid-cols-2 gap-x-4 border-t border-foreground/15 pt-6 sm:gap-x-8 md:gap-x-14 md:pt-9 xl:block xl:border-0 xl:pt-0">
           {AFTERCARE_GROUPS.map((group, gi) => (
             <Group key={group.title} group={group} side={gi === 0 ? "left" : "right"} onActive={setActive} />
           ))}
         </div>
 
-        <Reveal className="mt-8 flex flex-col items-center gap-x-[29px] gap-y-3 border-t border-foreground/15 pt-8 text-center xl:absolute xl:inset-x-0 xl:top-[calc(var(--lu)*810)] xl:mt-0 xl:flex-row xl:justify-center xl:border-0 xl:pt-0">
-          <p className="font-serif-italic text-[20px] leading-[1.2] text-foreground/70 xl:text-[max(18px,calc(var(--lu)*21))]">
+        <Reveal className="mt-8 flex flex-col items-center gap-x-[29px] gap-y-3 border-t border-foreground/15 pt-8 md:mt-12 md:pt-10 text-center xl:absolute xl:inset-x-0 xl:top-[calc(var(--lu)*810)] xl:mt-0 xl:flex-row xl:justify-center xl:border-0 xl:pt-0">
+          <p className="font-serif-italic text-[20px] leading-[1.2] text-foreground/70 md:text-[23px] xl:text-[max(18px,calc(var(--lu)*21))]">
             {AFTERCARE_EQUIP}
           </p>
           <a
@@ -101,13 +102,13 @@ function Group({ group, side, onActive }) {
   return (
     <div>
       <h3
-        className={`mb-4 text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:absolute xl:top-[calc(var(--lu)*405)] xl:mb-0 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal ${
+        className={`mb-4 text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 md:mb-6 md:text-[13px] xl:absolute xl:top-[calc(var(--lu)*405)] xl:mb-0 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal ${
           left ? "xl:left-[calc(var(--lu)*150)]" : "xl:right-[calc(var(--lu)*150)]"
         }`}
       >
         {group.title}
       </h3>
-      <ul className="flex flex-col gap-5 md:gap-7">
+      <ul className="flex flex-col gap-5 md:gap-9">
         {group.items.map((item, i) => (
           <Slot key={item.name} item={item} left={left} index={i + (left ? 0 : group.items.length)} onActive={onActive} />
         ))}
@@ -128,15 +129,15 @@ function Slot({ item, left, index, onActive }) {
       onPointerEnter={() => onActive(item.name)}
       onPointerLeave={() => onActive(null)}
       style={{ "--x": x, "--y": y }}
-      className="group flex items-start gap-3 xl:absolute xl:left-[calc(var(--lu)*var(--x))] xl:top-[calc(var(--lu)*var(--y))] xl:block"
+      className="group flex items-start gap-3 md:gap-5 xl:absolute xl:left-[calc(var(--lu)*var(--x))] xl:top-[calc(var(--lu)*var(--y))] xl:block"
     >
       {/* The slot: a pale ochre mount around a framed square */}
       <div
         aria-hidden="true"
-        className="relative size-[52px] shrink-0 border border-accent/35 bg-[var(--paper)] p-[3px] xl:size-[calc(var(--lu)*108)] xl:p-[calc(var(--lu)*4)]"
+        className="relative size-[52px] shrink-0 border border-accent/35 bg-[var(--paper)] p-[3px] md:size-[76px] md:p-[4px] xl:size-[calc(var(--lu)*108)] xl:p-[calc(var(--lu)*4)]"
       >
         <div className="flex size-full items-center justify-center border-[1.5px] border-foreground/55 bg-[var(--print)] transition-colors duration-500 group-hover:border-accent">
-          <Icon className="size-[22px] text-foreground xl:size-[calc(var(--lu)*34)]" />
+          <Icon className="size-[22px] text-foreground md:size-[30px] xl:size-[calc(var(--lu)*34)]" />
         </div>
       </div>
 
@@ -145,14 +146,14 @@ function Slot({ item, left, index, onActive }) {
           left ? "xl:right-[calc(100%+var(--lu)*21)] xl:text-right" : "xl:left-[calc(100%+var(--lu)*20)]"
         }`}
       >
-        <h4 className="font-sc text-[15.5px] font-semibold leading-[1.1] tracking-normal text-foreground xl:text-[calc(var(--lu)*24)] xl:leading-none">
+        <h4 className="font-sc text-[15.5px] font-semibold leading-[1.1] tracking-normal text-foreground md:text-[20px] xl:text-[calc(var(--lu)*24)] xl:leading-none">
           {item.name}
         </h4>
-        <p className="font-serif-italic mt-1 text-[15px] leading-[1.2] text-accent-strong xl:mt-[calc(var(--lu)*6)] xl:text-[max(16px,calc(var(--lu)*18))]">
+        <p className="font-serif-italic mt-1 text-[15px] leading-[1.2] text-accent-strong md:text-[17px] xl:mt-[calc(var(--lu)*6)] xl:text-[max(16px,calc(var(--lu)*18))]">
           {item.terms}
         </p>
         {/* Phones leave the line out, as in the mock-up, but screen readers still get it */}
-        <p className="sr-only text-[14px] leading-[1.5] text-foreground/80 md:not-sr-only md:mt-1.5 md:block xl:mt-[calc(var(--lu)*5)] xl:text-[max(13px,calc(var(--lu)*13.3))] xl:leading-[1.48]">
+        <p className="sr-only text-[14px] leading-[1.5] text-foreground/80 md:not-sr-only md:mt-2 md:block md:text-[15.5px] xl:mt-[calc(var(--lu)*5)] xl:text-[max(13px,calc(var(--lu)*13.3))] xl:leading-[1.48]">
           {item.summary}
         </p>
       </div>
@@ -170,7 +171,7 @@ function Emblem() {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mx-auto mt-10 size-[var(--d)] [--d:164px] md:mt-14 xl:absolute xl:left-[calc(var(--lu)*592)] xl:top-[calc(var(--lu)*457)] xl:mt-0 xl:[--d:calc(var(--lu)*256)]"
+      className="relative mx-auto mt-10 size-[var(--d)] [--d:164px] md:mt-14 md:[--d:224px] xl:absolute xl:left-[calc(var(--lu)*592)] xl:top-[calc(var(--lu)*457)] xl:mt-0 xl:[--d:calc(var(--lu)*256)]"
     >
       <span className="absolute inset-0 rounded-full border border-accent/35" />
       <span className="absolute inset-[3.9%] rounded-full border-[1.25px] border-accent bg-[var(--paper)]" />
