@@ -30,9 +30,6 @@ dist-ssr
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
 
-# Raw portfolio screenshots (review, then copy chosen ones into public/work/)
-captures/
-
 # Design exports and concept screenshots (kept locally, not in the repo)
 Claude outputs/
 
