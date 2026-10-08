@@ -263,7 +263,7 @@ function DesktopCorridor({ trackRef, stage, position, onGo }) {
           <button type="button" className="rp-walk" aria-label={walkLabel(stage)} onClick={() => onGo(stage + 1)} />
 
           <div className="rp-head">
-            <p className="rp-eyebrow">Process</p>
+            <p data-join className="rp-eyebrow">Process</p>
             <h2 className="rp-title">How we build your site.</h2>
           </div>
 
@@ -349,7 +349,7 @@ function PhoneCorridor({ stage, position, onGo }) {
 
   return (
     <div className="rp-phone">
-      <p className="rp-eyebrow">Process</p>
+      <p data-join className="rp-eyebrow">Process</p>
       <h2 className="rp-title">How we build your site.</h2>
 
       <button

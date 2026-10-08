@@ -47,7 +47,7 @@ export default function ContactDoor() {
         <div aria-hidden="true" className="-mx-6 h-px bg-[#f1ebe3]/10 md:-mx-10 lg:hidden" />
 
         <div className="lg:ml-[calc(var(--lu)*556)] lg:pt-[calc(var(--lu)*120)]">
-          <p className="mt-[23px] text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-[#f1ebe3]/75 lg:mt-0 lg:text-[max(10.5px,calc(var(--lu)*11))] lg:font-normal">
+          <p data-join className="mt-[23px] text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-[#f1ebe3]/75 lg:mt-0 lg:text-[max(10.5px,calc(var(--lu)*11))] lg:font-normal">
             Get started
           </p>
           <h2 className="font-display mt-3 text-[44px] font-light leading-none tracking-normal lg:mt-[calc(var(--lu)*14)] lg:text-[calc(var(--lu)*76)]">

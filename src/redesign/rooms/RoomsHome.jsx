@@ -13,6 +13,7 @@ import ThresholdsNav from "@/redesign/thresholds/ThresholdsNav";
 import HeroDoorway from "@/redesign/thresholds/HeroDoorway";
 import { useSeo } from "@/lib/seo";
 import { roomsCaseStudyPath } from "./caseStudies";
+import SectionJoin from "./SectionJoin";
 import "@/redesign/thresholds/thresholds-page.css";
 import "./rooms.css";
 
@@ -31,7 +32,8 @@ import "./rooms.css";
 // lighter ochre. The live nav isn't used: its dark text would disappear over
 // the dark hero. Every other section is the live one, unchanged, except
 // that Selected Work steps into the preview's own case studies
-// (/rooms/work/:slug, RoomsCaseStudy.jsx).
+// (/rooms/work/:slug, RoomsCaseStudy.jsx), and a gold thread (SectionJoin)
+// runs across each change between dark and paper.
 export default function RoomsHome() {
   const { hash } = useLocation();
   useSeo({
@@ -58,12 +60,18 @@ export default function RoomsHome() {
           <HeroDoorway />
         </div>
         <WorkThreeRooms caseStudyHref={roomsCaseStudyPath} />
+        {/* A thread across each change between dark and paper */}
+        <SectionJoin />
         <Vision />
         <Services />
+        <SectionJoin />
         <Process />
         <About />
+        <SectionJoin />
         <WhyStudio />
         <Aftercare />
+        {/* short, to clear Aftercare's closing line */}
+        <SectionJoin above={52} />
         <FinalCTA />
       </main>
       <Footer />

@@ -100,7 +100,7 @@ export default function VisionAnnotated() {
       <div aria-hidden="true" className="vision-paper pointer-events-none absolute inset-0" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16">
-        <p className="eyebrow mb-10 md:mb-16">Our vision</p>
+        <p data-join className="eyebrow mb-10 md:mb-16">Our vision</p>
 
         <div
           ref={areaRef}
