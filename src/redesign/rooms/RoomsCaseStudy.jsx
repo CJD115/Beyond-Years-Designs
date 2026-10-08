@@ -127,7 +127,7 @@ function Hero({ project, study, room }) {
       {/* The place itself, blurred behind and fading into the room */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <img
-          src={project.room.place}
+          src={study.place ?? project.room.place}
           alt=""
           decoding="async"
           className="h-full w-full scale-110 object-cover blur-[16px] brightness-[0.35]"
@@ -190,8 +190,8 @@ function Hero({ project, study, room }) {
           className="mx-auto mt-10 aspect-[1028/600] w-full border border-b-0 border-accent/70 bg-[#0d0b08] p-[6px] pb-0 lg:mt-[calc(var(--lu)*28)] lg:aspect-auto lg:h-[calc(var(--lu)*600)] lg:w-[calc(var(--lu)*1028)] lg:p-[calc(var(--lu)*13)] lg:pb-0"
         >
           <img
-            src={project.image}
-            srcSet={project.imageSrcSet}
+            src={study.hero?.src ?? project.image}
+            srcSet={study.hero?.srcSet ?? project.imageSrcSet}
             sizes="(min-width: 1024px) min(70vw, 1260px), 90vw"
             alt={`The ${project.name} website`}
             fetchPriority="high"
@@ -339,7 +339,9 @@ function Features({ project, shots }) {
         </ul>
       </div>
 
-      <div className="relative lg:flex lg:h-[calc(var(--lu)*540)]">
+      {/* 720 × 450 for the screen: the 16:10 of the captured screens, so
+          they show whole */}
+      <div className="relative lg:flex lg:h-[calc(var(--lu)*450)]">
         {/* The strip of screens, one per feature */}
         <ol aria-hidden="true" className="hidden h-full w-[calc(var(--lu)*70)] shrink-0 flex-col bg-[#0d0b08] lg:flex">
           {features.map((feature, i) => {
@@ -384,7 +386,7 @@ function Features({ project, shots }) {
         <div
           id={screenId}
           aria-live="polite"
-          className="relative aspect-[721/540] w-full overflow-hidden border border-accent/70 bg-[#0d0b08] lg:aspect-auto lg:h-full lg:flex-1"
+          className="relative aspect-[16/10] w-full overflow-hidden border border-accent/70 bg-[#0d0b08] lg:aspect-auto lg:h-full lg:flex-1"
         >
           <AnimatePresence initial={false}>
             <motion.img
@@ -399,7 +401,7 @@ function Features({ project, shots }) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7, ease: EASE }}
               style={shot.portrait ? undefined : { objectPosition: shot.position }}
-              className={`absolute inset-0 h-full w-full ${shot.portrait ? "object-contain py-[4%]" : "object-cover"}`}
+              className={`absolute inset-0 h-full w-full ${shot.portrait ? "object-contain py-[4%]" : shot.whole ? "object-contain" : "object-cover"}`}
             />
           </AnimatePresence>
         </div>
@@ -409,9 +411,12 @@ function Features({ project, shots }) {
 }
 
 function Result({ project, study }) {
-  const desktop = project.responsiveImage
-    ? { src: project.responsiveImage, srcSet: project.responsiveImageSrcSet }
-    : { src: project.image, srcSet: project.imageSrcSet };
+  const desktop =
+    study.resultDesktop ??
+    (project.responsiveImage
+      ? { src: project.responsiveImage, srcSet: project.responsiveImageSrcSet }
+      : { src: project.image, srcSet: project.imageSrcSet });
+  const phone = study.resultPhone ?? { src: project.mobileImage };
 
   return (
     <section aria-labelledby="result-title" className="relative overflow-hidden border-b border-[#f1ebe3]/10">
@@ -483,7 +488,9 @@ function Result({ project, study }) {
             />
             <figure className="absolute right-0 bottom-0 w-[27%] lg:top-[calc(var(--lu)*64)] lg:bottom-auto lg:w-[calc(var(--lu)*157)]">
               <img
-                src={project.mobileImage}
+                src={phone.src}
+                srcSet={phone.srcSet}
+                sizes="(min-width: 1024px) 200px, 27vw"
                 alt={`${project.name} on a phone`}
                 loading="lazy"
                 decoding="async"

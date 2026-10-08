@@ -13,12 +13,21 @@ import { srcSetFor } from "@/data/projects";
 // (the listings, the galleries…) whenever one is ready: put the file in
 // public/work and point its entry here. `position` is the CSS
 // object-position used to crop a landscape shot; `portrait` marks a phone
-// screenshot, which is shown whole rather than cropped.
+// screenshot, which is shown whole rather than cropped; `whole` shows a
+// landscape shot whole too, letterboxed, when it's wider than the screen.
+//
+// A study can also bring its own `hero` (the site in the doorway), `place`
+// (blurred behind the hero), `resultDesktop` and `resultPhone`; without
+// them the page uses the project's images from projects.js.
 
 export const roomsCaseStudyPath = (slug) => `/rooms/work/${slug}/`;
 
 const landscape = (src, position = "50% 0%") => ({ src, srcSet: srcSetFor(src), position });
 const portrait = (src, srcSet) => ({ src, srcSet, portrait: true });
+
+// Churcham's captures of the live site (captures/churcham-homes), in
+// public/work/churcham with -800 and -1600 copies
+const churcham = (name, position) => landscape(`/work/churcham/${name}.webp`, position);
 
 export const CASE_STUDIES = {
   "churcham-homes": {
@@ -36,12 +45,22 @@ export const CASE_STUDIES = {
     ],
     result: "The refreshed website gives the brand a whole new look,",
     resultMore: "with refined layouts and premium imagery underlining and spotlighting the brand’s luxury image.",
+    hero: churcham("home-hero"),
+    place: "/work/churcham/story-lifestyle-800.webp",
     shots: [
-      landscape("/work/churcham-homes-desktop.webp"),
-      landscape("/work/churcham-homes-lifestyle.webp", "50% 50%"),
-      portrait("/work/churcham-homes-mobile.webp", "/work/churcham-homes-mobile-200.webp 200w, /work/churcham-homes-mobile.webp 391w"),
-      landscape("/work/churcham-homes-desktop.webp", "50% 100%"),
+      // listings: the current developments, each with its own page
+      churcham("current-developments", "50% 50%"),
+      // galleries: the showroom's image grid
+      churcham("showroom-gallery", "50% 0%"),
+      // the track record: the showroom of finished homes
+      churcham("home-showroom", "50% 50%"),
+      // the enquiry route: the contact page, wider than the screen, so shown
+      // whole rather than lose its logo
+      { ...churcham("contact-hero", "50% 50%"), whole: true },
     ],
+    // the exterior, its headline clear of the phone in front
+    resultDesktop: churcham("story-craft"),
+    resultPhone: { src: "/work/churcham/mobile-home-hero.webp", srcSet: "/work/churcham/mobile-home-hero-400.webp 400w, /work/churcham/mobile-home-hero.webp 780w" },
   },
 
   "groves-hairstyling": {
