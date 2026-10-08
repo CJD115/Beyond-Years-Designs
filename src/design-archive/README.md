@@ -28,6 +28,7 @@ Only what the site actually renders lives there.
 | Selected Work | `/?work=index` | `work/WorkIndex.jsx` |
 | Our Vision | `/?vision=original` | `vision/VisionOriginal.jsx` |
 | Our Vision | `/?vision=read` | `vision/VisionReadSlowly.jsx` |
+| Aftercare | `/?aftercare=note` | `aftercare/AftercareNote.jsx` |
 | Aftercare | `/?aftercare=c` | `aftercare/AftercareCard.jsx` |
 | Aftercare | `/?aftercare=original` | `aftercare/AddOns.jsx` |
 | About | `/?about=profiles` | `components/studio/about/AboutProfiles.jsx` |
@@ -101,12 +102,13 @@ Live version: `components/studio/vision/VisionAnnotated.jsx` ("Annotated"), via
 
 ### `aftercare/`
 
-Live version: `components/studio/aftercare/AftercareNote.jsx` (option B, the
-handover note), via `Aftercare.jsx`.
+Live version: `components/studio/aftercare/AftercareNewGame.jsx` ("New Game+",
+05 Level Up p.8), via `Aftercare.jsx`.
 
+- **AftercareNote.jsx**: option B, the handover note: a short note from Connor
+  and Mike, then a two-column key with each item's longer `body`.
 - **AftercareCard.jsx**: option C, the aftercare card: one pinned print set like
-  a price list. Reads the same items from `src/data/aftercare.js`, including the
-  `terms` field the live version doesn't show.
+  a price list. Reads the same items from `src/data/aftercare.js`.
 - **AddOns.jsx**: the first "Optional add-ons / Beyond launch" section (the
   six-cell grid), kept as it was, including its own copy.
 

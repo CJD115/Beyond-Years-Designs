@@ -1,0 +1,22 @@
+/* "Rooms" preview: the page's colour tokens, flipped for a dark room.
+   Any section built on the tokens (bg-background, text-muted-foreground,
+   border-border, text-accent…) turns dark inside .room-dark without its
+   own code changing. Same near-black and cream as the live dark sections
+   (#13110d / #f1ebe3) and the lighter ochre they use, #B98550. */
+.room-dark {
+  --background: 40 19% 6%;
+  --foreground: 34 33% 92%;
+  /* same as the background, so a tinted section (Aftercare's bg-secondary/40)
+     doesn't leave a faint band against Contact */
+  --secondary: 40 19% 6%;
+  --secondary-foreground: 34 33% 92%;
+  --muted: 40 19% 6%;
+  /* #a59d92, 7:1 on the near-black */
+  --muted-foreground: 35 9% 61%;
+  --accent: 30 43% 52%;
+  --accent-foreground: 40 19% 6%;
+  /* small ochre text keeps the lighter ochre here (5.8:1) */
+  --accent-strong: 30 43% 52%;
+  --border: 34 10% 20%;
+  --ring: 30 43% 52%;
+}

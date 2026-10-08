@@ -1,10 +1,12 @@
 // Aftercare ("Beyond launch") content for the live section
-// (components/studio/aftercare/AftercareNote.jsx). The archived aftercare card
-// (design-archive/aftercare/AftercareCard.jsx) reads the same items.
+// (components/studio/aftercare/AftercareNewGame.jsx, "New Game+"). The
+// archived handover note and aftercare card (design-archive/aftercare/) read
+// the same items.
 //
-// `terms` is how each item works. The live section doesn't show it yet; the
-// archived card does. Swap in a price ("from £X / month") whenever you're
-// happy to publish one.
+// Each item: `summary` is the one-line description on the live section,
+// `body` the longer one the archived note shows, and `terms` how it works.
+// Swap a price into `terms` ("from £X / month") whenever you're happy to
+// publish one.
 
 export const AFTERCARE_GROUPS = [
   {
@@ -12,18 +14,21 @@ export const AFTERCARE_GROUPS = [
     items: [
       {
         name: "Hosting & Maintenance",
+        summary: "We host your site and keep it maintained, hassle-free.",
         body: "If you don’t already have a hosting solution in mind, don’t worry! We’ll host your site and keep everything maintained, hassle-free. Contact us with any changes you’d like made, as and when you need, and let us handle the rest.",
         terms: "Ongoing",
       },
       {
         name: "Domain",
+        summary: "Set up and managed for you. You keep full access.",
         body: "Need help securing your domain name? Not a problem! We’ll get you set up with your domain of choice (depending on availability), and manage it all from our end. You’ll still have full access, but we’ll handle all the faff. ",
-        terms: "Yearly",
+        terms: "Renewed yearly",
       },
       {
         name: "Maintenance",
+        summary: "Changes as and when you need them.",
         body: "If your site will need regular updates, we can keep the door open for you. Once we’ve agreed the scope and frequency, you’ll be able to contact us to make any changes to your website, as and when you need.",
-        terms: "Agreed plan",
+        terms: "On an agreed plan",
       },
     ],
   },
@@ -32,16 +37,19 @@ export const AFTERCARE_GROUPS = [
     items: [
       {
         name: "Content",
+        summary: "Blogs, newsletters and more, professionally written.",
         body: "Do you have a blog, newsletter, or other written content that you’d like support with? We can help! We can provide you with regular, professionally written content, or offer ad-hoc support as and when you need it. Let us know!",
         terms: "Regular or ad hoc",
       },
       {
         name: "SEO setup",
+        summary: "Keywords, titles and meta, so customers find you.",
         body: "To increase your site’s visibility, we’ll set up a strong foundation of SEO. Properly configured keywords, titles, meta descriptions and alt text make it easier for search engines to read your site properly, meaning your business is easier to find.",
         terms: "One-off",
       },
       {
         name: "Analytics",
+        summary: "Clear, simple insights into your audience.",
         body: "Data analytics shows you how people use your site, like how long they stay and where they are from. We’ll set everything up so you can easily view this information, giving you clear, simple insights that help understand your audience. ",
         terms: "One-off",
       },
@@ -70,3 +78,8 @@ export const AFTERCARE_NOTE = [
 export const AFTERCARE_SIGNOFF = "Connor & Mike";
 
 export const AFTERCARE_LINK = { label: "Ask about aftercare", href: "#contact" };
+
+// "New Game+": the line under the heading and the closing line by the link
+export const AFTERCARE_INTRO =
+  "The credits roll. Your site’s live. The adventure carries on, with as much or as little support as you need.";
+export const AFTERCARE_EQUIP = "Equip as much or as little as you need.";

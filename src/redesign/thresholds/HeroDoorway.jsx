@@ -14,7 +14,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 // always reaches the bottom. Smaller screens follow the 390px phone mock-up,
 // with the door above the headline.
 
-const SALON = "/work/groves-salon.webp";
+const SALON = "/work/groves-saln.webp";
 const SALON_SRCSET = "/work/groves-salon-400.webp 400w, /work/groves-salon.webp 480w";
 
 export default function HeroDoorway() {
