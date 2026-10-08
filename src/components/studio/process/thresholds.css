@@ -64,6 +64,18 @@
     transform-origin: calc(var(--u) * 720) calc(var(--u) * 410);
   }
 
+  /* Spans the whole pin, not just the stage: the stage is centred, so its
+     edges sit half the leftover space in from the pin's */
+  .rp-seam {
+    position: absolute;
+    left: calc((var(--u) * 1440 - 100cqw) / 2);
+    bottom: calc((var(--u) * 1000 - 100cqh) / 2);
+    width: 100cqw;
+    height: calc(var(--u) * 150);
+    background: linear-gradient(to bottom, rgb(19 17 13 / 0), #13110d);
+    pointer-events: none;
+  }
+
   .rp-walk {
     all: unset;
     position: absolute;

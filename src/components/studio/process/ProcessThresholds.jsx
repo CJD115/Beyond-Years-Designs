@@ -256,6 +256,10 @@ function DesktopCorridor({ trackRef, stage, position, onGo }) {
             </p>
           </motion.div>
 
+          {/* The foot of the room falls into shadow, so the corridor's light
+              fades into About instead of stopping at a hard edge */}
+          <div aria-hidden="true" className="rp-seam" />
+
           <button type="button" className="rp-walk" aria-label={walkLabel(stage)} onClick={() => onGo(stage + 1)} />
 
           <div className="rp-head">

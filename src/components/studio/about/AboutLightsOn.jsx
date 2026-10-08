@@ -44,14 +44,15 @@ export default function AboutLightsOn() {
     >
       <div className="isolate mx-auto grid w-full grid-cols-2 gap-x-4 px-6 md:px-10 lg:max-w-[calc(var(--lu)*1440)] lg:grid-cols-[calc(var(--lu)*340)_calc(var(--lu)*340)_minmax(0,1fr)] lg:gap-x-[calc(var(--lu)*36)] lg:px-[calc(var(--lu)*64)]">
         {/* The light: one cone per person, from the top of the section down
-            to the rule. Only the chosen person's is on. */}
+            to the rule. Only the chosen person's is on. It fades in from
+            the top so it doesn't start at a hard line under Process. */}
         {TEAM.map((m, i) => {
           const look = i === activeIndex ? LIT : UNLIT;
           return (
             <div
               key={`light-${m.name}`}
               aria-hidden="true"
-              className={`pointer-events-none -z-10 row-start-1 row-end-3 mx-[-10.5px] bg-[#f1ebe3]/7 transition-opacity duration-900 ease-out [clip-path:polygon(44.5%_0,55.5%_0,100%_100%,0_100%)] lg:row-end-4 lg:mx-[calc(-46*var(--lu))] lg:bg-[#f1ebe3]/6 ${i === 0 ? "col-start-1" : "col-start-2"} ${look.cone}`}
+              className={`pointer-events-none -z-10 row-start-1 row-end-3 mx-[-10.5px] bg-[#f1ebe3]/7 transition-opacity duration-900 ease-out [clip-path:polygon(44.5%_0,55.5%_0,100%_100%,0_100%)] [mask-image:linear-gradient(to_bottom,transparent,#000_120px)] lg:row-end-4 lg:[mask-image:linear-gradient(to_bottom,transparent,#000_calc(var(--lu)*160))] lg:mx-[calc(-46*var(--lu))] lg:bg-[#f1ebe3]/6 ${i === 0 ? "col-start-1" : "col-start-2"} ${look.cone}`}
             />
           );
         })}
