@@ -44,7 +44,9 @@ const walk = (layer) => ({
 const city = (location) => location.split(",")[0];
 const metaFor = (project) => `${project.industry} · ${city(project.location)} · ${project.year}`;
 
-export default function WorkThreeRooms() {
+// `caseStudyHref` turns a project's slug into its case study's address; the
+// /rooms preview passes its own.
+export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
   const [[index, dir], setRoom] = useState([0, 1]);
   const project = PROJECTS[index];
   const count = PROJECTS.length;
@@ -77,7 +79,7 @@ export default function WorkThreeRooms() {
     if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
   };
 
-  const href = caseStudyPath(project.slug);
+  const href = caseStudyHref(project.slug);
   const label = `Room ${NUMERALS[index]} of ${NUMERALS[count - 1]}`;
 
   return (
