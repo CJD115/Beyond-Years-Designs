@@ -185,7 +185,7 @@ function DesktopCorridor({ trackRef, stage, position, onGo }) {
                 stroke="rgba(242,235,227,0.09)"
               />
               <path d="M230 820 L1210 820 L3050 2260 L-1610 2260 Z" fill="url(#rp-spill)" />
-              <path d="M720 828 L720 2000" stroke="#B98550" strokeOpacity="0.45" />
+              <path className="rp-centre" d="M720 828 L720 2000" stroke="#B98550" strokeOpacity="0.45" />
             </svg>
 
             <motion.div

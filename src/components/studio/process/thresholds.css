@@ -162,7 +162,8 @@
   .rp-hint {
     position: absolute;
     right: calc(var(--u) * 64);
-    top: calc(var(--u) * 912);
+    /* 20 below the tabs, which keep a 44px tap height at any scale */
+    top: calc(var(--u) * 868 + max(44px, var(--u) * 44));
     margin: 0;
     font-family: var(--font-display);
     font-style: italic;
@@ -190,6 +191,59 @@
     }
     .rp-stage {
       width: calc(50% - var(--u) * 80);
+    }
+  }
+
+  /* Narrow windows (under 1150 wide: laptops with display scaling, small
+     windows), where the stage text and the tabs no longer fit side by side
+     under the corridor: the text runs the full width below the corridor,
+     the tabs and hint beneath it, and the whole group is centred in the
+     screen, so a tall window's spare height falls evenly above and below.
+     206px is held back for the text; the drawing takes what's left, sized
+     to the doorway (1100 of the 1440 mock-up) so the outer walls crop off
+     the sides rather than leave the screen empty. The text keeps the page's
+     side margins (64 of 1440), and the floor's centre line, which would run
+     through it, is left out. */
+  @container (max-width: 1149px) {
+    .rp-canvas {
+      --u: min(calc(100cqw / 1100), calc((100cqh - 206px) / 840));
+      --edge: calc(100cqw * 64 / 1440);
+      left: 0;
+      width: 100%;
+      height: calc(var(--u) * 840 + 206px);
+      transform: translateY(-50%);
+    }
+    .rp-cam {
+      left: calc(50% - var(--u) * 720);
+    }
+    .rp-walk {
+      left: calc(50% - var(--u) * 490);
+    }
+    .rp-seam {
+      left: 0;
+      bottom: calc((var(--u) * 840 + 206px - 100cqh) / 2);
+    }
+    .rp-head {
+      left: var(--edge);
+    }
+    .rp-centre {
+      display: none;
+    }
+    .rp-stage {
+      left: var(--edge);
+      width: min(100% - 2 * var(--edge), 620px);
+      top: calc(var(--u) * 840 + 4px);
+    }
+    .rp-tabs {
+      left: var(--edge);
+      right: auto;
+      top: auto;
+      bottom: 16px;
+    }
+    .rp-hint {
+      right: var(--edge);
+      top: auto;
+      bottom: 27px;
     }
   }
 }
