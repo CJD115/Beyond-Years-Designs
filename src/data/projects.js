@@ -51,7 +51,7 @@ export const PROJECTS = [
       screen: "/work/churcham-homes-desktop.webp",
       screenSrcSet: srcSetFor("/work/churcham-homes-desktop.webp"),
       // Wider than the frame: crop mostly from the right so the logo stays whole.
-      screenPosition: "9% center",
+      screenPosition: "6% center",
     },
     featured: true,
     overview:
