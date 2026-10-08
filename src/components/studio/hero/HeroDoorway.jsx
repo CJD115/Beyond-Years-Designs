@@ -15,8 +15,11 @@ import "./doorway.css";
 // always reaches the bottom. Smaller screens follow the 390px phone mock-up,
 // with the door above the headline.
 
-const SALON = "/work/groves-salon.webp";
-const SALON_SRCSET = "/work/groves-salon-400.webp 400w, /work/groves-salon.webp 480w";
+// A strip from the left of the Groves homepage's own hero photo (left of its
+// headline; captures/groves-hairstyling/01-home-hero-groves.webp), at full
+// resolution and lifted a little from the darkening that site puts over it
+const SALON = "/work/groves-doorway.webp";
+const SALON_SRCSET = "/work/groves-doorway-300.webp 300w, /work/groves-doorway.webp 470w";
 
 export default function HeroDoorway() {
   const ref = useRef(null);
@@ -90,7 +93,7 @@ function Door({ className = "", style }) {
         <img
           src={SALON}
           srcSet={SALON_SRCSET}
-          sizes="(min-width: 1024px) 300px, 200px"
+          sizes="(min-width: 1024px) 360px, 235px"
           alt=""
           decoding="async"
           className="th-drift h-full w-full object-cover"
