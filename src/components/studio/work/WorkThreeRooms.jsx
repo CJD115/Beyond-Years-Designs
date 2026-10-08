@@ -176,7 +176,7 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
                 initial="enter"
                 animate="centre"
                 exit="exit"
-                className="absolute inset-0 block bg-[#faf9f5] p-[8px] shadow-[0_2px_4px_rgba(0,0,0,0.3),0_24px_40px_rgba(0,0,0,0.55)] lg:p-[calc(var(--lu)*12)] lg:shadow-[0_calc(var(--lu)*2)_calc(var(--lu)*4)_rgba(0,0,0,0.3),0_calc(var(--lu)*50)_calc(var(--lu)*80)_rgba(0,0,0,0.6)]"
+                className="absolute inset-0 block bg-[#faf9f5] p-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.3),0_24px_40px_rgba(0,0,0,0.55)] lg:p-[calc(var(--lu)*6)] lg:shadow-[0_calc(var(--lu)*2)_calc(var(--lu)*4)_rgba(0,0,0,0.3),0_calc(var(--lu)*50)_calc(var(--lu)*80)_rgba(0,0,0,0.6)]"
               >
                 <img
                   src={project.room.screen}
@@ -184,6 +184,7 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
                   sizes={SCREEN_SIZES}
                   alt=""
                   decoding="async"
+                  style={{ objectPosition: project.room.screenPosition }}
                   className="h-full w-full object-cover"
                 />
               </motion.a>
