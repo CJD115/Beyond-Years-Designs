@@ -82,6 +82,8 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
   const href = caseStudyHref(project.slug);
   const label = `Room ${NUMERALS[index]} of ${NUMERALS[count - 1]}`;
 
+  // Fills the screen on landscape desktops only, as the hero does: a portrait
+  // tablet gets the stage at its own height, with no gap round it
   return (
     <section
       id="work"
@@ -90,7 +92,7 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
       onKeyDown={onKeyDown}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
-      className="relative isolate overflow-hidden bg-[#13110d] text-[#f1ebe3] [--accent:30_43%_52%] lg:flex lg:min-h-svh lg:items-center lg:[--lu:clamp(0.62px,min(calc(100vw/1440),calc(100svh/1000)),1.25px)]"
+      className="relative isolate overflow-hidden bg-[#13110d] text-[#f1ebe3] [--accent:30_43%_52%] lg:flex lg:items-center lg:landscape:min-h-svh lg:[--lu:clamp(0.62px,min(calc(100vw/1440),calc(100svh/1000)),1.25px)]"
     >
       {/* The place itself, blurred behind */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">

@@ -28,11 +28,13 @@ export default function HeroDoorway() {
   // where Selected Work begins. Hidden at rest, so the hero looks the same.
   const seamOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
 
+  // Fills the screen on landscape desktops only: on a portrait tablet wide
+  // enough for the desktop stage, filling the height just left a gap above it
   return (
     <section
       ref={ref}
       id="top"
-      className="relative overflow-hidden lg:flex lg:min-h-svh lg:items-end lg:justify-center lg:[--lu:clamp(0.62px,min(calc(100vw/1440),calc(100svh/900)),1.25px)]"
+      className="relative overflow-hidden lg:flex lg:items-end lg:landscape:min-h-svh lg:justify-center lg:[--lu:clamp(0.62px,min(calc(100vw/1440),calc(100svh/900)),1.25px)]"
     >
       <Desktop doorScale={doorScale} copyOpacity={copyOpacity} />
       <Phone />
