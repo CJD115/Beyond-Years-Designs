@@ -81,5 +81,5 @@ export const AFTERCARE_LINK = { label: "Ask about aftercare", href: "#contact" }
 
 // "New Game+": the line under the heading and the closing line by the link
 export const AFTERCARE_INTRO =
-  "The credits roll. Your site’s live. The adventure carries on, with as much or as little support as you need.";
-export const AFTERCARE_EQUIP = "Equip as much or as little as you need.";
+  "Your site’s live, but the story doesn’t end there. We stay on hand, with as much or as little support as you need.";
+export const AFTERCARE_EQUIP = "Pick only what’s useful to you.";

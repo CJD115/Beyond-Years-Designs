@@ -48,18 +48,7 @@ export default function AftercareNewGame() {
 
       <div className="relative mx-auto w-full max-w-[640px] px-6 pt-16 pb-20 md:pt-24 md:pb-28 xl:h-[calc(var(--lu)*1050)] xl:max-w-[calc(var(--lu)*1440)] xl:px-0 xl:pt-0 xl:pb-0">
         <Reveal className="xl:pt-[calc(var(--lu)*50)] xl:text-center">
-          <div className="flex items-center justify-between gap-6 xl:justify-center">
-            <p className="text-balance text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">
-              Chapter Seven · New Game+
-            </p>
-            {/* Phones: this chapter's level, as on the map */}
-            <span aria-hidden="true" className="flex shrink-0 items-center gap-[10px] xl:hidden">
-              <span className="font-sc text-[16px] font-medium leading-none tracking-normal text-accent-strong">Lv 7</span>
-              <span className="flex h-[3px] w-[44px] bg-accent/25">
-                <span className="w-[78%] bg-accent" />
-              </span>
-            </span>
-          </div>
+          <p className="text-center text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 xl:text-[max(10.5px,calc(var(--lu)*11))] xl:font-normal">Aftercare</p>
           <h2
             id={TITLE_ID}
             className="font-display mt-[18px] text-center text-[min(60px,15.5vw)] leading-none xl:mt-[calc(var(--lu)*5)] xl:text-[calc(var(--lu)*96)]"
