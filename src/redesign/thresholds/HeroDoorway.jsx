@@ -23,6 +23,10 @@ export default function HeroDoorway() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const doorScale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 1.9]);
   const copyOpacity = useTransform(scrollYProgress, [0, 0.45], [1, reduceMotion ? 1 : 0]);
+  // Once you start scrolling, the foot of the room falls into shadow, so the
+  // light and the growing door fade out rather than stopping at a hard edge
+  // where Selected Work begins. Hidden at rest, so the hero looks the same.
+  const seamOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
 
   return (
     <section
@@ -32,6 +36,11 @@ export default function HeroDoorway() {
     >
       <Desktop doorScale={doorScale} copyOpacity={copyOpacity} />
       <Phone />
+      <motion.div
+        aria-hidden="true"
+        style={{ opacity: seamOpacity }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[calc(var(--lu)*200)] bg-gradient-to-b from-[#13110d]/0 to-[#13110d] lg:block"
+      />
     </section>
   );
 }
@@ -184,14 +193,16 @@ function Phone() {
           spreads from the door's width (--dw is half of it) */}
       <div className="relative [--dw:87.5px] md:[--dw:117.5px]">
         <div aria-hidden="true" className="-mx-6 h-px bg-[#f1ebe3]/10 md:-mx-10" />
+        {/* the light thins out before the section ends, so it doesn't stop
+            in a hard line against Selected Work */}
         <div
           aria-hidden="true"
-          className="absolute -inset-x-6 top-0 -bottom-12 bg-[#f1ebe3]/[0.045] md:-inset-x-10"
+          className="absolute -inset-x-6 top-0 -bottom-12 bg-[#f1ebe3]/[0.045] [mask-image:linear-gradient(to_bottom,#000_55%,transparent)] md:-inset-x-10"
           style={{ clipPath: SPILL_OUTER }}
         />
         <div
           aria-hidden="true"
-          className="absolute -inset-x-6 top-0 -bottom-12 bg-[#f1ebe3]/[0.045] md:-inset-x-10"
+          className="absolute -inset-x-6 top-0 -bottom-12 bg-[#f1ebe3]/[0.045] [mask-image:linear-gradient(to_bottom,#000_55%,transparent)] md:-inset-x-10"
           style={{ clipPath: SPILL_INNER }}
         />
 

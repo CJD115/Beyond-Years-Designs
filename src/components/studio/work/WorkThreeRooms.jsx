@@ -109,6 +109,9 @@ export default function WorkThreeRooms({ caseStudyHref = caseStudyPath }) {
           />
         </AnimatePresence>
         <div className="absolute inset-0 bg-[#13110d]/45" />
+        {/* The room rises out of the hero's dark instead of starting at a
+            hard edge: the top begins in the hero's own near-black */}
+        <div className="absolute inset-x-0 top-0 h-[160px] bg-gradient-to-b from-[#13110d] via-[#13110d]/60 to-[#13110d]/0 lg:h-[calc(var(--lu)*300)]" />
       </div>
 
       {/* Plain <a> links (not React Router's <Link>) on purpose: a full page
