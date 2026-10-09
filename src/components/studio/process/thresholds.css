@@ -100,7 +100,6 @@
     font-size: max(24px, calc(var(--u) * 34));
   }
   .rp-desk .rp-eyebrow {
-    font-size: max(11px, calc(var(--u) * 12));
     line-height: calc(var(--u) * 14);
   }
 
@@ -338,13 +337,15 @@
 }
 
 /* Shared type */
+/* The same as the site's .eyebrow, in the room's light colour */
 .rp-eyebrow {
   margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgb(242 235 227 / 0.75);
+  color: rgb(242 235 227 / 0.7);
 }
 .rp-title {
   margin: 0;
@@ -375,9 +376,6 @@
   .rp-phone {
     padding: 72px 40px 88px;
   }
-}
-.rp-phone .rp-eyebrow {
-  letter-spacing: 0.22em;
 }
 .rp-phone .rp-title {
   margin-top: 6px;
