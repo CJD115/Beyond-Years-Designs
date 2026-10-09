@@ -27,9 +27,27 @@ export const SITE = {
   // country, no street address on purpose) and its two founders. Their
   // emails are also the studio's contact addresses on the site.
   address: { locality: "Bristol", country: "GB" },
+  // Each founder's own socials show under their story in About; the
+  // studio's (`socials`, below) show in the footer.
   founders: [
-    { name: "Connor", jobTitle: "Resident Web Developer", email: "connor@beyondyears.co.uk" },
-    { name: "Mike", jobTitle: "Resident Wordsmith", email: "mike@beyondyears.co.uk" },
+    {
+      name: "Connor",
+      jobTitle: "Resident Web Developer",
+      email: "connor@beyondyears.co.uk",
+      socials: [
+        { label: "Instagram", href: null },
+        { label: "LinkedIn", href: null },
+      ],
+    },
+    {
+      name: "Mike",
+      jobTitle: "Resident Wordsmith",
+      email: "mike@beyondyears.co.uk",
+      socials: [
+        { label: "Instagram", href: null },
+        { label: "LinkedIn", href: null },
+      ],
+    },
   ],
   socials: [
     { label: "Instagram", href: null },
@@ -40,6 +58,9 @@ export const SITE = {
 // Case studies are prerendered to /work/<slug>/index.html, so their canonical
 // URL ends in a slash — the form static hosts serve without a redirect.
 export const caseStudyPath = (slug) => `/work/${slug}/`;
+
+// Only the socials that exist yet
+export const liveSocials = (socials = []) => socials.filter((s) => s.href);
 
 export const absoluteUrl = (path) => new URL(path, SITE.url).toString();
 

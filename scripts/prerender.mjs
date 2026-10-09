@@ -27,7 +27,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { SITE, absoluteUrl, allowIndexing, caseStudyMeta } from "../src/data/site.js";
+import { SITE, absoluteUrl, allowIndexing, caseStudyMeta, liveSocials } from "../src/data/site.js";
 import { PROJECTS } from "../src/data/projects.js";
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -48,6 +48,12 @@ const esc = (s) =>
 // business and the site; each case study gets a breadcrumb back to the home page.
 const ORG_ID = absoluteUrl("/#organization");
 
+// Social profiles, once they exist, as schema.org sameAs
+const sameAs = (socials) => {
+  const urls = liveSocials(socials).map((s) => s.href);
+  return urls.length ? { sameAs: urls } : {};
+};
+
 const homeSchema = () => ({
   "@context": "https://schema.org",
   "@graph": [
@@ -63,7 +69,14 @@ const homeSchema = () => ({
         addressLocality: SITE.address.locality,
         addressCountry: SITE.address.country,
       },
-      founder: SITE.founders.map(({ name, jobTitle, email }) => ({ "@type": "Person", name, jobTitle, email })),
+      ...sameAs(SITE.socials),
+      founder: SITE.founders.map(({ name, jobTitle, email, socials }) => ({
+        "@type": "Person",
+        name,
+        jobTitle,
+        email,
+        ...sameAs(socials),
+      })),
     },
     {
       "@type": "WebSite",
