@@ -136,18 +136,17 @@ function Layer({ index, geometry, spread, active, clipId, compact, showImage, on
   );
 }
 
-// 01 website: the finished Churcham Homes homepage. SVG images can't be
-// lazy-loaded, so the section only asks for it once it's nearly in view.
+// 01 website: a finished homepage, cropped to the layer's 1260 x 800
+// proportions so it fills the box exactly. SVG images can't be lazy-loaded,
+// so the section only asks for it once it's nearly in view.
 function WebsiteLayer({ compact, showImage }) {
   if (!showImage) return null;
   return (
     <image
-      href={compact ? "/work/churcham-homes-desktop-800.webp" : "/work/churcham-homes-desktop-1600.webp"}
-      x="-84.9"
-      y="4.7"
-      width="1430"
-      height="790"
-      preserveAspectRatio="none"
+      href={compact ? "/work/services-website-layer-800.webp" : "/work/services-website-layer-1600.webp"}
+      width={W}
+      height={H}
+      preserveAspectRatio="xMidYMid slice"
     />
   );
 }
