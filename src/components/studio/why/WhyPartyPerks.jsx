@@ -71,7 +71,7 @@ export default function WhyPartyPerks() {
 
       <div className="relative mx-auto w-full px-6 pt-16 md:px-10 md:pt-24 lg:h-[calc(var(--lu)*1000)] lg:max-w-[calc(var(--lu)*1440)] lg:px-0 lg:pt-0">
         <Reveal className="max-w-[560px] lg:max-w-none lg:w-[calc(var(--lu)*460)] lg:ml-[calc(var(--lu)*64)] lg:pt-[calc(var(--lu)*50)]">
-          <p data-join className="text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 lg:text-[max(10.5px,calc(var(--lu)*11))] lg:font-normal">Why us</p>
+          <p data-join className="eyebrow">Why us</p>
           <h2
             id="why-us-title"
             className="font-display mt-[14px] text-[min(56px,14.5vw)] leading-[1.1] lg:mt-[calc(var(--lu)*7.5)] lg:whitespace-nowrap lg:text-[calc(var(--lu)*84)]"
