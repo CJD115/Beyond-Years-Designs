@@ -2,6 +2,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { TEAM } from "@/data/team";
+import { SITE } from "@/data/site";
+import SocialLinks from "@/components/studio/SocialLinks";
 
 // About, "Lights On" (Thresholds direction, p.9 of
 // Beyond-Years-Redesign-04-Thresholds-v2.pdf). A dark room with two
@@ -42,6 +44,7 @@ const POOL = "radial-gradient(ellipse 50% 50% at 50% 50%, rgb(250 238 222 / 0.16
 export default function AboutLightsOn() {
   const [activeIndex, setActiveIndex] = useState(0);
   const person = TEAM[activeIndex];
+  const socials = SITE.founders.find((f) => f.name === person.name)?.socials;
 
   return (
     <section
@@ -183,13 +186,22 @@ export default function AboutLightsOn() {
                   </p>
                 ))}
               </div>
-              <a
-                href="#contact"
-                className="mt-[31px] inline-flex items-center gap-[0.3em] border-b border-[#f1ebe3]/50 pb-[13px] text-[15px] font-medium leading-[1.21] transition-colors duration-500 hover:border-[#f1ebe3] lg:mt-[calc(var(--lu)*40.7)] lg:pb-[calc(var(--lu)*13.5)] lg:text-[max(14px,calc(var(--lu)*14.5))]"
-              >
-                Start a project
-                <ArrowRight aria-hidden="true" className="h-[0.95em] w-[0.95em]" strokeWidth={1.75} />
-              </a>
+              {/* Start a project, with their own socials alongside */}
+              <div className="mt-[31px] flex flex-wrap items-center gap-x-6 gap-y-3 lg:mt-[calc(var(--lu)*40.7)] lg:gap-x-[calc(var(--lu)*32)]">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-[0.3em] border-b border-[#f1ebe3]/50 pb-[13px] text-[15px] font-medium leading-[1.21] transition-colors duration-500 hover:border-[#f1ebe3] lg:pb-[calc(var(--lu)*13.5)] lg:text-[max(14px,calc(var(--lu)*14.5))]"
+                >
+                  Start a project
+                  <ArrowRight aria-hidden="true" className="h-[0.95em] w-[0.95em]" strokeWidth={1.75} />
+                </a>
+                <SocialLinks
+                  socials={socials}
+                  owner={person.name}
+                  className="-mx-3 -mt-[13px] lg:-mt-[calc(var(--lu)*13.5)]"
+                  linkClassName="text-[#f1ebe3]/70 hover:text-accent"
+                />
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>

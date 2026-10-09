@@ -3,6 +3,7 @@ import { useIsClient } from "@/lib/useIsClient";
 import { useLondonTime } from "./useLondonTime";
 import { useDoorOpen } from "./doorState";
 import { FloorLight, Warmth } from "./DoorLight";
+import SocialLinks from "@/components/studio/SocialLinks";
 
 // Footer, "The Door Left Open" (pairs with ContactDoor). On desktop it's the
 // floor of the room: its top edge is the line the door stands on, and the
@@ -51,6 +52,13 @@ export default function FooterDoor() {
                 </li>
               ))}
             </ul>
+            {/* The studio's own socials; each of us has ours in About */}
+            <SocialLinks
+              socials={SITE.socials}
+              owner={SITE.name}
+              className="-mx-3 mt-1 lg:mt-[calc(var(--lu)*2)]"
+              linkClassName="text-[#f1ebe3]/70 hover:text-accent"
+            />
             <p className="mt-2 flex items-center gap-2 text-[13px] leading-[1.21] text-[#f1ebe3]/60 lg:mt-[calc(var(--lu)*6)] lg:text-[max(11.5px,calc(var(--lu)*12))]">
               <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
               <span>
