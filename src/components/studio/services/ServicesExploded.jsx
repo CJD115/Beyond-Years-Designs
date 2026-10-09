@@ -61,9 +61,7 @@ export default function ServicesExploded() {
         />
 
         <div className="relative lg:w-[calc(var(--lu)*460)]">
-          <p className="text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-foreground/75 lg:text-[max(10.5px,calc(var(--lu)*11))] lg:font-normal">
-            /services — 4 layers, 1 website
-          </p>
+          <p className="eyebrow">Services</p>
           <h2 className="font-display mt-[14px] text-[44px] lg:mt-[calc(var(--lu)*14.3)] lg:text-[calc(var(--lu)*64)]">
             Everything your
             <br className="hidden lg:inline" /> business needs{" "}
