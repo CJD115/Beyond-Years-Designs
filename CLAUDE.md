@@ -33,3 +33,7 @@
 
 ## Important
 Before making major visual changes, explain the proposed approach.
+## Shipping changes
+When a change is finished, built and linted, push it, open a pull request
+into `main` and merge it, so the owner only needs to `git pull`. A merged
+branch starts fresh from `main` for the next change.
