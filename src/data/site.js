@@ -34,17 +34,17 @@ export const SITE = {
       name: "Connor",
       jobTitle: "Resident Web Developer",
       email: "connor@beyondyears.co.uk",
-      socials: [{ label: "LinkedIn", href: null }],
+      socials: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/connor-davis-9541b0360/" }],
     },
     {
       name: "Mike",
       jobTitle: "Resident Wordsmith",
       email: "mike@beyondyears.co.uk",
-      socials: [{ label: "LinkedIn", href: null }],
+      socials: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/mike-whittern/" }],
     },
   ],
   socials: [
-    { label: "Instagram", href: null },
+    { label: "Instagram", href: "https://www.instagram.com/beyondyearsdesigns/" },
     { label: "LinkedIn", href: null },
   ],
 };
