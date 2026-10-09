@@ -161,8 +161,9 @@ export const PROJECTS = [
     room: {
       line: "An auction house, an antiques shop and a removals business, in one friendly website that’s easy to find and easy to understand.",
       place: "/work/hidden-gem-800.webp",
-      screen: "/work/hidden-gem-intro.webp",
-      screenSrcSet: srcSetFor("/work/hidden-gem-intro.webp"),
+      // Cropped to the frame's 2400 × 1328 shape, so it fills it exactly
+      screen: "/work/hidden-gem-room.webp",
+      screenSrcSet: srcSetFor("/work/hidden-gem-room.webp", 1628),
     },
     liveUrl: "https://hiddengemremovals.co.uk/",
     overview:
