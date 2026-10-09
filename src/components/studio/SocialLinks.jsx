@@ -27,6 +27,7 @@ export default function SocialLinks({
   owner,
   className = "",
   linkClassName = "",
+  iconClassName = "h-[19px] w-[19px]",
 }) {
   const live = liveSocials(socials);
   if (!live.length) return null;
@@ -50,7 +51,7 @@ export default function SocialLinks({
               strokeWidth="1.4"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-[19px] w-[19px]"
+              className={iconClassName}
             >
               {ICONS[label]}
             </svg>

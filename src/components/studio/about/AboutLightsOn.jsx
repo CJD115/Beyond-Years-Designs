@@ -200,6 +200,7 @@ export default function AboutLightsOn() {
                   owner={person.name}
                   className="-mx-3 -mt-[13px] lg:-mt-[calc(var(--lu)*13.5)]"
                   linkClassName="text-[#f1ebe3]/70 hover:text-accent"
+                  iconClassName="h-[23px] w-[23px]"
                 />
               </div>
             </motion.div>
