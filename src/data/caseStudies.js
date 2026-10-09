@@ -48,7 +48,7 @@ export const CASE_STUDIES = {
     ],
     result: "The refreshed website gives the brand a whole new look,",
     resultMore: "with refined layouts and premium imagery underlining and spotlighting the brand’s luxury image.",
-    hero: churcham("home-hero"),
+    hero: churcham("home-hero-v2"),
     place: "/work/churcham/story-lifestyle-800.webp",
     shots: [
       // listings: the current developments, each with its own page

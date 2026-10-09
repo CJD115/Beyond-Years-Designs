@@ -12,7 +12,7 @@ import { motion, useTransform } from "motion/react";
 
 const LINEN = "#f1ebe3";
 const OCHRE = "#b9854f";
-const SITE_IMAGE = "/work/churcham-homes-desktop";
+const SITE_IMAGE = "/work/churcham-homes-desktop-v2";
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp01 = (t) => Math.min(1, Math.max(0, t));

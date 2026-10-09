@@ -27,12 +27,12 @@ export const PROJECTS = [
       "A modern, visual-first website for high-end property developments across Gloucestershire. ",
     services: ["Website Design", "Web Development", "Copywriting", "Content Writing", "Content & Project Showcase", "Responsive Design"],
     tech: ["WordPress", "Elementor", "JavaScript"],
-    image: "/work/churcham-homes-desktop.webp",
-    imageSrcSet: srcSetFor("/work/churcham-homes-desktop.webp"),
-    thumb: "/hero-trail/churcham-homes.webp",
+    image: "/work/churcham-homes-desktop-v2.webp",
+    imageSrcSet: srcSetFor("/work/churcham-homes-desktop-v2.webp"),
+    thumb: "/hero-trail/churcham-homes-v2.webp",
     // Selected Work ("Rooms") — the pinned prints
-    print: "/work/churcham-homes.webp",
-    printSrcSet: srcSetFor("/work/churcham-homes.webp", 1440),
+    print: "/work/churcham-homes-v2.webp",
+    printSrcSet: srcSetFor("/work/churcham-homes-v2.webp", 1440),
     detail: {
       image: "/work/churcham-homes-mobile.webp",
       srcSet: detailSrcSetFor("/work/churcham-homes-mobile.webp", 391),
@@ -48,8 +48,8 @@ export const PROJECTS = [
     room: {
       line: "A family-run luxury developer. Each new development gets its own galleries, floor plans, pricing and a direct route to enquire.",
       place: "/work/churcham-homes-lifestyle-800.webp",
-      screen: "/work/churcham-homes-desktop.webp",
-      screenSrcSet: srcSetFor("/work/churcham-homes-desktop.webp"),
+      screen: "/work/churcham-homes-desktop-v2.webp",
+      screenSrcSet: srcSetFor("/work/churcham-homes-desktop-v2.webp"),
     },
     featured: true,
     overview:

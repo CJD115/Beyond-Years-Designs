@@ -233,8 +233,8 @@ function WebsiteExhibit() {
   return (
     <div className={MAT} style={{ width: x(600), padding: x(19) }}>
       <img
-        src="/work/churcham-homes-desktop.webp"
-        srcSet="/work/churcham-homes-desktop-800.webp 800w, /work/churcham-homes-desktop-1600.webp 1600w"
+        src="/work/churcham-homes-desktop-v2.webp"
+        srcSet="/work/churcham-homes-desktop-v2-800.webp 800w, /work/churcham-homes-desktop-v2-1600.webp 1600w"
         sizes="(min-width: 1024px) 42vw, 90vw"
         alt=""
         decoding="async"
