@@ -4,6 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Home from "@/pages/Home";
 import CaseStudy from "@/pages/CaseStudy";
 import Cursor from "@/components/studio/Cursor";
+import NotFound from "@/components/studio/NotFound";
 import { useSeo } from "@/lib/seo";
 
 function PageNotFound() {
@@ -13,13 +14,7 @@ function PageNotFound() {
     noindex: true,
   });
 
-  return (
-    <main id="content" className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center gap-6 px-6">
-      <p className="font-display text-7xl">404</p>
-      <p className="text-muted-foreground">Page not found.</p>
-      <a href="/" className="link-underline">Return home</a>
-    </main>
-  );
+  return <NotFound />;
 }
 
 // The router comes from outside: BrowserRouter in the browser (main.jsx),

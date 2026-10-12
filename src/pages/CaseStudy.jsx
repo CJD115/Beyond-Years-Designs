@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import Reveal from "@/components/studio/Reveal";
 import ThresholdsNav from "@/components/studio/ThresholdsNav";
+import NotFound from "@/components/studio/NotFound";
 import { PROJECTS } from "@/data/projects";
 import { CASE_STUDIES } from "@/data/caseStudies";
 import { caseStudyMeta, caseStudyPath } from "@/data/site";
@@ -75,14 +76,7 @@ export default function CaseStudy() {
   );
 
   if (!project || !study) {
-    return (
-      <main id="content" className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#13110d] px-6 text-[#f1ebe3]">
-        <h1 className="font-display text-4xl font-light">No room here.</h1>
-        <Link to={`/#work`} className="border-b border-[#f1ebe3]/50 pb-1">
-          Back to Selected Work
-        </Link>
-      </main>
-    );
+    return <NotFound message="There’s no case study at this address. It may have moved, or the link may be wrong." />;
   }
 
   const count = PROJECTS.length;

@@ -77,6 +77,8 @@ export const PROJECTS = [
   {
     slug: "groves-hairstyling",
     name: "Groves Hairstyling",
+    // Search results and link previews (under 155 characters, so it isn’t cut off)
+    metaDescription: "Case study: a website for Groves Hairstyling, a family-run Cheltenham salon, with its full service menu and prices, stylist bios and an online shop.",
     industry: "Hair Stylist",
     year: "2024",
     location: "Cheltenham, UK",
@@ -134,6 +136,8 @@ export const PROJECTS = [
   {
     slug: "hidden-gem",
     name: "Hidden Gem",
+    // Search results and link previews (under 155 characters, so it isn’t cut off)
+    metaDescription: "Case study: one clear website for Hidden Gem’s auction house, antiques shop and removals business in the Midlands, built to be found in local search.",
     industry: "Removals & Clearances",
     year: "2024",
     location: "Birmingham, UK",
