@@ -90,8 +90,8 @@ export const CASE_STUDIES = {
       // the shop: the basket, top right on the phone (no capture of the
       // shop itself yet)
       { ...grovesPhone("mobile-home-hero"), portrait: true },
-      // 'Book today', under the home page's welcome
-      groves("home-hero"),
+      // 'Book today' leads here: the contact page
+      groves("contact"),
       // the salon's marble and crystal
       groves("cutting-styling"),
     ],
