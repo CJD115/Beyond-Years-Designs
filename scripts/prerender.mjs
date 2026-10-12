@@ -27,7 +27,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { SITE, absoluteUrl, allowIndexing, caseStudyMeta, liveSocials } from "../src/data/site.js";
+import { SITE, absoluteUrl, allowIndexing, caseStudyMeta, liveSocials, privacyMeta } from "../src/data/site.js";
 import { PROJECTS } from "../src/data/projects.js";
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -168,6 +168,8 @@ for (const meta of caseStudies) {
   await write(`${meta.path.slice(1)}index.html`, page(meta));
 }
 
+await write("privacy/index.html", page(privacyMeta));
+
 await write(
   "404.html",
   page(
@@ -183,7 +185,7 @@ await write(
     : `# Search indexing is off (${SITE.indexing === "auto" ? "temporary domain" : "SITE.indexing = false"}; see src/data/site.js)\nUser-agent: *\nDisallow: /\n`,
 );
 
-const urls = [home, ...caseStudies].map((m) => `  <url><loc>${esc(absoluteUrl(m.path))}</loc></url>`);
+const urls = [home, ...caseStudies, privacyMeta].map((m) => `  <url><loc>${esc(absoluteUrl(m.path))}</loc></url>`);
 await write(
   "sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`,
