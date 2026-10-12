@@ -70,6 +70,13 @@ export function isTemporaryDomain(url) {
 // <meta name="robots" content="noindex">, and no canonical link is written.
 export const allowIndexing = SITE.indexing === "auto" ? !isTemporaryDomain(SITE.url) : SITE.indexing === true;
 
+// The privacy notice (src/pages/Privacy.jsx)
+export const privacyMeta = {
+  title: `Privacy | ${SITE.name}`,
+  description: "What Beyond Years Designs collects when you get in touch, why, who handles it and for how long.",
+  path: "/privacy/",
+};
+
 export function caseStudyMeta(project) {
   return {
     title: `${project.name} Case Study | ${SITE.name}`,

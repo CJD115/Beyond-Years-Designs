@@ -3,6 +3,7 @@ import { MotionConfig } from "motion/react";
 import ScrollToTop from "@/components/ScrollToTop";
 import Home from "@/pages/Home";
 import CaseStudy from "@/pages/CaseStudy";
+import Privacy from "@/pages/Privacy";
 import Cursor from "@/components/studio/Cursor";
 import NotFound from "@/components/studio/NotFound";
 import { useSeo } from "@/lib/seo";
@@ -29,6 +30,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<CaseStudy />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </MotionConfig>

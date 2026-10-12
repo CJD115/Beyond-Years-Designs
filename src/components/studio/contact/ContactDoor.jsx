@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { SITE } from "@/data/site";
@@ -192,7 +193,10 @@ export default function ContactDoor() {
                 id="contact-privacy"
                 className="mt-[10px] text-[13px] leading-[1.21] text-[#f1ebe3]/60 lg:mt-[calc(var(--lu)*12.6)] lg:text-[max(12px,calc(var(--lu)*12.5))]"
               >
-                We’ll only use your details to reply.
+                We’ll only use your details to reply.{" "}
+                <Link to="/privacy/" className="link-underline link-underline-light text-[#f1ebe3]/85 hover:text-accent">
+                  Privacy notice
+                </Link>
               </p>
             </div>
 

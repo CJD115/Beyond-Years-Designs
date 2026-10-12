@@ -64,6 +64,10 @@ export default function FooterDoor() {
               <span>
                 {time && <span className="hidden lg:inline">Local time {time} · </span>}
                 {copyright}
+                {" · "}
+                <a href="/privacy/" className="transition-colors duration-300 hover:text-accent">
+                  Privacy
+                </a>
               </span>
             </p>
           </div>
