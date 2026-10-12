@@ -11,6 +11,23 @@ const FIELD =
   "font-display block w-full scroll-mt-28 rounded-none border-0 border-b border-[#f1ebe3]/30 bg-transparent px-0 text-[21px] font-light tracking-normal text-[#f1ebe3]/90 caret-accent placeholder:italic placeholder:font-normal placeholder:text-[#f1ebe3]/32 focus-visible:border-accent transition-colors duration-300 lg:border-[#f1ebe3]/28 lg:text-[max(18px,calc(var(--lu)*24))]";
 const ERROR = "mt-2 text-[13px] text-accent";
 
+// What happens after you get in touch, just above the form. Placeholder
+// wording until Mike writes his own.
+const EXPECT = [
+  {
+    title: "A free call to start",
+    body: "Your first call is always free. We get to know you and your business, and talk through what you need from your website.",
+  },
+  {
+    title: "Shaped around you",
+    body: "Everything is scaled to your business: its size, its goals and its budget.",
+  },
+  {
+    title: "Here after launch",
+    body: "Once you’re live, we’re still here. Whenever you need a hand, just get in touch.",
+  },
+];
+
 export default function ContactDoor() {
   const open = useDoorOpen();
   const { projectType, chooseProjectType, status, sending, sentTo, errors, handleSubmit } = useEnquiryForm({
@@ -65,9 +82,26 @@ export default function ContactDoor() {
             ))}
           </p>
 
+          <div className="mt-[34px] border-t border-[#f1ebe3]/12 pt-[22px] lg:mt-[calc(var(--lu)*56)] lg:pt-[calc(var(--lu)*26)]">
+            <h3 className={LABEL}>What to expect</h3>
+            <ol className="mt-[16px] grid gap-[18px] lg:mt-[calc(var(--lu)*18)] lg:grid-cols-3 lg:gap-[calc(var(--lu)*36)]">
+              {EXPECT.map(({ title, body }, i) => (
+                <li key={title} className="grid grid-cols-[28px_minmax(0,1fr)] lg:block">
+                  <span aria-hidden="true" className="font-serif-italic pt-[3px] text-[15px] leading-none text-accent lg:text-[max(14px,calc(var(--lu)*15))]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="lg:mt-[calc(var(--lu)*8)]">
+                    <p className="font-display text-[21px] font-light leading-[1.2] lg:text-[max(19px,calc(var(--lu)*23))]">{title}</p>
+                    <p className="mt-[4px] text-[14px] leading-[1.55] text-[#f1ebe3]/70 lg:mt-[calc(var(--lu)*6)] lg:text-[max(13px,calc(var(--lu)*14))]">{body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
           <form onSubmit={handleSubmit} noValidate>
             <fieldset
-              className="m-0 mt-[34px] border-0 p-0 lg:mt-[calc(var(--lu)*80)]"
+              className="m-0 mt-[34px] border-0 p-0 lg:mt-[calc(var(--lu)*56)]"
               aria-describedby={errors.projectType ? "project-type-error" : undefined}
             >
               <legend className={LABEL}>I am looking for</legend>
