@@ -2,22 +2,6 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import "./doorway.css";
 
-// Hero, "The Doorway" (Thresholds, p.2). Dark, cinematic and quiet: the
-// headline on the left, and on the right a single lit doorway with a real
-// client's website standing in it, Churcham Homes on a phone, its light
-// spilling across the floor. The "Step inside" line pulses downwards. As you scroll on, the door grows towards you while the
-// words fade, the start of stepping through it (not pinned: the page scrolls
-// as normal).
-//
-// Desktop (900px and up) is the 1440 × 900 mock-up scaled to fit the window
-// (--lu is one mock-up pixel), anchored to the foot of the screen so the light
-// always reaches the bottom. Smaller screens follow the 390px phone mock-up,
-// with the door above the headline.
-
-// Churcham Homes' homepage on a phone, as we built it (the same capture as its
-// case study). It's 780 × 1328, and the doorway is shaped to it: the opening
-// inside the frame (91.2% of the door's width, 97.9% of its height) is
-// 780:1328, so the whole screen shows, uncropped.
 const SITE = "/work/churcham/mobile-home-hero.webp";
 const SITE_SRCSET = "/work/churcham/mobile-home-hero-400.webp 400w, /work/churcham/mobile-home-hero.webp 780w";
 
@@ -27,9 +11,6 @@ export default function HeroDoorway() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const doorScale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 1.9]);
   const copyOpacity = useTransform(scrollYProgress, [0, 0.45], [1, reduceMotion ? 1 : 0]);
-  // Once you start scrolling, the foot of the room falls into shadow, so the
-  // light and the growing door fade out rather than stopping at a hard edge
-  // where Selected Work begins. Hidden at rest, so the hero looks the same.
   const seamOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
 
   // Fills the screen on landscape desktops only: on a portrait tablet wide
