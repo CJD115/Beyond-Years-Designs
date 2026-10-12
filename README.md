@@ -18,7 +18,9 @@ npm run preview    # serve dist/ locally
 
 ## Deploying
 
-The live site is the contents of `dist/` uploaded to Hostinger. Include the dotfile `dist/.htaccess`, which points unknown URLs at the app's not-found page.
+The live site is the contents of `dist/` uploaded to Hostinger. Include the dotfile `dist/.htaccess`, which points unknown URLs at the app's not-found page and redirects `www.` to the bare domain.
+
+`npm run build` needs `VITE_WEB3FORMS_ACCESS_KEY` in `.env.local` (see `.env.example`) and stops without it, since the contact form couldn't send. For a build you won't upload, run `ALLOW_MISSING_FORM_KEY=1 npm run build`.
 
 The site's domain, contact email and social links live in `src/data/site.js`. When the permanent domain is live, change `SITE.url` there and rebuild; canonical URLs, share images and the sitemap all follow it. The email and social links stay hidden until they're filled in.
 

@@ -3,6 +3,14 @@
 # only sends unknown URLs to the app's own not-found page, with a 404 status.
 ErrorDocument 404 /404.html
 
+# One address for the site: www.beyondyears.co.uk sends visitors (and search
+# engines) on to beyondyears.co.uk, keeping the rest of the URL
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.beyondyears\.co\.uk$ [NC]
+  RewriteRule ^(.*)$ https://beyondyears.co.uk/$1 [R=301,L]
+</IfModule>
+
 # How long browsers keep files, so return visits don't download them again.
 <IfModule mod_headers.c>
   # Pages: always check for a newer copy, so a new upload shows up straight away

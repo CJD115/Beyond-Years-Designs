@@ -8,7 +8,7 @@ import { Door, FloorLight, Warmth } from "./DoorLight";
 const LABEL =
   "block text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-[#f1ebe3]/60 lg:text-[max(10px,calc(var(--lu)*10.5))] lg:font-normal";
 const FIELD =
-  "font-display block w-full rounded-none border-0 border-b border-[#f1ebe3]/30 bg-transparent px-0 text-[21px] font-light tracking-normal text-[#f1ebe3]/90 caret-accent placeholder:italic placeholder:font-normal placeholder:text-[#f1ebe3]/32 focus-visible:border-accent transition-colors duration-300 lg:border-[#f1ebe3]/28 lg:text-[max(18px,calc(var(--lu)*24))]";
+  "font-display block w-full scroll-mt-28 rounded-none border-0 border-b border-[#f1ebe3]/30 bg-transparent px-0 text-[21px] font-light tracking-normal text-[#f1ebe3]/90 caret-accent placeholder:italic placeholder:font-normal placeholder:text-[#f1ebe3]/32 focus-visible:border-accent transition-colors duration-300 lg:border-[#f1ebe3]/28 lg:text-[max(18px,calc(var(--lu)*24))]";
 const ERROR = "mt-2 text-[13px] text-accent";
 
 export default function ContactDoor() {
@@ -82,7 +82,8 @@ export default function ContactDoor() {
                         value={type}
                         checked={chosen}
                         onChange={() => chooseProjectType(type)}
-                        className="peer pointer-events-none absolute h-0 w-0 opacity-0"
+                        aria-describedby={errors.projectType ? "project-type-error" : undefined}
+                        className="peer pointer-events-none absolute h-0 w-0 scroll-mt-28 opacity-0"
                         required
                       />
                       <span
@@ -99,7 +100,7 @@ export default function ContactDoor() {
                 })}
               </div>
               {errors.projectType && (
-                <p id="project-type-error" className={ERROR} role="alert">
+                <p id="project-type-error" className={ERROR}>
                   {errors.projectType}
                 </p>
               )}
@@ -224,7 +225,7 @@ function Field({ id, label, name, placeholder, type = "text", autoComplete, text
         />
       )}
       {error && (
-        <p id={`${id}-error`} className={ERROR} role="alert">
+        <p id={`${id}-error`} className={ERROR}>
           {error}
         </p>
       )}

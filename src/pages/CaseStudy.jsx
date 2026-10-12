@@ -356,8 +356,11 @@ function Features({ project, shots }) {
                     isActive ? "opacity-100 outline-accent" : "opacity-45 outline-transparent hover:opacity-70"
                   }`}
                 >
+                  {/* The strip's screens are under 100px wide, so the smallest copy will do */}
                   <img
                     src={s.src}
+                    srcSet={s.srcSet}
+                    sizes="100px"
                     alt=""
                     loading="lazy"
                     decoding="async"

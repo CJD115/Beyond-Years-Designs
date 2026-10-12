@@ -12,6 +12,9 @@ const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 export const PROJECT_TYPES = ["Start from scratch", "Refresh my website", "Improve my messaging", "Not sure yet, let's chat"];
 
+// The fields' names in the order they appear, for finding the first error
+const FIELD_ORDER = ["projectType", "name", "email", "message"];
+
 export function useEnquiryForm({ onSent } = {}) {
   const [projectType, setProjectType] = useState("");
   // idle | sending | sent | failed
@@ -46,6 +49,10 @@ export function useEnquiryForm({ onSent } = {}) {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
       setStatus("idle");
+      // Take people to the first thing to fix; the field reads out its own
+      // error (aria-describedby), once React has rendered it
+      const first = FIELD_ORDER.find((field) => nextErrors[field]);
+      requestAnimationFrame(() => form.querySelector(`[name="${first}"]`)?.focus());
       return;
     }
 
