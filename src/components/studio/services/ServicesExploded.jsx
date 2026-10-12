@@ -4,17 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { SERVICE_LAYERS } from "@/data/services";
 import ExplodedStack from "./ExplodedStack";
 
-// Services, "Exploded View" (02 Under the Surface, p.5 of
-// Beyond-Years-Redesign-02-Under-the-Surface-v2.pdf). The four services are
-// the four layers of one website: performance code at the bottom, then words,
-// design, and the finished site on top. Choosing a service lifts its layer
-// and explains it. On scroll the stack comes apart, then settles back into a
-// single site as you leave the section.
-//
-// Desktop (900px and up) is the 1440px mock-up scaled to the window: --lu is
-// one mock-up pixel. Smaller screens follow the 390px phone mock-up, where the
-// layer labels are the controls and the explanation is one sentence.
-
 // True at the desktop layout (900px and up); false while prerendering
 const DESKTOP = "(min-width: 900px)";
 const subscribeDesktop = (onChange) => {
@@ -63,11 +52,11 @@ export default function ServicesExploded() {
         <div className="relative lg:w-[calc(var(--lu)*460)]">
           <p className="eyebrow">Services</p>
           <h2 className="font-display mt-[14px] text-[44px] lg:mt-[calc(var(--lu)*14.3)] lg:text-[calc(var(--lu)*64)]">
-            Everything your
-            <br className="hidden lg:inline" /> business needs{" "}
+            Take your brand 
+            <br className="hidden lg:inline" /> {" "}
             <span className="font-serif-italic text-accent">
-              in
-              <br className="hidden lg:inline" /> one focussed website.
+              beyond ordinary.
+              {/* <br className="hidden lg:inline" /> beyond ordinary. */}
             </span>
           </h2>
 

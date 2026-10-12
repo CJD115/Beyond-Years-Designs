@@ -1,17 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
-// The thin ochre thread where a dark room meets the paper (or the paper meets
-// a dark room): it drops in from the section above, marks the edge with a
-// small diamond, and turns in towards the next section's eyebrow, so the
-// change of colour reads as one page carrying on.
-//
-// Place it between two sections. It finds the eyebrow it leads to by the
-// `data-join` attribute in the section that follows, and follows it as the
-// layout changes. `above` shortens the reach where the section above has
-// something near its foot. If that eyebrow sits far below the edge (Contact on phones,
-// under its door), the thread is left out rather than run a long way down; so is a
-// phone, where the eyebrow sits too near the edge of the screen for it.
-
 const ABOVE = 88; // how far the thread reaches up into the section above, by default
 const GAP = 34; // the thread sits this far left of the eyebrow
 const TURN = 20; // the turn towards the eyebrow, stopping short of it

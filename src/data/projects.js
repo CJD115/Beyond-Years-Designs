@@ -22,7 +22,7 @@ export const PROJECTS = [
     industry: "Luxury Property Developer",
     year: "2025",
     location: "Cheltenham, UK",
-    tagline: "A family-run luxury property developer. This website spotlights each new development with galleries, floor plans, pricing, and a direct route to enquire. ",
+    tagline: "A family-run luxury developer. Each new development has its own galleries, floor plans, pricing, and a direct route to enquire.  ",
     description:
       "A modern, visual-first website for high-end property developments across Gloucestershire. ",
     services: ["Website Design", "Web Development", "Copywriting", "Content Writing", "Content & Project Showcase", "Responsive Design"],
@@ -137,7 +137,7 @@ export const PROJECTS = [
     industry: "Removals & Clearances",
     year: "2024",
     location: "Birmingham, UK",
-    tagline: "A nationally accredited auction house, local antiques shop, and removals business. This website reflects the professional, friendly brand image with clean layouts, and finds customers with full SEO.",
+    tagline: "An auction house, an antiques shop and a removals business in one friendly website that’s easy to find and easy to understand.",
     description:
       "A friendly, informative website that showcases the brand feel while generating online leads.",
     services: ["Web Design", "Local SEO", "Copywriting"],

@@ -5,19 +5,6 @@ import Reveal from "@/components/studio/Reveal";
 import { line, loop } from "@/lib/contours";
 import { AFTERCARE_EQUIP, AFTERCARE_GROUPS, AFTERCARE_INTRO, AFTERCARE_LINK } from "@/data/aftercare";
 
-// Aftercare, "New Game+" (05 Level Up, p.8 of
-// Beyond-Years-Redesign-05-Level-Up-v2.pdf). The credits roll, but the game
-// carries on: your live website sits at the centre of an equipment screen
-// with four slots, two for keeping it running and two for helping it grow,
-// each joined to it by a dotted route. Slots rise into place as you scroll,
-// and pointing at one lights up its route.
-//
-// Desktop (900px and up) is the 1440 × 1050 mock-up, cut to 920 tall for
-// four slots, scaled to the window:
-// --lu is one mock-up pixel. Smaller screens follow the 390px phone mock-up:
-// the emblem on top, the four slots in two columns underneath, scaled up
-// from tablet width so it fills a tablet screen.
-
 const TITLE_ID = "aftercare-title";
 
 // Where each slot's frame sits on the mock-up (top-left corner), by item name.

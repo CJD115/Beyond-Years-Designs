@@ -10,7 +10,7 @@ import { motion, useInView, useReducedMotion } from "motion/react";
 const NOTES = [
   {
     anchor: "thoughtful",
-    text: "Beautiful is easy. Thoughtful means everything works precisely as it needs to.",
+    text: "Thoughtful means everything works together precisely to elevate your brand.",
     by: "Mike — Resident Wordsmith",
   },
   {
@@ -20,7 +20,7 @@ const NOTES = [
   },
   {
     anchor: "businesses",
-    text: "We’re a small business too, so we know how much a good website matters.",
+    text: "Big or small, every business deserves a great site.",
     by: "Connor & Mike",
   },
 ];

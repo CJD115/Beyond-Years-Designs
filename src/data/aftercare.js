@@ -1,20 +1,10 @@
-// Aftercare ("Beyond launch") content for the live section
-// (components/studio/aftercare/AftercareNewGame.jsx, "New Game+"). The
-// archived handover note and aftercare card (design-archive/aftercare/) read
-// the same items.
-//
-// Each item: `summary` is the one-line description on the live section,
-// `body` the longer one the archived note shows, and `terms` how it works.
-// Swap a price into `terms` ("from £X / month") whenever you're happy to
-// publish one.
-
 export const AFTERCARE_GROUPS = [
   {
     title: "Keeping it running",
     items: [
       {
         name: "Hosting & Maintenance",
-        summary: "We host your site and keep it maintained, hassle-free.",
+        summary: "We host your site and keep it maintained, hassle-free. ",
         body: "If you don’t already have a hosting solution in mind, don’t worry! We’ll host your site and keep everything maintained, hassle-free. Contact us with any changes you’d like made, as and when you need, and let us handle the rest.",
         terms: "Ongoing",
       },
@@ -69,5 +59,5 @@ export const AFTERCARE_LINK = { label: "Ask about aftercare", href: "#contact" }
 
 // "New Game+": the line under the heading and the closing line by the link
 export const AFTERCARE_INTRO =
-  "Your site’s live, but the story doesn’t end there. We stay on hand, with as much or as little support as you need.";
-export const AFTERCARE_EQUIP = "Pick only what’s useful to you.";
+  "Your site’s ready, but the story’s not over. We’ll stick around to offer as much or as little support as you need.";
+export const AFTERCARE_EQUIP = "Pick whatever you need.";

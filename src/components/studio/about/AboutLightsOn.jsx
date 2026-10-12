@@ -5,20 +5,6 @@ import { TEAM } from "@/data/team";
 import { SITE } from "@/data/site";
 import SocialLinks from "@/components/studio/SocialLinks";
 
-// About, "Lights On" (Thresholds direction, p.9 of
-// Beyond-Years-Redesign-04-Thresholds-v2.pdf). A dark room with two
-// portraits: choosing one turns a light on over them, brings their portrait
-// up to full colour and shows their story on the right (below, on phones).
-//
-// Desktop (900px and up) is the 1440px mock-up scaled to the window: --lu is
-// one mock-up pixel, so calc(var(--lu)*52) is "52px at 1440 wide". Smaller
-// screens use the 390px phone mock-up as drawn.
-//
-// One grid holds everything so the light (a cone from the top of the section
-// down to the full-width rule) can share rows with the portraits:
-//   phone:   heading / portraits / rule / names / prompt / story
-//   desktop: heading / portraits + story / names / rule / prompt
-
 const PORTRAIT_SIZES = "(min-width: 900px) min(24vw, 425px), 45vw";
 
 // Light-on and light-off looks for the pieces that change

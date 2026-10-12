@@ -122,7 +122,7 @@ export default function WorkThreeRooms() {
           Selected work
         </p>
         <h2 className="font-serif-italic mt-[6.2px] text-[27px] leading-[1.21] tracking-normal lg:absolute lg:left-[calc(var(--lu)*64)] lg:top-[calc(var(--lu)*73.6)] lg:mt-0 lg:text-[calc(var(--lu)*34)]">
-          Three rooms. Step into any of them.
+          Brands we’ve elevated.
         </h2>
 
         {/* Desktop: the rooms by name */}

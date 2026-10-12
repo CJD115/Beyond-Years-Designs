@@ -5,16 +5,6 @@ import { PROJECT_TYPES, useEnquiryForm } from "./useEnquiryForm";
 import { openDoor, useDoorOpen } from "./doorState";
 import { Door, FloorLight, Warmth } from "./DoorLight";
 
-// Contact, "The Door Left Open" (Thresholds direction, p.10 of
-// Beyond-Years-Redesign-04-Thresholds-v2.pdf). The journey ends where it
-// began: a door left ajar, its light spilling towards the form. The light in
-// the gap flickers gently; sending an enquiry swings the door wider and warms
-// the room. Pairs with FooterDoor, where the light crosses the floor.
-//
-// Desktop (900px and up) is the 1440px mock-up scaled to the window: --lu is
-// one mock-up pixel. Smaller screens follow the 390px phone mock-up, with the
-// door above the heading.
-
 const LABEL =
   "block text-[12px] font-medium uppercase leading-[1.21] tracking-[0.22em] text-[#f1ebe3]/60 lg:text-[max(10px,calc(var(--lu)*10.5))] lg:font-normal";
 const FIELD =
@@ -56,7 +46,7 @@ export default function ContactDoor() {
             <span className="font-serif-italic text-accent">Let’s tell it.</span>
           </h2>
           <p className="font-serif-italic mt-[14px] text-[21px] leading-[1.21] tracking-normal text-[#f1ebe3]/60 lg:mt-[calc(var(--lu)*18)] lg:text-[calc(var(--lu)*26)]">
-            The door’s open. Come in.
+            Our door’s open. Come on in.
           </p>
           <p className="mt-[14px] text-[14px] leading-[1.6] text-[#f1ebe3]/60 lg:mt-[calc(var(--lu)*14)] lg:text-[max(13px,calc(var(--lu)*14))]">
             Or email us directly:{" "}

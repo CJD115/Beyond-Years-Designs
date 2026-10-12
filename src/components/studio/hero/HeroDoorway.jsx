@@ -150,8 +150,7 @@ function Desktop({ doorScale, copyOpacity }) {
           className="absolute text-[max(15px,calc(var(--lu)*17.5))] leading-[1.6] text-[#f1ebe3]/80"
           style={{ left: u(64), bottom: `calc(var(--lu) * 139 + max(12px, var(--lu) * 17))`, width: `max(320px, ${u(470)})` }}
         >
-          Building a website shouldn’t get in the way of your business. We make places people step into, not pages they
-          scroll past.
+          We don’t do Boring. Elevate your brand with a website that’s impossible to ignore. 
         </p>
         <Ctas className="absolute" style={{ left: u(64), top: u(788) }} />
       </motion.div>

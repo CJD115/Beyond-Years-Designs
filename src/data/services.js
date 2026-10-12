@@ -10,7 +10,7 @@ export const SERVICE_LAYERS = [
     layer: "website",
     title: "Bespoke Websites",
     by: "connor & mike",
-    body: "An elegant one-page or multi-page website that curates your brand and shows the world who you are, all from one convenient location. However complex your business, the important things come across clearly.",
+    body: "An elegant website tailor-made for your brand. Whether it’s one page or several, we’ll make sure your brand is in the spotlight, all the time.  ",
     sentence: "An elegant one-page or multi-page website that curates your brand and shows the world who you are.",
   },
   {
@@ -26,7 +26,7 @@ export const SERVICE_LAYERS = [
     layer: "words",
     title: "Professionally Written",
     by: "mike",
-    body: "Our resident wordsmith, Mike, has over six years of experience with clients big and small. With a keen eye for detail and a love of the craft, he gets your brand ready to find its audience.",
+    body: "Mike’s six years of professional writing experience has given him a keen eye for detail that will put your brand in front of its audience.",
     sentence: "Our resident wordsmith, Mike, has over six years of experience with clients big and small.",
   },
   {
@@ -34,7 +34,7 @@ export const SERVICE_LAYERS = [
     layer: "performance",
     title: "Mobile & Performance",
     by: "connor",
-    body: "More than half of all browsing happens on a phone. Every site is mobile-friendly and performance-optimised, so it looks and feels as good in your hand as on a big screen.",
+    body: "Over half of all browsing happens on mobile. All our sites are mobile-first, performance optimised, and look great in your hand and on bigger screens.",
     sentence: "Every site is mobile-friendly and performance-optimised, so it looks and feels as good in your hand as on a big screen.",
   },
 ];

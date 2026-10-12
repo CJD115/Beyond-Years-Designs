@@ -12,22 +12,6 @@ import { STEPS } from "@/data/process";
 import { getProject } from "@/data/projects";
 import "./thresholds.css";
 
-// Process, "Thresholds": the refined Corridor (04 Thresholds; spec in
-// design-reference/04-thresholds/06-process). Four thresholds nested on one
-// axis, with the finished website lit at the far end. Each stage is a doorway
-// with its label on the lintel and one line on the sill; walking through
-// scales the view about the lit door, the threshold you pass falls away, the
-// current stage reads at full strength and the ones ahead wait at half.
-//
-// Desktop (900px and up): the section is two and a half screens tall and the corridor
-// is pinned; scrolling walks you through it. The stage buttons and the doorway
-// scroll to a stage. With reduced motion it isn't pinned, and the buttons and
-// doorway switch stages instantly.
-// Phones: the corridor stays whole in a portrait frame; tap it, swipe it or
-// use the arrows to walk to the next door.
-
-// Each stage's copy as the corridor tells it: trimmed from STEPS for the
-// desktop design, and shorter again for phones (both as the mock-ups have them)
 const COPY = [
   "First, we discuss the style and content you want and get an understanding of your vision for the site. Then we outline the process going forward.",
   "Once we know what you want, we work out a development roadmap. With the milestones and deadlines agreed, we send the plan over to make sure you’re happy with it.",
@@ -43,9 +27,9 @@ const PHONE_COPY = [
 
 // The line on each doorway's sill
 const SILLS = [
-  "Your style, your content, your vision.",
+  "Understanding the vision.",
   "Milestones and deadlines, agreed.",
-  "One line of code at a time.",
+  "One line at a time.",
 ];
 
 // How far the view scales at each stage, about the lit door
