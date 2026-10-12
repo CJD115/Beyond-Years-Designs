@@ -15,13 +15,13 @@ import "./thresholds.css";
 const COPY = [
   "First, we discuss the style and content you want and get an understanding of your vision for the site. Then we outline the process going forward.",
   "Once we know what you want, we work out a development roadmap. With the milestones and deadlines agreed, we send the plan over to make sure you’re happy with it.",
-  "Connor builds your website from the ground up, one line of code at a time. Meanwhile, Mike crafts your brand copy so it’s ready to greet the online world.",
+  "Connor designs and builds your site on the platform that suits you, whether that’s WordPress, Squarespace or hand-coded. Meanwhile, Mike writes your copy so it’s ready to greet the online world.",
   "Happy with the final product? It’s all yours once we receive the final payment, with the option of ongoing support like hosting, maintenance or domain setup.",
 ];
 const PHONE_COPY = [
   "First, we discuss the style and content you want and get an understanding of your vision for the site.",
   "We work out a development roadmap, agree the milestones and deadlines, and send the plan over to make sure you’re happy with it.",
-  "Connor builds your website from the ground up, one line of code at a time. Meanwhile, Mike crafts your brand copy.",
+  "Connor designs and builds your site on the platform that suits you. Meanwhile, Mike writes your copy.",
   "Happy with the final product? It’s all yours once the final payment is in.",
 ];
 

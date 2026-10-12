@@ -15,7 +15,7 @@ const NOTES = [
   },
   {
     anchor: "websites",
-    text: "Designed and built from a blank page. No templates, no stock layouts.",
+    text: "Designed from a blank page for your business, then built on the platform that suits you.",
     by: "Connor — Resident Web Developer",
   },
   {

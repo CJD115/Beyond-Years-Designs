@@ -182,7 +182,7 @@ export const PROJECTS = [
       "Clear enquiry routes that turn visitors into customers",
     ],
     outcome:
-      "The new website ranks highly for SEO, making it easily found by visitors. Its clear and informative layout help convert leads into customers. ",
+      "The new website is built to be found, with local SEO groundwork on every page, and a clear layout that takes visitors from each service straight to an enquiry.",
   },
 ];
 

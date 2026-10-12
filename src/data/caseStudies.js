@@ -101,7 +101,7 @@ export const CASE_STUDIES = {
   },
 
   "hidden-gem": {
-    intro: "This website reflects the professional, friendly brand image with clean layouts, and finds customers with full SEO.",
+    intro: "This website reflects the professional, friendly brand with clean layouts, and is built to be found in local search.",
     client: "An accredited auction house, antiques shop and removals business in the Midlands.",
     problem: "As the business scaled up, word of mouth was no longer enough to bring customers in.",
     brief: [
@@ -115,8 +115,8 @@ export const CASE_STUDIES = {
       " and being ",
       { em: "easy to understand." },
     ],
-    result: "The new website ranks highly for SEO, making it easily found by visitors,",
-    resultMore: "while its clear and informative layout helps convert leads into customers.",
+    result: "The new website is built to be found, with local SEO groundwork on every page,",
+    resultMore: "and a clear layout that takes visitors from each service straight to an enquiry.",
     shots: [
       landscape("/work/hidden-gem-intro.webp", "50% 100%"),
       landscape("/work/hidden-gem.webp"),

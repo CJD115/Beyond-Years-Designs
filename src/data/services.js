@@ -18,8 +18,8 @@ export const SERVICE_LAYERS = [
     layer: "design",
     title: "Ground-up Web Design",
     by: "connor",
-    body: "Designed from the ground up by our lead developer, Connor. No templates, stock layouts or pre-existing formulas. You won’t find another one quite like it.",
-    sentence: "Designed from the ground up by our lead developer, Connor.",
+    body: "Connor designs every site from a blank page, around your business rather than a theme. Then we build it on the platform that suits you, whether that’s WordPress, Squarespace or hand-coded, so you can update it yourself.",
+    sentence: "Designed from a blank page by Connor, then built on the platform that suits you.",
   },
   {
     no: "03",
