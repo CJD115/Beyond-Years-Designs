@@ -11,6 +11,19 @@ ErrorDocument 404 /404.html
   RewriteRule ^(.*)$ https://beyondyears.co.uk/$1 [R=301,L]
 </IfModule>
 
+# Basic security headers on every response
+<IfModule mod_headers.c>
+  # Always use HTTPS for this address for a year (subdomains such as webmail
+  # are left alone)
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # Browsers use each file as the type the server says, never a guessed one
+  Header always set X-Content-Type-Options "nosniff"
+  # Other sites can't show these pages inside a frame (clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Links to other sites pass on only the domain, not the full page address
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
 # How long browsers keep files, so return visits don't download them again.
 <IfModule mod_headers.c>
   # Pages: always check for a newer copy, so a new upload shows up straight away

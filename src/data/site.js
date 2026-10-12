@@ -73,7 +73,9 @@ export const allowIndexing = SITE.indexing === "auto" ? !isTemporaryDomain(SITE.
 export function caseStudyMeta(project) {
   return {
     title: `${project.name} Case Study | ${SITE.name}`,
-    description: `${project.tagline.trim()} Case study for ${project.industry} in ${project.location}. Services: ${project.services.slice(0, 3).join(", ")}.`,
+    description:
+      project.metaDescription ??
+      `${project.tagline.trim()} Case study for ${project.industry} in ${project.location}. Services: ${project.services.slice(0, 3).join(", ")}.`,
     path: caseStudyPath(project.slug),
     image: `/og/${project.slug}.jpg`,
     type: "article",

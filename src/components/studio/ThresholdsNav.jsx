@@ -67,16 +67,21 @@ export default function ThresholdsNav({ home }) {
           Skip to content
         </a>
         <nav className="mx-auto flex items-center justify-between px-6 py-3 md:px-10 lg:max-w-[calc(var(--lu)*1440)] lg:px-[calc(var(--lu)*64)] lg:py-[max(12px,calc(var(--lu)*22))]">
-          <Go home={home} to="#top" className="font-display text-[21px] font-light tracking-normal lg:text-[max(19px,calc(var(--lu)*22))]">
+          <Go home={home} to="#top" className="font-display whitespace-nowrap text-[19px] font-light tracking-normal min-[375px]:text-[21px] lg:text-[max(19px,calc(var(--lu)*22))]">
             Beyond Years Designs
           </Go>
-          <div className="flex items-center gap-[calc(var(--lu)*40)]">
+          <div className="flex items-center gap-4 lg:gap-[calc(var(--lu)*40)]">
+            {/* The way to enquire, at every width. Phones get the shorter
+                "Get started" (the hero's own words); below 375px the wordmark
+                is set a little smaller to make room, and below 360px the link
+                goes, as it no longer fits */}
             <Go
               home={home}
               to="#contact"
-              className="hidden min-h-11 items-center text-[max(14px,calc(var(--lu)*15))] font-medium transition-colors duration-300 hover:text-accent lg:inline-flex"
+              className="hidden min-h-11 items-center whitespace-nowrap text-[14px] font-medium transition-colors duration-300 hover:text-accent min-[360px]:inline-flex lg:text-[max(14px,calc(var(--lu)*15))]"
             >
-              Start a project
+              <span className="lg:hidden">Get started</span>
+              <span className="hidden lg:inline">Start a project</span>
             </Go>
             <button
               type="button"
