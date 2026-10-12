@@ -3,10 +3,9 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import "./doorway.css";
 
 // Hero, "The Doorway" (Thresholds, p.2). Dark, cinematic and quiet: the
-// headline on the left, and on the right a single lit doorway showing a real
-// room from a real client, the Groves salon, its light spilling across the
-// floor. The room drifts slowly inside the frame and the "Step inside" line
-// pulses downwards. As you scroll on, the door grows towards you while the
+// headline on the left, and on the right a single lit doorway with a real
+// client's website standing in it, Churcham Homes on a phone, its light
+// spilling across the floor. The "Step inside" line pulses downwards. As you scroll on, the door grows towards you while the
 // words fade, the start of stepping through it (not pinned: the page scrolls
 // as normal).
 //
@@ -15,11 +14,12 @@ import "./doorway.css";
 // always reaches the bottom. Smaller screens follow the 390px phone mock-up,
 // with the door above the headline.
 
-// A strip from the left of the Groves homepage's own hero photo (left of its
-// headline; captures/groves-hairstyling/01-home-hero-groves.webp), at full
-// resolution and lifted a little from the darkening that site puts over it
-const SALON = "/work/groves-doorway.webp";
-const SALON_SRCSET = "/work/groves-doorway-300.webp 300w, /work/groves-doorway.webp 470w";
+// Churcham Homes' homepage on a phone, as we built it (the same capture as its
+// case study). It's 780 × 1328, and the doorway is shaped to it: the opening
+// inside the frame (91.2% of the door's width, 97.9% of its height) is
+// 780:1328, so the whole screen shows, uncropped.
+const SITE = "/work/churcham/mobile-home-hero.webp";
+const SITE_SRCSET = "/work/churcham/mobile-home-hero-400.webp 400w, /work/churcham/mobile-home-hero.webp 780w";
 
 export default function HeroDoorway() {
   const ref = useRef(null);
@@ -81,7 +81,7 @@ function Ctas({ className = "", style }) {
   );
 }
 
-// The doorway: an ochre frame open at the floor, the salon inside it
+// The doorway: an ochre frame open at the floor, the website inside it
 function Door({ className = "", style }) {
   return (
     <motion.div
@@ -91,12 +91,12 @@ function Door({ className = "", style }) {
     >
       <div className="absolute inset-x-[4.4%] top-[2.1%] bottom-0 overflow-hidden bg-[#2b2a28]">
         <img
-          src={SALON}
-          srcSet={SALON_SRCSET}
-          sizes="(min-width: 900px) 360px, 235px"
+          src={SITE}
+          srcSet={SITE_SRCSET}
+          sizes="(min-width: 900px) 450px, 230px"
           alt=""
           decoding="async"
-          className="th-drift h-full w-full object-cover"
+          className="h-full w-full object-cover object-top"
         />
         {/* the room is lit; its edges fall into shadow */}
         <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.45)]" />
@@ -132,8 +132,8 @@ function Desktop({ doorScale, copyOpacity }) {
         style={{ top: u(761) }}
       />
       <svg aria-hidden="true" viewBox="0 0 1440 900" className="absolute inset-0 h-full w-full overflow-visible">
-        <polygon points="846,761 1164,761 1340,900 662,900" fill="rgba(241,235,227,0.045)" />
-        <polygon points="846,761 1164,761 1235,900 762,900" fill="rgba(241,235,227,0.045)" />
+        <polygon points="808.5,761 1201.5,761 1377.5,900 624.5,900" fill="rgba(241,235,227,0.045)" />
+        <polygon points="808.5,761 1201.5,761 1272.5,900 724.5,900" fill="rgba(241,235,227,0.045)" />
       </svg>
 
       <motion.div style={{ opacity: copyOpacity }}>
@@ -160,11 +160,11 @@ function Desktop({ doorScale, copyOpacity }) {
         className="absolute -translate-x-1/2 whitespace-nowrap text-[max(10px,calc(var(--lu)*11))] uppercase leading-none tracking-[0.26em] text-[#f1ebe3]/70"
         style={{ left: u(1005), top: u(104) }}
       >
-        Room 01 — Groves Hairstyling
+        Room 01 — Churcham Homes
       </p>
       <Door
         className="absolute origin-[50%_60%]"
-        style={{ left: u(846), top: u(137), width: u(318), height: u(624), scale: doorScale }}
+        style={{ left: u(808.5), top: u(137), width: u(393), height: u(624), scale: doorScale }}
       />
       <StepInside className="absolute -translate-x-1/2" style={{ left: u(1005), top: u(785) }} />
       <p
@@ -192,13 +192,13 @@ function Phone() {
         aria-hidden="true"
         className="text-center text-[11px] uppercase leading-none tracking-[0.26em] text-[#f1ebe3]/70"
       >
-        Room 01 — Groves Hairstyling
+        Room 01 — Churcham Homes
       </p>
-      <Door className="relative mx-auto mt-[17px] h-[298px] w-[175px] md:h-[400px] md:w-[235px]" />
+      <Door className="relative mx-auto mt-[17px] h-[298px] w-[188px] md:h-[400px] md:w-[252px]" />
 
       {/* The floor; everything below it sits in the door's light, which
           spreads from the door's width (--dw is half of it) */}
-      <div className="relative [--dw:87.5px] md:[--dw:117.5px]">
+      <div className="relative [--dw:94px] md:[--dw:126px]">
         <div aria-hidden="true" className="-mx-6 h-px bg-[#f1ebe3]/10 md:-mx-10" />
         {/* the light thins out before the section ends, so it doesn't stop
             in a hard line against Selected Work */}

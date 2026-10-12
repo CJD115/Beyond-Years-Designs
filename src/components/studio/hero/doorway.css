@@ -1,17 +1,4 @@
-/* The doorway hero's CSS-only motions. With reduced motion both hold still. */
-
-/* Hero: the room drifts slowly inside the door */
-@keyframes th-drift {
-  from {
-    transform: scale(1.14) translate(-3%, -1%);
-  }
-  to {
-    transform: scale(1.14) translate(3%, 1%);
-  }
-}
-.th-drift {
-  animation: th-drift 18s ease-in-out infinite alternate;
-}
+/* The doorway hero's CSS-only motion. With reduced motion it holds still. */
 
 /* Hero: the "Step inside" line pulses downwards */
 @keyframes th-pulse {
@@ -28,11 +15,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .th-drift,
   .th-pulse {
     animation: none;
-  }
-  .th-drift {
-    transform: scale(1.14);
   }
 }

@@ -21,7 +21,7 @@ export const SITE = {
   // 1200 × 630 share image
   // (a new file name, not a replaced file, so apps that cached the old
   // preview fetch this one)
-  ogImage: "/og/home-doorway.jpg",
+  ogImage: "/og/home-churcham.jpg",
   // Structured data (JSON-LD, written into each page by scripts/prerender.mjs).
   // Only what the site itself states: where the studio is based (town and
   // country, no street address on purpose) and its two founders. Their
