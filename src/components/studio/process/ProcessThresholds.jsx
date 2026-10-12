@@ -222,7 +222,8 @@ function DesktopCorridor({ trackRef, stage, position, onGo }) {
               <img
                 src={SITE_IMAGE.image}
                 srcSet={SITE_IMAGE.imageSrcSet}
-                sizes="55vw"
+                // Shown at about 75vw once the view has walked right up to it
+                sizes="75vw"
                 alt=""
                 loading="lazy"
                 decoding="async"

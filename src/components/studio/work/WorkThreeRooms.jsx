@@ -247,11 +247,12 @@ export default function WorkThreeRooms() {
                     type="button"
                     aria-pressed={isActive}
                     aria-controls="work-room"
-                    aria-label={p.name}
                     onClick={() => goTo(i)}
                     className={`font-serif-italic flex h-12 w-12 items-center justify-center border-b text-[21px] leading-none tracking-normal transition-colors duration-500 ${isActive ? "border-accent text-[#f1ebe3]" : "border-transparent text-[#f1ebe3]/60"}`}
                   >
+                    {/* The name starts with the numeral people see, so voice control can find it */}
                     {NUMERALS[i]}
+                    <span className="sr-only">: {p.name}</span>
                   </button>
                 </li>
               );
