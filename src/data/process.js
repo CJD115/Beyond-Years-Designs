@@ -19,7 +19,7 @@ export const STEPS = [
     no: "03",
     title: "Production",
     short: "Production",
-    body: "Connor builds your website from the ground up, while Mike crafts your site’s brand messaging. ",
+    body: "Connor designs and builds your site on the platform that suits you, while Mike writes your copy.",
   },
   {
     no: "04",

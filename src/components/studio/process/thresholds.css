@@ -28,11 +28,12 @@
     display: none;
   }
 
-  /* Two and a half screens tall; the corridor stays pinned while you scroll
-     through (it was four, which made Process a third of the page) */
+  /* One and three-quarter screens tall; the corridor stays pinned while you
+     scroll through (it was four, then two and a half: too long for four
+     short stages) */
   .rp-desk {
     display: block;
-    height: 250svh;
+    height: 175svh;
   }
   .rp-pin {
     position: sticky;
