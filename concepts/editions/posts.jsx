@@ -320,6 +320,8 @@ export function ProfileImage() {
   );
 }
 
+// Concept tooling only (never in the site build), so fast refresh here doesn't matter
+// eslint-disable-next-line react-refresh/only-export-components
 export const POSTS = {
   "01": FrontDoor,
   "02": RoomOne,
