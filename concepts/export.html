@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Export | Beyond Years Designs</title>
+    <style>
+      html, body { margin: 0; background: #fff; }
+      #export { display: inline-block; vertical-align: top; }
+      #export.x-grid { display: inline-grid; grid-template-columns: repeat(3, 360px); gap: 4px; padding: 4px; background: #fff; }
+      .x-tile { position: relative; overflow: hidden; }
+      .x-sheet { width: 1416px; padding: 48px; background: #e8e3dc; font-family: "Inter", sans-serif; color: #1d1b18; }
+      .x-sheet header { display: flex; justify-content: space-between; margin-bottom: 32px; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; }
+      .x-sheet header p { margin: 0; }
+      .x-sheet-grid { display: grid; grid-template-columns: repeat(3, 432px); gap: 36px 24px; }
+      .x-sheet figure { margin: 0; }
+      .x-sheet-art { width: 432px; height: 540px; overflow: hidden; box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.5); }
+      .x-sheet figcaption { display: flex; gap: 10px; align-items: baseline; margin-top: 12px; font-size: 15px; }
+      .x-sheet figcaption b { font-family: "JetBrains Mono", monospace; font-weight: 400; color: #8c6239; }
+      .x-sheet figcaption span { margin-left: auto; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b645c; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./export.jsx"></script>
+  </body>
+</html>

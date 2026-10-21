@@ -32,9 +32,12 @@ export default function HeroDoorway() {
   );
 }
 
-function Heading({ eyebrow, className = "", style }) {
+// The page has two copies of this heading, one per layout (Desktop and Phone),
+// and only one is ever displayed. Only the first is an h1; the other is an h2
+// so the page does not carry two top-level headings.
+function Heading({ eyebrow, className = "", style, as: Tag = "h1" }) {
   return (
-    <h1 className={className} style={style}>
+    <Tag className={className} style={style}>
       <span className="block text-[12px] font-medium uppercase leading-[1.21] tracking-[0.24em] text-[#f1ebe3]/75 lg:text-[max(10.5px,calc(var(--lu)*11.5))] lg:font-normal">
         {eyebrow}
       </span>{" "}
@@ -43,7 +46,7 @@ function Heading({ eyebrow, className = "", style }) {
         <br /> worth
         <br /> <em className="font-serif-italic font-light text-accent">remembering.</em>
       </span>
-    </h1>
+    </Tag>
   );
 }
 
@@ -196,7 +199,7 @@ function Phone() {
 
         <div className="relative">
           <StepInside className="pt-[22px]" />
-          <Heading eyebrow="Bristol Web Design Studio" className="mt-[24px]" />
+          <Heading as="h2" eyebrow="Bristol Web Design Studio" className="mt-[24px]" />
           <p className="mt-[20px] max-w-[30rem] text-[16px] leading-[1.6] text-[#f1ebe3]/80">
             We make places people step into, not pages they scroll past.
           </p>

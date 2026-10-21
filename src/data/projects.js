@@ -22,6 +22,7 @@ export const PROJECTS = [
     industry: "Luxury Property Developer",
     year: "2025",
     location: "Cheltenham, UK",
+    metaDescription: "Case study: a website for Churcham Homes, a family-run Cheltenham property developer, with development listings, galleries, floor plans and guide pricing.",
     tagline: "A family-run luxury developer. Each new development has its own galleries, floor plans, pricing, and a direct route to enquire.  ",
     description:
       "A modern, visual-first website for high-end property developments across Gloucestershire. ",

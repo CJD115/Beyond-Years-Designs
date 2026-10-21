@@ -17,7 +17,7 @@ export const SITE = {
   locale: "en_GB",
   title: "Web Design in Bristol | Beyond Years Designs",
   description:
-    "Beyond Years Designs is a Bristol-based two-person web design and development studio. We design, build, and write considered websites for small businesses and creative teams.",
+    "Beyond Years Designs is a Bristol web design and development studio. We design, build and write considered websites for small businesses and creative teams.",
   // 1200 × 630 share image
   // (a new file name, not a replaced file, so apps that cached the old
   // preview fetch this one)
