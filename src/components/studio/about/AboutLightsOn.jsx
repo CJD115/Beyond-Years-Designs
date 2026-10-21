@@ -30,7 +30,12 @@ const POOL = "radial-gradient(ellipse 50% 50% at 50% 50%, rgb(250 238 222 / 0.16
 export default function AboutLightsOn() {
   const [activeIndex, setActiveIndex] = useState(0);
   const person = TEAM[activeIndex];
-  const socials = SITE.founders.find((f) => f.name === person.name)?.socials;
+  // Their own LinkedIn, then the studio's Instagram (we share one account)
+  const studioInstagram = SITE.socials.find((s) => s.label === "Instagram");
+  const socials = [
+    ...(SITE.founders.find((f) => f.name === person.name)?.socials ?? []),
+    { ...studioInstagram, owner: SITE.name },
+  ];
 
   return (
     <section

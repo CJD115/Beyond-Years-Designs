@@ -20,7 +20,8 @@ const ICONS = {
 };
 
 // A row of icon links. `owner` names whose profiles they are, for the
-// accessible names ("Connor on LinkedIn"). Anything without an href is left
+// accessible names ("Connor on LinkedIn"); a link can name its own `owner`
+// when it isn't theirs, like the studio's Instagram beside each founder. Anything without an href is left
 // out, and with none at all nothing renders.
 export default function SocialLinks({
   socials,
@@ -34,13 +35,13 @@ export default function SocialLinks({
 
   return (
     <ul className={`flex items-center ${className}`}>
-      {live.map(({ label, href }) => (
+      {live.map(({ label, href, owner: linkOwner }) => (
         <li key={label}>
           <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${owner} on ${label} (opens in a new tab)`}
+            aria-label={`${linkOwner ?? owner} on ${label} (opens in a new tab)`}
             className={`inline-flex h-11 w-11 items-center justify-center transition-colors duration-300 ${linkClassName}`}
           >
             <svg

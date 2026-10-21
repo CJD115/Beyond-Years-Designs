@@ -27,8 +27,9 @@ export const SITE = {
   // country, no street address on purpose) and its two founders. Their
   // emails are also the studio's contact addresses on the site.
   address: { locality: "Bristol", country: "GB" },
-  // Each founder's LinkedIn shows beside their story in About; the studio's
-  // own socials (`socials`, below) show in the footer.
+  // Each founder's LinkedIn shows beside their story in About, followed by
+  // the studio's Instagram; the studio's own socials (`socials`, below) also
+  // show in the footer.
   founders: [
     {
       name: "Connor",
